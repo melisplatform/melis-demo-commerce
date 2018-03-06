@@ -1,0 +1,29 @@
+<!--cart-checkout-area start -->
+<div class="cart-checkout-area pt-30">
+    <div class="container">
+        <div class="row">
+            <div class="product-area">
+            	<?php if ($this->showSteps):?>
+                    <div class="title-tab-product-category">
+                        <div class="col-md-12 text-center pb-60">
+                            <ul class="nav heading-style-3" role="tablist">
+                            	<?php $ctr = 1;?>
+                                <?php foreach ($this->checkoutSteps As $key => $val):?>
+                                	<li role="presentation" class="shadow-box <?php echo $val['isActive'] ? 'active' : ''?>">
+                                    	<a><span>0<?php echo $ctr++?></span> <?php echo $val['label']?></a>
+                                	</li>
+                                <?php endforeach;?>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                <?php endif;?>
+                <div class="col-sm-12">
+                    <?php echo $this->checkout ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<!--cart-checkout-area end -->

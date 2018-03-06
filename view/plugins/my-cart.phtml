@@ -1,0 +1,58 @@
+    <div class="p-checkarea">
+            <div class="table-responsive">
+        <table class="checkout-area table c-table-lists">
+            <thead>
+                <tr class="cart_item check-heading">
+                    <td class="ctg-type">Product</td>
+                    <td class="ctg-type text-center">Unit Price</td>
+                    <td class="ctg-type text-center"><span class="desktop-only">Quantity</span><span class="mobile-only">Qty</span></td>
+                    <td class="ctg-type">Total</td>
+                </tr>
+            </thead>
+            <tbody>
+            <?php 
+            if(!empty($this->basket)){
+            foreach($this->basket as $item):?>
+                <tr class="cart_item check-item prd-name">
+                    <td class="ctg-type c-product-img">
+                        <div class="img-box modified">
+                            <img class="img-responsive" src="<?= $item['image']?>" alt="">
+                            <div class="c-product-sku-box">
+                                <span ><?= $item['name']?></span><span class="c-product-sku">(<?= $item['var_sku']?>)</span>
+                            </div>
+                        </div>
+                        <div class="mobile-only">
+                            <div class="c-product-sku-box">
+                                <span class="c-product-sku-txt">SKU</span>
+                                <span class="c-product-sku"><?= $item['var_sku']?></span>
+                            </div>
+                            <span class="c-product-title"><?= $item['name']?></span>
+                        </div>
+                     </td>
+                    <td class="ctg-type text-center"><?= $item['cur_symbol'].number_format($item['price'], 2)?></td>
+                    <td class="ctg-type text-center"><?= $item['quantity']?></td>
+                    <td class="ctg-type"><?= $item['cur_symbol'].number_format($item['quantity'] * $item['price'], 2)?></td>
+                </tr>
+            <?php endforeach;?>
+            <?php }; ?>
+            </tbody>
+        </table>
+    </div>
+    <?php if(!empty($this->basket)){?>
+    <div class="p-checkarea-lists clearfix">
+        <div class="box-right">
+            <div class="products-total c-products-total">
+                <span><em>Total:</em> <?= $this->currency.number_format($this->basketTotal, 2); ?></span>
+            </div>
+        </div>
+    </div>
+    <?php }else{ ?>
+    	<div class="text-center">
+        	<span><em>Cart is empty</em></span>
+        </div>
+    <?php } ?>
+
+<br>
+<br>
+<br>
+    </div>

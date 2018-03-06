@@ -1,0 +1,35 @@
+<div id="billing-address-form-messages">
+    <div class="alert alert-success hidden">
+    	<strong>Success!</strong> Billing address has been successfully saved.
+    </div>
+    <div class="alert alert-danger hidden">
+    	<strong>Error!</strong> An error(s) occured.
+    </div>
+</div>
+
+<?php
+if($this->showSelectAddressData) {
+    $selAddrForm = $this->selectAddressForm;
+    $selAddrForm->prepare();
+    $selAddrForm->get('bill_addr_id')->removeAttribute('onchange');
+    echo $this->form()->openTag($selAddrForm);
+    echo $this->formCollection($selAddrForm);
+    echo $this->form()->closeTag();
+}
+?>
+
+<?php
+	$form = $this->billingAddress;
+	$form->setAttribute('id', 'billing-address-form');
+	$form->prepare();
+	echo $this->form()->openTag($form); 
+    echo $this->DemoSiteFieldCollection($form);
+?>
+<div class="text-right">
+    <button type="button" class="btn-def btn2 pull-left delete-address"  data-form="billing-address-form" data-type="billing">Delete Billing Address</button>
+    <button type="button" class="btn-def btn2" id="save-billing-address" data-form="billing-address-form" data-type="billing">Save Billing Address</button>
+</div>
+
+<?php
+echo $this->form()->closeTag();
+?>

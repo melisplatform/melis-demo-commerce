@@ -1,0 +1,17 @@
+<h4>Shipping details</h4>
+
+<?php foreach($this->shippingDetails as $detail): ?>
+<ul class="list-item">
+	<li><span class="ship-title">Tracking code:</span><span class="ship-info"><?= $detail['oship_tracking_code'] ?></span></li>
+	<li><span class="ship-title">Date:</span><span class="ship-info"><?= date("m/d/Y h:i" ,strtotime($detail['oship_date_sent'])) ?></span></li>
+	<li><span class="ship-title">Comments:</span><span class="ship-info"><?= $detail['oship_content']?></span></li>
+</ul>
+<?php endforeach;?>
+<?php if (empty($this->shippingDetails)): ?>
+<ul class="list-item">
+	<li><span class="ship-title">Tracking code:</span><span class="ship-info">none</span></li>
+	<li><span class="ship-title">Date:</span><span class="ship-info">none</span></li>
+	<li><span class="ship-title">Comments:</span><span class="ship-info">none</span></li>
+</ul>
+<?php endif;?>
+

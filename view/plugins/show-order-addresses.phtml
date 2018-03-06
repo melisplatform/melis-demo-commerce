@@ -1,0 +1,68 @@
+<?php 
+$billing = $this->billingAddress;
+$delivery = $this->deliveryAddress;
+
+?>
+<div class="deliver-box">
+	<h4>Delivery address</h4>
+	<?php if(!empty($delivery)){?>
+	<div class="d-name"><span><i class="fa fa-user"></i><?= $delivery['oadd_firstname']. ' ' .$delivery['oadd_middle_name']. ' ' .$delivery['oadd_name']  ?></span></div>
+	<div class="d-address">
+		<?php 
+		
+		$address = array();
+		$address[] = trim($delivery['oadd_company'] . ' ' . $delivery['oadd_num']. ' ' .$delivery['oadd_stairs']. ' ' .$delivery['oadd_building_name']);
+		$address[] = $delivery['oadd_street'];
+		$address[] = $delivery['oadd_city'];
+		$address[] = $delivery['oadd_state'];
+		$address[] = $delivery['oadd_country'];
+		$address[] = $delivery['oadd_zipcode'];
+		?>
+		<?php 
+    	   if(!empty(array_filter($address))) {
+    	?>
+    	<p><i class="fa fa-map-marker"></i><?= implode(', ', array_filter($address)) ?></p>
+		<?php 
+            }else{
+                echo '<p class="na-text">address not set</p>';
+            }
+        ?>
+	</div>
+	<?php }else{ ?>
+                <div class="d-name"><span><i class="fa fa-user"></i></span></div>
+                <div class="d-address">
+                <p><i class="fa fa-map-marker"></i></p>
+                </div>
+    <?php }?>
+</div>
+<div class="billing-box">
+	<h4>Billing address</h4>
+	<?php if(!empty($billing)){?>
+	<div class="d-name"><span><i class="fa fa-user"></i><?= $billing['oadd_firstname']. ' ' .$billing['oadd_middle_name']. ' ' .$billing['oadd_name']  ?></span></div>
+	<div class="d-address">
+		<?php 
+		
+		$address = array();
+		$address[] = trim($billing['oadd_company'] . ' ' . $billing['oadd_num']. ' ' .$billing['oadd_stairs']. ' ' .$billing['oadd_building_name']);
+		$address[] = $billing['oadd_street'];
+		$address[] = $billing['oadd_city'];
+		$address[] = $billing['oadd_state'];
+		$address[] = trim($billing['oadd_country']. ' ' .$billing['oadd_zipcode']);
+		?>
+		<?php 
+    	   if(!empty(array_filter($address))) {
+    	?>
+    	<p><i class="fa fa-map-marker"></i><?= implode(', ', array_filter($address)) ?></p>
+		<?php 
+            }else{
+                echo '<p class="na-text">address not set</p>';
+            }
+        ?>
+	</div>
+	<?php }else{ ?>
+        <div class="d-name"><span><i class="fa fa-user"></i></span></div>
+        <div class="d-address">
+        <p><i class="fa fa-map-marker"></i></p>
+        </div>
+   <?php }?>
+</div>

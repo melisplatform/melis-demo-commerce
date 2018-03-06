@@ -1,0 +1,14 @@
+<?php 
+$priceFilter = $this->filterMenuPriceValue;
+?>
+<aside class="single-aside price-aside fix">
+    <div class="heading-title aside-title pos-rltv">
+        <h5 class="uppercase">price</h5> 
+    </div>
+    <div class="price_filter">
+        <div id="slider-range" data-defaultmin="<?= $priceFilter['defaultMin']?>" data-defaultmax="<?= $priceFilter['defaultMax']?>" data-min="<?= $priceFilter['m_box_filter_price_min']?>" data-max="<?= $priceFilter['m_box_filter_price_max']?>"></div>
+        <div class="price_slider_amount">
+            <input type="text" id="amount" name="price" placeholder="Add Your Price" />
+        </div>
+    </div>
+</aside>

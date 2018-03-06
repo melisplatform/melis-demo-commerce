@@ -1,0 +1,17 @@
+<aside class="single-aside size-aside attributes" id="<?= $this->filterMenuAttributeValue[0]->atval_attribute_id?>">
+    <div class="heading-title aside-title pos-rltv">
+        <h5 class="uppercase">Size Option</h5> 
+    </div>
+   <ul class="size-filter mt-30">
+    <?php 
+    foreach ($this->filterMenuAttributeValue as $attributeVal){
+        $active = '';
+        $col = 'avt_v_'.$attributeVal->atype_column_value;
+        if(in_array($attributeVal->atval_id, $this->selectedAttributes)){
+            $active = 'active';
+        }
+        echo '<li data-attributeid="'.$attributeVal->atval_id.'"><a class="'.$active.'">'.$attributeVal->$col.'</a></li>';
+    }
+    ?>
+	</ul>
+</aside>

@@ -1,0 +1,42 @@
+<?php 
+$orderDetailsPage = $this->MelisLink($this->layout()->siteDatas['order_details_page_id'], false);
+?>
+    
+
+<div class="p-checkarea">
+	<div class="table-div">
+        <div class="thead clearfix">
+            <div class="table-row">
+                <div class="table-cell date">Date</div>
+                <div class="table-cell ref">Reference</div>
+                <div class="table-cell text-center">Status</div>
+                <div class="table-cell items text-center">Items</div>
+                <div class="table-cell">Total</div>
+            </div>
+        </div>
+        <div class="table-body">
+    <?php 
+    if(!empty($this->orders)) {
+    foreach($this->orders as $order):?>
+            <div class="table-row">
+                <a class="wrap-link" href="<?= $orderDetailsPage.'?'.http_build_query(array('m_c_order'=>$order['id'])); ?>"></a>
+                <div class="table-cell date"><?= date("m/d/Y " ,strtotime($order['date'])) ?></div>
+                <div class="table-cell ref ref-num"><?= $order['reference'] ?></div>
+                <div class="table-cell text-center"><?= $order['status'] ?></div>
+                <div class="table-cell items text-center"><?= $order['itemCount'] ?></div>
+                <div class="table-cell"><?= $order['currency'].number_format($order['total'], 2) ?></div>
+            </div>
+    <?php endforeach;?>
+    <?php }else{ ?>
+        <div class="text-center">
+            <span><em>No recent orders</em></span>
+        </div>
+    <?php }?>
+    	</div>
+    </div>
+    <br>
+    <br>
+    <br>
+    
+    
+</div>

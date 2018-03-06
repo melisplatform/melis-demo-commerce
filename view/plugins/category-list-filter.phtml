@@ -1,0 +1,54 @@
+<?php
+    function recursiveListDisplay($categories, $selectedCategories){    
+        $temp = '';
+        if($categories){
+            $temp .= '<ul>';
+            $openParent = false;
+            foreach($categories as $category){
+                
+                $temp_1 = array(); 
+                if(!empty($category->getChildren())){
+                    $temp_1 = recursiveListDisplay($category->getChildren(), $selectedCategories);
+                }
+                
+                $active = '';
+                $parentClass = 'closed';
+                
+                if(in_array($category->getId(), $selectedCategories)){
+                    $active = 'active';
+                    $parentClass = 'open';
+                    $openParent = true;
+                }
+                
+                if (!empty($temp_1['openParent']))
+                {
+                    if ($temp_1['openParent'])
+                    {
+                        $parentClass = 'open';
+                        $openParent = true;
+                    }
+                }
+                
+                $temp .= '<li class="'.$parentClass.'" data-catid="'.$category->getId().'"><a class="'.$active.'">'.$category->getTranslations()[0]->catt_name.' </a>';
+                $temp .= (!empty($temp_1['html'])) ? $temp_1['html'] : '';
+                $temp .= '</li>';
+            }
+            $temp .= '</ul>';
+        }
+        
+        return array('html' => $temp, 'openParent' => $openParent);
+    }
+?>
+
+<aside class="single-aside catagories-aside">
+    <div class="heading-title aside-title pos-rltv">
+        <h5 class="uppercase">categories</h5> 
+    </div>
+    <div id="cat-treeview" class="product-cat">
+    	<?php 
+        	// recursive loop for displaying children, a simple loop can be done if category is a single dimension array
+        	$temp = recursiveListDisplay($this->filterMenuCategoryList, $this->selectedCategories);
+            echo $temp['html'];
+    	?>
+    </div>
+</aside>

@@ -1,0 +1,85 @@
+<?php 
+if(!empty($this->relatedProducts)):
+?>
+<div class="new-arrival-area ptb-70">
+    <div class="container">
+        <div class="row">
+           <div class="col-xs-12 text-center">
+               <div class="heading-title heading-style pos-rltv mb-50 text-center">
+                   <h5 class="uppercase">Related Product</h5>
+               </div>
+           </div>
+           <div class="clearfix"></div>
+            <div class="total-new-arrival new-arrival-slider-active carsoule-btn">
+                <?php 
+                	$products = $this->relatedProducts; 
+                	foreach($products as $product):
+                	  
+                    	$categoryName = '';
+                    	$productName = '';
+                    	$mainImage = $this->layout()->siteDatas['default_image'];
+                    	$hoverImage = '';
+                    	$price = '';
+                    	$productPageLink = $this->MelisLink($this->layout()->siteDatas['product_page_id'], false).'?'.http_build_query(array('m_p_id'=>$product->getId()));
+                    	
+                    	foreach($product->getDocuments() as $document){
+                    	    /*
+                    	     * get image type, 3 for defualt image, 5 for large image.
+                    	     * see melis_ecom_doc_type for all the document and images type
+                    	     */
+                    	    switch($document->doc_subtype_id){                	       
+                    	        case(3):
+                    	            $mainImage = $document->doc_path;                	            
+                    	            break;
+                    	        case(5):
+                    	            $hoverImage = $document->doc_path;
+                    	            break;
+                    	    }
+                    	}
+                    	
+                    	$price = $product->display_price;
+                    	foreach($product->getTexts() as $text){
+                    	   if($text->ptt_code == 'TITLE'){
+                    	       $productName = $text->ptxt_field_short;
+                    	       break;
+                    	   }
+                    	}
+                	
+            	?>
+                	<div class="col-md-3">
+                        <!-- single product start-->
+                        <div class="single-product">
+                            <div class="product-img">
+                                
+                                <div class="single-prodcut-img  product-overlay pos-rltv">
+                                    <a href="<?= $productPageLink ?>"> <img alt="" src="<?= $mainImage ?>" class="primary-image"> <img alt="" src="<?= $hoverImage ?>" class="secondary-image"> </a>
+                                </div>
+                                <div class="product-icon socile-icon-tooltip text-center">
+                                    <ul>
+                                        <li><a href="#" data-tooltip="Add To Cart" class="add-cart" data-placement="left"><i class="fa fa-cart-plus"></i></a></li>
+<!--                                         <li><a href="#" data-tooltip="Wishlist" class="w-list"><i class="fa fa-heart-o"></i></a></li> -->
+<!--                                         <li><a href="#" data-tooltip="Compare" class="cpare"><i class="fa fa-refresh"></i></a></li> -->
+<!--                                         <li><a href="#" data-tooltip="Quick View" class="q-view" data-toggle="modal" data-target=".modal"><i class="fa fa-eye"></i></a></li> -->
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="product-text">
+                                <div class="prodcut-name"> <a href="<?= $productPageLink ?>"><?= $productName?></a> </div>
+                                <div class="prodcut-ratting-price">
+                                    <div class="prodcut-price">
+                                        <div class="new-price"> <?= $price->price_net ?> </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- single product end-->
+                    </div>
+            	<?php     
+            	endforeach;
+            	?>                       
+               	 
+            </div>
+        </div>
+    </div>
+</div>
+<?php endif;?>

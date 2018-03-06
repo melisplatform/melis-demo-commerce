@@ -1,0 +1,39 @@
+<div class="single-product-option">
+<?php 
+$productAttributes = !empty($this->attributes)? $this->attributes : array();
+$variant = $this->variant;
+// echo '<pre>'; print_r($variant); echo '</pre>'; die();
+foreach($productAttributes as $attribute):
+?>
+	<div class="sort product-type">
+		<div class="row">
+			<div class="col-xs-5 col-sm-4">
+        		<label><?= $attribute->getAttribute()->attr_trans[0]->atrans_name?> </label>
+        	</div>
+			<div class="col-xs-7 col-sm-8">
+				<select data-attributeid="<?= $attribute->getAttribute()->attr_id?>" data-productid="<?= $this->product_id ?>" class="product-attribute-selection" id="prd-attr-<?= $attribute->getAttribute()->attr_id?>">
+                	<?php if(count($attribute->getAttributeValues())){?>
+                	<option value="" >Select <?= $attribute->getAttribute()->attr_trans[0]->atrans_name?></option>
+                	<?php }?>
+                	<?php 
+                	foreach($attribute->getAttributeValues() as $value){
+                	    $selected = '';
+                	    if(!empty($variant)){
+                	        foreach($variant->getAttributeValues() as $attrVal){
+                	            if($attrVal->atval_id == $value->atval_id){
+                	                $selected = 'SELECTED';
+                	            }
+                	        }
+                	    }        	    
+                	    $column = 'avt_v_'.$value->atype_column_value;
+                	    echo '<option value="'.$value->atval_id.'"' . $selected.'>'.$value->atval_trans[0]->$column.'</option>';
+                	}
+                	?>
+                </select>
+			</div>
+		</div>
+    </div>
+<?php     
+endforeach;
+?>
+</div>

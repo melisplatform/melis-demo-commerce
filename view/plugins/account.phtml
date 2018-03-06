@@ -1,0 +1,42 @@
+<!--service idea area are start -->
+<div class="idea-area  ptb-80">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-4 col-xs-12">
+                <div class="idea-tab-menu">
+                    <ul class="nav idea-tab" role="tablist">
+                        <li role="presentation" class="active"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile Info</a></li>
+                        <li role="presentation"><a href="#deliver-address" aria-controls="deliver-address" role="tab" data-toggle="tab">Delivery Address</a></li>
+                        <li role="presentation"><a href="#billing-address" aria-controls="billing-address" role="tab" data-toggle="tab">Billing Address</a></li>
+                        <li role="presentation"><a href="#my-cart" aria-controls="my-cart" role="tab" data-toggle="tab">My Cart</a></li>
+                        <li role="presentation"><a href="#order-history" aria-controls="order-history" role="tab" data-toggle="tab">Order History</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-9 col-sm-8 col-xs-12">
+                <div class="idea-tab-content">
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade in active" id="profile">
+                            <?php echo $this->profile ?>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade in" id="deliver-address">
+                            <?php echo $this->deliveryAddress ?>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade in" id="billing-address">
+                            <?php echo $this->billingAddress ?>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade in" id="my-cart">
+                            <?php echo $this->myCart ?>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade in" id="order-history">
+                            <?php echo $this->orderHistory ?>
+                        </div>
+                    </div>   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--service idea area are end -->
+

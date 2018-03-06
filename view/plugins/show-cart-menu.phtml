@@ -1,0 +1,43 @@
+<div class="cart-icon"> <a href="<?php echo $this->MelisLink($this->layout()->siteDatas['cart_page_id'], true)?>">Cart<i class="zmdi zmdi-shopping-cart"></i></a> <span id="cartCount"><?= count($this->basket); ?></span> </div>
+	<div class="cart-content-wraper">
+        <?php 
+         $total = 0;
+         $currency = '';
+         
+         if(count($this->basket)){
+             $hideCart = '';
+             $showMessage = 'hidden';
+         }else{
+             $hideCart = 'hidden';
+             $showMessage = '';
+         }
+         
+         foreach($this->basket as $item):
+         $mainImage = $this->layout()->siteDatas['default_image'];
+         $mainImage = isset($item['image'])? $item['image'] : $mainImage;
+         $productPageLink = $this->MelisLink($this->layout()->siteDatas['product_page_id'], false)
+                        .'?'.http_build_query(array('m_p_id'=>$item['product_id']));
+        ?>
+            <div class="cart-single-wraper" data-variantid="<?= $item['var_id']?>">
+                <div class="cart-img">
+                    <a href="<?= $productPageLink ?>"><img src="<?= $mainImage; ?>" alt=""></a>
+                </div>
+                <div class="cart-content">
+                    <div class="cart-name"> <a href="<?= $productPageLink ?>"><?= $item['name']; ?> (<?= $item['var_sku']; ?>)</a> </div>
+                    <div class="cart-price"><?= $item['cur_symbol'].$item['price']; ?> </div>
+                    <div class="cart-qty"> Qty: <span><?= $item['quantity']; ?></span> </div>
+                </div>
+                <div class="remove cart-remove"> <a href="#"><i class="zmdi zmdi-close"></i></a> </div>
+            </div>
+        <?php 
+        endforeach;        
+        ?>
+    <div class="cart-single-wraper cart-message <?= $showMessage ?>">
+		<div class="cart-name ">NO ITEMS IN CART</div>
+    </div>  
+    <div class="cart-subtotal <?= $hideCart ?>"> Subtotal: <span><?= $this->currency.number_format($this->basketTotal, 2); ?></span> </div>
+	<div class="cart-check-btn <?= $hideCart ?>">
+        <div class="check-btn"> <a class="btn-def" href="<?php echo $this->MelisLink($this->layout()->siteDatas['checkout_page_id'], true)?>">View Cart / Checkout</a> </div>
+    </div>    
+      
+	</div>

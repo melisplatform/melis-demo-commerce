@@ -1,0 +1,23 @@
+<div class="col-sm-6 col-xs-12 lr2">
+    <div class="login-reg registration-form">
+    	<h3>Register</h3>
+    	<div class="alert alert-success hidden">
+			<strong>Success!</strong> Account has been registered successfully.
+		</div>
+		<div class="alert alert-danger hidden">
+			<strong>Error!</strong> Error occured, please try again.
+		</div>
+        <?php
+        	$form = $this->registration;
+        	$form->prepare();
+        	echo $this->form()->openTag($form); 
+            echo $this->DemoSiteFieldCollection($form);
+        	echo $this->form()->closeTag(); 
+        ?>
+    </div>
+    <div class="frm-action">
+        <div class="input-box tci-box">
+            <button class="btn-def btn2" id="submit-registration-form-btn">Register</button>
+        </div>
+    </div>
+</div>
