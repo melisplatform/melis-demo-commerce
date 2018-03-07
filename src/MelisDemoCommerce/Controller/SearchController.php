@@ -25,7 +25,7 @@ class SearchController extends BaseController
 	    $searchParameters = array(
 	        'template_path' => 'MelisDemoCommerce/plugin/search-results',
 	        'pageId' => $this->idPage,
-	        'siteModuleName' => 'MelisDemoCms',
+	        'siteModuleName' => 'MelisDemoCommerce',
 	        'pagination' => array(
 	            'nbPerPage' => 10,
 	            'nbPageBeforeAfter' => 3

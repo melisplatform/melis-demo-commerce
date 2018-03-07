@@ -9,4 +9,5 @@ return array(
     'MelisCmsProspects',
     'MelisCommerce',
 	'MelisDemoCommerce',
+    'MelisCmsSiteRobot',
 );

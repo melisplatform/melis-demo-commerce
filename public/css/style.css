@@ -1190,6 +1190,7 @@ CSS INDEX
     text-align: center;
     width: 40px;
 }
+.size-filter li a.active,
 .size-filter li a:hover,
 .tag-filter li a:hover {
     background: #666;

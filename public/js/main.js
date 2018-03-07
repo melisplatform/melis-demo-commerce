@@ -178,6 +178,20 @@ Version: 1.0
         placement: 'top',
         container: 'body'
     });
+
+    /*----------------------------
+     price-slider active
+    ------------------------------ */  
+    $( "#slider-range" ).slider({
+        range: true,
+        min: $( "#slider-range" ).data('defaultmin'),
+        max: $( "#slider-range" ).data('defaultmax'),
+        values: [ $( "#slider-range" ).data('min'), $( "#slider-range" ).data('max') ],
+        slide: function( event, ui ) {
+            $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+        }
+    });
+    $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) + " - $" + $( "#slider-range" ).slider( "values", 1 ) );
 	   
     /*----------------------------
     Countdown active
@@ -209,10 +223,28 @@ Version: 1.0
 	------------------------------ */  
 	$("#cat-treeview ul").treeview({
 		animated: "normal",
-		persist: "location",
+		// persist: "location",
 		collapsed: true,
 		unique: true,
 	});
+
+    $("#cat-treeview ul li a").on('click', function() {
+        $(this).toggleClass('active');
+    });
+
+    /*----------------------------
+     color filter active
+    ------------------------------ */ 
+    $('.color-filter li a').on('click', function() {
+        $(this).toggleClass('active');
+    });
+
+    /*----------------------------
+     size filter active
+    ------------------------------ */ 
+    $('.size-filter li a').on('click', function() {
+        $(this).toggleClass('active');
+    });
 	
 	/*----------------------------
      cart-plus-minus-button
@@ -236,7 +268,7 @@ Version: 1.0
 	
 	
 	
-		$('.acc-toggle').on('click', function(){
+	$('.acc-toggle').on('click', function(){
 		if ($('.acc-toggle input').is(':checked')) {
 			$('.create-acc-body').slideDown();
 		}else{
