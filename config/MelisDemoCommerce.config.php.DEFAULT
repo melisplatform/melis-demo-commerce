@@ -15,8 +15,8 @@ return array(
 			    'site_country_id' => -1,
 			    // Site default language ID
 			    'site_lang_id' => 1,
-                // Site Id
-                'site_id' => '[:siteId]',
+			    // Site Id
+			    'site_id' => '[:siteId]',
 			    // Site Search Page Id
 			    'search_result_page_id' => '[:searchResultsPageId]',
 			    // Login and Registration Page Id

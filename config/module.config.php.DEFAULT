@@ -10,31 +10,31 @@
 return array(
     'router' => array(
         'routes' => array(
-        	'MelisDemoCommerce-pageids' => array(
-				'type'    => 'regex',
-				'options' => array(
-					'regex'    => '.*/MelisDemoCommerce/.*/id/(?<idpage>[0-9]+)',
-					'defaults' => array(
-						'controller' => 'MelisDemoCommerce\Controller\Index',
-						'action'     => 'indexsite',
-					),
-					'spec' => '%idpage'
-				),
-			),
-        	'MelisDemoCommerce-homepage' => array(
-				'type'    => 'Literal',
-				'options' => array(
-					'route'    => '/',
-					'defaults' => array(
-						'controller'     => 'MelisFront\Controller\Index',
-						'action'         => 'index',
-					    'renderType'     => 'melis_zf2_mvc',
-					    'renderMode'     => 'front',
-					    'preview'        => false,
-					    'idpage'         => '[:homePageId]'
-					)
-				),
-			),
+            'MelisDemoCommerce-pageids' => array(
+                'type'    => 'regex',
+                'options' => array(
+                    'regex'    => '.*/MelisDemoCommerce/.*/id/(?<idpage>[0-9]+)',
+                    'defaults' => array(
+                        'controller' => 'MelisDemoCommerce\Controller\Index',
+                        'action'     => 'indexsite',
+                    ),
+                    'spec' => '%idpage'
+                ),
+            ),
+            'MelisDemoCommerce-homepage' => array(
+                'type'    => 'Literal',
+                'options' => array(
+                    'route'    => '/',
+                    'defaults' => array(
+                        'controller'     => 'MelisFront\Controller\Index',
+                        'action'         => 'index',
+                        'renderType'     => 'melis_zf2_mvc',
+                        'renderMode'     => 'front',
+                        'preview'        => false,
+                        'idpage'         => '[:homePageId]'
+                    )
+                ),
+            ),
             // The following is a route to simplify getting started creating
             // new controllers and actions without needing to create a new
             // module. Simply drop new controllers in, and you can access them
@@ -74,7 +74,7 @@ return array(
                         ),
                     ),
                 ),
-            ), 
+            ),
         ),
     ),
     'service_manager' => array(
@@ -146,7 +146,7 @@ return array(
             'error/index'             		    => __DIR__ . '/../view/error/index.phtml',
             // Email layout
             'MelisDemoCommerce/emailLayout'     => __DIR__ . '/../view/layout/reset-password-email-layout.phtml',
-
+            
             // Plugins layout
             'MelisDemoCommerce/plugin/menu'                             => __DIR__ . '/../view/plugins/menu.phtml',
             'MelisDemoCommerce/plugin/breadcrumb'                       => __DIR__ . '/../view/plugins/breadcrumb.phtml',
@@ -161,14 +161,16 @@ return array(
             'MelisDemoCommerce/plugin/search-results'                   => __DIR__ . '/../view/plugins/search-results.phtml',
             'MelisDemoCommerce/plugin/registration'                     => __DIR__ . '/../view/plugins/registration.phtml',
             'MelisDemoCommerce/plugin/login'                            => __DIR__ . '/../view/plugins/login.phtml',
-            'MelisDemoCommerce/plugin/new-arrivals'                     => __DIR__ . '/../view/plugins/new-arrivals.phtml',
-            'MelisDemoCommerce/plugin/discount-featured-onsale-slider'  => __DIR__ . '/../view/plugins/discount-featured-onsale-slider.phtml',
-            'MelisDemoCommerce/plugin/category-list-filter'             => __DIR__ . '/../view/plugins/category-list-filter.phtml',
-            'MelisDemoCommerce/plugin/category-price-filter'            => __DIR__ . '/../view/plugins/category-price-filter.phtml',
-            'MelisDemoCommerce/plugin/category-color-filter'            => __DIR__ . '/../view/plugins/category-color-filter.phtml',
-            'MelisDemoCommerce/plugin/category-size-filter'             => __DIR__ . '/../view/plugins/category-size-filter.phtml',
-            'MelisDemoCommerce/plugin/category-product-list'            => __DIR__ . '/../view/plugins/category-product-list.phtml',
-            'MelisDemoCommerce/plugin/category-paginator'               => __DIR__ . '/../view/plugins/category-paginator.phtml',
+            
+            'MelisDemoCommerce/plugin/category-product-list-slider'     => __DIR__ . '/../view/plugins/category-product-list-slider.phtml',
+            
+            'MelisDemoCommerce/plugin/product-search'                   => __DIR__ . '/../view/plugins/product-search.phtml',
+            'MelisDemoCommerce/plugin/category-tree'                    => __DIR__ . '/../view/plugins/category-tree.phtml',
+            'MelisDemoCommerce/plugin/product-price-range'              => __DIR__ . '/../view/plugins/product-price-range.phtml',
+            'MelisDemoCommerce/plugin/product-color-attribute'          => __DIR__ . '/../view/plugins/product-color-attribute.phtml',
+            'MelisDemoCommerce/plugin/product-size-attribute'           => __DIR__ . '/../view/plugins/product-size-attribute.phtml',
+            'MelisDemoCommerce/plugin/product-list'                     => __DIR__ . '/../view/plugins/product-list.phtml',
+            'MelisDemoCommerce/plugin/product-list-paginator'           => __DIR__ . '/../view/plugins/product-list-paginator.phtml',
             'MelisDemoCommerce/plugin/show-product'                     => __DIR__ . '/../view/plugins/show-product.phtml',
             'MelisDemoCommerce/plugin/related-products'                 => __DIR__ . '/../view/plugins/related-products.phtml',
             'MelisDemoCommerce/plugin/account'                          => __DIR__ . '/../view/plugins/account.phtml',
@@ -176,28 +178,30 @@ return array(
             'MelisDemoCommerce/plugin/delivery-address'                 => __DIR__ . '/../view/plugins/delivery-address.phtml',
             'MelisDemoCommerce/plugin/billing-address'                  => __DIR__ . '/../view/plugins/billing-address.phtml',
             'MelisDemoCommerce/plugin/my-cart'                          => __DIR__ . '/../view/plugins/my-cart.phtml',
+            'MelisDemoCommerce/plugin/my-cart-paginator'                => __DIR__ . '/../view/plugins/my-cart-paginator.phtml',
             'MelisDemoCommerce/plugin/lost-password'                    => __DIR__ . '/../view/plugins/lost-password.phtml',
             'MelisDemoCommerce/plugin/reset-password'                   => __DIR__ . '/../view/plugins/reset-password.phtml',
             'MelisDemoCommerce/plugin/show-attributes'                  => __DIR__ . '/../view/plugins/show-attributes.phtml',
             'MelisDemoCommerce/plugin/show-add-to-cart'                 => __DIR__ . '/../view/plugins/show-add-to-cart.phtml',
             
-            'MelisDemoCommerce/plugin/check-out'                        => __DIR__ . '/../view/plugins/check-out.phtml',
-            'MelisDemoCommerce/plugin/check-out-cart'                   => __DIR__ . '/../view/plugins/check-out-cart.phtml',
-            'MelisDemoCommerce/plugin/check-out-cart-coupon'            => __DIR__ . '/../view/plugins/check-out-cart-coupon.phtml',
-            'MelisDemoCommerce/plugin/check-out-addresses'              => __DIR__ . '/../view/plugins/check-out-addresses.phtml',
-            'MelisDemoCommerce/plugin/check-out-summary'                => __DIR__ . '/../view/plugins/check-out-summary.phtml',
-            'MelisDemoCommerce/plugin/check-out-confirm-summary'        => __DIR__ . '/../view/plugins/check-out-confirm-summary.phtml',
-            'MelisDemoCommerce/plugin/check-out-confirmation'           => __DIR__ . '/../view/plugins/check-out-confirmation.phtml',
+            'MelisDemoCommerce/plugin/checkout'                         => __DIR__ . '/../view/plugins/checkout.phtml',
+            'MelisDemoCommerce/plugin/checkout-cart'                    => __DIR__ . '/../view/plugins/checkout-cart.phtml',
+            'MelisDemoCommerce/plugin/checkout-coupon'                  => __DIR__ . '/../view/plugins/checkout-coupon.phtml',
+            'MelisDemoCommerce/plugin/checkout-addresses'               => __DIR__ . '/../view/plugins/checkout-addresses.phtml',
+            'MelisDemoCommerce/plugin/checkout-summary'                 => __DIR__ . '/../view/plugins/checkout-summary.phtml',
+            'MelisDemoCommerce/plugin/checkout-confirm-summary'         => __DIR__ . '/../view/plugins/checkout-confirm-summary.phtml',
+            'MelisDemoCommerce/plugin/checkout-confirmation'            => __DIR__ . '/../view/plugins/checkout-confirmation.phtml',
             
             'MelisDemoCommerce/plugin/check-out-fake-payment'           => __DIR__ . '/../view/plugins/check-out-fake-payment.phtml',
             'MelisDemoCommerce/plugin/check-out-fake-paypal-style'      => __DIR__ . '/../view/plugins/check-out-fake-paypal-style.phtml',
             
-            'MelisDemoCommerce/plugin/show-cart-menu'                   => __DIR__ . '/../view/plugins/show-cart-menu.phtml',
+            'MelisDemoCommerce/plugin/menu-cart'                        => __DIR__ . '/../view/plugins/menu-cart.phtml',
             'MelisDemoCommerce/plugin/order-history'                    => __DIR__ . '/../view/plugins/order-history.phtml',
-            'MelisDemoCommerce/show-order-details'                      => __DIR__ . '/../view/plugins/show-order-details.phtml',
-            'MelisDemoCommerce/show-order-addresses'                    => __DIR__ . '/../view/plugins/show-order-addresses.phtml',
-            'MelisDemocommerce/show-shipping-details'                   => __DIR__ . '/../view/plugins/show-shipping-details.phtml',
-            'MelisDemocommerce/show-order-messages'                     => __DIR__ . '/../view/plugins/show-order-messages.phtml',
+            'MelisDemoCommerce/plugin/order-history-paginator'          => __DIR__ . '/../view/plugins/order-history-paginator.phtml',
+            'MelisDemoCommerce/order-details'                           => __DIR__ . '/../view/plugins/order-details.phtml',
+            'MelisDemoCommerce/order-addresses'                         => __DIR__ . '/../view/plugins/order-addresses.phtml',
+            'MelisDemocommerce/order-shipping-details'                  => __DIR__ . '/../view/plugins/order-shipping-details.phtml',
+            'MelisDemocommerce/order-messages'                          => __DIR__ . '/../view/plugins/order-messages.phtml',
         ),
         'template_path_stack' => array(
             __DIR__ . '/../view',
