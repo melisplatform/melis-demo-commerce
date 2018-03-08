@@ -1,0 +1,50 @@
+<?php
+    function recursiveListDisplay($categories){
+        $temp = '';
+        if($categories){
+
+            $temp .= '<ul>';
+
+            foreach($categories as $category){
+
+                $temp_1 = array();
+                if(!empty($category['children'])){
+                    $temp_1 = recursiveListDisplay($category['children']);
+                }
+
+                $parentClass = 'closed';
+                if ($category['state']['opened']){
+                    $parentClass = 'open';
+                }
+
+                $active = '';
+                if ($category['state']['selected']){
+                    $active = 'active';
+                }
+
+                $temp .= '<li class="'.$parentClass.'" data-catid="'.$category['cat_id'].'"><a class="'.$active.'">'.$category['text'].'</a>';
+                $temp .= (!empty($temp_1['html'])) ? $temp_1['html'] : '';
+                $temp .= '</li>';
+            }
+
+            $temp .= '</ul>';
+        }
+        return array('html' => $temp);
+    }
+?>
+
+<aside class="single-aside catagories-aside" id="<?=$this->pluginId?>">
+    <div class="heading-title aside-title pos-rltv">
+        <h5 class="uppercase">CATEGORIES</h5>
+    </div>
+    <div id="cat-treeview" class="product-cat">
+    	<?php
+        	// recursive loop for displaying children, a simple loop can be done if category is a single dimension array
+        	$temp = recursiveListDisplay($this->categoryList);
+            echo $temp['html'];
+    	?>
+    </div>
+</aside>
+
+
+

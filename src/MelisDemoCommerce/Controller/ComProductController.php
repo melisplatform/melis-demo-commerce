@@ -11,48 +11,76 @@ namespace MelisDemoCommerce\Controller;
 
 use MelisDemoCommerce\Controller\BaseController;
 use Zend\View\Model\JsonModel;
+use Zend\Stdlib\Parameters;
 use Zend\Stdlib\ArrayUtils;
 
 class ComProductController extends BaseController
 {
     public function indexAction()
     {
-        
         // Getting the Site config "MelisDemoCommerce.config.php"
         $siteConfig = $this->getServiceLocator()->get('config');
         $siteConfig = $siteConfig['site']['MelisDemoCommerce'];
         $siteDatas = $siteConfig['datas'];
-        $routeParams['m_p_id'] = $this->params()->fromRoute('productId');
-        // if rendering is back office, assign first product
-        if($this->renderMode == 'melis'){
-            $routeParams['m_p_id'] = (!empty($siteDatas['defaultProduct']) ? $siteDatas['defaultProduct'] : '');
-        }
+        
+        $productId = array(
+            'm_product_id' => $this->params()->fromRoute('productId', null)
+        );
+        
+        // Merging current data from url 
+        $params = ArrayUtils::merge($this->getServiceLocator()->get('request')->getQuery()->toArray(), $productId);
+        
+        // Setting the Get data to make product id of the plugin dynamic
+        $postParam = new Parameters($params);
+        $this->getServiceLocator()->get('request')->setQuery($postParam);
+        
         /**
          * Generating show product using MelisCommerceProductShowPlugin
          */
-        $productView = $this->MelisCommerceProductShowPlugin();
+        $productPlugin = $this->MelisCommerceProductShowPlugin();
         // pass custom template paths
-        $params = array(
+        $pluginParams = array(
             'template_path' => 'MelisDemoCommerce/plugin/show-product',
-            'template_path_attributes_view' => 'MelisDemoCommerce/plugin/show-attributes',
-            'template_path_add_to_cart_view' => 'MelisDemoCommerce/plugin/show-add-to-cart',
         );
-        $params = ArrayUtils::merge($params, $routeParams);
-        
+        $productPlugin = $productPlugin->render($pluginParams);
         // add generated view to children views for displaying it in the home page view
-        $this->view->addChild($productView->render($params), 'showProductView');
+        $this->view->addChild($productPlugin, 'showProductView');
         
         /**
-         * Generating related products using MelisCommerceFilterMenuCategoryListPlugin
+         * Generating related products using MelisCommerceRelatedProductsPlugin
          */
-        $relatedProductView = $this->MelisCommerceProductsRelatedPlugin();
+        $relatedProductView = $this->MelisCommerceRelatedProductsPlugin();
         $params = array(
-            'template_path' => 'MelisDemoCommerce/plugin/related-products',            
+            'template_path' => 'MelisDemoCommerce/plugin/related-products',  
+            'm_product_id' => $this->params()->fromRoute('productId', null)
         );
-        $params = ArrayUtils::merge($params, $routeParams);
         // add generated view to children views for displaying it in the home page view
         $this->view->addChild($relatedProductView->render($params), 'relatedProductsView');
         
+        // Page banner
+        $this->setPageBanner();
+        
+        $this->layout()->setVariables(array(
+            'pageJs' => array(
+                '/MelisDemoCommerce/js/product-attributes.js',
+                '/MelisDemoCommerce/js/cart.js',
+            ),
+        ));
+        
+        $this->view->setVariable('idPage', $this->idPage);
+        
+        return $this->view;
+    }
+    
+    /**
+     * Getting the category banner image for page
+     */
+    private function setPageBanner()
+    {
+        // Getting the Site config "MelisDemoCommerce.config.php"
+        $siteConfig = $this->getServiceLocator()->get('config');
+        $siteConfig = $siteConfig['site']['MelisDemoCommerce'];
+        $siteDatas = $siteConfig['datas'];
         /**
          * Retrieving Categeries related to the selected product
          * using the Product Service
@@ -60,8 +88,11 @@ class ComProductController extends BaseController
         $productSrv = $this->getServiceLocator()->get('MelisComProductService');
         $prdCat = null;
         
-        if(!empty($routeParams['m_p_id'])){
-            $prdCat = $productSrv->getProductCategories($routeParams['m_p_id']);
+        $prdId = $this->params()->fromRoute('productId', null);
+        
+        if(!empty($prdId))
+        {
+            $prdCat = $productSrv->getProductCategories($prdId);
         }
         
         $pageBanner = '';
@@ -130,16 +161,7 @@ class ComProductController extends BaseController
             }
         }
         
-        $this->layout()->setVariables(array(
-            'pageJs' => array(
-                '/MelisDemoCommerce/js/product-attributes.js',
-                '/MelisDemoCommerce/js/cart.js',
-            ),
-        ));
-        
-        $this->view->setVariable('idPage', $this->idPage);
         $this->view->setVariable('pageBanner', $pageBanner);
-        return $this->view;
     }
     
     public function getVariantCommonAttributesAction()
@@ -149,16 +171,14 @@ class ComProductController extends BaseController
         
         if ($request->isPost())
         {
-            $attributeShowPlugin = $this->MelisCommerceAttributesShowPlugin();
-            // add generated view to children views for displaying it in the contact view
-            $result = $attributeShowPlugin->render(array('m_is_submit' => true))->getVariables();
+            $post = $request->getPost();
             
-            $result = array(
-                'variant' => ($result->variant) ? $result->variant->getVariant() : array(),
-                'variant_price' => $result->variant_price,
-                'variant_attr' => $result->variant_attr,
-                'variant_stock' => $result->variant_stock,
-            );
+            $productId = $post['productId'];
+            $attrSelection = $post['attrSelection'];
+            $action = $post['action'];
+            
+            $demoCommreceSrv = $this->getServiceLocator()->get('DemoCommerceService');
+            $result = $demoCommreceSrv->getVariantbyAttributes($productId, $attrSelection, $action);
         }
         
         return new JsonModel($result);
@@ -169,33 +189,45 @@ class ComProductController extends BaseController
         // Default Values
         $status  = 0;
         $errors  = array();
-         
+        $cartList = '';
+        
         $request = $this->getRequest();
-    
+        
         if ($request->isPost())
         {
             /**
-             * Validating the AddToCart form by Calling the
-             * plugin and adding parameter as flag "m_is_submit" to submit the form
+             * Validating the AddToCart form by Calling the plugin
              */
-            $addtoCart = $this->MelisCommerceCartAddPlugin();
+            $addtoCart = $this->MelisCommerceAddToCartPlugin();
             // add generated view to children views for displaying it in the contact view
-            $result = $addtoCart->render(array('m_is_submit' => true))->getVariables();
-    
+            $result = $addtoCart->render()->getVariables();
+            
             // Retrieving view variable from view
             $errors = $result->errors;
             if (empty($errors))
             {
                 $status = 1;
+                
+                // Getting the Site config "MelisDemoCommerce.config.php"
+                $siteConfig = $this->getServiceLocator()->get('config');
+                $siteConfig = $siteConfig['site']['MelisDemoCommerce'];
+                $siteDatas = $siteConfig['datas'];
+                
+                $cartPlugin = $this->MelisCommerceCartPlugin();
+                $menuParameters = array(
+                    'template_path' => 'MelisDemoCommerce/plugin/menu-cart',
+                    'id' => 'menuCartPlugin',
+                );
+                $cartViewModel = $cartPlugin->render($menuParameters);
+                
+                // Rendering the viewmodel of the plugin 
+                $viewRender = $this->getServiceLocator()->get('ViewRenderer');
+                $cartList = $viewRender->render($cartViewModel);
             }
-            
-            $cartMenuPlugin = $this->MelisCommerceCartMenuPlugin();
-            $items = $cartMenuPlugin->render()->getVariables();
-           
         }
-    
+        
         $response = array(
-            'basket' => $items->basket,
+            'cartList' => $cartList,
             'success' => $status,
             'errors' => $errors,
         );
@@ -203,34 +235,35 @@ class ComProductController extends BaseController
         return new JsonModel($response);
     }
     
+    /**
+     * Cart item deletion using plugin MelisCommerceCartPlugin()
+     * 
+     * @return \Zend\View\Model\JsonModel
+     */
     public function removeItemFromCartAction()
     {
         $result = array();
-        $variantId = array();
         $request = $this->getRequest();
         
         if ($request->isPost())
         {
-            $requestVar = get_object_vars($this->getRequest()->getPost());
+            /**
+             * To remove spicific variant from cart/basket
+             * this plugin accepting data "cart_variant_remove" with the value
+             * of the variant to be remove 
+             */
+            $cartPlugin = $this->MelisCommerceCartPlugin();
+            $cartViewModel = $cartPlugin->render();
+            $cartVars = $cartViewModel->getVariables();
             
-            // Use MelisCommerceCheckoutCartPlugin to delete item from cart
-            $checkOutcartPlugin = $this->MelisCommerceCheckoutCartPlugin();
+            $total = $cartVars['total'];
+            $currency = $cartVars['currency'];
             
-            $checkOutCartParameters = array(
-                'm_country_id' => !empty($requestVar['m_country_id'])? $requestVar['m_country_id'] : null,
-                'm_v_id_remove' => $requestVar['m_v_id_remove'],
+            $result = array(
+                'success' => 1,
+                'totalAmount' => $currency.number_format($total, 2),
+                'totalItemCount' => $cartVars->cartList->getPages()->totalItemCount,
             );
-            
-            $result = $checkOutcartPlugin->render($checkOutCartParameters)->getVariables();
-            foreach($result['checkOutCart'] as $item){
-                $variantId[] = $item['var_id'];
-            }
-            
-            if(!in_array($requestVar['m_v_id_remove'], $variantId)){
-                $result['deleteSuccess'] = 1;
-            }else{
-                $result['deleteSuccess'] = 0;
-            }
         }
         
         return new JsonModel($result);

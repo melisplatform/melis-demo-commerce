@@ -58,50 +58,9 @@
     </div>
     <!--banner-area-are-end-->
     
-    <!--new arrival area start-->
-    <div class="new-arrival-area pt-70">
-        <div class="container">
-            <div class="row">
-               	<div class="col-xs-12 text-center">
-                   <div class="heading-title heading-style pos-rltv mb-50 text-center">
-                   <h5 class="uppercase"><?php echo $this->MelisTag($this->idPage, 'home_subtitle_list_product', 'html','New Arrival');?></h5>
-                   </div>
-               	</div>
-               	<div class="clearfix"></div>
-    			<?php echo $this->newArrivals?>
-			 </div>
-        </div>
-    </div>
+    <?php echo $this->homepageCategoryProductSlider1?>
     
-    <!--new arrival area end-->
-    
-    <!--discunt-featured-onsale-area start -->
-    <div class="discunt-featured-onsale-area pt-60">
-        <div class="container">
-            <div class="row">
-                <div class="product-area tab-cars-style">
-                    <div class="title-tab-product-category">
-                        <div class="col-md-12 text-center">
-                            <ul class="nav mb-40 heading-style-2" role="tablist">                               
-                                <li role="presentation" class="active">
-                                	<a href="#bestsellr" aria-controls="bestsellr" role="tab" data-toggle="tab">Best Seller</a>
-                            	</li>
-                            	 <li role="presentation">
-                                	<a href="#newarrival" aria-controls="newarrival" role="tab" data-toggle="tab">New Arrival</a>
-                            	</li>
-                            	<li role="presentation">
-                                	<a href="#specialoffer" aria-controls="specialoffer" role="tab" data-toggle="tab">Special Offer</a>
-                            	</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="clearfix"></div>
-    				<?php echo $this->discountFeaturedOnsaleSlider?>
-				</div>
-            </div>
-        </div>
-    </div> 
-    <!--discunt-featured-onsale-area end--> 
+    <?php echo $this->homepageCategoryProductSlider2?> 
     
     <!--best-product-area-start-->
     <div class="best-product-area mt-70">
@@ -119,8 +78,8 @@
                     </div>')
             	?>
          	</div>
-         </div>
-     </div>
+        </div>
+    </div>
     <!--best-product-area-end-->
     
     <!--Delivery Service Start-->

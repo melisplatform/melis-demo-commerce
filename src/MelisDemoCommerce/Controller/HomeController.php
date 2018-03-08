@@ -50,7 +50,6 @@ class HomeController extends BaseController
         $latestNewsPluginView = $this->MelisCmsNewsLatestNewsPlugin();
         $latestNewsParameters = array(
             'template_path' => 'MelisDemoCommerce/plugin/latest-news',
-            'pageIdNews' => $siteDatas['news_details_page_id'],
             'filter' => array(
                 'column' => 'cnews_publish_date',
                 'order' => 'DESC',
@@ -66,29 +65,51 @@ class HomeController extends BaseController
         $this->view->addChild($latestNewsPluginView->render($latestNewsParameters), 'latestNews');
         
         /**
-         * Generating new arrival product list
+         * Generating Men product list slider
          */
-        $categorySliderListPluginView = $this->MelisCommerceCategorySliderListProductsPlugin();
+        $melisCommerceCategoryProductListPlugin = $this->MelisCommerceCategoryProductListPlugin();
         $categorySliderListParameters = array(
-            'template_path' => 'MelisDemoCommerce/plugin/new-arrivals',
-            'm_box_filter_docs' => array('mainImage' => 'DEFAULT', 'altImage' => 'SMALL'),
-            'm_box_filter_categories_ids_selected' => $siteDatas['newArrivalCategory'],
+            'id' => 'homepageCategoryProductSlider1',
+            'template_path' => 'MelisDemoCommerce/plugin/category-product-list-slider',
+            'm_category_option' => array(
+                'm_category_ids' => $siteDatas['homepage_category_product_slider_1'],
+                'm_include_sub_category_products' => true,
+            ),
+            'm_product_option' => array(
+                'm_country_id' => $siteDatas['price_country_id'],
+                'm_prd_limit' => $siteDatas['homepage_category_product_slider_limit'],
+            ),
         );
         // add generated view to children views for displaying it in the home page view
-        $this->view->addChild($categorySliderListPluginView->render($categorySliderListParameters), 'newArrivals');
+        $this->view->addChild($melisCommerceCategoryProductListPlugin->render($categorySliderListParameters), 'homepageCategoryProductSlider1');
         
         /**
-         * Generating discount, featured, onsale slider
+         * Generating New Arrivals, Best Seller, Special Offers slider
          */
-        $categorySliderListProductsPluginView = $this->MelisCommerceCategorySliderListProductsPlugin();
+        $melisCommerceCategoryProductListPlugin = $this->MelisCommerceCategoryProductListPlugin();
         $categorySliderListProductsParameters = array(
-            'template_path' => 'MelisDemoCommerce/plugin/discount-featured-onsale-slider',
-            'm_box_filter_docs' => array('mainImage' => 'DEFAULT', 'altImage' => 'SMALL'),
-            'm_box_filter_categories_ids_selected' => $siteDatas['discountFeatureOnsale'], // the categories ID,
+            'id' => 'homepageCategoryProductSlider2',
+            'template_path' => 'MelisDemoCommerce/plugin/category-product-list-slider',
+            'm_category_option' => array(
+                'm_category_ids' => $siteDatas['homepage_category_product_slider_2'],
+                'm_include_sub_category_products' => true,
+                
+            ),
+            'm_product_option' => array(
+                'm_country_id' => $siteDatas['price_country_id'],
+                'm_prd_limit' => $siteDatas['homepage_category_product_slider_limit'],
+            ),
         );
         
         // add generated view to children views for displaying it in the home page view
-        $this->view->addChild($categorySliderListProductsPluginView->render($categorySliderListProductsParameters), 'discountFeaturedOnsaleSlider');
+        $this->view->addChild($melisCommerceCategoryProductListPlugin->render($categorySliderListProductsParameters), 'homepageCategoryProductSlider2');
+        
+        $this->layout()->setVariables(array(
+            'pageJs' => array(
+                '/MelisDemoCommerce/js/MelisPlugins/MelisDemoCommerce.MelisCommerceCategoryProductListPlugin.init.js',
+                //'/MelisDemoCommerce/js/MelisPlugins/MelisDemoCommerce.MelisCommerceCategoryTree.init.js'
+            ),
+        ));
         
         $this->view->setVariable('idPage', $this->idPage);
         $this->view->setVariable('renderType', $this->renderType);

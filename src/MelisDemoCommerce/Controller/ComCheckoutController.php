@@ -54,39 +54,33 @@ class ComCheckoutController extends BaseController
          */
         $checkoutPlugin = $this->MelisCommerceCheckoutPlugin();
         $checkoutPluginParameters = array(
-            'template_path' => 'MelisDemoCommerce/plugin/check-out',
+            'template_path' => 'MelisDemoCommerce/plugin/checkout',
+            'm_checkout_country_id' => $countryId,
+            'm_checkout_site_id' => $siteId,
+            'm_checkout_page_link' => $checkoutPageLink,
+            'm_login_page_link' => $loginPage,
             'checkout_cart_parameters' => array(
-                'template_path' => 'MelisDemoCommerce/plugin/check-out-cart',
+                'template_path' => 'MelisDemoCommerce/plugin/checkout-cart',
                 'checkout_cart_coupon_parameters' => array(
-                    'template_path' => 'MelisDemoCommerce/plugin/check-out-cart-coupon',
+                    'template_path' => 'MelisDemoCommerce/plugin/checkout-coupon',
                 ),
             ),
             'checkout_addresses_parameters' => array(
-                'template_path' => 'MelisDemoCommerce/plugin/check-out-addresses',
+                'template_path' => 'MelisDemoCommerce/plugin/checkout-addresses',
             ),
             'checkout_summary_parameters' => array(
-                'template_path' => 'MelisDemoCommerce/plugin/check-out-summary',
+                'template_path' => 'MelisDemoCommerce/plugin/checkout-summary',
             ),
             'checkout_confirm_summary_parameters' => array(
-                'template_path' => 'MelisDemoCommerce/plugin/check-out-confirm-summary',
+                'template_path' => 'MelisDemoCommerce/plugin/checkout-confirm-summary',
             ),
             'checkout_confirm_parameters' => array(
-                'template_path' => 'MelisDemoCommerce/plugin/check-out-confirmation',
+                'template_path' => 'MelisDemoCommerce/plugin/checkout-confirmation',
+                'm_conf_order_id' => $this->params()->fromQuery('m_conf_order_id',''), // Order id use in Confirmation Page after Payments
                 'address_parameters' => array(
-                    'template_path' => 'MelisDemoCommerce/show-order-addresses',
+                    'template_path' => 'MelisDemoCommerce/order-addresses',
                 ),
-                'shipping_parameters' => array(
-                    'template_path' => 'MelisDemocommerce/show-shipping-details',
-                ),
-                'm_c_order' => $this->params()->fromQuery('m_c_order',''), // Order id use in Confirmation Page after Payments
-                'm_image_type' => $siteDatas['image_preview'],
-                'm_custom_image' => $siteDatas['default_image'],
             ),
-            'm_checkout_country_id' => $countryId,
-            'm_checkout_site_id' => $siteId,
-            'm_login_page_id' => $loginPageId,
-            'm_checkout_page_link' => $checkoutPageLink,
-            'm_login_page_link' => $loginPage,
         );
         $checkoutPluginView = $checkoutPlugin->render($checkoutPluginParameters);
         
@@ -94,6 +88,7 @@ class ComCheckoutController extends BaseController
         
         $layoutvar = $this->layout()->getVariable('pageJs');
         $layoutvar[] = '/MelisDemoCommerce/js/checkout.js';
+        $layoutvar[] = '/MelisDemoCommerce/js/cart.js';
         $this->layout()->setVariables(array(
             'pageJs' => $layoutvar,
         ));

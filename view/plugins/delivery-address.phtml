@@ -1,35 +1,41 @@
 <div id="delivery-address-form-messages">
     <div class="alert alert-success hidden">
-    	<strong>Success!</strong> Delivery address has been successfully saved.
+    	<strong>Success!</strong> <span>Delivery address has been successfully saved.</span>
     </div>
     <div class="alert alert-danger hidden">
     	<strong>Error!</strong> An error(s) occured.
     </div>
 </div>
 <?php
-if($this->showSelectAddressData) {
-    $selAddrForm = $this->selectAddressForm;
-    $selAddrForm->prepare();
-    $selAddrForm->get('del_addr_id')->removeAttribute('onchange');
-    echo $this->form()->openTag($selAddrForm);
-    echo $this->formCollection($selAddrForm);
-    echo $this->form()->closeTag();
-}
-?>
-<?php
-
+    /**
+     * Select Delivery addresses form
+     */
+    if (!is_null($this->selectDeliveryAddress))
+    {
+        $form = $this->selectDeliveryAddress;
+        $form->prepare();
+        $form->get('select_delivery_addresses')->setAttribute('onchange', null);
+        $form->get('select_delivery_addresses')->setAttribute('data-type', 'delivery');
+        $form->setAttribute('data-type', 'delivery');
+        echo $this->form()->openTag($form);
+        echo $this->DemoSiteFieldCollection($form);
+        echo $this->form()->closeTag();
+    }
+    
+    /**
+     * Delivery address form
+     */
 	$form = $this->deliveryAddress;
-	$form->setAttribute('id', 'delivery-address-form');
-	$form->setAttribute('method', 'post');
 	$form->prepare();
+	$form->setAttribute('id', 'delivery-address-form');
+	$form->setAttribute('data-type', 'delivery');
 	echo $this->form()->openTag($form); 
     echo $this->DemoSiteFieldCollection($form);
 ?>
-<div class="text-right">
-    <button type="button" class="btn-def btn2 pull-left delete-address" data-form="delivery-address-form" data-type="delivery">Delete Delivery Address</button>
-    <button type="button" class="btn-def btn2" id="save-delivery-address" data-form="delivery-address-form" data-type="delivery">Save Delivery Address</button>
-</div>
+    <div class="text-right">
+        <button type="button" class="btn-def btn2 pull-left delete-address" data-type="delivery" <?php echo ($this->showDeleteButton) ? '' : 'style="display: none;"'?>>Delete Delivery Address</button>
+        <button type="button" class="btn-def btn2 save-address" data-type="delivery">Save Delivery Address</button>
+    </div>
 <?php
 	echo $this->form()->closeTag();
-
 ?>

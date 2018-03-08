@@ -1,0 +1,57 @@
+<?php 
+$messages = $this->orderMessages;
+$showDisplay = 'style="display:none;"';
+
+if(!empty($messages)){
+    $showDisplay = '';
+}
+
+?>
+	<div class="comments-area fix mt-20 order-messages">
+	    <h5 class="sb-title">Message Area</h5>
+	    <div class="comments-body ">
+	        <ul>
+    	        <?php 
+            	foreach($messages as $message){
+            	?>
+                <li class="single-comments" data-messageid="<?= $message['omsg_id']?>">
+	                <div class="commets-text">
+	                    <h5><?= $message['firstName'] .' '. $message['middleName'] .' '. $message['lastName'] ?></h5>
+	                    <div class="comments-date"><span><?= date("F d, Y " ,strtotime($message['omsg_date_creation'])) ?> </span> <span>, at <?= date("h:i a" ,strtotime($message['omsg_date_creation'])) ?></span></div>
+	                    <p><?= $message['omsg_message']?></p>
+	                </div>
+	            </li>   
+                <?php 
+            	}
+                ?>
+	        </ul>
+	    </div>
+	</div>
+
+<div class="leave-through-area clearfix mt-40">
+    <h5 class="mb-title sb-title">Leave your message</h5>                                
+    <div class="row message-form">
+    	<div class="alert alert-danger" style="display: none;">
+			<strong>Message sending failed!</strong> Please try again.
+		</div>
+		<div class="alert alert-success" style="display: none;">
+			<strong>Message sent!</strong>
+		</div>
+		 <?php 
+        	$form = $this->addMessageForm;
+        	$form->setAttribute('id', 'add-to-cart-form');
+        	$form->prepare();
+        	$form->get('m_om_message')->setAttribute('rows',6);
+        	echo $this->form()->openTag($form);
+        	echo $this->DemoSiteFieldCollection($form);
+        	?>
+        	<div class="col-xs-12">
+                   <div class="input-box">
+                       <input name="submit" class="sbumit-btn" value="Send" type="submit"> 
+                   </div>
+           </div>
+        	<?php 
+        	echo $this->form()->closeTag();
+    	?>    	
+    </div>
+</div> 

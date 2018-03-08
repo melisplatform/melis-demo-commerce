@@ -14,7 +14,6 @@ Version: 1.0
 	01. jQuery MeanMenu
 	02. wow js active
 	03. scrollUp jquery active
-	04. slick carousel 
 
  
 ======================================
@@ -90,28 +89,7 @@ Version: 1.0
             }
         }
     });
-	
-	
-	/*-------------------------------------------
-	04. slick carousel 
-	--------------------------------------------- */    
-	$('.new-arrival-slider-active').slick({
-		slidesToShow: 3,
-		slidesToScroll: 1,
-		autoplay: false,
-		autoplaySpeed: 5000,
-		dots: false,
-		arrows: true,
-		prevArrow: '<div class="arrow-left"><i class="zmdi zmdi-chevron-left"></i></div>',
-		nextArrow: '<div class="arrow-right"><i class="zmdi zmdi-chevron-right"></i></div>',
-		responsive: [
-			{  breakpoint: 1169,  settings: { slidesToShow: 4,  }  },
-			{  breakpoint: 969,   settings: { slidesToShow: 3,  }  },
-			{  breakpoint: 767,   settings: { slidesToShow: 2, }   },
-			{  breakpoint: 479,   settings: { slidesToShow: 1, }   },
-		]
-	}); 
-	
+
 	$('.total-testimonial-owl').owlCarousel({
         items: 1,
     });
@@ -180,20 +158,6 @@ Version: 1.0
     });
 
     /*----------------------------
-     price-slider active
-    ------------------------------ */  
-    $( "#slider-range" ).slider({
-        range: true,
-        min: $( "#slider-range" ).data('defaultmin'),
-        max: $( "#slider-range" ).data('defaultmax'),
-        values: [ $( "#slider-range" ).data('min'), $( "#slider-range" ).data('max') ],
-        slide: function( event, ui ) {
-            $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
-        }
-    });
-    $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) + " - $" + $( "#slider-range" ).slider( "values", 1 ) );
-	   
-    /*----------------------------
     Countdown active
     ------------------------------ */
     $('[data-countdown]').each(function () {
@@ -217,20 +181,6 @@ Version: 1.0
     $(function () {
         $('.item').matchHeight();
     });
-    
-    /*----------------------------
-	 treeview active
-	------------------------------ */  
-	$("#cat-treeview ul").treeview({
-		animated: "normal",
-		// persist: "location",
-		collapsed: true,
-		unique: true,
-	});
-
-    $("#cat-treeview ul li a").on('click', function() {
-        $(this).toggleClass('active');
-    });
 
     /*----------------------------
      color filter active
@@ -245,27 +195,6 @@ Version: 1.0
     $('.size-filter li a').on('click', function() {
         $(this).toggleClass('active');
     });
-	
-	/*----------------------------
-     cart-plus-minus-button
-    ------------------------------ */
-    $(".cart-plus-minus")
-    $(".qtybutton").on("click", function() {
-        var $button = $(this);
-        var oldValue = $button.parent().find("input").val();
-        if ($button.text() == "+") {
-            var newVal = parseFloat(oldValue) + 1;
-        } else {
-            // Don't allow decrementing below zero
-            if (oldValue > 0) {
-                var newVal = parseFloat(oldValue) - 1;
-            } else {
-                newVal = 0;
-            }
-        }
-        $button.parent().find("input").val(newVal);
-    });
-	
 	
 	
 	$('.acc-toggle').on('click', function(){

@@ -14,7 +14,7 @@ class DemoSiteFieldRow extends FormRow
 	    $formElement = '';
 	    $element->setLabelOption('class', 'control-label');
 	    
-	    if ($element->getAttribute('name') == 'm_v_quantity')
+	    if ($element->getAttribute('name') == 'm_variant_quantity')
 	    {
 	        $element->setAttribute('class', 'cart-plus-minus-box');
 	        $label = $element->getLabel();
@@ -29,7 +29,7 @@ class DemoSiteFieldRow extends FormRow
                                 </div>
                             </div>';
 	    }
-	    elseif ($element->getAttribute('name') == 'm_c_message')
+	    elseif ($element->getAttribute('name') == 'm_om_message')
 	    {
 	        $element->setAttribute('class', 'area-tex');
 	        $label = $element->getLabel();
@@ -40,6 +40,13 @@ class DemoSiteFieldRow extends FormRow
                                </div>
                            </div>';	        
 	    }
+        elseif ($element->getAttribute('name') == 'm_box_product_search')
+        {
+            $formElement .= '<div class="input-box"> 
+                                 '.parent::render($element, $labelPosition).'
+                                 <button id="catalogueSearch" class="src-btn sb-2"><i class="fa fa-search"></i></button>
+                             </div>';
+        }
 	    elseif($element->getAttribute('type') == self::SELECT_FACTORY)
 	    {
 	        // render to bootstrap select element

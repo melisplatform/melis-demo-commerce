@@ -28,7 +28,13 @@ class ComLogoutController extends MelisSiteActionController
         
         // Clearing checkout sessions
         $container = new Container('meliscommerce');
-        unset($container['checkout'][$siteId]);
+        if (!empty($container['checkout']))
+        {
+            if (!empty($container['checkout'][$siteId]))
+            {
+                unset($container['checkout'][$siteId]);
+            }
+        }
         
         /**
          * Getting the Logout redirect page id from site config
@@ -40,6 +46,6 @@ class ComLogoutController extends MelisSiteActionController
         // Generating the Redirect link using MelisEngineTree Service
         $melisTree = $this->getServiceLocator()->get('MelisEngineTree');
         $redirect_link = $melisTree->getPageLink($logoutRedirectPageId, true);
-        $this->redirect()->toUrl($redirect_link);
+        return $this->redirect()->toUrl($redirect_link);
     }
 }

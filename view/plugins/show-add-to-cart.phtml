@@ -1,5 +1,4 @@
 <div class="add-to-cart-zone">
-
     <div class="alert alert-danger <?= (!$this->errors) ? 'hidden' : '' ?>">
     	<?php foreach ($this->errors As $err):?>
         	<?php foreach ($err As $subErr):?>
@@ -12,7 +11,7 @@
     	<p>Product has been added to your cart</p>
     </div>
         
-    <div class="add-to-cart-quantity-zone <?= ($this->errors) ? 'hidden' : '' ?>">
+    <div class="add-to-cart-quantity-zone">
         <div class="quantity-area">
             <div class="row">
                 <div class="col-xs-5 col-sm-4">
@@ -32,18 +31,9 @@
                 </div>
             </div>
         </div>
-        
         <div class="row">
             <div class="col-xs-7 col-xs-push-5 col-sm-8 col-sm-push-4">
-
                 <a href="#" class="btn-add-cart add-cart add-cart-text" id="add-to-cart" data-placement="left" tabindex="0">Add To Cart<i class="fa fa-cart-plus"></i></a>
-<!--                 <div class="social-icon socile-icon-style-1">
-    <ul>
-        <li>
-            <a href="#" class="add-cart add-cart-text" id="add-to-cart" data-placement="left" tabindex="0">Add To Cart<i class="fa fa-cart-plus"></i></a>
-        </li>
-    </ul>
-</div> -->
             </div>
         </div>
     </div>

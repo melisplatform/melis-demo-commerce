@@ -22,68 +22,41 @@
             <div class="col-md-3 col-sm-4 col-xs-12">
                 <div class="row">
                     <div class="shop-sidebar">
-                       <!--single aside start-->
-                        <aside class="single-aside search-aside search-box">
-                            <form action="#" id="catalogueSearchForm">
-                                <div class="input-box">
-                                <?php $searchValue = !empty($this->layout()->queryParameters['m_box_filter_search'])? $this->layout()->queryParameters['m_box_filter_search'] : ''; ?>
-                                    <input name="m_box_filter_search" class="single-input" placeholder="Search...." type="text" value="<?= $searchValue ?>">
-                                    <button id="catalogueSearch" class="src-btn sb-2"><i class="fa fa-search"></i></button>
-                                </div>
-                            </form>
-                         </aside>
-                        <!--single aside end-->
+                        <!--Search box start-->
+                        <?php echo $this->searchBox ?>
+                        <!--Search box end-->
                         
-                        <!--single aside start-->
+                        <!--Category list start-->
                         <?php echo $this->categoryListFilter ?>
-                        <!--single aside end-->
+                        <!--Category list end-->
                         
-                        <!--single aside start-->
+                        <!--Price filter start-->
                         <?php echo $this->priceFilter ?>
-                        <!--single aside end-->
+                        <!--Price filter end-->
                         
-                        <!--single aside start-->
+                        <!--Color attribute start-->
                         <?php echo $this->colorAttributeFilter ?>
-                        <!--single aside end-->
+                        <!--Color attribute end-->
                         
-                        <!--single aside start-->
+                        <!--Size attribute start-->
                         <?php echo $this->sizeAttributeFilter ?>
-                        <!--single aside end-->
+                        <!--Size attribute end-->
                         
-                        <!--single aside start-->
-                        <!--  
-                        <aside class="single-aside tag-aside">
-                            <div class="heading-title aside-title pos-rltv">
-                                <h5 class="uppercase">Product Tags</h5> 
-                            </div>
-                            <ul class="tag-filter mt-30">
-                                <li><a href="#">Fashion</a></li>
-                                <li><a href="#">Women</a></li>
-                                <li><a href="#">Winter</a></li>
-                                <li><a href="#">Street Style</a></li>
-                                <li><a href="#">Style</a></li>
-                                <li><a href="#">Shop</a></li>
-                                <li><a href="#">Collection</a></li>
-                                <li><a href="#">Spring 2016</a></li>
-                            </ul>
-                        </aside>
-                        -->
-                        <!--single aside end-->
-                        
-                        <!--single aside start-->
+                        <!--Filter button start-->
                         <aside class="single-aside tag-aside">
                             <button class="btn btn-danger btn-block" id="catalogueFilter">Filter</button>
                         </aside>
-                        <!--single aside end-->
-                        
+                        <!--Filter button end-->
                     </div>
                 </div>
             </div>
             <!--shop sidebar end-->
             
-            <!--main-shop-product start-->
-        	<?php echo $this->categoryProductList ?>
-            <!--main-shop-product end-->
+            <!--Product list start-->
+            <div class="col-md-9 col-sm-8 col-xs-12">
+        		<?php echo $this->categoryProductList ?>
+        	</div>
+            <!--Product list end-->
         </div>
     </div>
 </div>

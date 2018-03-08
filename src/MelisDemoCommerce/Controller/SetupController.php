@@ -470,32 +470,18 @@ class SetupController extends MelisSiteActionController
     {
         $container = new Container('MelisDemoCommerceSetup');
         $newsTbl = $this->getServiceLocator()->get('MelisCmsNewsTable');
-        $newsTxtTbl = $this->getServiceLocator()->get('MelisCmsNewsTextsTable');
     
         $ctr = 0;
         $monthCtr = 0;
         foreach ($news As $val)
         {
-            $val['cnews_status'] = 1;
+            $val['cnews_creation_date'] = date('Y-m-d H:i:s', strtotime(' - '.$monthCtr.' month'));
             $val['cnews_publish_date'] = date('Y-m-d H:i:s', strtotime(' - '.$monthCtr.' month'));
+            $val['cnews_unpublish_date'] = date('Y-m-d H:i:s', strtotime(' + '.$monthCtr.' month'));;
             $val['cnews_site_id'] = $container['MelisDemoCommerceSetup']['siteId'];
+            $this->saveData($newsTbl, $val);
             
-            $newsText = array();
-            if (isset($val['cnews_texts']))
-            {
-                $newsText = $val['cnews_texts'];
-                unset($val['cnews_texts']);
-            }
-            
-            $newId = $this->saveData($newsTbl, $val);
-            
-            // insert text data
-            $newsText['cnews_id'] = $newId;
-            $newsText['cnews_lang_id'] = 1;
-            $this->saveData($newsTxtTbl, $newsText);
-            
-            if (++$ctr == 4) 
-            {
+            if (++$ctr == 4) {
                 $ctr = 0;
                 $monthCtr++;
             }

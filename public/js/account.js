@@ -1,21 +1,19 @@
 $(function(){
-
-	$("#save-profile, #save-delivery-address, #save-billing-address").click(function(){
-		var form = $(this).data("form");
-		var type = $(this).data("type");
+	
+	/**
+	 * User Profile
+	 */
+	$("#save-profile").click(function(){
+		var form = "account-profile-form";
 		// Hidding all alerts
 		$("#"+form+"-messages .alert").addClass("hidden");
 		
 		// convert the serialized form values into an array
 		var datastring = $("form#"+form).serializeArray();
-		if(datastring[0].name === "sel-delivery-address") {
-            datastring.splice(0, 1);
-		}
-		// serialize the new array and send it to server
-		datastring = $.param(datastring);
+		
 		$.ajax({
 			type        : 'POST', 
-	        url         : '/MelisDemoCommerce/ComMyAccount/submit?form-type='+type,
+	        url         : '/MelisDemoCommerce/ComMyAccount/saveProfile',
 	        data        : datastring,
 	        dataType    : 'json',
 	        encode		: true
@@ -24,15 +22,11 @@ $(function(){
 				// Showing the Success result for submitting form
 				$("#"+form+"-messages .alert-success").removeClass("hidden");
 				
+				// Reseting the password fields to empty after update
+				$("#"+form+" input[type='password']").val('');
 				
-				if(type === 'profile'){
-					// Reseting the password fields to empty after update
-					$("#"+form+" input[type='password']").val('');
-					// Updating the Header user name if profile updated
-					updateUserHeaderName();
-				}
-				else {
-					location.reload();
+				if(data.personName){
+					$("#person-name").text(data.personName);
 				}
 			}else{
 				// Showing the Error result for submitting form
@@ -41,91 +35,239 @@ $(function(){
 			// Adding/removing Highlight the input fields that has an error using the custom helper
 			forms.checkForm("#"+form, data.errors);
 		});
-		
 	});
 	
-	function updateUserHeaderName()
-	{
+	/**
+	 * User Addresses
+	 */
+	$("#select_delivery_addresses, #select_billing_addresses").on("change", function(e){
+		
+		var type = $(this).data("type");
+        // Clearing all error messages of the form
+		forms.clearDangerStatus("#"+type+"-address-form");
+		// Hidding all alerts
+		$("#"+type+"-address-form-messages .alert").addClass("hidden");
+		
+		// Clearing all fields of the form
+		$("#"+type+"-address-form input:not([name='"+type+"_address_save_submit']), #"+type+"-address-form fieldset select").val("");
+		
+		if($(this).val() === "new_address"){
+			// hidding Delete button
+			$(".delete-address[data-type='"+type+"']").hide();
+		}else{
+			$("#select_"+type+"_address").trigger("submit");
+		}
+		
+		e.preventDefault();
+	});
+	
+	$("#select_delivery_address,#select_billing_address").on("submit", function(e) {
+        var dataString = $(this).serializeArray();
+        
+        var type = $(this).data("type");
+        forms.suspendSubmit("#"+type+"-address-form");
+        dataString.push({
+			name : "type",
+			value : type
+		});
+        
+        $.ajax({
+            type: 'POST',
+            url: '/MelisDemoCommerce/ComMyAccount/getAddress',
+            data: dataString,
+            dataType: 'json',
+            encode: true,
+        }).success(function(data) {
+            $.each(data.formData, function(index, value){
+				if($("form#"+type+"-address-form [name='"+index+"']").length){
+					$("form#"+type+"-address-form [name='"+index+"']").val(value);
+				}
+			});
+            
+            // Showing Delete button
+			$(".delete-address[data-type='"+type+"']").show();
+        }).error(function(err) {
+            console.log(err);
+        });
+        
+	    e.preventDefault();
+    });
+	
+	$(".save-address").on("click", function(){
+		var type = $(this).data("type");
+		$("form#"+type+"-address-form").trigger("submit");
+	});
+	
+	$("form#delivery-address-form, form#billing-address-form").on("submit", function(e) {
+		var dataString = $(this).serializeArray();
+		
+		var type = $(this).data("type");
+		dataString.push({
+			name : "type",
+			value : type
+		});
+		
+		// Hidding all alerts
+		$("#"+type+"-address-form-messages .alert").addClass("hidden");
+		
 		$.ajax({
-			type        : 'GET', 
-	        url         : '/MelisDemoCommerce/ComMyAccount/getUserName',
+			type        : 'POST', 
+	        url         : '/MelisDemoCommerce/ComMyAccount/submitAddress',
+	        data        : dataString,
 	        dataType    : 'json',
 	        encode		: true
 		}).success(function(data){
-			if(data.personName != null){
-				$("#person-name").text(data.personName);
+			if(data.success){
+				// Showing the Success result for submitting form
+				$("#"+type+"-address-form-messages .alert-success").removeClass("hidden");
+				$("#"+type+"-address-form-messages .alert-success span").text(data.message);
+				// Refreshing select options
+				$("#select_"+type+"_addresses option").remove();
+				$.each(data.selectAddresses, function(index, value){
+					$("#select_"+type+"_addresses").append($('<option>', { 
+				        value: index,
+				        text : value 
+				    }));
+				});
+				// Selecting the new added address
+				$("#select_"+type+"_addresses").val(data.selectedId);
+				// Set value to address id on the form
+				$("#"+type+"-address-form").find("input[name='cadd_id']").val(data.selectedId);
+				
+				// Showing Delete button
+				$(".delete-address[data-type='"+type+"']").show();
+			}else{
+				// Showing the Error result for submitting form
+				$("#"+type+"-address-form-messages .alert-danger").removeClass("hidden");
 			}
+			
+			// Adding/removing Highlight the input fields that has an error using the custom helper
+			forms.checkForm("#delivery-address-form", data.errors);
 		});
-	}
-
-    $("select[data-selectaddress='select-address']").change(function() {
-    	$(this).next("ul").remove();
-        var id = $(this).val();
-        var name = $(this).attr("name");
-        var form = $(this).parents("form").attr("id");
-        
-        $("#"+form+" input:not([type='hidden']), #"+form+" fieldset select:not([name='"+name+"'])").val("");
-        
-		forms.clearDangerStatus(form);
 		
-        if(id === "new_address") {
-            // $(form)[0].reset() is not working, trying alternatives below
-            $("#"+form + " input[type='text'], #" + form + " input[name='cadd_id']").attr("value", "");
-            // hide delete address button
-			$("button.delete-address").hide();
-        }
-        else {
-        	// show delete address button
-            $("button.delete-address").show();
-            // call an ajax event to render values
-            id = parseInt(id);
-            $.ajax({
-                type : 'POST',
-                url  : '/MelisDemoCommerce/ComMyAccount/getAddress',
-                data : {id : id},
-                dataType : 'json',
-                encode : true
-            }).success(function(data) {
-                if(data.success) {
-                    $("#" + form + " input[type='text'], #" + form + " input[name='cadd_id']").attr("value", "");
-                    $.each(data.address, function(index, value){
-    					if($("#"+form+" [name='"+index+"']").length){
-    						$("#"+form+" [name='"+index+"']").val(value);
-    					}
-    				});
-                }
-            }).fail(function(error) {
-				console.log(error);
-            });
-        }
-    });
-
+		e.preventDefault();
+	});
+	
 	$("button.delete-address").click(function() {
-		var form = "form#" + $(this).parents("form").attr("id");
-		var id   = $(form + " input[name='cadd_id']").val();
-		if(id) {
-            $(this).attr("disabled", "disabled");
+		
+		var btn = $(this);
+		
+		var type = $(this).data("type");
+		
+		var dataString = $("#select_"+type+"_address").serializeArray();
+		
+		var cadd_id   = $("#"+type+"-address-form").find("input[name='cadd_id']").val();
+		dataString.push({
+			name : "cadd_id",
+			value : cadd_id,
+		});
+		
+		
+		dataString.push({
+			name : "type",
+			value : type,
+		});
+		
+		dataString.push({
+			name : type+"_address_delete_submit",
+			value : true,
+		});
+		
+		// Hidding all alerts
+		$("#"+type+"-address-form-messages .alert").addClass("hidden");
+		
+		if(cadd_id) {
+			btn.attr("disabled", true);
             $.ajax({
                 type: 'POST',
-                url :  '/MelisDemoCommerce/ComMyAccount/deleteAddress',
-                data: {id : id},
+                url :  '/MelisDemoCommerce/ComMyAccount/submitAddress',
+                data: dataString,
                 dataType : 'json',
                 encode: true
             }).success(function(data) {
                 if(data.success) {
-                    location.reload();
+                	// Showing the Success result for submitting form
+    				$("#"+type+"-address-form-messages .alert-success").removeClass("hidden");
+    				$("#"+type+"-address-form-messages .alert-success span").text(data.message);
+    				// Refreshing select options
+    				$("#select_"+type+"_addresses option").remove();
+    				$.each(data.selectAddresses, function(index, value){
+    					$("#select_"+type+"_addresses").append($('<option>', { 
+    				        value: index,
+    				        text : value 
+    				    }));
+    				});
+    				// Selecting the new added address
+    				$("#select_"+type+"_addresses").val(data.selectedId);
+    				// Set value to address id on the form
+    				$("#"+type+"-address-form").find("input[name='cadd_id']").val(data.selectedId);
+    				
+    				// Clearing all fields of the form
+    				$("#"+type+"-address-form input:not([name='"+type+"_address_save_submit']), #"+type+"-address-form fieldset select").val("");
+    				
+					$.each(data.formData, function(index, value){
+    					if($("form#"+type+"-address-form [name='"+index+"']").length){
+    						$("form#"+type+"-address-form [name='"+index+"']").val(value);
+    					}
+    				});
+					
+					if(data.showDeleteButton){
+						btn.show();
+					}else{
+						btn.hide();
+					}
                 }
-                else {
-                    // --> prompt error message
-                }
+                btn.attr("disabled", false);
             }).fail(function(error) {
                 console.log(error);
+                btn.attr("disabled", false);
             });
         }
 	});
 
-    setTimeout(function() {
-        $("select#sel-delivery-address").trigger("change");
-    },500);
+	//order history plugin
+    $('body').on('click','.order-history a', function(){
+        if(!$(this).hasClass("disabled")){
+            var obj = {};
+            obj.order_history_current = $(this).attr('data-page-number');
 
+            var dataString = $.param(obj);
+
+            $.ajax({
+                type        : 'POST',
+                url         : '/MelisDemoCommerce/ComMyAccount/orderHistoryPaginationRenderer',
+                data        : dataString,
+                dataType    : 'json',
+                encode		: true
+            }).success(function(data){
+                if(data.orderHistory !== ''){
+                    // Reloading header cart with new content
+                    $("#order-history").html(data.orderHistory);
+                }
+            });
+        }
+    });
+
+    //cart plugin
+    $('body').on('click','.cart-pagination a', function(){
+        if(!$(this).hasClass("disabled")){
+            var obj = {};
+            obj.cart_current = $(this).attr('data-page-number');
+
+            var dataString = $.param(obj);
+
+            $.ajax({
+                type        : 'POST',
+                url         : '/MelisDemoCommerce/ComMyAccount/cartPaginationRenderer',
+                data        : dataString,
+                dataType    : 'json',
+                encode		: true
+            }).success(function(data){
+                if(data.cart !== ''){
+                    // Reloading header cart with new content
+                    $("#my-cart").html(data.cart);
+                }
+            });
+        }
+    });
 });

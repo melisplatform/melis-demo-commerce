@@ -99,7 +99,7 @@
                                     <ul>
                                         <li>
                                             <div class="header-cart">
-                                            <?php echo $this->cartMenu ?> 
+                                            <?php echo $this->menuCart ?>
                                             </div>
                                         </li>
                                     </ul>
@@ -298,7 +298,7 @@
             // Temporary default template resources
             $this->inlineScript()->appendFile($this->basePath('/MelisCommerce/plugins/js/checkout.js'));
             $this->inlineScript()->appendFile($this->basePath('/MelisDemoCommerce/js/remove-cart.js'));
-            
+
             // Render Page JS from Controller Action of the page
             if (is_array($this->pageJs)){
                 for ($i = 0 ; $i < count($this->pageJs); $i++){

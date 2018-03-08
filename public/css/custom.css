@@ -893,6 +893,8 @@ input {
 }
 .cart-content-wraper {
     z-index: 1111111;
+    max-height: 350px;
+    overflow-y: auto;
 }
 
 @media (min-width: 480px){
@@ -1046,6 +1048,28 @@ input {
     }
 
 }
+
+/**
+ * Add to cart
+ */
+
+.qtybutton.disable-qtybutton{
+   	background: #bbb8b8;
+    color: #fff;
+    border: #464646;
+    cursor: no-drop;
+}
+.cart-plus-minus-box.disable-cart-plus-minus-box{
+   	cursor: no-drop;
+    background: #e8e8e8;
+}
+.btn-add-cart.disable-btn-add-cart, 
+.btn-add-cart.disable-btn-add-cart .fa{
+   	background: #bbb8b8;
+    color: #fff;
+    border: #464646;
+    cursor: no-drop;
+ }
 
 @media (max-width: 991px) and (min-width: 768px) {
     .dec.qtybutton, .inc.qtybutton {

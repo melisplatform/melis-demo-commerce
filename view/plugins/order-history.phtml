@@ -1,8 +1,6 @@
 <?php 
 $orderDetailsPage = $this->MelisLink($this->layout()->siteDatas['order_details_page_id'], false);
 ?>
-    
-
 <div class="p-checkarea">
 	<div class="table-div">
         <div class="thead clearfix">
@@ -15,28 +13,32 @@ $orderDetailsPage = $this->MelisLink($this->layout()->siteDatas['order_details_p
             </div>
         </div>
         <div class="table-body">
-    <?php 
-    if(!empty($this->orders)) {
-    foreach($this->orders as $order):?>
-            <div class="table-row">
-                <a class="wrap-link" href="<?= $orderDetailsPage.'?'.http_build_query(array('m_c_order'=>$order['id'])); ?>"></a>
-                <div class="table-cell date"><?= date("m/d/Y " ,strtotime($order['date'])) ?></div>
-                <div class="table-cell ref ref-num"><?= $order['reference'] ?></div>
-                <div class="table-cell text-center"><?= $order['status'] ?></div>
-                <div class="table-cell items text-center"><?= $order['itemCount'] ?></div>
-                <div class="table-cell"><?= $order['currency'].number_format($order['total'], 2) ?></div>
-            </div>
-    <?php endforeach;?>
-    <?php }else{ ?>
-        <div class="text-center">
-            <span><em>No recent orders</em></span>
-        </div>
-    <?php }?>
+            <?php
+            if($this->hasData) {
+            foreach($this->orders as $order) { ?>
+                    <div class="table-row">
+                        <a class="wrap-link" href="<?= $orderDetailsPage.'?'.http_build_query(array('m_order_id'=>$order['id'])); ?>"></a>
+                        <div class="table-cell date"><?= date("m/d/Y " ,strtotime($order['date'])) ?></div>
+                        <div class="table-cell ref ref-num"><?= $order['reference'] ?></div>
+                        <div class="table-cell text-center"><?= $order['status'] ?></div>
+                        <div class="table-cell items text-center"><?= $order['itemCount'] ?></div>
+                        <div class="table-cell"><?= $order['currency'].number_format($order['total'], 2) ?></div>
+                    </div>
+            <?php } ?>
+            <!--pagination start-->
+            <?php
+            echo $this->paginationcontrol(
+                $this->orders,
+                'Sliding',
+                'MelisDemoCommerce/plugin/order-history-paginator',
+                array('orderHistoryBeforeAfter' => $this->orderHistoryBeforeAfter)
+            );
+            ?>
+            <?php }else{ ?>
+                <div class="text-center">
+                    <span>No recent orders</span>
+                </div>
+            <?php }?>
     	</div>
     </div>
-    <br>
-    <br>
-    <br>
-    
-    
 </div>

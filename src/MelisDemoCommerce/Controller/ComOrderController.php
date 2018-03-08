@@ -22,15 +22,19 @@ class ComOrderController extends BaseController
         $siteConfig = $this->getServiceLocator()->get('config');
         $siteConfig = $siteConfig['site']['MelisDemoCommerce'];
         $siteDatas = $siteConfig['datas'];
-        $dummyData = array();
+        
         $orderPlugin = $this->MelisCommerceOrderPlugin();
         $orderParameter = array(
-            'template_path' => 'MelisDemoCommerce/show-order-details',
-            'm_basket_image' => $siteDatas['image_preview'],
-            'm_image_src' =>  $siteDatas['image_src'],
-            'address_template_path' => 'MelisDemoCommerce/show-order-addresses',
-            'shipping_template_path' => 'MelisDemocommerce/show-shipping-details',
-            'message_template_path' => 'MelisDemocommerce/show-order-messages',
+            'template_path' => 'MelisDemoCommerce/order-details',
+            'order_address_parameters' => array(
+                'template_path' => 'MelisDemoCommerce/order-addresses'
+            ),
+            'order_shipping_details_parameters' => array(
+                'template_path' => 'MelisDemocommerce/order-shipping-details'
+            ),
+            'order_messages_parameters' => array(
+                'template_path' => 'MelisDemocommerce/order-messages'
+            ),
         );
         $this->view->addChild($orderPlugin->render($orderParameter), 'showOrderDetails');
         
@@ -41,13 +45,7 @@ class ComOrderController extends BaseController
             ),
         ));
         
-        // add dummy data for Back Office viewing
-        if($this->renderMode == 'melis'){
-           $dummyData = (!empty($siteDatas['dummy_order_details']) ? $siteDatas['dummy_order_details'] : '');
-        }
-        
         $this->view->setVariable('idPage', $this->idPage);
-        $this->layout()->setVariable('dummyOrder', $dummyData);
         return $this->view;
     }
     

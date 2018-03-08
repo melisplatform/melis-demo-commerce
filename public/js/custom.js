@@ -48,24 +48,35 @@ var melisCommerceDemo = (function(window) {
 		var urlVars = getUrlVars();
 		// categories ID
 		$('#cat-treeview .active').each(function(){
-			dataString.push({ name : 'm_box_filter_categories_ids_selected[]', value : $(this).closest('li').data('catid')});
+			dataString.push({ 
+				name : 'm_box_category_tree_ids_selected[]', 
+				value : $(this).closest('li').data('catid')
+			});
 		})
 		
 		var priceRange = $('#slider-range');
 		if(priceRange.data('defaultmin') != priceRange.slider("values")[0] || priceRange.data('defaultmax') != priceRange.slider("values")[1]){
 			// price min
-			dataString.push({ name : 'm_box_filter_price_min', value : $("#slider-range").slider("values")[0]});
+			dataString.push({ 
+				name : 'm_box_product_price_min',
+				value : $("#slider-range").slider("values")[0]
+			});
 			
 			// price max
-			dataString.push({ name : 'm_box_filter_price_max', value : $("#slider-range").slider("values")[1]});
+			dataString.push({ 
+				name : 'm_box_product_price_max',
+				value : $("#slider-range").slider("values")[1]
+			});
 		}
 		
-		// selected attribute
+		// Selected attribute
 		attributes.each(function(){
 			var attribute = $(this);
 			attribute.find('.active').each(function(){
-				var attributeId = attribute.attr('id');
-				dataString.push({ name : 'm_box_filter_attribute_values_ids_selected['+attributeId+'][]', value : $(this).closest('li').data('attributeid') });
+				dataString.push({ 
+					name : 'm_box_product_attribute_values_ids_selected[]',
+					value : $(this).closest('li').data('attributeid') 
+				});
 			});
 		});
 		
@@ -76,12 +87,15 @@ var melisCommerceDemo = (function(window) {
 			dataString.push({ name : 'm_order', value : sortValue[1]});
 		}
 		
-		var limiting = urlVars['m_pag_nb_per_page'] || false;
+		var limiting = urlVars['m_page_nb_per_page'] || false;
 		
 		if($("#input-limit").hasClass('activated') || limiting){
-			dataString.push({ name : 'm_pag_nb_per_page', value : $("#input-limit option:selected").val()});
+			dataString.push({ 
+				name : 'm_page_nb_per_page',
+				value : $("#input-limit option:selected").val()
+			});
 		}
-		
+
 		$.each( dataString, function( key, e ) {
 			$('<input>').attr({
 			    type: 'hidden',

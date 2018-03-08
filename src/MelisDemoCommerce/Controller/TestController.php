@@ -11,7 +11,7 @@ namespace MelisDemoCommerce\Controller;
 
 use MelisFront\Controller\MelisSiteActionController;
 use Zend\View\Model\JsonModel;
-use Zend\Session\Container;
+// use Zend\Session\Container;
 // use Zend\Session\SessionManager;
 // use Zend\Crypt\Key\Derivation\Pbkdf2;
 // use Zend\Session\Container;
@@ -20,24 +20,83 @@ use Zend\Session\Container;
 class TestController extends MelisSiteActionController
 {
     public function testAction()
-    {   
-        $container = new Container('meliscommerce');
+    {
+        $tmp = array('1.2' => '2', '1.1' => '1', '1.3' => '3');
+        
+        print_r($tmp);
+        ksort($tmp);
+        print_r($tmp);
+        
+        die();
+        
+        $catSrv = $this->getServiceLocator()->get('MelisComCategoryService');
+        
+//         $cats = $catSrv->getCategoryListById(-1, 2, true);
+//         $cats = $catSrv->getCategoryListByIdRecursive(2, 2, $onlyValid = false, null, null);
+
+//         $cats = $catSrv->getCategoryById(2, 2);
+
+        $prdSrv = $this->getServiceLocator()->get('MelisComProductService');
+        $prds = $prdSrv->getProductList();//$langId = null, $categoryId = array(), $countryId = null,$onlyValid = null, $start = 0, $limit = null, $search = '', $order = 'ASC', $orderColumn = 'prd_id')
+//         $prds = $prdSrv->getProductById(1, 1);//, $langId = null, $countryId = null, $docType = null, $docSubType = array())
         
         echo '<pre>';
-        print_r($container['checkout']);
-//         $this->category();
-//         $this->attributesTypes();
-//         $this->attributes();
-//         $this->textTypes();
-//         $this->products();
-//         $this->variants();
-//         $this->clients();
-//         $this->coupon();
+        print_r($prds);
         echo '</pre>';
         
-        return new JsonModel(array());
+        // Get Cureent User ID
+//         $melisCoreAuth = $this->getServiceLocator()->get('MelisCoreAuth');
+//         $userAuthDatas =  $melisCoreAuth->getStorage()->read();
+        
+//         echo '<pre>';
+//         print_r($userAuthDatas);
+//         echo '</pre>';
+        
+        
+//         $langId = 1;
+//         $countryId = 1;
+//         $onlyValid = true;
+        
+//         $catSrv = $this->getServiceLocator()->get('MelisComCategoryService');
+//         $prdSrv = $this->getServiceLocator()->get('MelisComProductService');
+        
+//         $cats = $catSrv->getCategoriesByIds(array(51, 52, 53), true, 1, 'cat_order');
+        
+//         echo '<pre>';
+//         print_r($cats);
+//         echo '</pre>';
+        
+//         foreach ($cats As $key => $val)
+//         {
+//             $products = $prdSrv->getProductList($langId, array($val->getId()), $countryId, $onlyValid, null, null, null, 'ASC', 'prd_id');
+            
+//             $val->products = $products;
+//         }
+        
+//         echo '<pre>';
+//         print_r($cats);
+//         echo '</pre>';
+        
+//         $melisCommerceCategoryProductListPlugin = $this->MelisCommerceCategoryProductListPlugin();
+//         $categorySliderListParameters = array(
+//             'id' => 'homepageCategoryProductSlider1',
+//             'template_path' => 'MelisDemoCommerce/plugin/category-product-list-sliders',
+//             'm_category_ids' => array(50, 51, 52),
+//             'm_country_id' => 1,
+//             'm_only_valid' => true,
+//             'm_include_sub_category_products' => true,
+//         );
+//         // add generated view to children views for displaying it in the home page view
+//         $tmp = $melisCommerceCategoryProductListPlugin->render($categorySliderListParameters)->getVariables();;
+//         $catPrds = $tmp->categorySliderListProducts;
+        
+        
+//         echo '<pre>';
+//         print_r($catPrds);
+//         echo '</pre>';
+        
+        return new JsonModel();
     }
-    
     public function category($fatherId = -1, $level = 0)
     {
         $catTbl = $this->getServiceLocator()->get('MelisEcomCategoryTable');
@@ -760,7 +819,7 @@ class TestController extends MelisSiteActionController
         /**
          * Generating new arrivals category list
          */
-        $filterMenuProductSearchBoxPluginView = $this->MelisCommerceFilterMenuProductSearchBoxPlugin();
+        $filterMenuProductSearchBoxPluginView = $this->MelisCommerceProductSearchPlugin();
         $filterMenuProductSearchBoxParemeters = array(
             'template_path' => 'MelisDemoCommerce/plugins/new-arrivals-slider',  
         );
@@ -777,7 +836,7 @@ class TestController extends MelisSiteActionController
         /**
          * Generating new arrivals category list
          */
-        $filterMenuCategoryListPluginView = $this->MelisCommerceFilterMenuCategoryListPlugin();
+        $filterMenuCategoryListPluginView = $this->MelisCommerceCategoryTreePlugin();
         $filterMenuCategoryListParameters = array(
             'template_path' => 'MelisDemoCommerce/plugins/new-arrivals-slider',
             'parent_category_id' => 1,
@@ -795,11 +854,11 @@ class TestController extends MelisSiteActionController
         /**
          * Generating new arrivals category list
          */
-        $filterMenuPriceValueBoxPluginView = $this->MelisCommerceFilterMenuPriceValueBoxPlugin();
+        $filterMenuPriceValueBoxPluginView = $this->MelisCommerceProductPriceRangePlugin();
         $filterMenuPriceValueBoxParameters = array(
             'template_path' => 'MelisDemoCommerce/plugins/new-arrivals-slider',
-            'm_box_filter_price_min' => 1,
-            'm_box_filter_price_max' => 50000,
+            'm_box_product_price_min' => 1,
+            'm_box_product_price_max' => 50000,
         );
         
         $pluginView = $filterMenuPriceValueBoxPluginView->render($filterMenuPriceValueBoxParameters)->getVariables();
@@ -814,7 +873,7 @@ class TestController extends MelisSiteActionController
         /**
          * Generating new arrivals category list
          */
-        $filterMenuAttributeValueBoxPluginView = $this->MelisCommerceFilterMenuAttributeValueBoxPlugin();
+        $filterMenuAttributeValueBoxPluginView = $this->MelisCommerceProductAttributePlugin();
         $filterMenuAttributeValueBoxParameters = array(
             'template_path' => 'MelisDemoCommerce/plugins/new-arrivals-slider',
             'attribute_id' => 5,
@@ -853,7 +912,7 @@ class TestController extends MelisSiteActionController
         /**
          * Generating new product show product
          */
-        $productsRelatedPluginView = $this->MelisCommerceProductsRelatedPlugin(); 
+        $productsRelatedPluginView = $this->MelisCommerceRelatedProductsPlugin();
         $productsRelatedParameters = array(
             'template_path' => 'MelisDemoCommerce/plugins/new-arrivals-slider',
             'm_p_id' => 1,

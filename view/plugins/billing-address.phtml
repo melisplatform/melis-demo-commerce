@@ -1,35 +1,41 @@
 <div id="billing-address-form-messages">
     <div class="alert alert-success hidden">
-    	<strong>Success!</strong> Billing address has been successfully saved.
+    	<strong>Success!</strong> <span>Billing address has been successfully saved.</span>
     </div>
     <div class="alert alert-danger hidden">
     	<strong>Error!</strong> An error(s) occured.
     </div>
 </div>
-
 <?php
-if($this->showSelectAddressData) {
-    $selAddrForm = $this->selectAddressForm;
-    $selAddrForm->prepare();
-    $selAddrForm->get('bill_addr_id')->removeAttribute('onchange');
-    echo $this->form()->openTag($selAddrForm);
-    echo $this->formCollection($selAddrForm);
-    echo $this->form()->closeTag();
-}
-?>
-
-<?php
+    /**
+     * Select Billing addresses form
+     */
+    if (!is_null($this->selectBillingAddress))
+    {
+        $form = $this->selectBillingAddress;
+        $form->prepare();
+        $form->get('select_billing_addresses')->setAttribute('onchange', null);
+        $form->get('select_billing_addresses')->setAttribute('data-type', 'billing');
+        $form->setAttribute('data-type', 'billing');
+        echo $this->form()->openTag($form);
+        echo $this->DemoSiteFieldCollection($form);
+        echo $this->form()->closeTag();
+    }
+    
+    /**
+     * Billing address form
+     */
 	$form = $this->billingAddress;
-	$form->setAttribute('id', 'billing-address-form');
 	$form->prepare();
+	$form->setAttribute('id', 'billing-address-form');
+	$form->setAttribute('data-type', 'billing');
 	echo $this->form()->openTag($form); 
     echo $this->DemoSiteFieldCollection($form);
 ?>
-<div class="text-right">
-    <button type="button" class="btn-def btn2 pull-left delete-address"  data-form="billing-address-form" data-type="billing">Delete Billing Address</button>
-    <button type="button" class="btn-def btn2" id="save-billing-address" data-form="billing-address-form" data-type="billing">Save Billing Address</button>
-</div>
-
+    <div class="text-right">
+        <button type="button" class="btn-def btn2 pull-left delete-address" data-type="billing" <?php echo ($this->showDeleteButton) ? '' : 'style="display: none;"'?>>Delete Billing Address</button>
+        <button type="button" class="btn-def btn2 save-address" data-type="billing">Save Billing Address</button>
+    </div>
 <?php
-echo $this->form()->closeTag();
+	echo $this->form()->closeTag();
 ?>

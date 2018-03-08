@@ -26,7 +26,7 @@ class ComLoginController extends BaseController
         $accountPageId = $siteDatas['account_page_id'];
         // Generating the Redirect link using MelisEngineTree Service
         $melisTree = $this->getServiceLocator()->get('MelisEngineTree');
-        $redirect_link = $melisTree->getPageLink($accountPageId, true);
+        $redirect_link = $melisTree->getPageLink($accountPageId);
         
         /**
          * Checking if the user is logged in else
@@ -35,23 +35,13 @@ class ComLoginController extends BaseController
         $melisComAuthSrv = $this->getServiceLocator()->get('MelisComAuthenticationService');
         
         // only redirect if rendering is front
-        if($this->renderMode == 'front'){
+        if($this->renderMode == 'front')
+        {
             if ($melisComAuthSrv->hasIdentity())
             {
                 $this->redirect()->toUrl($redirect_link);
             }
         }
-        
-        /**
-         * Generating Registration form using MelisCommerceRegisterPlugin Plugin
-         */
-        $registration = $this->MelisCommerceRegisterPlugin();
-        $registrationParameters = array(
-            'template_path' => 'MelisDemoCommerce/plugin/registration',
-            'm_redirection_link_ok' => $redirect_link,
-        );
-        // add generated view to children views for displaying it in the contact view
-        $this->view->addChild($registration->render($registrationParameters), 'registration');
         
         /**
          * Generating Login form using MelisCommerceRegisterPlugin Plugin
@@ -64,6 +54,18 @@ class ComLoginController extends BaseController
         );
         // add generated view to children views for displaying it in the contact view
         $this->view->addChild($login->render($loginParameters), 'login');
+        
+        /**
+         * Generating Registration form using MelisCommerceRegisterPlugin Plugin
+         */
+        $registration = $this->MelisCommerceRegisterPlugin();
+        $registrationParameters = array(
+            'template_path' => 'MelisDemoCommerce/plugin/registration',
+            'm_redirection_link_ok' => $redirect_link,
+            'm_autologin' => true,
+        );
+        // add generated view to children views for displaying it in the contact view
+        $this->view->addChild($registration->render($registrationParameters), 'registration');
         
         $this->layout()->setVariables(array(
             'pageJs' => array(
@@ -90,11 +92,10 @@ class ComLoginController extends BaseController
         {
             /**
              * Validating the Registration form by Calling the 
-             * plugin and adding parameter as flag "m_is_submit" to submit the form
+             * plugin and adding Post as parameter
              */
             $registration = $this->MelisCommerceRegisterPlugin();
-            // add generated view to children views for displaying it in the contact view
-            $result = $registration->render(array('m_is_submit' => true))->getVariables();
+            $result = $registration->render(get_object_vars($request->getPost()))->getVariables();
         
             // Retrieving view variable from view
             $status = $result->success;
@@ -124,25 +125,11 @@ class ComLoginController extends BaseController
         if ($request->isPost())
         {
             /**
-             * Getting the Account page id as Page redirected 
-             * after login Authentication success
+             * Validating the Registration form by Calling the
+             * plugin and adding Post as parameter
              */
-            $siteConfig = $this->getServiceLocator()->get('config');
-            $siteConfig = $siteConfig['site']['MelisDemoCommerce'];
-            $siteDatas = $siteConfig['datas'];
-            $accountPageId = $siteDatas['account_page_id'];
-            // Generating the Redirect link using MelisEngineTree Service
-            $melisTree = $this->getServiceLocator()->get('MelisEngineTree');
-            $redirect_link = $melisTree->getPageLink($accountPageId, true);
-            
-            // Adding the custom link after login success
             $login = $this->MelisCommerceLoginPlugin();
-            $loginParameter = array(
-                'm_redirection_link_ok' => $redirect_link,
-                'm_is_submit' => true
-            );
-            // add generated view to children views for displaying it in the contact view
-            $result = $login->render($loginParameter)->getVariables();
+            $result = $login->render(get_object_vars($request->getPost()))->getVariables();
             
             // Retrieving view variable from view
             $message = $result->message;

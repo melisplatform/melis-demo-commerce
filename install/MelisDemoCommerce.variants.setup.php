@@ -22,8 +22,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 11.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -61,8 +61,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 11.50,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -100,8 +100,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 12.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -139,8 +139,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 13.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -178,8 +178,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 88.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -217,8 +217,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 89.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -256,8 +256,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 90.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -295,8 +295,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 91.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -334,8 +334,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 92.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -373,8 +373,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 35.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -412,8 +412,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 35.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -451,8 +451,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 35.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -490,8 +490,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 35.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -529,8 +529,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 35.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -568,8 +568,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 30.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -607,8 +607,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 31.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -646,8 +646,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 32.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -685,8 +685,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 33.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -724,8 +724,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 34.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -763,8 +763,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 79.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -802,8 +802,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 82.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -841,8 +841,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 84.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -880,8 +880,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 86.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -919,8 +919,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 88.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -958,8 +958,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 22.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -997,8 +997,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 22.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -1036,8 +1036,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 22.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -1075,8 +1075,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 22.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -1114,8 +1114,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 22.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -1153,8 +1153,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 72.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -1192,8 +1192,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 73.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -1231,8 +1231,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 74.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -1270,8 +1270,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 75.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -1309,8 +1309,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 76.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -1348,8 +1348,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 88.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -1387,8 +1387,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 89.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -1426,8 +1426,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 90.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -1465,8 +1465,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 91.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -1504,8 +1504,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 57.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -1543,8 +1543,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 58.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -1582,8 +1582,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 59.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -1621,8 +1621,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 60.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -1660,8 +1660,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 62.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -1699,8 +1699,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 135.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -1738,8 +1738,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 136.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -1777,8 +1777,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 137.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -1816,8 +1816,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 140.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -1855,8 +1855,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 141.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -1894,8 +1894,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 180.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -1933,8 +1933,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 182.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -1972,8 +1972,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 184.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -2011,8 +2011,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 186.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -2050,8 +2050,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 188.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -2089,8 +2089,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 225.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -2128,8 +2128,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 225.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -2167,8 +2167,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 227.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -2206,8 +2206,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 229.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -2245,8 +2245,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 235.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -2275,8 +2275,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 500.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -2305,8 +2305,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 300.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -2335,8 +2335,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 900.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -2365,8 +2365,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 700.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -2395,8 +2395,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 200.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -2425,8 +2425,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 930.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -2455,8 +2455,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 750.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -2485,8 +2485,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 550.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -2515,8 +2515,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 490.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -2545,8 +2545,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 990.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -2575,8 +2575,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 320.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -2605,8 +2605,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 170.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -2635,8 +2635,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 290.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -2665,8 +2665,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 320.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -2695,8 +2695,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 450.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -2734,8 +2734,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 175.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -2773,8 +2773,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 175.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -2812,8 +2812,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 175.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -2851,8 +2851,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 145.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -2890,8 +2890,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 135.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -2929,8 +2929,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 149.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -2968,8 +2968,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 80.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -3007,8 +3007,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 80.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -3075,8 +3075,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 89.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -3114,8 +3114,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 95.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -3153,8 +3153,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 96.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -3192,8 +3192,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 97.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -3231,8 +3231,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 65.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -3270,8 +3270,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 68.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -3309,8 +3309,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 66.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -3348,8 +3348,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 35.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -3387,8 +3387,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 34.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -3426,8 +3426,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 36.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -3465,8 +3465,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 33.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -3504,8 +3504,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 39.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -3543,8 +3543,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 38.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -3582,8 +3582,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 37.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -3621,8 +3621,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 27.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -3660,8 +3660,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 26.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -3699,8 +3699,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 25.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -3738,8 +3738,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 45.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -3777,8 +3777,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 46.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -3816,8 +3816,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 46.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -3855,8 +3855,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 44.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -3891,8 +3891,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 225.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -3927,8 +3927,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 220.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -3963,8 +3963,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 220.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -3999,8 +3999,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 228.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -4035,8 +4035,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 230.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -4068,8 +4068,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 225.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -4101,8 +4101,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 225.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -4134,8 +4134,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 230.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -4167,8 +4167,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 230.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -4200,8 +4200,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 230.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -4233,8 +4233,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 230.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -4266,8 +4266,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 225.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -4302,8 +4302,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 280.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -4338,8 +4338,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 270.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -4377,8 +4377,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 35.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -4416,8 +4416,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 36.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -4455,8 +4455,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 37.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -4494,8 +4494,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 34.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -4533,8 +4533,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 35.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -4601,8 +4601,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 32.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -4640,8 +4640,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 35.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -4679,8 +4679,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 46.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -4718,8 +4718,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 45.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -4757,8 +4757,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 45.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -4796,8 +4796,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 48.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -4835,8 +4835,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 32.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -4874,8 +4874,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 31.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -4913,8 +4913,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 33.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -4952,8 +4952,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 32.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -4991,8 +4991,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 39.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -5030,8 +5030,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 38.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -5069,8 +5069,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 40.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -5108,8 +5108,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 39.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -5147,8 +5147,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 38.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -5186,8 +5186,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 28.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -5225,8 +5225,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 29.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -5264,8 +5264,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 29.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -5303,8 +5303,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 27.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -5342,8 +5342,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 19.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -5381,8 +5381,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 18.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -5420,8 +5420,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 19.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -5459,8 +5459,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 20.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -5498,8 +5498,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 33.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -5537,8 +5537,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 34.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -5576,8 +5576,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 35.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -5615,8 +5615,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 36.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -5654,8 +5654,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 35.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -5693,8 +5693,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 27.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -5732,8 +5732,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 28.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -5771,8 +5771,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 29.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -5810,8 +5810,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 29.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -5849,8 +5849,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 27.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -5888,8 +5888,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 28.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -5927,8 +5927,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 27.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -5966,8 +5966,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 28.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -6005,8 +6005,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 35.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -6044,8 +6044,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 36.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -6083,8 +6083,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 37.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -6122,8 +6122,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 38.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -6161,8 +6161,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 25.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -6200,8 +6200,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 26.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -6239,8 +6239,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 26.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -6278,8 +6278,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 27.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -6317,8 +6317,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 32.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -6356,8 +6356,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 33.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -6395,8 +6395,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 34.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -6434,8 +6434,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 35.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -6473,8 +6473,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 120.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -6512,8 +6512,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 122.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -6551,8 +6551,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 122.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -6590,8 +6590,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 122.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -6629,8 +6629,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 123.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -6668,8 +6668,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 175.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -6707,8 +6707,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 176.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -6746,8 +6746,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 176.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -6785,8 +6785,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 177.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -6824,8 +6824,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 158.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -6863,8 +6863,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 159.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -6902,8 +6902,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 159.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -6941,8 +6941,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 159.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -6980,8 +6980,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 195.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -7019,8 +7019,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 198.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -7058,8 +7058,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 199.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -7097,8 +7097,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 199.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -7136,8 +7136,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 99.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -7175,8 +7175,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 99.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -7214,8 +7214,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 98.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -7253,8 +7253,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 98.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -7292,8 +7292,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 110.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -7331,8 +7331,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 112.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -7370,8 +7370,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 112.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -7409,8 +7409,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 115.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -7448,8 +7448,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 250.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -7487,8 +7487,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 250.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -7526,8 +7526,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 255.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -7565,8 +7565,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 255.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -7604,8 +7604,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 79.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -7643,8 +7643,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 79.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -7682,8 +7682,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 80.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -7721,8 +7721,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 80.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -7760,8 +7760,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 65.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -7799,8 +7799,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 67.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -7838,8 +7838,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 68.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -7877,8 +7877,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 69.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -7916,8 +7916,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 105.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -7955,8 +7955,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 106.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -7994,8 +7994,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 107.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -8033,8 +8033,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 65.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -8072,8 +8072,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 66.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -8111,8 +8111,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 66.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -8150,8 +8150,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 67.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -8189,8 +8189,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 97.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -8228,8 +8228,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 98.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -8267,8 +8267,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 98.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -8306,8 +8306,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 99.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -8345,8 +8345,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 32.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -8384,8 +8384,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 33.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -8423,8 +8423,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 34.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -8462,8 +8462,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 35.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -8501,8 +8501,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 85.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -8540,8 +8540,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 86.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -8579,8 +8579,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 87.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -8618,8 +8618,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 88.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -8657,8 +8657,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 125.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -8696,8 +8696,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 126.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -8735,8 +8735,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 127.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -8774,8 +8774,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 128.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -8813,8 +8813,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 45.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -8852,8 +8852,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 46.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -8891,8 +8891,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 47.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -8930,8 +8930,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 48.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -8969,8 +8969,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 56.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -9008,8 +9008,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 57.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -9047,8 +9047,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 58.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -9086,8 +9086,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 59.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -9125,8 +9125,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 36.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -9164,8 +9164,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 37.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -9203,8 +9203,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 38.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -9242,8 +9242,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 39.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -9281,8 +9281,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 66.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -9320,8 +9320,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 67.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -9359,8 +9359,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 68.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -9398,8 +9398,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 69.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -9437,8 +9437,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 51.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -9476,8 +9476,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 52.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -9515,8 +9515,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 53.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -9554,8 +9554,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 54.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -9593,8 +9593,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 45.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -9632,8 +9632,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 46.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -9671,8 +9671,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 47.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -9710,8 +9710,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 48.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -9749,8 +9749,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 71.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -9788,8 +9788,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 72.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -9827,8 +9827,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 73.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -9866,8 +9866,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 75.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -9905,8 +9905,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 56.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -9944,8 +9944,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 57.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -9983,8 +9983,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 58.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -10022,8 +10022,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 59.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -10061,8 +10061,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 90.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -10100,8 +10100,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 91.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -10139,8 +10139,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 92.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -10178,8 +10178,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 94.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -10217,8 +10217,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 70.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -10256,8 +10256,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 71.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -10295,8 +10295,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 73.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -10334,8 +10334,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 73.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -10373,8 +10373,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 32.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -10412,8 +10412,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 33.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -10451,8 +10451,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 34.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -10490,8 +10490,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 34.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -10529,8 +10529,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 90.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -10568,8 +10568,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 91.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -10607,8 +10607,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 92.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -10646,8 +10646,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 94.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -10685,8 +10685,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 57.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -10724,8 +10724,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 58.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -10763,8 +10763,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 58.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -10802,8 +10802,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 59.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -10841,8 +10841,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 120.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -10880,8 +10880,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 121.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -10919,8 +10919,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 122.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -10958,8 +10958,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 123.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -10997,8 +10997,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 45.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -11036,8 +11036,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 46.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -11075,8 +11075,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 47.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -11114,8 +11114,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 47.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -11153,8 +11153,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 37.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -11192,8 +11192,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 38.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -11231,8 +11231,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 38.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -11270,8 +11270,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 39.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -11309,8 +11309,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 180.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -11348,8 +11348,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 181.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -11387,8 +11387,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 182.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -11426,8 +11426,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 184.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -11465,8 +11465,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 110.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -11504,8 +11504,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 111.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -11543,8 +11543,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 112.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -11582,8 +11582,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 113.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -11621,8 +11621,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 114.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -11660,8 +11660,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 50.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -11699,8 +11699,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 51.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -11738,8 +11738,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 52.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -11777,8 +11777,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 53.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -11816,8 +11816,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 55.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -11855,8 +11855,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 65.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -11894,8 +11894,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 66.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -11933,8 +11933,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 67.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -11972,8 +11972,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 68.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -12011,8 +12011,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 69.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -12050,8 +12050,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 40.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -12089,8 +12089,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 41.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -12128,8 +12128,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 42.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -12167,8 +12167,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 43.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -12206,8 +12206,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 45.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -12245,8 +12245,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 75.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -12284,8 +12284,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 76.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -12323,8 +12323,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 77.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -12362,8 +12362,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 78.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -12401,8 +12401,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 79.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -12440,8 +12440,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 80.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -12479,8 +12479,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 81.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -12518,8 +12518,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 82.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -12557,8 +12557,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 83.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -12596,8 +12596,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 84.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -12635,8 +12635,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 90.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -12674,8 +12674,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 91.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -12713,8 +12713,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 92.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -12752,8 +12752,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 93.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -12791,8 +12791,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 94.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -12830,8 +12830,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 110.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -12869,8 +12869,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 111.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -12908,8 +12908,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 112.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -12947,8 +12947,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 113.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -12986,8 +12986,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 114.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -13025,8 +13025,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 75.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -13064,8 +13064,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 76.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -13103,8 +13103,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 77.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -13142,8 +13142,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 78.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -13181,8 +13181,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 79.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -13220,8 +13220,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 145.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -13259,8 +13259,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 146.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -13298,8 +13298,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 147.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -13337,8 +13337,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 148.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -13376,8 +13376,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 149.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -13415,8 +13415,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 150.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -13454,8 +13454,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 151.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -13493,8 +13493,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 152.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -13532,8 +13532,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 153.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -13571,8 +13571,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 154.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -13610,8 +13610,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 60.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -13649,8 +13649,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 61.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -13688,8 +13688,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 63.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -13727,8 +13727,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 64.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -13766,8 +13766,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 65.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -13805,8 +13805,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 55.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -13844,8 +13844,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 56.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -13883,8 +13883,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 57.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -13922,8 +13922,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 57.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -13961,8 +13961,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 58.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -14000,8 +14000,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 40.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -14039,8 +14039,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 41.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -14078,8 +14078,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 42.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -14117,8 +14117,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 43.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -14156,8 +14156,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 44.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -14195,8 +14195,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 30.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -14234,8 +14234,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 31.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -14273,8 +14273,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 32.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -14312,8 +14312,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 33.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -14351,8 +14351,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 35.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -14390,8 +14390,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 45.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -14429,8 +14429,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 46.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -14468,8 +14468,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 47.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -14507,8 +14507,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 48.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -14546,8 +14546,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 49.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -14585,8 +14585,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 60.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -14624,8 +14624,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 61.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -14663,8 +14663,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 62.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -14702,8 +14702,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 64.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -14741,8 +14741,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 64.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -14780,8 +14780,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 90.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -14819,8 +14819,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 91.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -14858,8 +14858,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 92.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -14897,8 +14897,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 93.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -14936,8 +14936,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 94.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -14975,8 +14975,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 45.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -15014,8 +15014,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 46.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -15053,8 +15053,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 47.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -15092,8 +15092,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 48.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -15131,8 +15131,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 48.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -15170,8 +15170,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 55.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -15209,8 +15209,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 56.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -15248,8 +15248,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 57.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -15287,8 +15287,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 57.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -15326,8 +15326,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 58.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -15365,8 +15365,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 95.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -15404,8 +15404,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 96.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -15443,8 +15443,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 97.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -15482,8 +15482,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 97.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -15521,8 +15521,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 98.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -15560,8 +15560,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 70.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -15599,8 +15599,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 71.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -15638,8 +15638,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 72.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -15677,8 +15677,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 73.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -15716,8 +15716,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 74.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -15755,8 +15755,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 80.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -15794,8 +15794,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 81.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -15833,8 +15833,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 82.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -15872,8 +15872,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 83.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -15911,8 +15911,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 84.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -15950,8 +15950,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 35.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -15989,8 +15989,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 36.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -16028,8 +16028,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 37.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -16067,8 +16067,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 38.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -16106,8 +16106,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 39.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -16145,8 +16145,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 100.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -16184,8 +16184,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 101.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -16223,8 +16223,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 102.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -16262,8 +16262,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 103.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -16301,8 +16301,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 104.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -16340,8 +16340,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 75.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -16379,8 +16379,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 76.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -16418,8 +16418,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 77.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -16457,8 +16457,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 78.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -16496,8 +16496,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 79.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -16535,8 +16535,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 60.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -16574,8 +16574,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 61.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -16613,8 +16613,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 62.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -16652,8 +16652,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 63.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -16691,8 +16691,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 64.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -16727,8 +16727,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 40.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -16763,8 +16763,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 40.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -16799,8 +16799,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 41.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -16835,8 +16835,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 42.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -16871,8 +16871,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 42.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -16907,8 +16907,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 42.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -16943,8 +16943,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 43.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -16979,8 +16979,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 44.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -17015,8 +17015,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 44.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -17051,8 +17051,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 100.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -17087,8 +17087,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 100.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -17123,8 +17123,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 101.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -17159,8 +17159,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 101.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -17195,8 +17195,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 102.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -17231,8 +17231,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 102.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -17267,8 +17267,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 103.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -17303,8 +17303,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 103.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -17339,8 +17339,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 104.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -17375,8 +17375,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 40.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -17411,8 +17411,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 40.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -17447,8 +17447,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 41.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -17483,8 +17483,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 41.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -17519,8 +17519,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 42.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -17555,8 +17555,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 42.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -17591,8 +17591,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 43.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -17627,8 +17627,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 43.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -17663,8 +17663,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 44.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -17699,8 +17699,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 155.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -17735,8 +17735,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 155.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -17771,8 +17771,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 156.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -17807,8 +17807,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 156.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -17843,8 +17843,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 157.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -17879,8 +17879,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 157.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -17915,8 +17915,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 157.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -17951,8 +17951,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 158.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -17987,8 +17987,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 158.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -18023,8 +18023,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 75.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -18059,8 +18059,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 70.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -18095,8 +18095,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 71.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -18131,8 +18131,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 72.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -18167,8 +18167,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 72.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -18197,8 +18197,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 72.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -18233,8 +18233,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 73.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -18269,8 +18269,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 73.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -18305,8 +18305,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 74.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -18341,8 +18341,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 50.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -18377,8 +18377,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 50.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -18413,8 +18413,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 51.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -18449,8 +18449,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 51.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -18485,8 +18485,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 52.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -18521,8 +18521,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 53.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -18557,8 +18557,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 54.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -18593,8 +18593,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 54.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -18629,8 +18629,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 54.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -18665,8 +18665,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 95.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -18701,8 +18701,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 95.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -18737,8 +18737,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 96.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -18773,8 +18773,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 96.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -18809,8 +18809,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 97.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -18845,8 +18845,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 97.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -18881,8 +18881,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 97.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -18917,8 +18917,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 98.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -18953,8 +18953,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 98.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -18989,8 +18989,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 60.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -19025,8 +19025,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 60.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -19061,8 +19061,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 61.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -19097,8 +19097,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 61.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -19133,8 +19133,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 62.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -19169,8 +19169,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 62.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -19205,8 +19205,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 63.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -19241,8 +19241,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 64.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -19277,8 +19277,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 64.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -19313,8 +19313,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 80.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -19349,8 +19349,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 80.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -19385,8 +19385,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 81.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -19421,8 +19421,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 81.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -19457,8 +19457,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 82.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -19493,8 +19493,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 82.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -19529,8 +19529,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 83.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -19565,8 +19565,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 83.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -19601,8 +19601,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 84.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -19637,8 +19637,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 45.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -19673,8 +19673,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 45.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -19709,8 +19709,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 46.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -19745,8 +19745,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 46.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -19781,8 +19781,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 47.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -19817,8 +19817,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 46.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -19853,8 +19853,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 47.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -19889,8 +19889,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 47.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -19925,8 +19925,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 47.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -19961,8 +19961,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 120.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -19997,8 +19997,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 120.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -20033,8 +20033,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 121.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -20069,8 +20069,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 121.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -20105,8 +20105,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 122.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -20141,8 +20141,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 122.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -20177,8 +20177,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 122.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -20213,8 +20213,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 123.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -20249,8 +20249,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 123.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -20285,8 +20285,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 110.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -20321,8 +20321,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 110.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -20357,8 +20357,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 111.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -20393,8 +20393,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 111.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -20429,8 +20429,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 112.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -20465,8 +20465,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 112.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -20501,8 +20501,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 112.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -20537,8 +20537,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 113.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -20573,8 +20573,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 114.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -20609,8 +20609,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 75.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -20645,8 +20645,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 75.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -20681,8 +20681,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 76.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -20717,8 +20717,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 76.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -20753,8 +20753,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 77.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -20789,8 +20789,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 78.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -20825,8 +20825,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 78.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -20861,8 +20861,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 79.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -20897,8 +20897,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 79.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -20933,8 +20933,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 55.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -20969,8 +20969,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 55.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -21005,8 +21005,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 56.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -21041,8 +21041,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 56.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -21077,8 +21077,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 56.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -21113,8 +21113,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 57.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -21149,8 +21149,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 58.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -21185,8 +21185,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 58.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -21221,8 +21221,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 59.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -21257,8 +21257,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 40.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -21293,8 +21293,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 40.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -21329,8 +21329,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 41.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -21365,8 +21365,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 41.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -21401,8 +21401,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 42.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -21437,8 +21437,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 42.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -21473,8 +21473,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 43.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -21509,8 +21509,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 43.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -21545,8 +21545,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 43.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -21581,8 +21581,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 75.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -21617,8 +21617,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 76.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -21653,8 +21653,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 76.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -21689,8 +21689,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 77.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -21725,8 +21725,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 77.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -21761,8 +21761,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 78.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -21797,8 +21797,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 78.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -21833,8 +21833,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 79.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -21869,8 +21869,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 79.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -21905,8 +21905,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 93.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -21941,8 +21941,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 93.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -21977,8 +21977,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 93.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -22013,8 +22013,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 94.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -22049,8 +22049,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 94.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -22085,8 +22085,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 94.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -22121,8 +22121,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 95.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -22157,8 +22157,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 96.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -22193,8 +22193,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 95.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -22232,8 +22232,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 35.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -22271,8 +22271,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 36.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',
@@ -22310,8 +22310,8 @@
             'variant_prices' => array(
                 array(
                     'price_prd_id' => '',
-                    'price_country_id' => 0,
-                    'price_currency' => 0,
+                    'price_country_id' => -1,
+                    'price_currency' => -1,
                     'price_net' => 34.00,
                     'price_gross' => '',
                     'price_vat_percent' => '',

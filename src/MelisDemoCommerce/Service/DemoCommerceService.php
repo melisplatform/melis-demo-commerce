@@ -10,6 +10,8 @@
 namespace MelisDemoCommerce\Service;
 
 use MelisCore\Service\MelisCoreGeneralService;
+use Zend\View\Model\JsonModel;
+use Zend\Session\Container;
 
 /**
  * MelisDemoCommerce Services
@@ -234,7 +236,22 @@ class DemoCommerceService extends MelisCoreGeneralService
                                 $subPage['pageType'] = 'Page';
                                 $subPage['pageStat'] = 1;
                                 $label = $this->categorySrv->getCategoryTranslationById($sVal['cat_id'], $langId);
-                                $subPage['label'] = !empty($label->catt_name) ? $label->catt_name : '';
+                                
+                                $catName = null;
+                                if (!empty($label[$langId]))
+                                {
+                                    $catName = $label[$langId]->catt_name;
+                                }
+                                else 
+                                {
+                                    foreach ($label As $cKey => $cnVal)
+                                    {
+                                        $catName = $cnVal->catt_name;
+                                        break;
+                                    }
+                                }
+                                
+                                $subPage['label'] = $catName;
                                 
                                 // Generating Category link using MelisComLinkService
                                 $subPage['uri'] = $this->comLinkSrv->getPageLink('category', $sVal['cat_id'], $langId, false);
@@ -684,5 +701,169 @@ class DemoCommerceService extends MelisCoreGeneralService
             }
         }
         return $breadCrumb;
+    }
+    
+    public function getVariantbyAttributes($productId, $attrSelection, $action)
+    {
+        $container = new Container('melisplugins');
+        $langId = $container['melis-plugins-lang-id'];
+        
+        // Getting the Site config "MelisDemoCommerce.config.php"
+        $siteConfig = $this->getServiceLocator()->get('config');
+        $siteConfig = $siteConfig['site']['MelisDemoCommerce'];
+        $siteDatas = $siteConfig['datas'];
+        $countryId = $siteDatas['site_country_id'];
+        
+        $variant = array();
+        $varPrice = array();
+        $varStock = array();
+        $variantAttr = array();
+        
+        $variantSrv = $this->getServiceLocator()->get('MelisComVariantService');
+        
+        /**
+         * re-initialize attrSelection
+         * This will depend on action, this will initialize to empty the greater value
+         * of the current action
+         * Sample:
+         * Posted
+         * $action = 1;
+         * $attrSelection = array(
+         *    '1' => 2,
+         *    '2' => 3,
+         *    '3' => 4
+         *  );
+         * Result
+         * $attrSelection = array(
+         *    '1' => 2,
+         *    '2' => '',
+         *    '3' => ''
+         *  );
+         *
+         *  The purpose is to select all variant having the first attribute up to last attribut
+         */
+        foreach ($attrSelection As $key => $val)
+        {
+            if ($action < $key)
+            {
+                $attrSelection[$key] = '';
+            }
+        }
+        /**
+         * Retrieving Variant that has common attribute to other variant
+         * with the same Attribute id and attribute value id
+         */
+        $variantsAttr = array();
+        foreach ($attrSelection As $aKey => $aVal)
+        {
+            $temp = $variantSrv->getVariantCommonAttr($productId, $aKey, $aVal);
+            foreach ($temp As $vKey => $vVey)
+            {
+                if (!empty($variantsAttr[$aKey]))
+                {
+                    if (!in_array($vVey->var_id, $variantsAttr[$aKey]))
+                    {
+                        array_push($variantsAttr[$aKey], $vVey->var_id);
+                    }
+                }
+                else
+                {
+                    $variantsAttr[$aKey][] = $vVey->var_id;
+                }
+            }
+        }
+
+        /**
+         * merging results of variants ids
+         * In this case this will only merge that match from other array
+         */
+        $variantsIds = array();
+        foreach ($attrSelection As $key => $val)
+        {
+            if (empty($variantsIds))
+            {
+                $variantsIds = $variantsAttr[$key];
+            }
+            else
+            {
+                $variantsIds = array_intersect($variantsIds, $variantsAttr[$key]);
+            }
+        }
+
+        /**
+         * Retrieving variant the match to the attributes submited
+         */
+        if(!empty($variantsIds)) {
+            $variants = $variantSrv->getVariantsAttrGroupByAttr($variantsIds);
+            foreach ($variants As $val) {
+                if (!isset($variantAttr[$val->attr_id])) {
+                    $variantAttr[$val->attr_id]['selected'] = (int)$attrSelection[$val->attr_id];
+                    $variantAttr[$val->attr_id]['selections'][] = (int)$val->vatv_attribute_value_id;
+                } else {
+                    $variantAttr[$val->attr_id]['selections'][] = (int)$val->vatv_attribute_value_id;
+                }
+            }
+        }
+
+        //if (count(array_filter($attrSelection)) == count($attrSelection))
+        //{
+            if (!empty($variantsIds))
+            {
+                sort($variantsIds);
+                
+                // Getting the Variant from Variant Service Entity
+                $variant = $variantSrv->getVariantById($variantsIds[0], $langId);
+                
+                // Getting the Final Price of the variant
+                $varPrice = $variantSrv->getVariantFinalPrice($variantsIds[0], $countryId);
+
+                if (is_null($varPrice))
+                {
+                    $productSrv = $this->getServiceLocator()->get('MelisComProductService');
+                    // If the variant price not set on variant page this will try to get from the Product Price
+                    $varPrice = $productSrv->getProductFinalPrice($productId, $countryId);
+                }
+                
+                // Getting Variant stock
+                $varStock = $variantSrv->getVariantFinalStocks($variantsIds[0], $countryId);
+                if ($varStock)
+                {
+                    $ecomAuthSrv = $this->getServiceLocator()->get('MelisComAuthenticationService');
+                    $basketSrv = $this->getServiceLocator()->get('MelisComBasketService');
+                    
+                    $clientKey = $ecomAuthSrv->getId();
+                    $clientId = null;
+                    if ($ecomAuthSrv->hasIdentity())
+                    {
+                        $clientId = $ecomAuthSrv->getClientId();
+                        $clientKey = $ecomAuthSrv->getClientKey();
+                    }
+                    
+                    $currentQty = 0;
+                    
+                    $currentBasket = $basketSrv->getBasket($clientId, $clientKey);
+                    if(!empty($currentBasket)){
+                        foreach($currentBasket as $item){
+                            if($item->getVariantId() == $variantsIds[0]){
+                                $currentQty = $item->getQuantity();
+                            }
+                        }
+                    }
+                    $varStock->stock_quantity = $varStock->stock_quantity - $currentQty;
+                    
+                    $countryId = $varStock->stock_country_id;
+                }
+            }
+        //}
+        
+        $result = array(
+            'variant' => ($variant) ? $variant->getVariant() : array(),
+            'countryId' => $countryId,
+            'variant_price' => $varPrice,
+            'variant_attr' => $variantAttr,
+            'variant_stock' => $varStock,
+        );
+        
+        return $result;
     }
 }

@@ -11,6 +11,7 @@ namespace MelisDemoCommerce\Controller;
 
 use MelisDemoCommerce\Controller\BaseController;
 use Zend\View\Model\JsonModel;
+use Zend\Stdlib\ArrayUtils;
 class ComMyAccountController extends BaseController
 {
     public function indexAction()
@@ -27,6 +28,8 @@ class ComMyAccountController extends BaseController
         $melisTree = $this->getServiceLocator()->get('MelisEngineTree');
         $redirect_link = $melisTree->getPageLink($loginPageId, true);
         
+        $countryId = $siteDatas['site_country_id'];
+        
         /**
          * Checking if the user is logged in else
          * this will redirect to login page
@@ -41,27 +44,28 @@ class ComMyAccountController extends BaseController
         }
         
         $clientAccount = $this->MelisCommerceAccountPlugin();
-        $clientProfileParam = array(
+        $clientAccountParam = array(
             'template_path' => 'MelisDemoCommerce/plugin/account',
             'profile_parameter' => array(
                 'template_path' => 'MelisDemoCommerce/plugin/profile'
             ),
-            'delivery_parameter' => array(
+            'delivery_address_parameter' => array(
                 'template_path' => 'MelisDemoCommerce/plugin/delivery-address',
                 'show_select_address_data' => true,
             ),
-            'billing_parameter' => array(
+            'billing_address_parameter' => array(
                 'template_path' => 'MelisDemoCommerce/plugin/billing-address',
                 'show_select_address_data' => true,
             ),
-            'my_cart_parameter' => array(
+            'cart_parameter' => array(
                 'template_path' => 'MelisDemoCommerce/plugin/my-cart',
+                'cart_country_id' => $countryId
             ),
-            'order_history_paremeter' => array(
+            'order_list_paremeter' => array(
                 'template_path' => 'MelisDemoCommerce/plugin/order-history',  
             ),
         );
-        $this->view->addChild($clientAccount->render($clientProfileParam), 'account');
+        $this->view->addChild($clientAccount->render($clientAccountParam), 'account');
         
         $this->layout()->setVariables(array(
             'pageJs' => array(
@@ -74,11 +78,11 @@ class ComMyAccountController extends BaseController
         return $this->view;
     }
     
-    public function submitAction()
+    public function saveProfileAction()
     {
-        // Default Values
         $status  = 0;
         $errors  = array();
+        $personName = '';
          
         $request = $this->getRequest();
         
@@ -86,16 +90,21 @@ class ComMyAccountController extends BaseController
         {
             $formType = $this->params()->fromQuery('form-type');
             
-            $clientAccount = $this->MelisCommerceAccountPlugin();
-            $result = $clientAccount->render()->getVariables();
+            $profilePlugin = $this->MelisCommerceProfilePlugin();
+            $result = $profilePlugin->render(get_object_vars($request->getPost()))->getVariables();
             
-            $temp = $formType.'_variables';
             // Retrieving view variable from view
-            $status = $result->$temp->success;
-            $errors = $result->$temp->errors;
+            $status = $result->success;
+            $errors = $result->errors;
+            
+            if ($status)
+            {
+                $personName = $this->getUserName();
+            }
         }
         
         $response = array(
+            'personName' => $personName,
             'success' => $status,
             'errors' => $errors,
         );
@@ -105,58 +114,164 @@ class ComMyAccountController extends BaseController
 
     public function getAddressAction()
     {
-        $success = 0;
-        $address = [];
+        $formData = array();
         $request = $this->getRequest();
         
-        if($request->isPost()) {
-            $data       = get_object_vars($request->getPost());
-            $addressId  = (int) $data['id'];
+        if($request->isPost())
+        {
+            $post = $request->getPost();
             
-            $accountPlugin = $this->MelisCommerceAccountPlugin();
-            $data = $accountPlugin->getSelectedAddressDetailsAction($addressId);
-            if (!empty($data))
-            {
-                $address = $data;
-                $success = 1;
-            }
+            // Concatinating post type address to create Plugin name
+            $pluginClass = 'MelisCommerce'.ucfirst($post['type']).'AddressPlugin';
+            
+            $addressPlugin = $this->$pluginClass();
+            $param = ArrayUtils::merge(get_object_vars($request->getPost()), array('show_select_address_data' => true));
+            $result = $addressPlugin->render($param);
+            
+            $selAdd = $post['type'].'Address';
+            
+            $result->$selAdd->isvalid();
+            $formData = $result->$selAdd->getData();
+            $formData[$post['type'].'_address_save_submit'] = 1;
         }
         
-        $response = [
-            'success'  => $success,
-            'address'  => $address,
-        ];
+        $response = array(
+            'formData'  => $formData,
+        );
         
         return new JsonModel($response);
     }
 
-    public function deleteAddressAction()
+    public function submitAddressAction()
     {
-        $success = 0;
-        $message = 'Unable to delete address';
+        $status  = 0;
+        $message  = '';
+        $errors  = array();
+        $selectAddresses  = array();
+        $selectedId  = null;
+        $formData = array();
+        $showDeleteButton = false;
+        
         $request = $this->getRequest();
         
         if($request->isPost()) {
-            $data       = get_object_vars($request->getPost());
-            $addressId  = (int) $data['id'];
             
-            $accountPlugin = $this->MelisCommerceAccountPlugin();
-            $success = $accountPlugin->deleteAddressAction($addressId);
+            $post = $request->getPost();
             
-            if($success) {
-                $success = 1;
+            $type = ucfirst($post['type']);
+            
+            // Concatinating post type address to create Plugin name
+            $pluginClass = 'MelisCommerce'.$type.'AddressPlugin';
+            
+            $addressPlugin = $this->$pluginClass();
+            $param = ArrayUtils::merge(get_object_vars($request->getPost()), array('show_select_address_data' => true));
+            $result = $addressPlugin->render($param)->getVariables();
+            
+            $selAdd = 'select'.$type.'Address';
+            $selectAddresses = $result->$selAdd->get('select_'.$post['type'].'_addresses')->getValueOptions();
+            $selectedId = $result->$selAdd->get('select_'.$post['type'].'_addresses')->getValue();
+            
+            if (is_numeric($selectedId))
+            {
+                $addForm = $post['type'].'Address';
+                
+                $result->$addForm->isvalid();
+                $formData = $result->$addForm->getData();
+                $formData[$post['type'].'_address_save_submit'] = 1;
             }
+            $showDeleteButton = $result->showDeleteButton;
+            $status = $result->success;
+            $message = $result->message;
+            $errors = $result->errors;
+            
         }
         
-        $response = [
-            'success'  => $success,
-            'message'  => $message,
-        ];
+        $response = array(
+            'selectedId' => $selectedId,
+            'selectAddresses' => $selectAddresses,
+            'formData' => $formData,
+            'showDeleteButton' => $showDeleteButton,
+            'success' => $status,
+            'message' => $message,
+            'errors' => $errors,
+        );
         
         return new JsonModel($response);
     }
+
+    /**
+     * Function to render the pagination of order history
+     *
+     * @return JsonModel
+     */
+    public function orderHistoryPaginationRendererAction()
+    {
+        $orderHistory = '';
+        $request = $this->getRequest();
+
+        if ($request->isPost())
+        {
+            // Getting the Site config "MelisDemoCommerce.config.php"
+            $siteConfig = $this->getServiceLocator()->get('config');
+            $siteConfig = $siteConfig['site']['MelisDemoCommerce'];
+            $siteDatas = $siteConfig['datas'];
+
+            $orderHistoryPlugin = $this->MelisCommerceOrderHistoryPlugin();
+            $menuParameters = array(
+                'template_path' => 'MelisDemoCommerce/plugin/order-history',
+                'id' => 'orderHistoryPlugin',
+            );
+            $orderHistoryViewModel = $orderHistoryPlugin->render($menuParameters);
+
+            // Rendering the viewmodel of the plugin
+            $viewRender = $this->getServiceLocator()->get('ViewRenderer');
+            $orderHistory = $viewRender->render($orderHistoryViewModel);
+        }
+
+        $response = array(
+            'orderHistory' => $orderHistory,
+        );
+
+        return new JsonModel($response);
+    }
+
+    /**
+     * Function to render the pagination of the cart
+     *
+     * @return JsonModel
+     */
+    public function cartPaginationRendererAction()
+    {
+        $cart = '';
+        $request = $this->getRequest();
+
+        if ($request->isPost())
+        {
+            // Getting the Site config "MelisDemoCommerce.config.php"
+            $siteConfig = $this->getServiceLocator()->get('config');
+            $siteConfig = $siteConfig['site']['MelisDemoCommerce'];
+            $siteDatas = $siteConfig['datas'];
+
+            $cartPlugin = $this->MelisCommerceCartPlugin();
+            $menuParameters = array(
+                'template_path' => 'MelisDemoCommerce/plugin/my-cart',
+                'id' => 'cartPlugin',
+            );
+            $cartViewModel = $cartPlugin->render($menuParameters);
+
+            // Rendering the viewmodel of the plugin
+            $viewRender = $this->getServiceLocator()->get('ViewRenderer');
+            $cart = $viewRender->render($cartViewModel);
+        }
+
+        $response = array(
+            'cart' => $cart,
+        );
+
+        return new JsonModel($response);
+    }
     
-    public function getUserNameAction()
+    private function getUserName()
     {
         $personName = null;
         $melisComAuthSrv = $this->getServiceLocator()->get('MelisComAuthenticationService');
@@ -170,6 +285,6 @@ class ComMyAccountController extends BaseController
             $personName = $melisComAuthSrv->getPersonName();
         }
         
-        return  new JsonModel(array('personName' => $personName));
+        return  $personName;
     }
 }

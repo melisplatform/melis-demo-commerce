@@ -44,7 +44,7 @@ class SiteFakePaypalStyleListener implements ListenerAggregateInterface
         	    $melisTree = $this->serviceLocator->get('MelisEngineTree');
         	    $queryData = array(
 	                'm_checkout_step' => 'checkout-confirm',
-	                'm_c_order' => $params['orderDetails']['orderId']
+	                'm_conf_order_id' => $params['orderDetails']['orderId']
 	            );
         	    $checkoutConfirmPage = $melisTree->getPageLink($siteDatas['checkout_page_id'], true).'?'.http_build_query($queryData);
         	    

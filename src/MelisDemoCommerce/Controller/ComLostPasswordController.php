@@ -11,6 +11,7 @@ namespace MelisDemoCommerce\Controller;
 
 use MelisDemoCommerce\Controller\BaseController;
 use Zend\View\Model\JsonModel;
+use Zend\Stdlib\ArrayUtils;
 class ComLostPasswordController extends BaseController
 {
     public function indexAction()
@@ -25,11 +26,8 @@ class ComLostPasswordController extends BaseController
         // Generating the Redirect link using MelisEngineTree Service
         $melisTree = $this->getServiceLocator()->get('MelisEngineTree');
         
-        $accountPageId = $siteDatas['account_page_id'];
-        $accountPage = $melisTree->getPageLink($accountPageId, true);
-        
-        $loginPageId = $siteDatas['login_regestration_page_id'];
-        $loginPage = $melisTree->getPageLink($loginPageId, true);
+        // Login page
+        $loginPage = $melisTree->getPageLink($siteDatas['login_regestration_page_id']);
         
         $recoveryKey = $this->params()->fromQuery('m_recovery_key');
         if (!$recoveryKey)
@@ -39,9 +37,9 @@ class ComLostPasswordController extends BaseController
             // Generating the Redirect link using MelisEngineTree Service
             $redirect_link = $melisTree->getPageLink($lostPasswordResetPageId, true);
             $lostPasswordPlugin = $this->MelisCommerceLostPasswordGetEmailPlugin();
+            
             $lostPasswordParameter = array(
                 'lost_password_reset_page_link' => $redirect_link,
-                'redirection_link_is_loggedin' => $accountPage,
                 'template_path' => 'MelisDemoCommerce/plugin/lost-password',
             );
             // add generated view to children views for displaying it in the contact view
@@ -49,24 +47,27 @@ class ComLostPasswordController extends BaseController
         }
         else 
         {
-                $lostPasswordResetPlugin = $this->MelisCommerceLostPasswordResetPlugin();
-                $lostPasswordResetParameter = array(
-                    'redirect_link_loggedin' => $accountPage,
-                    'redirect_link_not_loggedin' => $loginPage,
-                    'm_autologin' => true,
-                    'template_path' => 'MelisDemoCommerce/plugin/reset-password',
-                );
-                // add generated view to children views for displaying it in the contact view
-                $this->view->addChild($lostPasswordResetPlugin->render($lostPasswordResetParameter), 'lostPassword_lostPasswordReset');
-
+            // Account page
+            $profilePage = $melisTree->getPageLink($siteDatas['account_page_id']);
+            
+            $lostPasswordResetPlugin = $this->MelisCommerceLostPasswordResetPlugin();
+            $lostPasswordResetParameter = array(
+                'm_autologin' => true,
+                'm_recovery_key' => $recoveryKey,
+                'm_redirection_link_ok' => $profilePage,
+                'template_path' => 'MelisDemoCommerce/plugin/reset-password',
+            );
+            // add generated view to children views for displaying it in the contact view
+            $this->view->addChild($lostPasswordResetPlugin->render($lostPasswordResetParameter), 'lostPassword_lostPasswordReset');
         }
+        
         $this->layout()->setVariables(array(
             'pageJs' => array(
                 '/MelisDemoCommerce/js/melisSiteHelper.js',
                 '/MelisDemoCommerce/js/lost-passsword-recovery.js',
-
             ),
         ));
+        
         $this->view->setVariable('idPage', $this->idPage);
         return $this->view;
     }
@@ -77,43 +78,35 @@ class ComLostPasswordController extends BaseController
         $errors  = 0;
         $message = '';
         $request = $this->getRequest();
-
-        if($request->isPost()) {
+        
+        if($request->isPost()) 
+        {
             
             $siteConfig = $this->getServiceLocator()->get('config');
             $siteConfig = $siteConfig['site']['MelisDemoCommerce'];
             $siteDatas = $siteConfig['datas'];
             
-            $lostPasswordResetPlugin = $this->MelisCommerceLostPasswordGetEmailPlugin();
-            
-            $requestVar = get_object_vars($this->getRequest()->getPost());
-            
             $data = array(
-                'm_is_submit' => true,
-                'lost_password_reset_page_link' => 'http://'.$_SERVER['SERVER_NAME'].'/lost-password/id/64',
-                'redirection_link_is_loggedin'  => 'http://'.$_SERVER['SERVER_NAME'].'/lost-password/id/64',
                 'email' => $siteConfig['datas']['lostpassword_email'],
             );
             
-            // overide email default values
-            $data['email']['email_to'] = $requestVar['m_email'];
-            $data['email']['email_content_tag_replace'] = array('domain' => $request->getUri()->getHost());
+            $emailConfig = ArrayUtils::merge(get_object_vars($request->getPost()), $data);
             
-            $result = $lostPasswordResetPlugin->render($data)->getVariables();
-
+            $lostPasswordResetPlugin = $this->MelisCommerceLostPasswordGetEmailPlugin();
+            $result = $lostPasswordResetPlugin->render($emailConfig)->getVariables();
+            
             // Retrieving view variable from view
             $success = $result->success;
             $message = $result->message;
             $errors = $result->errors;
-
         }
-
+        
         $response = array(
             'success' => $success,
             'errors'  => $errors,
             'message' => $message
         );
-
+        
         return new JsonModel($response);
     }
 
@@ -123,23 +116,26 @@ class ComLostPasswordController extends BaseController
         $errors  = 0;
         $message = '';
         $request = $this->getRequest();
-
-        if($request->isPost()) {
+        
+        if($request->isPost()) 
+        {
             $lostPasswordResetPlugin = $this->MelisCommerceLostPasswordResetPlugin();
-            $result = $lostPasswordResetPlugin->render(array('m_is_submit' => true))->getVariables();
-
+            $result = $lostPasswordResetPlugin->render(get_object_vars($request->getPost()))->getVariables();
+            
             // Retrieving view variable from view
             $success = $result->success;
             $message = $result->message;
             $errors  = $result->errors;
+            $redirectUrl  = $result->m_redirection_link_ok;
         }
-
+        
         $response = array(
             'success' => $success,
             'errors'  => $errors,
-            'message' => $message
+            'message' => $message,
+            'redirectUrl' => $redirectUrl
         );
-
+        
         return new JsonModel($response);
     }
 }

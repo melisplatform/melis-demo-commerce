@@ -25,7 +25,7 @@ class ComCatalogueController extends BaseController
         
         // if no filters from query, check category ids parameters from route
         if(empty($queryParameters)){
-            $routeparameters['m_box_filter_categories_ids_selected'][] = $this->params()->fromRoute('categoryId');
+            $routeparameters['m_box_category_tree_ids_selected'][] = $this->params()->fromRoute('categoryId');
             $queryParameters = $routeparameters;
         }
         
@@ -48,13 +48,24 @@ class ComCatalogueController extends BaseController
                 }
             }
         }
+
+        /**
+         * Generating search filter using MelisCommerceProductSearchPlugin
+         */
+        $searchFilter = $this->MelisCommerceProductSearchPlugin();
+        $params = array(
+            'template_path' => 'MelisDemoCommerce/plugin/product-search',
+        );
+        $params = array_merge($params, $queryParameters);
+        // add generated view to children views for displaying it in the home page view
+        $this->view->addChild($searchFilter->render($params), 'searchBox');
         
         /**
-         * Generating Categories list filter using MelisCommerceFilterMenuCategoryListPlugin
+         * Generating Categories list filter using MelisCommerceCategoryTreePlugin
          */
-        $categoryList = $this->MelisCommerceFilterMenuCategoryListPlugin();
+        $categoryList = $this->MelisCommerceCategoryTreePlugin();
         $params = array(
-            'template_path' => 'MelisDemoCommerce/plugin/category-list-filter',
+            'template_path' => 'MelisDemoCommerce/plugin/category-tree',
             'parent_category_id' => $siteDatas['parent_category_id'],
         );
         $params = array_merge($params, $queryParameters);
@@ -62,55 +73,57 @@ class ComCatalogueController extends BaseController
         $this->view->addChild($categoryList->render($params), 'categoryListFilter');
         
         /**
-         * Generating price filter using MelisCommerceFilterMenuPriceValueBoxPlugin 
+         * Generating price filter using MelisCommerceProductPriceRangePlugin
          */
-        $priceFilter = $this->MelisCommerceFilterMenuPriceValueBoxPlugin();
+        $priceFilter = $this->MelisCommerceProductPriceRangePlugin();
         $priceFilterParameters = array(
-            'template_path' => 'MelisDemoCommerce/plugin/category-price-filter',
+            'template_path' => 'MelisDemoCommerce/plugin/product-price-range',
         );
         
-        if (!empty($queryParameters['m_box_filter_categories_ids_selected'])){
-            $priceFilterParameters = array_merge($priceFilterParameters, $queryParameters['m_box_filter_categories_ids_selected']);
+        if (!empty($queryParameters['m_box_category_tree_ids_selected'])){
+            $priceFilterParameters = array_merge($priceFilterParameters, $queryParameters['m_box_category_tree_ids_selected']);
         }
         
         // add generated view to children views for displaying it in the home page view
         $this->view->addChild($priceFilter->render($priceFilterParameters), 'priceFilter');
         
         /**
-         * Generating color attribute filter using MelisCommerceFilterMenuAttributeValueBoxPlugin
+         * Generating color attribute filter using MelisCommerceProductAttributePlugin
          */
-        $colorAttributeFilter = $this->MelisCommerceFilterMenuAttributeValueBoxPlugin();
+        $colorAttributeFilter = $this->MelisCommerceProductAttributePlugin();
         $colorAttributeFilterParameters = array(
-            'template_path' => 'MelisDemoCommerce/plugin/category-color-filter',
+            'template_path' => 'MelisDemoCommerce/plugin/product-color-attribute',
             'attribute_id' => $siteDatas['color_attribute_id'],
         );
         // add generated view to children views for displaying it in the home page view
         $this->view->addChild($colorAttributeFilter->render($colorAttributeFilterParameters), 'colorAttributeFilter');
         
         /**
-         * Generating sizes  filter using MelisCommerceFilterMenuAttributeValueBoxPlugin
+         * Generating sizes  filter using MelisCommerceProductAttributePlugin
          */
-        $sizeAttributeFilter = $this->MelisCommerceFilterMenuAttributeValueBoxPlugin();
+        $sizeAttributeFilter = $this->MelisCommerceProductAttributePlugin();
         $sizeAttributeFilterParameters = array(
-            'template_path' => 'MelisDemoCommerce/plugin/category-size-filter',
+            'template_path' => 'MelisDemoCommerce/plugin/product-size-attribute',
             'attribute_id' => $siteDatas['size_attribute_id'],
         );
         // add generated view to children views for displaying it in the home page view
         $this->view->addChild($sizeAttributeFilter->render($sizeAttributeFilterParameters), 'sizeAttributeFilter');
         
         /**
-         * Generating category product list using MelisCommerceCategoryListProductsPlugin
+         * Generating category product list using MelisCommerceProductListPlugin
          */
-        $categoryProductList = $this->MelisCommerceCategoryListProductsPlugin();
+        $categoryProductList = $this->MelisCommerceProductListPlugin();
         $m_col_name = $siteDatas['sort_default']['m_col_name'];
         $m_order = $siteDatas['sort_default']['m_order'];
         
         $params = array(
-            'template_path' => 'MelisDemoCommerce/plugin/category-product-list',
-            'm_pag_nb_per_page' => 9,
+            'template_path' => 'MelisDemoCommerce/plugin/product-list',
             'm_col_name' => $m_col_name,
             'm_order' => $m_order,
             'm_box_filter_docs' => array('mainImage' => 'DEFAULT', 'altImage' => 'SMALL'),
+            'pagination' => array(
+                'm_page_nb_per_page' => 9,
+            ),
         );
         $params = array_merge($params, $routeparameters);
         

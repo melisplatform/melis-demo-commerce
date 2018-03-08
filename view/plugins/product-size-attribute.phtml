@@ -1,0 +1,23 @@
+<?php 
+    $sizeAttr = (!empty($this->filterMenuAttributeValue[0])) ? $this->filterMenuAttributeValue[0] : null;
+?>
+<?php if (!is_null($sizeAttr)){?>
+    <aside class="single-aside size-aside attributes">
+        <div class="heading-title aside-title pos-rltv">
+            <h5 class="uppercase"><?php echo $sizeAttr->atrans_name ?></h5> 
+        </div>
+       <ul class="size-filter mt-30">
+        <?php 
+            foreach ($sizeAttr->attr_values as $val){
+                $col = 'avt_v_'.$val->atype_column_value;
+                
+                $active = '';
+                if(in_array($val->atval_id, $this->selectedAttributes)){
+                    $active = 'active';
+                }
+                echo '<li data-attributeid="'.$val->atval_id.'"><a class="'.$active.'">'.$val->$col.'</a></li>';
+            }
+        ?>
+    	</ul>
+    </aside>
+<?php }?>

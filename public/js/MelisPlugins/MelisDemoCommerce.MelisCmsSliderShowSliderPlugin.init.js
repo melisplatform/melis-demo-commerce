@@ -59,3 +59,7 @@ function MelisCmsSliderShowSliderPlugin_init(idPlugin){
 		}
 	}
 }
+
+$(function(){
+	MelisCmsSliderShowSliderPlugin_init();
+});

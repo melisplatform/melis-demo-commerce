@@ -42,7 +42,6 @@ class BaseController extends MelisSiteActionController
         $this->layout()->setVariable('personName', $personName);
         $this->layout()->setVariable('isLoggedin', $isLoggedin);
         
-        
         // Getting the Site config "MelisDemoCommerce.config.php"
         $sm = $event->getApplication()->getServiceManager();
         $siteConfig = $sm->get('config');
@@ -78,11 +77,12 @@ class BaseController extends MelisSiteActionController
         );
         
         // add generated view to children views for displaying menu cart
-        $cartMenuPlugin = $this->MelisCommerceCartMenuPlugin();
-        $cartMenuParameters = array(
-            'template_path' => 'MelisDemoCommerce/plugin/show-cart-menu' 
+        $cartPlugin = $this->MelisCommerceCartPlugin();
+        $cartParameters = array(
+            'template_path' => 'MelisDemoCommerce/plugin/menu-cart',
+            'id' => 'menuCartPlugin',
         );
-        $this->layout()->addChild($cartMenuPlugin->render($cartMenuParameters), 'cartMenu');
+        $this->layout()->addChild($cartPlugin->render($cartParameters), 'menuCart');
         
         // add generated view to children views for displaying it in the contact view
         $breadcrumb = $breadcrumbPlugin->render($breadcrumbParameters);
