@@ -2021,7 +2021,7 @@ span input.remr {
     border-color: #ccc;
     border-style: none solid solid;
     border-width: medium 1px 1px;
-    float: left;
+    /* float: left; */
     padding: 15px 25px;
     width: 100%;
 }
@@ -2041,7 +2041,7 @@ span input.remr {
     color: #cc3333
 }
 .frm-action .input-box {
-    float: left;
+    /* float: left; */
     margin-bottom: 0;
 }
 .frm-action .tci-box .in-btn {
