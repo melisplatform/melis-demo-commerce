@@ -20,13 +20,14 @@
                         
                         if(!empty($category->getChildren()))
                         {
-                            $temp_1 = $renderCategoryFilterList($category->getChildren(), $selectedCategories);
+                            $data = $renderCategoryFilterList($category->getChildren(), $selectedCategories);
                         }
                         
                         $active = '';
                         $parentClass = 'closed';
                         
-                        if(in_array($category->getId(), $selectedCategories)){
+                        if(in_array($category->getId(), $selectedCategories))
+                        {
                             $active = 'active';
                             $parentClass = 'open';
                             $openParent = true;
