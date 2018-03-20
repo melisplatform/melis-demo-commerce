@@ -1,5 +1,5 @@
 <?php
-    function recursiveListDisplay($categories){
+function recursiveCategoryListDisplay($categories){
         $temp = '';
         if($categories){
 
@@ -9,7 +9,7 @@
 
                 $temp_1 = array();
                 if(!empty($category['children'])){
-                    $temp_1 = recursiveListDisplay($category['children']);
+                    $temp_1 = recursiveCategoryListDisplay($category['children']);
                 }
 
                 $parentClass = 'closed';
@@ -40,7 +40,7 @@
     <div id="cat-treeview" class="product-cat">
     	<?php
         	// recursive loop for displaying children, a simple loop can be done if category is a single dimension array
-        	$temp = recursiveListDisplay($this->categoryList);
+    	   $temp = recursiveCategoryListDisplay($this->categoryList);
             echo $temp['html'];
     	?>
     </div>
