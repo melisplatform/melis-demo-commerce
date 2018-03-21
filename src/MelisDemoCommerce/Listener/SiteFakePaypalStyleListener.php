@@ -33,7 +33,7 @@ class SiteFakePaypalStyleListener implements ListenerAggregateInterface
         	    $params = $e->getParams();
         	    
         	    $viewModel = new ViewModel();
-        	    $viewModel->setTemplate('MelisDemoCommerce/plugin/check-out-fake-paypal-style');
+        	    $viewModel->setTemplate('MelisDemoCommerce/plugin/checkout-fake-paypal-style');
         	    
         	    // Getting the Site config "MelisDemoCommerce.config.php"
         	    $siteConfig = $this->serviceLocator->get('config');

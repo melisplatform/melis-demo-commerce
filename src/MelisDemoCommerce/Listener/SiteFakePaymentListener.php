@@ -33,7 +33,7 @@ class SiteFakePaymentListener implements ListenerAggregateInterface
         	    $params = $e->getParams();
         	    
         	    $viewModel = new ViewModel();
-        	    $viewModel->setTemplate('MelisDemoCommerce/plugin/check-out-fake-payment');
+        	    $viewModel->setTemplate('MelisDemoCommerce/plugin/checkout-fake-payment');
         	    
         	    /**
         	     * This process will display a fake payment form
