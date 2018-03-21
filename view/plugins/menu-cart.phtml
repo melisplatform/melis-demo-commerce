@@ -1,8 +1,16 @@
+<?php 
+    $totalQty = 0;
+    foreach($this->cartList as $item)
+    {
+        $totalQty += $item['quantity'];
+    }
+
+?>
 <div class="cart-icon"> 
 	<a href="<?php echo $this->MelisLink($this->layout()->siteDatas['cart_page_id'], true)?>">
 		Cart <i class="zmdi zmdi-shopping-cart"></i>
 	</a> 
-	<span id="cartCount"><?= $this->cartList->getPages()->totalItemCount; ?></span> 
+	<span id="cartCount"><?= $totalQty; //$this->cartList->getPages()->totalItemCount; ?></span> 
 </div>
 
 <div class="cart-content-wraper">
