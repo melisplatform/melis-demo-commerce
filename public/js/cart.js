@@ -91,25 +91,67 @@ $(function(){
     /*----------------------------
     cart-plus-minus-button
    ------------------------------ */
-   $(".cart-plus-minus")
-   $(".qtybutton").on("click", function() {
-	   console.log('test');
-	   if(!$(this).hasClass("disable-qtybutton")){
-		   var $button = $(this);
-	       var oldValue = $button.parent().find("input").val();
-	       if ($button.text() == "+") {
-	           var newVal = parseFloat(oldValue) + 1;
-	       } else {
-	           // Don't allow decrementing below zero
-	           if (oldValue > 1) {
-	               var newVal = parseFloat(oldValue) - 1;
-	           } else {
-	               newVal = oldValue;
-	           }
-	       }
-	       $button.parent().find("input").val(newVal);
-	   }
-   });
+    $(".qtybutton").on("click", function() {
+    	if(!$(this).hasClass("disable-qtybutton")){
+    		
+		   	var $button = $(this);
+		   	
+		   	var oldValue = $button.parent().find("input").val();
+		   	
+		   	if ($button.text() == "+") {
+		   		var newVal = parseFloat(oldValue) + 1;
+	       	}else{
+	       		// Don't allow decrementing below zero
+	       		if (oldValue > 1) {
+	       			var newVal = parseFloat(oldValue) - 1;
+	       		} else {
+	       			newVal = oldValue;
+	       		}
+	       	}
+		   	
+	        $button.parent().find("input").val(newVal);
+	        
+	        $button.parent().find("input").trigger("change");
+	   	}
+    });
+    
+    $(".cart-plus-minus-box").on("change", function(){
+    	
+    	var tmpTotal = 0;
+    	var discount = 0;
+    	var itemQty = $(this).val() ?  $(this).val() : 0;
+    	var parent = $(this).parents("tr");
+    	var unitPrice = parent.find(".item-price").data("price");
+    	var discountQty = parent.find(".item-discount").data("usable-qty");
+    	var discountPercentage = parent.find(".item-discount").data("percentage");
+    	var discountValue = parent.find(".item-discount").data("value");
+    	var priceCurrency = parent.find(".total-price").data("currency");
+    	
+    	tmpTotal = unitPrice * itemQty;
+    	
+    	// Coupon usable quantity
+    	if(discountQty){
+    		itemQty = ((discountQty - itemQty) >= 0) ? itemQty : discountQty;
+    	}
+    	
+    	// Coupon percentage discount
+    	if(discountPercentage){
+    		discount = (discountPercentage / 100) * (unitPrice * itemQty);
+    	}
+    	
+    	// Coupon fix value discount
+    	if(discountValue){
+    		discount = discountValue * itemQty;
+    	}
+    	
+    	// Applying discount to total amount of the porduct
+    	if(discount){
+    		tmpTotal = tmpTotal - discount;
+    		parent.find(".item-discount").text(priceCurrency+""+discount.toFixed(2));
+    	}
+    	
+    	parent.find(".total-price strong").text(priceCurrency+""+tmpTotal.toFixed(2));
+    });
     
 });
 

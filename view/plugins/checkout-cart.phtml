@@ -3,7 +3,6 @@
 		<strong>Product error(s) occured.</strong> Error message appeared under the name of the Product.
 	</div>
 <?php endif;?>
-
 <!-- cart are start-->
 <div class="cart-page-area">
    	<form id="checkout-cart" method="POST">
@@ -34,7 +33,7 @@
                                     echo '<div class="text-danger">'.$item['var_err'].'</div>';
                                 }
                             echo    '</td>';
-                            echo    '<td class="item-price">'.$item['var_currency_symbol'].$item['var_price'].'</td>';
+                            echo    '<td class="item-price" data-price="'.$item['var_price'].'">'.$item['var_currency_symbol'].$item['var_price'].'</td>';
                             echo    '<td class="item-qty">
                                         <div class="cart-quantity">
                                             <div class="product-qty">
@@ -51,8 +50,8 @@
                                         </div>';
                             echo    (!empty($this->checkoutErrors[$item['var_id']])) ? '<p class="text-danger">'.$this->checkoutErrors[$item['var_id']].'</p>' : '';
                             echo    '</td>';
-                            echo    '<td class="item-price">'.$discount.'</td>';
-                            echo    '<td class="total-price"><strong>'.$item['var_currency_symbol'].number_format($item['var_total'], 2).'</strong></td>';
+                            echo    '<td class="item-discount" data-value="'.$item['var_discount_value'].'" data-percentage="'.$item['var_discount_percentage'].'" data-usable-qty="'.$item['var_discount_usable_qty'].'">'.$discount.'</td>';
+                            echo    '<td class="total-price" data-currency="'.$item['var_currency_symbol'].'"><strong>'.$item['var_currency_symbol'].number_format($item['var_total'], 2).'</strong></td>';
                             echo    '<td class="remove-item"><a href="'.$this->MelisLink($this->idPage, true).'?m_cc_var_remove='.$item['var_id'].'"><i class="fa fa-trash-o"></i></a></td>';
                             echo '</tr>';
                         }
