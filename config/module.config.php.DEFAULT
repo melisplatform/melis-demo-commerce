@@ -192,8 +192,8 @@ return array(
             'MelisDemoCommerce/plugin/checkout-confirm-summary'         => __DIR__ . '/../view/plugins/checkout-confirm-summary.phtml',
             'MelisDemoCommerce/plugin/checkout-confirmation'            => __DIR__ . '/../view/plugins/checkout-confirmation.phtml',
             
-            'MelisDemoCommerce/plugin/check-out-fake-payment'           => __DIR__ . '/../view/plugins/check-out-fake-payment.phtml',
-            'MelisDemoCommerce/plugin/check-out-fake-paypal-style'      => __DIR__ . '/../view/plugins/check-out-fake-paypal-style.phtml',
+            'MelisDemoCommerce/plugin/checkout-fake-payment'           => __DIR__ . '/../view/plugins/checkout-fake-payment.phtml',
+            'MelisDemoCommerce/plugin/checkout-fake-paypal-style'      => __DIR__ . '/../view/plugins/checkout-fake-paypal-style.phtml',
             
             'MelisDemoCommerce/plugin/menu-cart'                        => __DIR__ . '/../view/plugins/menu-cart.phtml',
             'MelisDemoCommerce/plugin/order-history'                    => __DIR__ . '/../view/plugins/order-history.phtml',
