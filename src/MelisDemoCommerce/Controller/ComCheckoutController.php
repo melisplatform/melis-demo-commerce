@@ -86,13 +86,6 @@ class ComCheckoutController extends BaseController
         
         $this->view->addChild($checkoutPluginView, 'checkOut');
         
-        $layoutvar = $this->layout()->getVariable('pageJs');
-        $layoutvar[] = '/MelisDemoCommerce/js/checkout.js';
-        $layoutvar[] = '/MelisDemoCommerce/js/cart.js';
-        $this->layout()->setVariables(array(
-            'pageJs' => $layoutvar,
-        ));
-        
         $this->view->setVariable('idPage', $this->idPage);
         return $this->view;
     }

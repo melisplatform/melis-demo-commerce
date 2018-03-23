@@ -356,6 +356,20 @@ return array(
                         'template_path' => array(
                             'MelisDemoCommerce/plugin/checkout',
                         ),
+                     	'files' => array(
+                            'js' => array(
+                                '/MelisDemoCommerce/js/checkout.js',
+                                '/MelisDemoCommerce/js/cart.js',
+                            ),
+                        ),
+                    ),
+                    'melis' => array(
+                        'files' => array(
+                            'js' => array(
+                                '/MelisDemoCommerce/js/checkout.js',
+                                '/MelisDemoCommerce/js/cart.js',
+                            ),
+                        ),
                     ),
                 ),
                 'MelisCommerceCheckoutCartPlugin' => array(
