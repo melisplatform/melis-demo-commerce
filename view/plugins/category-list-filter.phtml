@@ -5,7 +5,7 @@
     <div id="cat-treeview" class="product-cat">
     	<?php 
             // recursive loop for displaying children, a simple loop can be done if category is a single dimension array
-            $renderCategoryFilterList  = function($categoryList, $selectedCategories) use (&$renderCategoryFilterList)
+    	   $renderCategoryFilterList  = function($categoryList, $selectedCategories, $renderCategoryFilterList)
             {
                 $temp = '';
                 $openParent = false;
@@ -20,7 +20,7 @@
                         
                         if(!empty($category->getChildren()))
                         {
-                            $data = $renderCategoryFilterList($category->getChildren(), $selectedCategories);
+                            $data = $renderCategoryFilterList($category->getChildren(), $selectedCategories, $renderCategoryFilterList);
                         }
                         
                         $active = '';
@@ -53,7 +53,7 @@
                 return array('html' => $temp, 'openParent' => $openParent);
             };
             
-            echo $renderCategoryFilterList($this->filterMenuCategoryList, $this->selectedCategories)['html'];
+            echo $renderCategoryFilterList($this->filterMenuCategoryList, $this->selectedCategories, $renderCategoryFilterList)['html'];
     	?>
     </div>
 </aside>
