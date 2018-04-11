@@ -442,6 +442,7 @@ CSS INDEX
     height: 0;
     opacity: 0;
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	overflow: hidden;
 }
 .tab-cars-style .tab-content > .tab-pane.active {
     height: auto;
