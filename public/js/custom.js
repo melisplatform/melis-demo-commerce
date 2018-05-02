@@ -17,7 +17,7 @@ $(function(){
 		melisCommerceDemo.submitCatalogueFilter()
 	});
 	
-	$("#input-sort").change(function(){	
+	$("#input-sort").change(function(){
 		melisCommerceDemo.submitCatalogueFilter()	
 	});
 	
@@ -96,14 +96,31 @@ var melisCommerceDemo = (function(window) {
 			});
 		}
 
-		$.each( dataString, function( key, e ) {
-			$('<input>').attr({
-			    type: 'hidden',
-			    name: e.name,
-			    value: e.value,
-			}).appendTo("#catalogueSearchForm");
-		});
-		$("#catalogueSearchForm").submit();
+        /**
+		 * check if #catalogueSearchForm exist
+		 * if not, we will create a new form
+		 * to make the request submit
+         */
+		if($("#catalogueSearchForm").length <= 0){
+			var form = $('<form>');
+            $.each(dataString, function (key, e) {
+                $('<input>').attr({
+                    type: 'hidden',
+                    name: e.name,
+                    value: e.value,
+                }).appendTo(form);
+            });
+            form.appendTo('body').submit();
+		}else {
+            $.each(dataString, function (key, e) {
+                $('<input>').attr({
+                    type: 'hidden',
+                    name: e.name,
+                    value: e.value,
+                }).appendTo("#catalogueSearchForm");
+            });
+            $("#catalogueSearchForm").submit();
+        }
 	}
 	
 	function recursiveExpand(treeView){

@@ -210,7 +210,7 @@ CSS INDEX
     text-align: center;
     text-transform: uppercase;
     top: 20px;
-    z-index: 999;
+    z-index: 2;
 }
 .product-label.red .new {
     background: #cc3333 none repeat scroll 0 0;
