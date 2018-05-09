@@ -94,6 +94,7 @@ class ComCatalogueController extends BaseController
         $colorAttributeFilterParameters = array(
             'template_path' => 'MelisDemoCommerce/plugin/product-color-attribute',
             'attribute_id' => $siteDatas['color_attribute_id'],
+            'id' => 'productAttributeColor',
         );
         // add generated view to children views for displaying it in the home page view
         $this->view->addChild($colorAttributeFilter->render($colorAttributeFilterParameters), 'colorAttributeFilter');
@@ -105,6 +106,7 @@ class ComCatalogueController extends BaseController
         $sizeAttributeFilterParameters = array(
             'template_path' => 'MelisDemoCommerce/plugin/product-size-attribute',
             'attribute_id' => $siteDatas['size_attribute_id'],
+            'id' => 'productAttributeSize',
         );
         // add generated view to children views for displaying it in the home page view
         $this->view->addChild($sizeAttributeFilter->render($sizeAttributeFilterParameters), 'sizeAttributeFilter');
