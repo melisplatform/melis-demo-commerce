@@ -345,6 +345,12 @@ return array(
                         'template_path' => array(
                             'MelisDemoCommerce/plugin/show-product',
                         ),
+                        'files' => array(
+                            'js' => array(
+                                '/MelisDemoCommerce/js/product-attributes.js',
+                                '/MelisDemoCommerce/js/cart.js',
+                            ),
+                        ),
                     ),
                 ),
                 'MelisCommerceAddToCartPlugin' => array(
