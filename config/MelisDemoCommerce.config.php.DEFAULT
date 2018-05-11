@@ -44,7 +44,7 @@ return array(
 			    // Product page id
 			    'product_page_id' => '[:productPageId]',
 			    //Default Product show id
-                'product_show_default_id' => [:productShowDefaultId],
+                'product_show_default_id' => '[:productShowDefaultId]',
                 // Homepage header slider
                 'homepage_header_slider' => '[:homepageHeaderSlider]',
                 // Aboutus slider
