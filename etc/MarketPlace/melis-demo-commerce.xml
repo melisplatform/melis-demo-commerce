@@ -1,0 +1,23 @@
+<melis-demo-commerce>
+	<package_info>
+		<mp_title>Melis Demo Commerce</mp_title>
+		<mp_subtitle>A commerce demo website</mp_subtitle>
+		<mp_description>
+			<![CDATA[
+				<p>
+					This module allows you view a sample of Commerce website
+					built using the Melis Platform
+				</p>
+			]]>
+		</mp_description>
+		<mp_maintainers>melisplatform</mp_maintainers>
+		<mp_group>Melis Commerce</mp_group>
+	</package_info>
+	<package_images>
+		<img_1>
+			<mpi_image_title>Melis Demo Commerce Catalog</mpi_image_title>
+			<mpi_image_file>melis-demo-commerce_1.JPG</mpi_image_file>
+			<mpi_image_main>1</mpi_image_main>
+		</img_1>
+	</package_images>
+</melis-demo-commerce>
