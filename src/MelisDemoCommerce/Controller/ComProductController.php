@@ -60,6 +60,13 @@ class ComProductController extends BaseController
         // Page banner
         $this->setPageBanner();
         
+        $this->layout()->setVariables(array(
+            'pageJs' => array(
+                '/MelisDemoCommerce/js/product-attributes.js',
+                '/MelisDemoCommerce/js/cart.js',
+            ),
+        ));
+        
         $this->view->setVariable('idPage', $this->idPage);
         
         return $this->view;

@@ -11,15 +11,6 @@
                             $limits = $this->layout()->siteDatas['pagination_config']['limit'];
                          
                             $queryLimit = (array_key_exists('m_page_nb_per_page', $this->layout()->queryParameters))? $this->layout()->queryParameters['m_page_nb_per_page'] : '';
-                            /**
-                             * if $queryLimit is still empty,
-                             * try to check from the url if the
-                             * m_page_nb_per_page exits to get
-                             * the value
-                             */
-                            $l = filter_input(INPUT_GET, 'm_page_nb_per_page', FILTER_SANITIZE_URL);
-                            $queryLimit = ($queryLimit != '' ? $queryLimit : $l ? $l : '');
-
                             foreach($limits as $limit){
                                 $selected = '';
                                 if($limit == $queryLimit){
