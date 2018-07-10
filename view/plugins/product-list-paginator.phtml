@@ -1,23 +1,11 @@
 <?php 
     $urlQryStr = array();
-
-    /**
-     * Get the query string returned
-     * by the controller
-     */
+//     var_dump($this->nbPageBeforeAfter); die();
+    // Query string from controller
     if($this->layout()->queryParameters){
         $urlQryStr = $this->layout()->queryParameters;
     }
-
-    /**
-     * If $urlQryStr is still empty
-     * we need to get the query string
-     * directly from the url
-     */
-    if(empty($urlQryStr)){
-        parse_str($_SERVER['QUERY_STRING'], $urlQryStr);
-    }
-
+    
 ?>
 <?php if ($this->pageCount): ?>
 <div class="col-md-12 col-sm-12 col-xs-12">

@@ -17,7 +17,7 @@ $(function(){
 		melisCommerceDemo.submitCatalogueFilter()
 	});
 	
-	$("#input-sort").change(function(){
+	$("#input-sort").change(function(){	
 		melisCommerceDemo.submitCatalogueFilter()	
 	});
 	

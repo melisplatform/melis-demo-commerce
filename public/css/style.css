@@ -210,7 +210,7 @@ CSS INDEX
     text-align: center;
     text-transform: uppercase;
     top: 20px;
-    z-index: 2;
+    z-index: 999;
 }
 .product-label.red .new {
     background: #cc3333 none repeat scroll 0 0;
@@ -451,7 +451,6 @@ CSS INDEX
 }
 .title-tab-product-category li {
     float: left;
-    margin-bottom: 20px;
 }
 .title-tab-product-category li a {
     background: transparent none repeat scroll 0 0;
