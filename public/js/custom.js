@@ -43,7 +43,9 @@ var melisCommerceDemo = (function(window) {
 	
 	function submitCatalogueFilter(){
 		var dataString = [];
-		var attributes = $('.attributes');
+		var colorAttributes = $('.color-attributes');
+		var sizeAttributes = $('.size-attributes');
+		var attributeArray = [];
 		var sortValue = $("#input-sort option:selected").val().split(" ");
 		var urlVars = getUrlVars();
 		// categories ID
@@ -68,18 +70,36 @@ var melisCommerceDemo = (function(window) {
 				value : $("#slider-range").slider("values")[1]
 			});
 		}
-		
+		var colorAttr = [];
 		// Selected attribute
-		attributes.each(function(){
+        colorAttributes.each(function(){
 			var attribute = $(this);
 			attribute.find('.active').each(function(){
-				dataString.push({ 
-					name : 'm_box_product_attribute_values_ids_selected[]',
-					value : $(this).closest('li').data('attributeid') 
-				});
+                colorAttr.push({
+                    name: 'color[]',
+                    value:$(this).closest('li').data('attributeid')
+            	});
 			});
 		});
-		
+
+        var sizeAttr = [];
+        // Selected attribute
+        sizeAttributes.each(function(){
+            var attribute = $(this);
+            attribute.find('.active').each(function(){
+                sizeAttr.push({
+                    name: 'size[]',
+                    value:$(this).closest('li').data('attributeid')
+            	});
+            });
+        });
+
+        dataString.push({
+			name : 'm_box_product_attribute_values_ids_selected[]',
+			//merge the two attributes to convert into a query string
+			value : $.param($.merge(colorAttr, sizeAttr))
+        });
+
 		var sorting = urlVars['m_col_name'] || false;
 		
 		if($("#input-sort").hasClass('activated') || sorting ){
@@ -101,7 +121,7 @@ var melisCommerceDemo = (function(window) {
 		 * if not, we will create a new form
 		 * to make the request submit
          */
-		if($("#catalogueSearchForm").length <= 0){
+        if($("#catalogueSearchForm").length <= 0){
 			var form = $('<form>');
             $.each(dataString, function (key, e) {
                 $('<input>').attr({
@@ -111,7 +131,7 @@ var melisCommerceDemo = (function(window) {
                 }).appendTo(form);
             });
             form.appendTo('body').submit();
-		}else {
+        }else {
             $.each(dataString, function (key, e) {
                 $('<input>').attr({
                     type: 'hidden',

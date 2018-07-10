@@ -2,7 +2,7 @@
     $sizeAttr = (!empty($this->filterMenuAttributeValue[0])) ? $this->filterMenuAttributeValue[0] : null;
 ?>
 <?php if (!is_null($sizeAttr)){?>
-    <aside class="single-aside size-aside attributes">
+    <aside class="single-aside size-aside size-attributes">
         <div class="heading-title aside-title pos-rltv">
             <h5 class="uppercase"><?php echo $sizeAttr->atrans_name ?></h5> 
         </div>
@@ -12,8 +12,12 @@
                 $col = 'avt_v_'.$val->atype_column_value;
                 
                 $active = '';
-                if(in_array($val->atval_id, $this->selectedAttributes)){
-                    $active = 'active';
+                foreach($this->selectedAttributes as $k => $v) {
+                    if (in_array($val->atval_id, $v)) {
+                        $active = 'active';
+                        //stop the searching if found
+                        break;
+                    }
                 }
                 echo '<li data-attributeid="'.$val->atval_id.'"><a class="'.$active.'">'.$val->$col.'</a></li>';
             }
