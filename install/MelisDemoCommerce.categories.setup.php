@@ -41,7 +41,7 @@
                     'site_config' => 'menCategoryId',
                     'cat_seo' => array(
                         array(
-                            'eseo_page_id' => 'Men',
+                            'eseo_page_id' => '1',
                             'eseo_category_id' => 2,
                             'eseo_lang_id' => 1,
                             'eseo_url' => '',

@@ -279,12 +279,22 @@ return array(
                         'template_path' => array(
                             'MelisDemoCommerce/plugin/login',
                         ),
+                        'files' => array(
+                            'js' => array(
+                                '/MelisDemoCommerce/js/login.js',
+                            ),
+                        ),
                     ),
                 ),
                 'MelisCommerceRegisterPlugin' => array(
                     'front' => array(
                         'template_path' => array(
                             'MelisDemoCommerce/plugin/registration',
+                        ),
+                        'files' => array(
+                            'js' => array(
+                                '/MelisDemoCommerce/js/registration.js',
+                            ),
                         ),
                     ),
                 ),
@@ -334,6 +344,12 @@ return array(
                     'front' => array(
                         'template_path' => array(
                             'MelisDemoCommerce/plugin/show-product',
+                        ),
+                        'files' => array(
+                            'js' => array(
+                                '/MelisDemoCommerce/js/product-attributes.js',
+                                '/MelisDemoCommerce/js/cart.js',
+                            ),
                         ),
                     ),
                 ),

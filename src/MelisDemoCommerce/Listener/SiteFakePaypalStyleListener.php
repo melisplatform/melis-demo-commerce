@@ -86,7 +86,7 @@ class SiteFakePaypalStyleListener implements ListenerAggregateInterface
     	        $paymentForm->setData($data);
         	    $viewModel->setVariable('fakePaymentForm', $paymentForm);
         	    $viewModel->setVariable('hasErr', (!empty($getData['payment_err'])) ? 1 : 0);
-        	    $params['chechout'] = $viewModel;
+        	    $params['checkout'] = $viewModel;
         	},
         0);
         

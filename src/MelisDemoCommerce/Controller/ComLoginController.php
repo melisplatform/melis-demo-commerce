@@ -70,8 +70,9 @@ class ComLoginController extends BaseController
         $this->layout()->setVariables(array(
             'pageJs' => array(
                 '/MelisDemoCommerce/js/melisSiteHelper.js',
-                '/MelisDemoCommerce/js/login.js',
-                '/MelisDemoCommerce/js/registration.js',
+//                '/MelisDemoCommerce/js/login.js',
+
+//                '/MelisDemoCommerce/js/registration.js',
             ),
         ));
         
