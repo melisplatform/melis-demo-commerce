@@ -82,7 +82,7 @@
                             <h3>Cart Totals</h3> 
                      </div>
                      <div class="sub-shipping">
-                        <p>Subtotal <span><?php echo $this->checkOutCartSubTotal ?></span></p>
+                        <p>Subtotal <span><?php echo $this->checkOutCurrency.$this->checkOutCartSubTotal ?></span></p>
                         <?php 
                             if ($this->checkoutHasCoupon){
                                     
@@ -93,7 +93,7 @@
                              	        echo '<p>';
                              	        echo '(-'.$discInfo['details'].')';
                              	        echo '<span>';
-                             	        echo $discInfo['amount'];
+                             	        echo $this->checkOutCurrency.$discInfo['amount'];
                                         echo '</span>';
                                         echo '</p>';
                              	    }
@@ -103,7 +103,7 @@
                      	?>
                      </div>
                      <div class="process-cart-total">
-                         <p>Total <span><?php echo $this->checkOutCartTotal ?></span></p>
+                         <p>Total <span><?php echo $this->checkOutCurrency.$this->checkOutCartTotal ?></span></p>
                      </div>
                      <?php if ($this->checkOutCart):?>
                     	<div class="process-checkout-btn text-right">

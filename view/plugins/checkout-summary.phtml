@@ -54,7 +54,7 @@
                                         <td></td>
                                         <td></td>
                                         <td></td>
-                                        <td class="cgt-des"><?php echo $this->checkoutCartSubTotal?></td>
+                                        <td class="cgt-des"><?php echo $this->checkoutCurrency.$this->checkoutCartSubTotal?></td>
                                     </tr>
                                     
                                     <?php if (!empty($this->checkoutCartDiscount)){?>
@@ -63,7 +63,7 @@
                                             <td></td>
                                             <td></td>
                                             <td></td>
-                                            <td class="cgt-des"><?php echo $this->checkoutCartDiscount; ?></td>
+                                            <td class="cgt-des"><?php echo $this->checkoutCurrency.$this->checkoutCartDiscount; ?></td>
                                         </tr>
                                     <?php }?>
                                     
@@ -72,14 +72,14 @@
                                         <td></td>
                                         <td></td>
                                         <td></td>
-                                        <td class="cgt-des"><?php echo $this->checkoutShipping?></td>
+                                        <td class="cgt-des"><?php echo $this->checkoutCurrency.$this->checkoutShipping?></td>
                                     </tr>
                                     <tr class="cart_item">
                                         <td class="ctg-type crt-total"> Total</td>
                                         <td></td>
                                         <td></td>
                                         <td></td>
-                                        <td class="cgt-des crt-total"><?php echo $this->checkoutCartTotal?></td>
+                                        <td class="cgt-des crt-total"><?php echo $this->checkoutCurrency.$this->checkoutCartTotal?></td>
                                     </tr>
                                 </tbody>
                         	</table>
