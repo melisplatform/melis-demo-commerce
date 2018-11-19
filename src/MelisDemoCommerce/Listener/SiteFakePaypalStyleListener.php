@@ -63,10 +63,6 @@ class SiteFakePaypalStyleListener implements ListenerAggregateInterface
     	        $data = array(
     	            // Order id related to commerce table "melis_ecom_order"
     	            'order-id' => $params['orderDetails']['orderId'],
-    	            // Country Id of the site, this will identify which country the stock or price taken for product(s)
-    	            'payment-transaction-country-id' => $params['orderDetails']['countryId'],
-    	            // Coupon Id, if specified the checkout has a validated coupon for Discount
-    	            'payment-transaction-coupon-id' => $params['orderDetails']['couponId'],
     	            // The Total cost of the Cart/Basket
     	            'payment-transaction-total-cost' => $params['orderDetails']['totalCost'],
     	            // Confirm page

@@ -18,18 +18,6 @@ return array(
                         ),
                         array(
                             'spec' => array(
-                                'name' => 'payment-transaction-country-id',
-                                'type' => 'hidden',
-                            )
-                        ),
-                        array(
-                            'spec' => array(
-                                'name' => 'payment-transaction-coupon-id',
-                                'type' => 'hidden',
-                            )
-                        ),
-                        array(
-                            'spec' => array(
                                 'name' => 'payment-transaction-total-cost',
                                 'type' => 'hidden',
                             )
