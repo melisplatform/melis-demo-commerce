@@ -90,7 +90,7 @@
                            		    {
                            		        $price = $this->currency->cur_symbol. ' ' .$variant->getPrices()[0]->price_net;
                            		    }
-                           		    else
+                           		    elseif (!empty($product->getPrice())) 
                            		    {
                            		        $price = $this->currency->cur_symbol. ' ' .$product->getPrice()[0]->price_net;
                            		    }

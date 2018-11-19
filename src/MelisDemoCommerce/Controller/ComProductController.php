@@ -41,6 +41,7 @@ class ComProductController extends BaseController
         // pass custom template paths
         $pluginParams = array(
             'template_path' => 'MelisDemoCommerce/plugin/show-product',
+            'm_product_country' => $siteDatas['site_country_id'],
         );
         $productPlugin = $productPlugin->render($pluginParams);
         // add generated view to children views for displaying it in the home page view
