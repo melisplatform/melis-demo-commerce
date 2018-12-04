@@ -58,6 +58,10 @@
                     <label for="siteDomain">Site Domain</label>
                     <input type="text" class="form-control" id="siteDomain" placeholder="www.test.com" value="<?php echo $_SERVER['HTTP_HOST']?>">
                 </div>
+                <div class="form-group siteLabelForm">
+                    <label for="siteLabel">Site Label</label>
+                    <input type="text" name="site_label" class="form-control" id="siteLabel" placeholder="your site label / name" value="Melis Demo Commerce Site">
+                </div>
               	<p><button class="btn btn-success btn-lg" id="setupStartbtn">Start setup</button></p>
             </div>
         </div>
@@ -89,8 +93,18 @@
 					$(".siteDomainForm").addClass("has-error");
 					noError = false;
           		}
-          		
-          		if(noError){
+
+          		// site label checking
+                var siteLabel = $("#siteLabel").val();
+                if(siteLabel.trim().length){
+                    $(".siteLabelForm").removeClass("has-error");
+                }else{
+                    $(".siteLabelForm").addClass("has-error");
+                    noError = false;
+                }
+
+
+                if(noError){
           			$(".alert").addClass("hidden");
                     $(".alert-info").removeClass("hidden");
                     $(this).attr('disabled', true);
@@ -114,10 +128,15 @@
                     name : "domain",
                     value : $("#siteDomain").val()
                 });
-                
+                // Site label
+                dataString.push({
+                    name : "site_label",
+                    value : $("#siteLabel").val()
+                });
                 $("#siteProtocol").attr("disabled", true);
                 $("#siteDomain").attr("disabled", true);
-				
+                $("#siteLabel").attr("disabled", true);
+
                 $.ajax({
         			type        : 'POST', 
         	        url         : '/MelisDemoCommerce/setup/executeSetup',

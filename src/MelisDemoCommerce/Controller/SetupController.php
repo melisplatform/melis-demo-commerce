@@ -179,6 +179,10 @@ class SetupController extends MelisSiteActionController
                         }
                         
                         $setupDatas = include __DIR__ . '../../../../install/MelisDemoCommerce.site.setup.php';
+                        # Site label
+                        $siteLabel = !empty($post['site_label']) ? $post['site_label'] : null;
+                        if (!empty($siteLabel)) $setupDatas['site_label'] = $siteLabel;
+                        # Start setup
                         $this->setupSite($setupDatas);
                         $nextStep = 'templates';
                         break;
@@ -274,9 +278,17 @@ class SetupController extends MelisSiteActionController
              */
             $site['site_main_page_id'] = '-1';
         }
-        
-        $this->siteId = $siteTbl->save($site, $siteId);
-        
+        $siteTblCols  = $siteTbl->getTableColumns();
+        # Check site_label column is present
+        if (in_array('site_label',$siteTblCols)) {
+            # Then save
+            $this->siteId = $siteTbl->save($site, $siteId);
+        } else {
+            # remove site_label key
+            unset($site['site_label']);
+            $this->siteId = $siteTbl->save($site, $siteId);
+        }
+
         $container['MelisDemoCommerceSetup']['siteId'] = $this->siteId;
         
         if (is_null($siteId))
