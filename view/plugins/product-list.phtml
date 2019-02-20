@@ -10,7 +10,12 @@
                      	<?php 
                             $limits = $this->layout()->siteDatas['pagination_config']['limit'];
                          
-                            $queryLimit = (array_key_exists('m_page_nb_per_page', $this->layout()->queryParameters))? $this->layout()->queryParameters['m_page_nb_per_page'] : '';
+                            if (is_null($this->layout()->queryParameters)) {
+                                $this->layout()->queryParameters = [];
+                            }
+
+                            $queryLimit = (array_key_exists('m_page_nb_per_page', $this->layout()->queryParameters)) ? $this->layout()->queryParameters['m_page_nb_per_page'] : '';
+
                             foreach($limits as $limit){
                                 $selected = '';
                                 if($limit == $queryLimit){
