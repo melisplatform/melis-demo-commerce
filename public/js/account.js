@@ -248,6 +248,42 @@ $(function(){
         }
     });
 
+    // open order
+    $('body').on('click', '.orderhist-table-cell', function() {
+    	$(this).closest('.table-row').find('a')[0].click();
+    });
+
+    // download invoice on order history
+    $('body').on('click', '.orderhist-table-download-invoice', function() {
+    	let $downloadInvoice = $(this);
+    	let url = '/MelisCommerceOrderInvoice/getInvoice';
+    	let xhr = new XMLHttpRequest();
+    	let invoiceId = $(this).val();
+    	let params = 'invoiceId=' + invoiceId;
+    	let refNum = $(this).closest('.table-cell').siblings('.ref-num').text();
+
+		$downloadInvoice.closest('.p-checkarea').siblings('.invoice-alert').css('display', 'none');
+
+    	if (invoiceId > 0) {
+			xhr.open('POST', url);
+			xhr.responseType = 'arraybuffer';
+	        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	        xhr.send(params);
+    	} else {
+			$downloadInvoice.closest('.p-checkarea').siblings('.invoice-alert').find('strong').text('No available invoice for ' + refNum);
+			$downloadInvoice.closest('.p-checkarea').siblings('.invoice-alert').css('display', '');
+    	}
+
+        xhr.onload = function(e) {
+			let blob = new Blob([this.response], {type:'application/pdf'});
+			let link = document.createElement('a');
+
+			link.href = window.URL.createObjectURL(blob);
+			link.download = 'invoice.pdf';
+			link.click();
+        };
+    });
+
     //cart plugin
     $('body').on('click','.cart-pagination a', function(){
         if(!$(this).hasClass("disabled")){

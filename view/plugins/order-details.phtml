@@ -125,6 +125,22 @@
     		</div>
     	</div>
     </div>
+    <br>
+    <?php 
+        $invoiceId = 0;
+        
+        if (!empty($this->orderInvoice)) {
+            $invoiceId = $this->orderInvoice['ordin_id'];
+        }
+    ?>
+    <div class="pull-right">
+        <button value="<?php echo $invoiceId ?>" class="btn btn-primary btn-large orderdetails-download-invoice"><i class="fa fa-download"></i> Download PDF</button>
+    </div>
+    <br>
+    <br>
+    <div class="alert alert-danger invoice-alert" style="display: none;">
+        <strong>No available invoice</strong>
+    </div>
 	<br>
 	<div class="ship-add">
 		<div class="row">

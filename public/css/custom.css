@@ -1070,6 +1070,13 @@ input {
     border: #464646;
     cursor: no-drop;
  }
+.orderhist-table-cell {
+    width: 16.66% !important;
+    cursor: pointer;
+}
+.orderhist-table-head {
+    width: 16.66% !important;
+}
 
 @media (max-width: 991px) and (min-width: 768px) {
     .dec.qtybutton, .inc.qtybutton {

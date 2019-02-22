@@ -92,4 +92,32 @@ $(function(){
 	    var date = "<div class=\"comments-date\"><span>" + month + ' ' + day + ', ' + year + "</span>" + "<span>, at "+ hour + ':' + min + ' ' + ps +"</span></div>";
 	    return date;
 	};
+
+	$('body').on('click', '.orderdetails-download-invoice', function() {
+		let $downloadInvoice = $(this);
+		let url = '/MelisCommerceOrderInvoice/getInvoice';
+		let xhr = new XMLHttpRequest();
+		let invoiceId = $(this).val();
+		let params = 'invoiceId=' + invoiceId;
+
+		$downloadInvoice.closest('div').siblings('.invoice-alert').css('display', 'none');
+
+		if (invoiceId > 0) {
+			xhr.open('POST', url);
+			xhr.responseType = 'arraybuffer';
+	        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	        xhr.send(params);
+		} else {
+			$downloadInvoice.closest('div').siblings('.invoice-alert').css('display', '');
+		}
+
+		xhr.onload = function(e) {
+			let blob = new Blob([this.response], {type:'application/pdf'});
+			let link = document.createElement('a');
+
+			link.href = window.URL.createObjectURL(blob);
+			link.download = 'invoice.pdf';
+			link.click();
+		};
+	});
 });
