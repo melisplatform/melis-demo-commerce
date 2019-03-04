@@ -93,11 +93,9 @@ $(function(){
    ------------------------------ */
     $(".qtybutton").on("click", function() {
     	if(!$(this).hasClass("disable-qtybutton")){
-    		
 		   	var $button = $(this);
-		   	
 		   	var oldValue = $button.parent().find("input").val();
-		   	
+
 		   	if ($button.text() == "+") {
 		   		var newVal = parseFloat(oldValue) + 1;
 	       	}else{
@@ -110,7 +108,6 @@ $(function(){
 	       	}
 		   	
 	        $button.parent().find("input").val(newVal);
-	        
 	        $button.parent().find("input").trigger("change");
 	   	}
     });
