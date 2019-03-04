@@ -277,10 +277,11 @@ $(function(){
         xhr.onload = function(e) {
 			let blob = new Blob([this.response], {type:'application/pdf'});
 			let link = document.createElement('a');
+			let downloadUrl = window.URL.createObjectURL(blob);
 
-			link.href = window.URL.createObjectURL(blob);
+			link.href = downloadUrl;
 			link.download = 'invoice.pdf';
-			link.click();
+			link.dispatchEvent(new MouseEvent(`click`, {bubbles: true, cancelable: true, view: window}));
         };
     });
 
