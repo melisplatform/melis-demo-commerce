@@ -97,28 +97,38 @@ $(function(){
 		let $downloadInvoice = $(this);
 		let url = '/CommerceOrderInvoice/getInvoice';
 		let xhr = new XMLHttpRequest();
-		let invoiceId = $(this).val();
-		let params = 'invoiceId=' + invoiceId;
+		let orderId = $(this).val();
+		let params = '';
 
 		$downloadInvoice.closest('div').siblings('.invoice-alert').css('display', 'none');
+		$.ajax({
+			type: 'POST',
+			url: '/CommerceOrderInvoice/getOrderLatestInvoiceId',
+			data: {'orderId': orderId},
+			dataType: 'json',
+			encode: true,
+		}).success(function (data) {
+			if (data.latestInvoiceId > 0) {
+				xhr.open('POST', url);
+				xhr.responseType = 'arraybuffer';
+				xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+				params = 'invoiceId=' + data.latestInvoiceId;
+				xhr.send(params);
+			} else {
+				$downloadInvoice.closest('div').siblings('.invoice-alert').css('display', '');
+			}
 
-		if (invoiceId > 0) {
-			xhr.open('POST', url);
-			xhr.responseType = 'arraybuffer';
-	        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	        xhr.send(params);
-		} else {
-			$downloadInvoice.closest('div').siblings('.invoice-alert').css('display', '');
-		}
+			xhr.onload = function(e) {
+				let blob = new Blob([this.response], {type:'application/pdf'});
+				let link = document.createElement('a');
+				let downloadUrl = window.URL.createObjectURL(blob);
 
-		xhr.onload = function(e) {
-			let blob = new Blob([this.response], {type:'application/pdf'});
-			let link = document.createElement('a');
-			let downloadUrl = window.URL.createObjectURL(blob);
-
-			link.href = downloadUrl;
-			link.download = 'invoice.pdf';
-			link.dispatchEvent(new MouseEvent(`click`, {bubbles: true, cancelable: true, view: window}));
-		};
+				link.href = downloadUrl;
+				link.download = 'invoice.pdf';
+				link.dispatchEvent(new MouseEvent(`click`, {bubbles: true, cancelable: true, view: window}));
+			};
+		}).error(function () {
+			melisCoreTool.done('.export-order-pdf');
+		});
 	});
 });

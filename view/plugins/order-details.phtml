@@ -126,15 +126,8 @@
     	</div>
     </div>
     <br>
-    <?php 
-        $invoiceId = 0;
-        
-        if (!empty($this->orderInvoice)) {
-            $invoiceId = $this->orderInvoice['ordin_id'];
-        }
-    ?>
     <div class="pull-right">
-        <button value="<?php echo $invoiceId ?>" class="btn btn-primary btn-large orderdetails-download-invoice"><i class="fa fa-download"></i> Download Invoice</button>
+        <button value="<?php echo $order['id'] ?>" class="btn btn-primary btn-large orderdetails-download-invoice"><i class="fa fa-download"></i> Download Invoice</button>
     </div>
     <br>
     <br>
