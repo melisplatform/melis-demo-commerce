@@ -8,7 +8,7 @@ return array(
     'MelisCmsSlider',
     'MelisCmsProspects',
     'MelisCommerce',
-	'MelisDemoCommerce',
-	'MelisCommerceOrderInvoice'
+	'MelisCommerceOrderInvoice',
+    'MelisDemoCommerce'
    # 'MelisCmsSiteRobot',
 );

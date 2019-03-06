@@ -256,7 +256,7 @@ $(function(){
     // download invoice on order history
     $('body').on('click', '.orderhist-table-download-invoice', function() {
     	let $downloadInvoice = $(this);
-    	let url = '/MelisCommerceOrderInvoice/getInvoice';
+    	let url = '/CommerceOrderInvoice/getInvoice';
     	let xhr = new XMLHttpRequest();
     	let invoiceId = $(this).val();
     	let params = 'invoiceId=' + invoiceId;

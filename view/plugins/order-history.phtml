@@ -27,7 +27,7 @@
                         <div class="table-cell orderhist-table-cell text-center"><?= $order['status'] ?></div>
                         <div class="table-cell orderhist-table-cell items text-center"><?= $order['itemCount'] ?></div>
                         <div class="table-cell orderhist-table-cell"><?= $order['currency'].number_format($order['total'], 2) ?></div>
-                        <div class="table-cell" style="width: 16.66%"><button value="<?php echo $order['invoiceId'] ?>" class="btn btn-primary orderhist-table-download-invoice" title="<?php echo $this->translate('tr_meliscommerce_order_invoice_export_pdf_title')?>"><i class="fa fa-download"></i></button></div>
+                        <div class="table-cell" style="width: 16.66%"><button value="<?php echo $order['invoiceId'] ?>" class="btn btn-primary orderhist-table-download-invoice" title="Download Invoice"><i class="fa fa-download"></i></button></div>
                     </div>
             <?php } ?>
             <!--pagination start-->
