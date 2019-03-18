@@ -126,9 +126,11 @@
     	</div>
     </div>
     <br>
-    <div class="pull-right">
-        <button value="<?php echo $order['id'] ?>" class="btn btn-primary btn-large orderdetails-download-invoice"><i class="fa fa-download"></i> Download Invoice</button>
-    </div>
+    <?php if (!empty($this->orderInvoice)) { ?>
+        <div class="pull-right">
+            <button value="<?php echo $order['id'] ?>" class="btn btn-primary btn-large orderdetails-download-invoice"><i class="fa fa-download"></i> Download Invoice</button>
+        </div>
+    <?php } ?>
     <br>
     <br>
     <div class="alert alert-danger invoice-alert" style="display: none;">
