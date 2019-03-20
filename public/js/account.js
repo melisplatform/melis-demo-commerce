@@ -288,7 +288,7 @@ $(function(){
 				let downloadUrl = window.URL.createObjectURL(blob);
 
 				link.href = downloadUrl;
-				link.download = 'invoice.pdf';
+				link.download = xhr.getResponseHeader('fileName');
 				link.dispatchEvent(new MouseEvent(`click`, {bubbles: true, cancelable: true, view: window}));
 			};
 		}).error(function () {
