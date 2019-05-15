@@ -27,8 +27,12 @@ class ComProductController extends BaseController
             'm_product_id' => $this->params()->fromRoute('productId', null)
         );
 
-        $productId['m_product_id'] = $productId['m_product_id'] == null ? (isset($this->getServiceLocator()->get('request')->getQuery()->toArray()['m_p_id']) ? $this->getServiceLocator()->get('request')->getQuery()->toArray()['m_p_id'] : null) : null;
-        
+        if(empty($productId['m_product_id'])){
+            if(isset($this->getServiceLocator()->get('request')->getQuery()->toArray()["m_p_id"])){
+                $productId['m_product_id'] = $this->getServiceLocator()->get('request')->getQuery()->toArray()["m_p_id"];
+            }
+        }
+
         // Merging current data from url 
         $params = ArrayUtils::merge($this->getServiceLocator()->get('request')->getQuery()->toArray(), $productId);
         
