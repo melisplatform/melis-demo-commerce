@@ -112,7 +112,7 @@ $(function(){
 	        encode		: true
 		}).success(function(data){
 			if(data.success){
-				action(type, "block", "onChange", false);
+				action(type, "block", "onChange", true);
 				$.each(data.address, function(index, value){
 					if($(".checkout-"+type+"-address #"+index).length){
 						$(".checkout-"+type+"-address #"+index).val(value);

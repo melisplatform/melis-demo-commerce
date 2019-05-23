@@ -36,7 +36,7 @@ class ComCheckoutController extends BaseController
         
         $checkoutPageLink = $melisTree->getPageLink($this->idPage, false);
         $loginPage = $melisTree->getPageLink($loginPageId, false);
-        
+
         /**
          * MelisCommerceCheckoutPlugin this Plugin process the Checkout
          * This pulig provides pages with specific task as follows
@@ -67,6 +67,7 @@ class ComCheckoutController extends BaseController
             ),
             'checkout_addresses_parameters' => array(
                 'template_path' => 'MelisDemoCommerce/plugin/checkout-addresses',
+                'm_add_override_data' => true,
             ),
             'checkout_summary_parameters' => array(
                 'template_path' => 'MelisDemoCommerce/plugin/checkout-summary',
