@@ -37,7 +37,7 @@ $(function(){
 		var body = $("html, body");
 		body.stop().animate({scrollTop:220}, '500', 'swing');
 	});
-})
+});
 
 var melisCommerceDemo = (function(window) {
 	

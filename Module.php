@@ -118,6 +118,7 @@ class Module
     			include __DIR__ . '/config/module.config.php',
     			include __DIR__ . '/config/melis.plugins.config.php',
     			include __DIR__ . '/config/MelisDemoCommerce.config.php',
+    			include __DIR__ . '/config/assets.config.php',
     			include __DIR__ . '/config/app.forms.php',
     	);
     	

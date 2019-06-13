@@ -13,33 +13,6 @@
         
         // Favicon
         $this->headLink(array('rel' => 'apple-touch-icon', 'href' => $this->basePath('/MelisDemoCommerce/images/icons/favicon.ico'), 'PREPEND'));
-    
-        // Bootstrap fremwork main css
-        $this->headLink()->appendStylesheet('/MelisDemoCommerce/css/bootstrap.min.css');
-        
-        // This core.css file contents all plugings css file
-        $this->headLink()->appendStylesheet('/MelisDemoCommerce/css/core.css');
-        
-        // Theme shortcodes/elements style
-        $this->headLink()->appendStylesheet('/MelisDemoCommerce/css/shortcode/shortcodes.css');
-        
-        // Owl Carousel Style
-        $this->headLink()->appendStylesheet('/MelisDemoCommerce/css/owl.carousel.css');
-        $this->headLink()->appendStylesheet('/MelisDemoCommerce/css/owl.theme.default.css');
-        $this->headLink()->appendStylesheet('/MelisDemoCommerce/css/owl.theme.green.min.css');
-        
-        // Theme main style
-        $this->headLink()->appendStylesheet('/MelisDemoCommerce/css/style.css');
-        
-        // Responsive css
-        $this->headLink()->appendStylesheet('/MelisDemoCommerce/css/responsive.css');
-        
-        // Animate Css Plugin
-        $this->headLink()->appendStylesheet('/MelisDemoCommerce/css/animate.css');
-        
-        // Customs styles
-        $this->headLink()->appendStylesheet('/MelisDemoCommerce/css/custom.css');
-        $this->headLink()->appendStylesheet('/MelisDemoCommerce/css/skin/skin-default.css');
         
         // Render Page CSS from Controller Action of the page
         if (is_array($this->pageCss)){
@@ -275,30 +248,6 @@
         
         <?php 
             /* Placed js at the end of the document so the pages load faster */
-             
-            // jquery latest version
-            $this->inlineScript()->appendFile($this->basePath('/MelisDemoCommerce/js/vendor/jquery-2.2.4.min.js'));
-              
-            // Bootstrap framework js
-            $this->inlineScript()->appendFile($this->basePath('/MelisDemoCommerce/js/bootstrap.min.js'));
-              
-            // Owl Carousel
-            $this->inlineScript()->appendFile($this->basePath('/MelisDemoCommerce/js/owl.carousel.js'));
-              
-            // Countdown ??
-            $this->inlineScript()->appendFile($this->basePath('/MelisDemoCommerce/js/jquery.countdown.min.js'));
-              
-            // All js plugins included in this file
-            $this->inlineScript()->appendFile($this->basePath('/MelisDemoCommerce/js/plugins.js'));
-              
-            $this->inlineScript()->appendFile($this->basePath('/MelisDemoCommerce/js/main.js'));
-            
-            $this->inlineScript()->appendFile($this->basePath('/MelisDemoCommerce/js/custom.js'));
-            
-            // Temporary default template resources
-            $this->inlineScript()->appendFile($this->basePath('/MelisCommerce/plugins/js/checkout.js'));
-            $this->inlineScript()->appendFile($this->basePath('/MelisDemoCommerce/js/remove-cart.js'));
-
             // Render Page JS from Controller Action of the page
             if (is_array($this->pageJs)){
                 for ($i = 0 ; $i < count($this->pageJs); $i++){
