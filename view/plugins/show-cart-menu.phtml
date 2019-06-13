@@ -1,4 +1,4 @@
-<div class="cart-icon"> <a href="<?php echo $this->MelisLink($this->layout()->siteDatas['cart_page_id'], true)?>">Cart<i class="zmdi zmdi-shopping-cart"></i></a> <span id="cartCount"><?= count($this->basket); ?></span> </div>
+<div class="cart-icon"> <a href="<?php echo $this->MelisLink($this->SiteConfig('cart_page_id'), true)?>">Cart<i class="zmdi zmdi-shopping-cart"></i></a> <span id="cartCount"><?= count($this->basket); ?></span> </div>
 	<div class="cart-content-wraper">
         <?php 
          $total = 0;
@@ -13,9 +13,9 @@
          }
          
          foreach($this->basket as $item):
-         $mainImage = $this->layout()->siteDatas['default_image'];
+         $mainImage = $this->SiteConfig('default_image');
          $mainImage = isset($item['image'])? $item['image'] : $mainImage;
-         $productPageLink = $this->MelisLink($this->layout()->siteDatas['product_page_id'], false)
+         $productPageLink = $this->MelisLink($this->SiteConfig('product_page_id'), false)
                         .'?'.http_build_query(array('m_p_id'=>$item['product_id']));
         ?>
             <div class="cart-single-wraper" data-variantid="<?= $item['var_id']?>">
@@ -37,7 +37,7 @@
     </div>  
     <div class="cart-subtotal <?= $hideCart ?>"> Subtotal: <span><?= $this->currency.number_format($this->basketTotal, 2); ?></span> </div>
 	<div class="cart-check-btn <?= $hideCart ?>">
-        <div class="check-btn"> <a class="btn-def" href="<?php echo $this->MelisLink($this->layout()->siteDatas['checkout_page_id'], true)?>">View Cart / Checkout</a> </div>
+        <div class="check-btn"> <a class="btn-def" href="<?php echo $this->MelisLink($this->SiteConfig('checkout_page_id'), true)?>">View Cart / Checkout</a> </div>
     </div>    
       
 	</div>

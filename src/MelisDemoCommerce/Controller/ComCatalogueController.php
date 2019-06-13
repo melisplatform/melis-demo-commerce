@@ -10,15 +10,15 @@
 namespace MelisDemoCommerce\Controller;
 
 use MelisDemoCommerce\Controller\BaseController;
+use MelisFront\Service\MelisSiteConfigService;
 
 class ComCatalogueController extends BaseController
 {
     public function indexAction()
-    {       
-        // Getting the Site config "MelisDemoCommerce.config.php"
-        $siteConfig = $this->getServiceLocator()->get('config');
-        $siteConfig = $siteConfig['site']['MelisDemoCommerce'];
-        $siteDatas = $siteConfig['datas'];
+    {
+        /** @var MelisSiteConfigService $siteConfigSrv */
+        $siteConfigSrv = $this->getServiceLocator()->get('MelisSiteConfigService');
+
         $catalogueFilter = array();
         $queryParameters = $this->params()->fromQuery();
         $routeparameters = array();
@@ -30,7 +30,7 @@ class ComCatalogueController extends BaseController
         }
         
         $pageBanner = '';
-        foreach ($siteDatas['catalogue_pages'] As $val)
+        foreach ($siteConfigSrv->getSiteConfigByKey('catalogue_pages', $this->idPage) As $val)
         {
             if ($this->idPage == $val['page_id'])
             {
@@ -66,7 +66,7 @@ class ComCatalogueController extends BaseController
         $categoryList = $this->MelisCommerceCategoryTreePlugin();
         $params = array(
             'template_path' => 'MelisDemoCommerce/plugin/category-tree',
-            'parent_category_id' => $siteDatas['parent_category_id'],
+            'parent_category_id' => $siteConfigSrv->getSiteConfigByKey('parent_category_id', $this->idPage),
         );
         $params = array_merge($params, $queryParameters);
         // add generated view to children views for displaying it in the home page view
@@ -93,7 +93,7 @@ class ComCatalogueController extends BaseController
         $colorAttributeFilter = $this->MelisCommerceProductAttributePlugin();
         $colorAttributeFilterParameters = array(
             'template_path' => 'MelisDemoCommerce/plugin/product-color-attribute',
-            'attribute_id' => $siteDatas['color_attribute_id'],
+            'attribute_id' => $siteConfigSrv->getSiteConfigByKey('color_attribute_id', $this->idPage),
         );
         // add generated view to children views for displaying it in the home page view
         $this->view->addChild($colorAttributeFilter->render($colorAttributeFilterParameters), 'colorAttributeFilter');
@@ -104,18 +104,19 @@ class ComCatalogueController extends BaseController
         $sizeAttributeFilter = $this->MelisCommerceProductAttributePlugin();
         $sizeAttributeFilterParameters = array(
             'template_path' => 'MelisDemoCommerce/plugin/product-size-attribute',
-            'attribute_id' => $siteDatas['size_attribute_id'],
+            'attribute_id' => $siteConfigSrv->getSiteConfigByKey('size_attribute_id', $this->idPage),
         );
         // add generated view to children views for displaying it in the home page view
         $this->view->addChild($sizeAttributeFilter->render($sizeAttributeFilterParameters), 'sizeAttributeFilter');
-        
+
         /**
          * Generating category product list using MelisCommerceProductListPlugin
          */
         $categoryProductList = $this->MelisCommerceProductListPlugin();
-        $m_col_name = $siteDatas['sort_default']['m_col_name'];
-        $m_order = $siteDatas['sort_default']['m_order'];
-        
+        $sort = $siteConfigSrv->getSiteConfigByKey('sort_default', $this->idPage);
+        $m_col_name = $sort['m_col_name'];
+        $m_order = $sort['m_order'];
+
         $params = array(
             'template_path' => 'MelisDemoCommerce/plugin/product-list',
             'm_col_name' => $m_col_name,

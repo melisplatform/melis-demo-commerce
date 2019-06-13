@@ -9,7 +9,8 @@
 
 namespace MelisDemoCommerce\Controller;
 
-use MelisDemoCommerce\Controller\BaseController;
+
+use MelisFront\Service\MelisSiteConfigService;
 
 class NewsController extends BaseController
 {
@@ -20,11 +21,8 @@ class NewsController extends BaseController
      */
     public function listAction()
     {
-        // Getting the Site config "MelisDemoCms.config.php"
-        $siteConfig = $this->getServiceLocator()->get('config');
-        $siteConfig = $siteConfig['site']['MelisDemoCommerce'];
-        $siteDatas = $siteConfig['datas'];
-        
+        /** @var MelisSiteConfigService $siteConfigSrv */
+        $siteConfigSrv = $this->getServiceLocator()->get('MelisSiteConfigService');
         /**
          * Listing News using MelisCmsNewsListNewsPlugin
          */
@@ -32,7 +30,7 @@ class NewsController extends BaseController
         $listNewsParameters = array(
             'template_path' => 'MelisDemoCommerce/plugin/news-list',
             'pageId' => $this->idPage,
-            'pageIdNews' => $siteDatas['news_details_page_id'],
+            'pageIdNews' => $siteConfigSrv->getSiteConfigByKey('news_details_page_id', $this->idPage),
             'pagination' => array(
                 'nbPerPage' => 6
             ),
@@ -40,7 +38,7 @@ class NewsController extends BaseController
                 'column' => 'cnews_publish_date',
                 'order' => 'DESC',
                 'unpublish_filter' => true,
-                'site_id' => $siteDatas['site_id'],
+                'site_id' => $siteConfigSrv->getSiteConfigByKey('site_id', $this->idPage),
             )
         );
         
@@ -59,11 +57,8 @@ class NewsController extends BaseController
      */
     public function detailsAction()
     {
-        
-        // Getting the Site config "MelisDemoCms.config.php"
-        $siteConfig = $this->getServiceLocator()->get('config');
-        $siteConfig = $siteConfig['site']['MelisDemoCommerce'];
-        $siteDatas = $siteConfig['datas'];
+        /** @var MelisSiteConfigService $siteConfigSrv */
+        $siteConfigSrv = $this->getServiceLocator()->get('MelisSiteConfigService');
         
         $dateMax = date("Y-m-d H:i:s", strtotime("now"));
 		$listNewsPluginView = $this->MelisCmsNewsShowNewsPlugin();
@@ -86,7 +81,7 @@ class NewsController extends BaseController
 		        'limit' => 10,
 		        'unpublish_filter' => true,
 		        'date_max' => null,
-		        'site_id' => $siteDatas['site_id'],
+		        'site_id' => $siteConfigSrv->getSiteConfigByKey('site_id', $this->idPage),
 		    )
 		);
 		// add generated view to children views for displaying it in the contact view

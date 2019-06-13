@@ -9,6 +9,7 @@
 
 namespace MelisDemoCommerce\Listener;
 
+use MelisFront\Service\MelisSiteConfigService;
 use Zend\EventManager\EventManagerInterface;
 use Zend\EventManager\ListenerAggregateInterface;
 use Zend\Stdlib\ArrayUtils;
@@ -37,7 +38,7 @@ class SiteCommerceCategoryProductListPluginListener implements ListenerAggregate
         	    
         	    if ($params['view']->getTemplate() == 'MelisDemoCommerce/plugin/category-product-list-slider')
         	    {
-        	        $viewVariables['categoryProducts'] = $this->customizeProductList($viewVariables['categoryProducts']);
+        	        $viewVariables['categoryProducts'] = $this->customizeProductList($viewVariables['categoryProducts'], $params);
         	    }
         	},
         100);
@@ -45,19 +46,17 @@ class SiteCommerceCategoryProductListPluginListener implements ListenerAggregate
         $this->listeners[] = $callBackHandler;
     }
     
-    public function customizeProductList($relProducts = array())
+    public function customizeProductList($relProducts = array(), $params)
     {
         $melisComVariantService = $this->serviceLocator->get('MelisComVariantService');
         $melisComProductService = $this->serviceLocator->get('MelisComProductService');
         $documentSrv = $this->serviceLocator->get('MelisComDocumentService');
-        
-        // Getting the Site config "MelisDemoCommerce.config.php"
-        $siteConfig = $this->serviceLocator->get('config');
-        $siteConfig = $siteConfig['site']['MelisDemoCommerce'];
-        $siteDatas = $siteConfig['datas'];
-        
-        $countryId = $siteDatas['site_country_id'];
-        
+
+        /** @var MelisSiteConfigService $siteConfigSrv */
+        $siteConfigSrv = $this->serviceLocator->get('MelisSiteConfigService');
+
+        $countryId = $siteConfigSrv->getSiteConfigByKey('site_country_id', $params['pluginFronConfig']['pageId']);
+
         if (!empty($relProducts))
         {
             // Getting the Lowest Price of Product variants and

@@ -9,17 +9,14 @@
 
 namespace MelisDemoCommerce\Controller;
 
-use MelisDemoCommerce\Controller\BaseController;
+use MelisFront\Service\MelisSiteConfigService;
 
 class HomeController extends BaseController
 {
     public function indexAction()
     {
-        // Getting the Site config "MelisDemoCommerce.config.php"
-        $siteConfig = $this->getServiceLocator()->get('config');
-        $siteConfig = $siteConfig['site']['MelisDemoCommerce'];
-        $siteDatas = $siteConfig['datas'];
-        
+        /** @var MelisSiteConfigService $siteConfigSrv */
+        $siteConfigSrv = $this->getServiceLocator()->get('MelisSiteConfigService');
         /**
          * Generating Homepage header Slider using MelisCmsSliderShowSliderPlugin Plugin
          */
@@ -28,17 +25,17 @@ class HomeController extends BaseController
             'template_path' => 'MelisDemoCommerce/plugin/homepage-slider',
             'id' => 'showSliderHomepage',
             'pageId' => $this->idPage,
-            'sliderId' => $siteDatas['homepage_header_slider'],
+            'sliderId' => $siteConfigSrv->getSiteConfigByKey('homepage_header_slider', $this->idPage),
         );
         // add generated view to children views for displaying it in the home page view
         $this->view->addChild($showSlider->render($showSliderParameters), 'homePageSlider');
-        
+
         
         $showListForFolderPlugin = $this->MelisFrontShowListFromFolderPlugin();
         $menuParameters = array(
             'template_path' => 'MelisDemoCommerce/plugin/testimonial-slider',
             'pageId' => $this->idPage,
-            'pageIdFolder' => $siteDatas['testimonial_id'],
+            'pageIdFolder' => $siteConfigSrv->getSiteConfigByKey('testimonial_id', $this->idPage),
             'renderMode' => $this->renderMode,
         );
         // add generated view to children views for displaying it in the home page view
@@ -50,14 +47,14 @@ class HomeController extends BaseController
         $latestNewsPluginView = $this->MelisCmsNewsLatestNewsPlugin();
         $latestNewsParameters = array(
             'template_path' => 'MelisDemoCommerce/plugin/latest-news',
-            'pageIdNews' => $siteDatas['news_details_page_id'],
+            'pageIdNews' => $siteConfigSrv->getSiteConfigByKey('news_details_page_id', $this->idPage),
             'filter' => array(
                 'column' => 'cnews_publish_date',
                 'order' => 'DESC',
                 'date_min' => null,
                 'date_max' => null,
                 'unpublish_filter' => true,
-                'site_id' => $siteDatas['site_id'],
+                'site_id' => $siteConfigSrv->getSiteConfigByKey('site_id', $this->idPage),
                 'search' => '',
                 'limit' => 6,
             )
@@ -73,12 +70,12 @@ class HomeController extends BaseController
             'id' => 'homepageCategoryProductSlider1',
             'template_path' => 'MelisDemoCommerce/plugin/category-product-list-slider',
             'm_category_option' => array(
-                'm_category_ids' => $siteDatas['homepage_category_product_slider_1'],
+                'm_category_ids' => $siteConfigSrv->getSiteConfigByKey('homepage_category_product_slider_1', $this->idPage),
                 'm_include_sub_category_products' => true,
             ),
             'm_product_option' => array(
-                'm_country_id' => $siteDatas['price_country_id'],
-                'm_prd_limit' => $siteDatas['homepage_category_product_slider_limit'],
+                'm_country_id' => $siteConfigSrv->getSiteConfigByKey('price_country_id', $this->idPage),
+                'm_prd_limit' => $siteConfigSrv->getSiteConfigByKey('homepage_category_product_slider_limit', $this->idPage),
             ),
         );
         // add generated view to children views for displaying it in the home page view
@@ -92,19 +89,19 @@ class HomeController extends BaseController
             'id' => 'homepageCategoryProductSlider2',
             'template_path' => 'MelisDemoCommerce/plugin/category-product-list-slider',
             'm_category_option' => array(
-                'm_category_ids' => $siteDatas['homepage_category_product_slider_2'],
+                'm_category_ids' => $siteConfigSrv->getSiteConfigByKey('homepage_category_product_slider_2', $this->idPage),
                 'm_include_sub_category_products' => true,
                 
             ),
             'm_product_option' => array(
-                'm_country_id' => $siteDatas['price_country_id'],
-                'm_prd_limit' => $siteDatas['homepage_category_product_slider_limit'],
+                'm_country_id' => $siteConfigSrv->getSiteConfigByKey('price_country_id', $this->idPage),
+                'm_prd_limit' => $siteConfigSrv->getSiteConfigByKey('homepage_category_product_slider_limit', $this->idPage),
             ),
         );
         
         // add generated view to children views for displaying it in the home page view
         $this->view->addChild($melisCommerceCategoryProductListPlugin->render($categorySliderListProductsParameters), 'homepageCategoryProductSlider2');
-        
+
         $this->layout()->setVariables(array(
             'pageJs' => array(
                 '/MelisDemoCommerce/js/MelisPlugins/MelisDemoCommerce.MelisCommerceCategoryProductListPlugin.init.js',

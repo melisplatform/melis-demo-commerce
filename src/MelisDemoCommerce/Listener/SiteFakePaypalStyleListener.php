@@ -9,6 +9,7 @@
 
 namespace MelisDemoCommerce\Listener;
 
+use MelisFront\Service\MelisSiteConfigService;
 use Zend\EventManager\EventManagerInterface;
 use Zend\EventManager\ListenerAggregateInterface;
 use Zend\View\Model\ViewModel;
@@ -34,11 +35,9 @@ class SiteFakePaypalStyleListener implements ListenerAggregateInterface
         	    
         	    $viewModel = new ViewModel();
         	    $viewModel->setTemplate('MelisDemoCommerce/plugin/checkout-fake-paypal-style');
-        	    
-        	    // Getting the Site config "MelisDemoCommerce.config.php"
-        	    $siteConfig = $this->serviceLocator->get('config');
-        	    $siteConfig = $siteConfig['site']['MelisDemoCommerce'];
-        	    $siteDatas = $siteConfig['datas'];
+
+                /** @var MelisSiteConfigService $siteConfigSrv */
+                $siteConfigSrv = $this->serviceLocator->get('MelisSiteConfigService');
         	    
         	    // Generating the Product Remove link using MelisEngineTree Service
         	    $melisTree = $this->serviceLocator->get('MelisEngineTree');
@@ -46,8 +45,8 @@ class SiteFakePaypalStyleListener implements ListenerAggregateInterface
 	                'm_checkout_step' => 'checkout-confirm',
 	                'm_conf_order_id' => $params['orderDetails']['orderId']
 	            );
-        	    $checkoutConfirmPage = $melisTree->getPageLink($siteDatas['checkout_page_id'], true).'?'.http_build_query($queryData);
-        	    
+        	    $checkoutConfirmPage = $melisTree->getPageLink($siteConfigSrv->getSiteConfigByKey('checkout_page_id', $this->idPage), true).'?'.http_build_query($queryData);
+
         	    /**
         	     * This process will display a fake payment form
         	     * and handle all data that need to process the Order

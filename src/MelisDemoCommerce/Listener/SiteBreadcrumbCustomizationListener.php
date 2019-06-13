@@ -9,6 +9,7 @@
 
 namespace MelisDemoCommerce\Listener;
 
+use MelisFront\Service\MelisSiteConfigService;
 use Zend\EventManager\EventManagerInterface;
 use Zend\EventManager\ListenerAggregateInterface;
 use Zend\Session\Container;
@@ -29,10 +30,10 @@ class SiteBreadcrumbCustomizationListener implements ListenerAggregateInterface
         	function($e){
         	    // Getting the Service Locator from param target
         	    $this->serviceLocator = $e->getTarget()->getServiceLocator();
-        	    // Getting the Site config "MelisDemoCms.config.php"
-        	    $siteConfig = $this->serviceLocator->get('config');
-        	    $siteConfig = $siteConfig['site']['MelisDemoCommerce'];
-        	    $siteDatas = $siteConfig['datas'];
+
+                /** @var MelisSiteConfigService $siteConfigSrv */
+                $siteConfigSrv = $this->serviceLocator->get('MelisSiteConfigService');
+
         	    // Getting the Datas from the Event Parameters
         	    $params = $e->getParams();
         	    
@@ -54,17 +55,19 @@ class SiteBreadcrumbCustomizationListener implements ListenerAggregateInterface
         	            $lastPageId = $viewVariables['breadcrumb'][count($viewVariables['breadcrumb']) -1]['idPage'];
         	            
         	            $melisDemoCommerceSrv = $this->serviceLocator->get('DemoCommerceService');
-        	            
-        	            $siteConfigCatalogue = $siteDatas['catalogue_pages'];
-        	            
+
+        	            $siteConfigCatalogue = $siteConfigSrv->getSiteConfigByKey('catalogue_pages', $params['pluginFronConfig']['pageId']);
+
         	            $container = new Container('melisplugins');
         	            $langId = $container['melis-plugins-lang-id'];
-        	            
-            	        if ($lastPageId == $siteDatas['product_page_id'])
+
+        	            $productPageid = $siteConfigSrv->getSiteConfigByKey('product_page_id', $params['pluginFronConfig']['pageId']);
+
+            	        if ($lastPageId == $productPageid)
             	        {
-            	            
             	            // Customize Site menu using MelisDemoCmsService
-            	            $viewVariables['breadcrumb'] = $melisDemoCommerceSrv->customizeSiteBreadcrumb($viewVariables['breadcrumb'], $siteDatas['product_page_id'], $langId, $siteConfigCatalogue, $productId);
+            	            $viewVariables['breadcrumb'] = $melisDemoCommerceSrv->customizeSiteBreadcrumb($viewVariables['breadcrumb'], $productPageid, $langId, $siteConfigCatalogue, $productId);
+            	            $viewVariables['breadcrumb'] = $melisDemoCommerceSrv->customizeSiteBreadcrumb($viewVariables['breadcrumb'], $productPageid, $langId, $siteConfigCatalogue, $productId);
             	        }
             	        
             	        $categoryId = !empty($route['categoryId']) ? $route['categoryId'] : null;

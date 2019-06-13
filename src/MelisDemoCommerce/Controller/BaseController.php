@@ -10,6 +10,7 @@
 namespace MelisDemoCommerce\Controller;
 
 use MelisFront\Controller\MelisSiteActionController;
+use MelisFront\Service\MelisSiteConfigService;
 use Zend\View\Model\ViewModel;
 use Zend\Mvc\MvcEvent;
 
@@ -25,9 +26,18 @@ class BaseController extends MelisSiteActionController
     
     public function onDispatch(MvcEvent $event)
     {
+        $sm = $event->getApplication()->getServiceManager();
+
+        $pageId = $this->params()->fromRoute('idpage');
+        $renderMode = $this->params()->fromRoute('renderMode');
+
+        $melisComAuthSrv = $sm->get('MelisComAuthenticationService');
         $personName = null;
         $isLoggedin = false;
-        $melisComAuthSrv = $this->getServiceLocator()->get('MelisComAuthenticationService');
+
+        /** @var MelisSiteConfigService $siteConfigSrv */
+        $siteConfigSrv = $sm->get('MelisSiteConfigService');
+
         /**
          * Preparing the header link of the page
          * If user has been logged in the $personName will return 
@@ -41,17 +51,6 @@ class BaseController extends MelisSiteActionController
         
         $this->layout()->setVariable('personName', $personName);
         $this->layout()->setVariable('isLoggedin', $isLoggedin);
-        
-        // Getting the Site config "MelisDemoCommerce.config.php"
-        $sm = $event->getApplication()->getServiceManager();
-        $siteConfig = $sm->get('config');
-        $siteConfig = $siteConfig['site']['MelisDemoCommerce'];
-        $siteDatas = $siteConfig['datas'];
-        // Adding the SiteDatas to layout so views can access to the SiteDatas easily
-        $this->layout()->setVariable('siteDatas', $siteDatas);
-    
-        $pageId = $this->params()->fromRoute('idpage');
-        $renderMode = $this->params()->fromRoute('renderMode');
     
         /**
          * Generating Site Menu using MelisFrontMenuPlugin Plugin
@@ -59,9 +58,9 @@ class BaseController extends MelisSiteActionController
         $menuPlugin = $this->MelisFrontMenuPlugin();
         $menuParameters = array(
             'template_path' => 'MelisDemoCommerce/plugin/menu',
-            'pageIdRootMenu' => $siteConfig['conf']['home_page'],
+            'pageIdRootMenu' => $siteConfigSrv->getSiteConfigByKey('homePageId', $pageId),
         );
-        
+
         // add generated view to children views for displaying it in the contact view
         $menu = $menuPlugin->render($menuParameters);
         $this->layout()->addChild($menu, 'siteMenu');

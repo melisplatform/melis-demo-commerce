@@ -10,20 +10,20 @@
 namespace MelisDemoCommerce\Controller;
 
 use MelisDemoCommerce\Controller\BaseController;
+use MelisFront\Service\MelisSiteConfigService;
 use Zend\View\Model\JsonModel;
 
 class ComLoginController extends BaseController
 {
     public function indexAction()
     {
+        /** @var MelisSiteConfigService $siteConfigSrv */
+        $siteConfigSrv = $this->getServiceLocator()->get('MelisSiteConfigService');
         /**
          * Getting the Account page id as Page redirected
          * after login Authentication success
          */
-        $siteConfig = $this->getServiceLocator()->get('config');
-        $siteConfig = $siteConfig['site']['MelisDemoCommerce'];
-        $siteDatas = $siteConfig['datas'];
-        $accountPageId = $siteDatas['account_page_id'];
+        $accountPageId = $siteConfigSrv->getSiteConfigByKey('account_page_id', $this->idPage);
         // Generating the Redirect link using MelisEngineTree Service
         $melisTree = $this->getServiceLocator()->get('MelisEngineTree');
         $redirect_link = $melisTree->getPageLink($accountPageId);

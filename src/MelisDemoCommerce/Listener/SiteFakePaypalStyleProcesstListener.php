@@ -9,6 +9,7 @@
 
 namespace MelisDemoCommerce\Listener;
 
+use MelisFront\Service\MelisSiteConfigService;
 use Zend\EventManager\EventManagerInterface;
 use Zend\EventManager\ListenerAggregateInterface;
 use Zend\Http\Request;
@@ -33,16 +34,14 @@ class SiteFakePaypalStyleProcesstListener implements ListenerAggregateInterface
         	    
         	    $request = $this->serviceLocator->get('Request');
         	    $data = get_object_vars($request->getPost());
-        	    
-        	    // Getting the Site config "MelisDemoCommerce.config.php"
-        	    $siteConfig = $this->serviceLocator->get('config');
-        	    $siteConfig = $siteConfig['site']['MelisDemoCommerce'];
-        	    $siteDatas = $siteConfig['datas'];
+
+                /** @var MelisSiteConfigService $siteConfigSrv */
+                $siteConfigSrv = $this->serviceLocator->get('MelisSiteConfigService');
         	    
     	        if ($data['payment-transaction-return-code'] == 'A')
     	        {
     	            $orderCheckoutService = $this->serviceLocator->get('MelisComOrderCheckoutService');
-    	            $orderCheckoutService->setSiteId($siteDatas['site_id']);
+    	            $orderCheckoutService->setSiteId($siteConfigSrv->getSiteConfigByKey('site_id', $params['idPage']));
     	            $orderCheckoutService->checkoutStep2_postPayment();
     	        }
         	},

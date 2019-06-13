@@ -8,7 +8,7 @@
                        	<label>View</label>
                     	<select id="input-limit">
                      	<?php 
-                            $limits = $this->layout()->siteDatas['pagination_config']['limit'];
+                            $limits = $this->SiteConfig('pagination_config')['limit'];
                          
                             if (is_null($this->layout()->queryParameters)) {
                                 $this->layout()->queryParameters = [];
@@ -41,9 +41,9 @@
                                 $sortOrder = $this->sort_config;
                             }
                             
-                            $sorts = $this->layout()->siteDatas['sort_config'];
+                            $sorts = $this->SiteConfig('sort_config');
                              
-                            $defaultSort = $this->layout()->siteDatas['sort_default'];
+                            $defaultSort = $this->SiteConfig('sort_default');
                             $sortOrder = !empty($sortOrder)? $sortOrder : $defaultSort['m_col_name'].' '.$defaultSort['m_order'];
                         ?>
                         <select id="input-sort">
@@ -93,7 +93,7 @@
                     <?php
                         foreach($this->categoryListProducts as $product){
                             $productName = '';
-                            $mainImage = $this->layout()->siteDatas['default_image'];
+                            $mainImage = $this->SiteConfig('default_image');
                             $hoverImage = '';
 
                             // Product Text

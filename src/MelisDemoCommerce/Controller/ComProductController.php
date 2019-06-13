@@ -10,6 +10,7 @@
 namespace MelisDemoCommerce\Controller;
 
 use MelisDemoCommerce\Controller\BaseController;
+use MelisFront\Service\MelisSiteConfigService;
 use Zend\View\Model\JsonModel;
 use Zend\Stdlib\Parameters;
 use Zend\Stdlib\ArrayUtils;
@@ -18,11 +19,10 @@ class ComProductController extends BaseController
 {
     public function indexAction()
     {
-        // Getting the Site config "MelisDemoCommerce.config.php"
-        $siteConfig = $this->getServiceLocator()->get('config');
-        $siteConfig = $siteConfig['site']['MelisDemoCommerce'];
-        $siteDatas = $siteConfig['datas'];
-        
+
+        /** @var MelisSiteConfigService $siteConfigSrv */
+        $siteConfigSrv = $this->getServiceLocator()->get('MelisSiteConfigService');
+
         $productId = array(
             'm_product_id' => $this->params()->fromRoute('productId', null)
         );
@@ -47,7 +47,7 @@ class ComProductController extends BaseController
         // pass custom template paths
         $pluginParams = array(
             'template_path' => 'MelisDemoCommerce/plugin/show-product',
-            'm_product_country' => $siteDatas['site_country_id'],
+            'm_product_country' => $siteConfigSrv->getSiteConfigByKey('site_country_id', $this->idPage),
         );
         $productPlugin = $productPlugin->render($pluginParams);
         // add generated view to children views for displaying it in the home page view
@@ -77,10 +77,8 @@ class ComProductController extends BaseController
      */
     private function setPageBanner()
     {
-        // Getting the Site config "MelisDemoCommerce.config.php"
-        $siteConfig = $this->getServiceLocator()->get('config');
-        $siteConfig = $siteConfig['site']['MelisDemoCommerce'];
-        $siteDatas = $siteConfig['datas'];
+        /** @var MelisSiteConfigService $siteConfigSrv */
+        $siteConfigSrv = $this->getServiceLocator()->get('MelisSiteConfigService');
         /**
          * Retrieving Categeries related to the selected product
          * using the Product Service
@@ -100,7 +98,7 @@ class ComProductController extends BaseController
         {
             $catSrv = $this->getServiceLocator()->get('MelisComCategoryService');
             
-            $siteConfigCatalogue = $siteDatas['catalogue_pages'];
+            $siteConfigCatalogue = $siteConfigSrv->getSiteConfigByKey('catalogue_pages', $this->idPage);
             /**
              * This process will try to get the Category the will match
              * on site config "catalogue_pages"
@@ -166,6 +164,16 @@ class ComProductController extends BaseController
     
     public function getVariantCommonAttributesAction()
     {
+
+        /**
+         * access the router to get the
+         * page id
+         */
+        $router = $this->getServiceLocator()->get('router');
+        $req = $this->getServiceLocator()->get('request');
+        $routeMatch = $router->match($req);
+        $params = $routeMatch->getParams();
+
         $result = array();
         $request = $this->getRequest();
         
@@ -178,7 +186,7 @@ class ComProductController extends BaseController
             $action = $post['action'];
             
             $demoCommreceSrv = $this->getServiceLocator()->get('DemoCommerceService');
-            $result = $demoCommreceSrv->getVariantbyAttributes($productId, $attrSelection, $action);
+            $result = $demoCommreceSrv->getVariantbyAttributes($productId, $attrSelection, $action, $params['idPage']);
         }
         
         return new JsonModel($result);
@@ -207,11 +215,6 @@ class ComProductController extends BaseController
             if (empty($errors))
             {
                 $status = 1;
-                
-                // Getting the Site config "MelisDemoCommerce.config.php"
-                $siteConfig = $this->getServiceLocator()->get('config');
-                $siteConfig = $siteConfig['site']['MelisDemoCommerce'];
-                $siteDatas = $siteConfig['datas'];
                 
                 $cartPlugin = $this->MelisCommerceCartPlugin();
                 $menuParameters = array(

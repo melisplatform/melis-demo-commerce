@@ -6,7 +6,7 @@
                                 <div class="total-new-arrival new-arrival-slider-active carsoule-btn">                           
                                     <?php 
                                     // MelisDemoCommcerce.config.php, categories data config
-                                    $categories = $this->layout()->siteDatas['discountFeatureOnsale'];
+                                    $categories = $this->SiteConfig('discountFeatureOnsale');
                                     
                                     // display products under featured category
                                     foreach($this->categorySliderListProducts as $product){
@@ -16,7 +16,7 @@
                                             
                                                 $categoryName = '';
                                             	$productName = '';
-                                            	$mainImage = $this->layout()->siteDatas['default_image'];
+                                            	$mainImage = $this->SiteConfig('default_image');
                                             	$hoverImage = '';
                                             	$price = !empty($product->display_price)? $product->display_price : '';
                                             	$productPageLink = $this->MelisCommerceLink('product', $product->prd_id, $this->langId, false);
@@ -65,7 +65,7 @@
                                 <div class="total-new-arrival new-arrival-slider-active carsoule-btn">
                                     <?php 
                                     // MelisDemoCommcerce.config.php, categories data config
-                                    $categories = $this->layout()->siteDatas['discountFeatureOnsale'];
+                                    $categories = $this->SiteConfig('discountFeatureOnsale');
                                     
                                     // display products under new arrival category
                                     foreach($this->categorySliderListProducts as $product){
@@ -75,7 +75,7 @@
                                             
                                                 $categoryName = '';
                                             	$productName = '';
-                                            	$mainImage = $this->layout()->siteDatas['default_image'];
+                                            	$mainImage = $this->SiteConfig('default_image');
                                             	$hoverImage = '';
                                             	$price = !empty($product->display_price)? $product->display_price : '';
                                             	$productPageLink = $this->MelisCommerceLink('product', $product->prd_id, $this->langId, false);
@@ -124,7 +124,7 @@
                                 <div class="total-new-arrival new-arrival-slider-active carsoule-btn"> 
                                     <?php 
                                     // MelisDemoCommcerce.config.php, categories data config
-                                    $categories = $this->layout()->siteDatas['discountFeatureOnsale'];
+                                    $categories = $this->SiteConfig('discountFeatureOnsale');
                                     
                                     // display products under onsale category
                                     foreach($this->categorySliderListProducts as $product){
@@ -134,7 +134,7 @@
                                             
                                                 $categoryName = '';
                                             	$productName = '';
-                                            	$mainImage = $this->layout()->siteDatas['default_image'];
+                                            	$mainImage = $this->SiteConfig('default_image');
                                             	$hoverImage = '';
                                             	$price = !empty($product->display_price)? $product->display_price : '';
                                             	$productPageLink = $this->MelisCommerceLink('product', $product->prd_id, $this->langId, false);

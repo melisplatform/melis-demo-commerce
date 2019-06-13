@@ -7,7 +7,7 @@
 
 ?>
 <div class="cart-icon"> 
-	<a href="<?php echo $this->MelisLink($this->layout()->siteDatas['cart_page_id'], true)?>">
+	<a href="<?php echo $this->MelisLink($this->SiteConfig('cart_page_id'), true)?>">
 		Cart <i class="zmdi zmdi-shopping-cart"></i>
 	</a> 
 	<span id="cartCount"><?= $totalQty; //$this->cartList->getPages()->totalItemCount; ?></span> 
@@ -29,9 +29,9 @@
      
         foreach($this->cartList as $item)
         {
-            $mainImage = $this->layout()->siteDatas['default_image'];
+            $mainImage = $this->SiteConfig('default_image');
             $mainImage = isset($item['image'])? $item['image'] : $mainImage;
-            $productPageLink = $this->MelisLink($this->layout()->siteDatas['product_page_id'], false).'?'.http_build_query(array('m_p_id'=>$item['product_id']));
+            $productPageLink = $this->MelisLink($this->SiteConfig('product_page_id'), false).'?'.http_build_query(array('m_p_id'=>$item['product_id']));
     ?>
             <div class="cart-single-wraper" data-variantid="<?= $item['var_id']?>">
                 <div class="cart-img">
@@ -58,7 +58,7 @@
 	
     <div class="cart-check-btn <?= $hideCart ?>">
         <div class="check-btn"> 
-        	<a class="btn-def" href="<?php echo $this->MelisLink($this->layout()->siteDatas['checkout_page_id'], true)?>">View Cart / Checkout</a>
+        	<a class="btn-def" href="<?php echo $this->MelisLink($this->SiteConfig('checkout_page_id'), true)?>">View Cart / Checkout</a>
     	</div>
     </div>
 </div>

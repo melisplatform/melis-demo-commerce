@@ -9,6 +9,7 @@
 
 namespace MelisDemoCommerce\Listener;
 
+use MelisFront\Service\MelisSiteConfigService;
 use Zend\EventManager\EventManagerInterface;
 use Zend\EventManager\ListenerAggregateInterface;
 use Zend\Stdlib\Parameters;
@@ -35,16 +36,15 @@ class SiteFakePaymentProcesstListener implements ListenerAggregateInterface
         	    
         	    $request = $this->serviceLocator->get('Request');
         	    $data = get_object_vars($request->getQuery());
-        	    
-        	    // Getting the Site config "MelisDemoCommerce.config.php"
-        	    $siteConfig = $this->serviceLocator->get('config');
-        	    $siteConfig = $siteConfig['site']['MelisDemoCommerce'];
-        	    $siteDatas = $siteConfig['datas'];
-        	    
+
+                /** @var MelisSiteConfigService $siteConfigSrv */
+                $siteConfigSrv = $this->serviceLocator->get('MelisSiteConfigService');
+                $siteId = $siteConfigSrv->getSiteConfigByKey('site_id', $params['idPage']);
+
         	    // Generating the Product Remove link using MelisEngineTree Service
         	    $melisTree = $this->serviceLocator->get('MelisEngineTree');
-        	    $checkoutPage = $melisTree->getPageLink($siteDatas['checkout_page_id'], false);
-        	    
+        	    $checkoutPage = $melisTree->getPageLink($siteConfigSrv->getSiteConfigByKey('checkout_page_id', $params['idPage']), false);
+
     	        // Redirect to confirm order to show the result of the payment
     	        
         	    /**
@@ -71,17 +71,17 @@ class SiteFakePaymentProcesstListener implements ListenerAggregateInterface
     	            $this->serviceLocator->get('request')->setPost($postParam);
     	             
     	            $orderCheckoutService = $this->serviceLocator->get('MelisComOrderCheckoutService');
-    	            $orderCheckoutService->setSiteId($siteDatas['site_id']);
+    	            $orderCheckoutService->setSiteId($siteId);
     	            $orderCheckoutService->checkoutStep2_postPayment();
     	            
     	            $container = new Container('meliscommerce');
     	            $queryData = array(
     	                'm_checkout_step' => 'checkout-confirm',
-    	                'm_conf_order_id' => $container['checkout'][$siteDatas['site_id']]['orderId']
+    	                'm_conf_order_id' => $container['checkout'][$siteId]['orderId']
     	            );
     	            
     	            // Unsetting Site Checkout Session
-    	            unset($container['checkout'][$siteDatas['site_id']]);
+    	            unset($container['checkout'][$siteId]);
     	            
     	            $e->getTarget()->redirect()->tourl($checkoutPage.'?'.http_build_query($queryData));
     	        }

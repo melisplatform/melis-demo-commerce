@@ -5,7 +5,7 @@
                 	foreach($products as $product):
                 	$categoryName = '';
                 	$productName = '';
-                	$mainImage = $this->layout()->siteDatas['default_image'];
+                	$mainImage = $this->SiteConfig('default_image');
                 	$hoverImage = '';
                 	$price = !empty($product->display_price)? $product->display_price : '';
                 	$productPageLink = $this->MelisCommerceLink('product', $product->prd_id, $this->langId, false);

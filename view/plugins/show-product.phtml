@@ -34,7 +34,7 @@
                                         	
                                         	if(empty($documents))
                                         	{
-                                        	    echo '<li class="'.$active.'"><a href="#view1" class="shadow-box" aria-controls="view1" data-toggle="tab"><img src="'.$this->layout()->siteDatas['default_image'].'" alt="" /></a></li>';
+                                        	    echo '<li class="'.$active.'"><a href="#view1" class="shadow-box" aria-controls="view1" data-toggle="tab"><img src="'.$this->SiteConfig('default_image').'" alt="" /></a></li>';
                                         	}
                                     	?>
                                 	</ul>
@@ -62,7 +62,7 @@
                                 {
                                     echo '<div role="tabpanel" class="tab-pane active" id="view1">';
                                     echo     '<div class="product-img">';
-                                    echo         '<a class="fancybox" data-fancybox-group="group" href="'.$this->layout()->siteDatas['default_image'].'"><img src="'.$this->layout()->siteDatas['default_image'].'" alt="Single portfolio" /></a>';
+                                    echo         '<a class="fancybox" data-fancybox-group="group" href="'.$this->SiteConfig('default_image').'"><img src="'.$this->SiteConfig('default_image').'" alt="Single portfolio" /></a>';
                                     echo     '</div>';
                                     echo '</div>';
                                 }

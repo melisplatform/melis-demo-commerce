@@ -9,6 +9,7 @@
 
 namespace MelisDemoCommerce\Listener;
 
+use MelisFront\Service\MelisSiteConfigService;
 use Zend\EventManager\EventManagerInterface;
 use Zend\EventManager\ListenerAggregateInterface;
 use Zend\Session\Container;
@@ -34,6 +35,9 @@ class SiteProductShowPluginListener implements ListenerAggregateInterface
                 // Checking the DemoCommerce template assigned to the ProductShow plugin
                 if ($params['view']->getTemplate() == 'MelisDemoCommerce/plugin/show-product')
                 {
+                    /** @var MelisSiteConfigService $siteConfigSrv */
+                    $siteConfigSrv = $sm->get('MelisSiteConfigService');
+
                     $viewVariables = $params['view']->getVariables();
                     
                     $product = $viewVariables->product;
@@ -55,14 +59,9 @@ class SiteProductShowPluginListener implements ListenerAggregateInterface
                         $variantId = null;
                         $action = null;
                         $selection = array();
-                        
-                        // Getting the Site config "MelisDemoCommerce.config.php"
-                        $siteConfig = $sm->get('config');
-                        $siteConfig = $siteConfig['site']['MelisDemoCommerce'];
-                        $siteDatas = $siteConfig['datas'];
-                        
-                        $countryId = $siteDatas['site_country_id'];
-                        
+
+                        $countryId = $siteConfigSrv->getSiteConfigByKey('aboutus_slider', $params['idPage']);
+
                         if ($productId)
                         {
                             $variant = $variantSvc->getMainVariantByProductId($productId, $langId, $countryId);

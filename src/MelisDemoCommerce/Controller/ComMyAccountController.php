@@ -10,26 +10,26 @@
 namespace MelisDemoCommerce\Controller;
 
 use MelisDemoCommerce\Controller\BaseController;
+use MelisFront\Service\MelisSiteConfigService;
 use Zend\View\Model\JsonModel;
 use Zend\Stdlib\ArrayUtils;
 class ComMyAccountController extends BaseController
 {
     public function indexAction()
     {
+        /** @var MelisSiteConfigService $siteConfigSrv */
+        $siteConfigSrv = $this->getServiceLocator()->get('MelisSiteConfigService');
         /**
          * Getting the Login page id as Page redirected
          * if the user doesn't have authenticated yet
          */
-        $siteConfig = $this->getServiceLocator()->get('config');
-        $siteConfig = $siteConfig['site']['MelisDemoCommerce'];
-        $siteDatas = $siteConfig['datas'];
-        $loginPageId = $siteDatas['login_regestration_page_id'];
+        $loginPageId = $siteConfigSrv->getSiteConfigByKey('login_regestration_page_id', $this->idPage);
         // Generating the Redirect link using MelisEngineTree Service
         $melisTree = $this->getServiceLocator()->get('MelisEngineTree');
         $redirect_link = $melisTree->getPageLink($loginPageId, true);
         
-        $countryId = $siteDatas['site_country_id'];
-        
+        $countryId = $siteConfigSrv->getSiteConfigByKey('site_country_id', $this->idPage);
+
         /**
          * Checking if the user is logged in else
          * this will redirect to login page
@@ -211,11 +211,6 @@ class ComMyAccountController extends BaseController
 
         if ($request->isPost())
         {
-            // Getting the Site config "MelisDemoCommerce.config.php"
-            $siteConfig = $this->getServiceLocator()->get('config');
-            $siteConfig = $siteConfig['site']['MelisDemoCommerce'];
-            $siteDatas = $siteConfig['datas'];
-
             $orderHistoryPlugin = $this->MelisCommerceOrderHistoryPlugin();
             $menuParameters = array(
                 'template_path' => 'MelisDemoCommerce/plugin/order-history',
@@ -247,11 +242,6 @@ class ComMyAccountController extends BaseController
 
         if ($request->isPost())
         {
-            // Getting the Site config "MelisDemoCommerce.config.php"
-            $siteConfig = $this->getServiceLocator()->get('config');
-            $siteConfig = $siteConfig['site']['MelisDemoCommerce'];
-            $siteDatas = $siteConfig['datas'];
-
             $cartPlugin = $this->MelisCommerceCartPlugin();
             $menuParameters = array(
                 'template_path' => 'MelisDemoCommerce/plugin/my-cart',

@@ -10,7 +10,7 @@
                                    <label>View</label>
                                     <select id="input-limit">
                                      <?php 
-                                     $limits = $this->layout()->siteDatas['pagination_config']['limit'];
+                                     $limits = $this->SiteConfig('pagination_config')['limit'];
                                      
                                      $queryLimit = (array_key_exists('m_pag_nb_per_page', $this->layout()->queryParameters))? $this->layout()->queryParameters['m_pag_nb_per_page'] : '';
                                         foreach($limits as $limit){
@@ -34,9 +34,9 @@
                                         $sortOrder = $this->layout()->queryParameters['m_col_name']. ' ' . $this->layout()->queryParameters['m_order'];
                                     }
                                     
-                                    $sorts = $this->layout()->siteDatas['sort_config'];
+                                    $sorts = $this->SiteConfig('sort_config');
                                      
-                                    $defaultSort = $this->layout()->siteDatas['sort_default'];
+                                    $defaultSort = $this->SiteConfig('sort_default');
                                     $sortOrder = !empty($sortOrder)? $sortOrder : $defaultSort['m_col_name'].' '.$defaultSort['m_order'];
                                    
                                     ?>
@@ -101,7 +101,7 @@
                                     
                                     $categoryName = '';
                                     $productName = '';
-                                    $mainImage = $this->layout()->siteDatas['default_image'];
+                                    $mainImage = $this->SiteConfig('default_image');
                                     $hoverImage = '';
                                     $price = !empty($product->display_price)? $product->display_price : '';
                                     $productPageLink = $this->MelisCommerceLink('product', $product->prd_id, $this->langId, false);

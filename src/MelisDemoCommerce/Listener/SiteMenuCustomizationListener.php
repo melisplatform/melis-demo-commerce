@@ -9,6 +9,7 @@
 
 namespace MelisDemoCommerce\Listener;
 
+use MelisFront\Service\MelisSiteConfigService;
 use Zend\EventManager\EventManagerInterface;
 use Zend\EventManager\ListenerAggregateInterface;
 use Zend\Session\Container;
@@ -29,24 +30,27 @@ class SiteMenuCustomizationListener implements ListenerAggregateInterface
         	function($e){
         	    // Getting the Service Locator from param target
         	    $this->serviceLocator = $e->getTarget()->getServiceLocator();
-        	    // Getting the Site config "MelisDemoCommerce.config.php"
-        	    $siteConfig = $this->serviceLocator->get('config');
-        	    $siteConfig = $siteConfig['site']['MelisDemoCommerce'];
-        	    $siteDatas = $siteConfig['datas'];
         	    // Getting the Datas from the Event Parameters
         	    $params = $e->getParams();
-        	    
+
         	    $viewVariables = $params['view']->getVariables();
         	    
         	    if ($params['view']->getTemplate() == 'MelisDemoCommerce/plugin/menu' && !empty($viewVariables['menu']))
         	    {
+                    /** @var MelisSiteConfigService $siteConfigSrv */
+                    $siteConfigSrv = $this->serviceLocator->get('MelisSiteConfigService');
+
         	        $container = new Container('melisplugins');
         	        $langId = $container['melis-plugins-lang-id'];
-        	        
+
+        	        $sumMenuLimit = $siteConfigSrv->getSiteConfigByKey('sub_menu_limit', $params['pluginFronConfig']['pageId']);
+        	        $newsMenuPageId = $siteConfigSrv->getSiteConfigByKey('news_menu_page_id', $params['pluginFronConfig']['pageId']);
+        	        $cataloguePages = $siteConfigSrv->getSiteConfigByKey('catalogue_pages', $params['pluginFronConfig']['pageId']);
+
         	        // Geeting the custom datas from site config
-        	        $limit = (!empty($siteDatas['sub_menu_limit'])) ? $siteDatas['sub_menu_limit'] : null;
-                    $newsMenuPageId = (!empty($siteDatas['news_menu_page_id'])) ? $siteDatas['news_menu_page_id'] : null;
-                    $cataloguePages = (!empty($siteDatas['catalogue_pages'])) ? $siteDatas['catalogue_pages'] : array();
+        	        $limit = (!empty($sumMenuLimit)) ? $sumMenuLimit : null;
+                    $newsMenuPageId = (!empty($newsMenuPageId)) ? $newsMenuPageId : null;
+                    $cataloguePages = (!empty($cataloguePages)) ? $cataloguePages : array();
                     
                     // Getting the Subpages of Home Page
                     $sitePages = (!empty($viewVariables['menu'][0]['pages'])) ? $viewVariables['menu'][0]['pages'] : array();

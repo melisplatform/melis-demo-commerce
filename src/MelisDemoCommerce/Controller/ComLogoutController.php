@@ -10,21 +10,23 @@
 namespace MelisDemoCommerce\Controller;
 
 use MelisFront\Controller\MelisSiteActionController;
+use MelisFront\Service\MelisSiteConfigService;
 use Zend\Session\Container;
 
-class ComLogoutController extends MelisSiteActionController
+class ComLogoutController extends BaseController
 {
     public function logoutAction()
-    {   
+    {
+        /** @var MelisSiteConfigService $siteConfigSrv */
+        $siteConfigSrv = $this->getServiceLocator()->get('MelisSiteConfigService');
         // Clear user Session using Commerce Authentication Service
         $melisComAuthSrv = $this->getServiceLocator()->get('MelisComAuthenticationService');
         $melisComAuthSrv->logout();
-        
-        // Getting the Site config "MelisDemoCommerce.config.php"
-        $siteConfig = $this->getServiceLocator()->get('config');
-        $siteConfig = $siteConfig['site']['MelisDemoCommerce'];
-        $siteDatas = $siteConfig['datas'];
-        $siteId = $siteDatas['site_id'];
+
+        //get page id from query
+        $pageId = $this->params()->fromQuery('pageId');
+
+        $siteId = $siteConfigSrv->getSiteConfigByKey('site_id', $pageId);
         
         // Clearing checkout sessions
         $container = new Container('meliscommerce');
@@ -35,17 +37,15 @@ class ComLogoutController extends MelisSiteActionController
                 unset($container['checkout'][$siteId]);
             }
         }
-        
+
         /**
          * Getting the Logout redirect page id from site config
          */
-        $siteConfig = $this->getServiceLocator()->get('config');
-        $siteConfig = $siteConfig['site']['MelisDemoCommerce'];
-        $siteDatas = $siteConfig['datas'];
-        $logoutRedirectPageId = $siteDatas['logout_redirect_page_id'];
+        $logoutRedirectPageId = $siteConfigSrv->getSiteConfigByKey('logout_redirect_page_id', $pageId);
         // Generating the Redirect link using MelisEngineTree Service
         $melisTree = $this->getServiceLocator()->get('MelisEngineTree');
         $redirect_link = $melisTree->getPageLink($logoutRedirectPageId, true);
+
         return $this->redirect()->toUrl($redirect_link);
     }
 }

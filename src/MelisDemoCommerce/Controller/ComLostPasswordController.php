@@ -10,30 +10,27 @@
 namespace MelisDemoCommerce\Controller;
 
 use MelisDemoCommerce\Controller\BaseController;
+use MelisFront\Service\MelisSiteConfigService;
 use Zend\View\Model\JsonModel;
 use Zend\Stdlib\ArrayUtils;
 class ComLostPasswordController extends BaseController
 {
     public function indexAction()
     {
-        /**
-         * Getting Demo Site config for pages redirection
-         */
-        $siteConfig = $this->getServiceLocator()->get('config');
-        $siteConfig = $siteConfig['site']['MelisDemoCommerce'];
-        $siteDatas = $siteConfig['datas'];
-        
+        /** @var MelisSiteConfigService $siteConfigSrv */
+        $siteConfigSrv = $this->getServiceLocator()->get('MelisSiteConfigService');
+
         // Generating the Redirect link using MelisEngineTree Service
         $melisTree = $this->getServiceLocator()->get('MelisEngineTree');
         
         // Login page
-        $loginPage = $melisTree->getPageLink($siteDatas['login_regestration_page_id']);
-        
+        $loginPage = $melisTree->getPageLink($siteConfigSrv->getSiteConfigByKey('login_regestration_page_id', $this->idPage));
+
         $recoveryKey = $this->params()->fromQuery('m_recovery_key');
         if (!$recoveryKey)
         {
             // check if the recovery key exists
-            $lostPasswordResetPageId = $siteDatas['lost_password_reset_page_id'];
+            $lostPasswordResetPageId = $siteConfigSrv->getSiteConfigByKey('lost_password_reset_page_id', $this->idPage);
             // Generating the Redirect link using MelisEngineTree Service
             $redirect_link = $melisTree->getPageLink($lostPasswordResetPageId, true);
             $lostPasswordPlugin = $this->MelisCommerceLostPasswordGetEmailPlugin();
@@ -48,8 +45,8 @@ class ComLostPasswordController extends BaseController
         else 
         {
             // Account page
-            $profilePage = $melisTree->getPageLink($siteDatas['account_page_id']);
-            
+            $profilePage = $melisTree->getPageLink($siteConfigSrv->getSiteConfigByKey('account_page_id', $this->idPage));
+
             $lostPasswordResetPlugin = $this->MelisCommerceLostPasswordResetPlugin();
             $lostPasswordResetParameter = array(
                 'm_autologin' => true,
@@ -74,6 +71,10 @@ class ComLostPasswordController extends BaseController
 
     public function submitLostPasswordAction()
     {
+
+        /** @var MelisSiteConfigService $siteConfigSrv */
+        $siteConfigSrv = $this->getServiceLocator()->get('MelisSiteConfigService');
+
         $success = 0;
         $errors  = 0;
         $message = '';
@@ -81,13 +82,8 @@ class ComLostPasswordController extends BaseController
         
         if($request->isPost()) 
         {
-            
-            $siteConfig = $this->getServiceLocator()->get('config');
-            $siteConfig = $siteConfig['site']['MelisDemoCommerce'];
-            $siteDatas = $siteConfig['datas'];
-            
             $data = array(
-                'email' => $siteConfig['datas']['lostpassword_email'],
+                'email' => $siteConfigSrv->getSiteConfigByKey('lostpassword_email', $this->idPage),
             );
             
             $emailConfig = ArrayUtils::merge(get_object_vars($request->getPost()), $data);

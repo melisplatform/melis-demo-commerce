@@ -74,11 +74,11 @@
                                 <div class="login-register-area">
                                     <ul>
                                     	<?php if ($this->layout()->isLoggedin):?>
-                                    		<li><a href="<?php echo $this->MelisLink($this->layout()->siteDatas['account_page_id'], true)?>" id="person-name"><?php echo ucwords(strtolower($this->layout()->personName)) ?></a></li>
-                                            <li><a href="/MelisDemoCommerce/ComLogout/logout">Logout</a></li>
+                                    		<li><a href="<?php echo $this->MelisLink($this->SiteConfig('account_page_id'), true)?>" id="person-name"><?php echo ucwords(strtolower($this->layout()->personName)) ?></a></li>
+                                            <li><a href="/MelisDemoCommerce/ComLogout/logout?pageId=<?= $this->idPage; ?>">Logout</a></li>
                                     	<?php else:?>
-                                            <li><a href="<?php echo $this->MelisLink($this->layout()->siteDatas['login_regestration_page_id'], true)?>">Login</a></li>
-                                            <li><a href="<?php echo $this->MelisLink($this->layout()->siteDatas['login_regestration_page_id'], true)?>">Register</a></li>
+                                            <li><a href="<?php echo $this->MelisLink($this->SiteConfig('login_regestration_page_id'), true)?>">Login</a></li>
+                                            <li><a href="<?php echo $this->MelisLink($this->SiteConfig('login_regestration_page_id'), true)?>">Register</a></li>
                                     	<?php endif;?>
                                     </ul>
                                 </div>
@@ -127,7 +127,7 @@
                                     <div class="search-box global-table">
                                         <div class="global-row">
                                             <div class="global-cell">
-                                                <form action="<?php echo $this->MelisLink($this->layout()->siteDatas['search_result_page_id'], false)?>" method="get">
+                                                <form action="<?php echo $this->MelisLink($this->SiteConfig('search_result_page_id'), false)?>" method="get">
                                                     <div class="input-box">
                                                         <input class="single-input" placeholder="Search" type="text" name="keyword" value="<?php echo $this->layout()->search?>" required>
                                                         <button class="src-btn"><i class="fa fa-search"></i></button>
@@ -166,11 +166,11 @@
                             <div class="single-footer contact-us">
                                 <div class="footer-title uppercase">
                                     <h5>
-                                      <?php echo $this->MelisTag($this->mainPageId, "footer_title_1", 'textarea', 'Contact US') ?>
+                                      <?php echo $this->MelisTag($this->SiteConfig('homePageId'), "footer_title_1", 'textarea', 'Contact US') ?>
                                  </h5> 
                                 </div>
                                 <?php 
-                                    echo $this->melisTag($this->mainPageId, 'footer_text_1', 'html', 
+                                    echo $this->melisTag($this->SiteConfig('homePageId'), 'footer_text_1', 'html',
                                     '<ul>
                                         <li>
                                             <div class="contact-icon"> 
@@ -199,12 +199,12 @@
                         <div class="col-lg-2 col-md-2 col-sm-4 col-xs-12">
                             <div class="single-footer informaton-area">
                                 <div class="footer-title uppercase">
-                                    <h5><?php echo $this->MelisTag($this->mainPageId, "footer_title_2", 'textarea', 'Information')?></h5> 
+                                    <h5><?php echo $this->MelisTag($this->SiteConfig('homePageId'), "footer_title_2", 'textarea', 'Information')?></h5>
                                 </div>
                                 <div class="informatoin">
                                     <ul>
                                       <?php 
-                                            echo $this->melisTag($this->mainPageId, 'footer_text_2', 'html',
+                                            echo $this->melisTag($this->SiteConfig('homePageId'), 'footer_text_2', 'html',
                                                 '<li><a href="#">My Account</a></li>
                                                 <li><a href="#">Order History</a></li>
                                                 <li><a href="#">Wishlist</a></li>
@@ -219,10 +219,10 @@
                         <div class="col-lg-3 col-md-4 hidden-sm col-xs-12">
                             <div class="single-footer instagrm-area">
                                 <div class="footer-title uppercase">
-                                    <h5><?php echo $this->MelisTag($this->mainPageId, "footer_title_3", 'textarea', 'InstaGram')?></h5> 
+                                    <h5><?php echo $this->MelisTag($this->SiteConfig('homePageId'), "footer_title_3", 'textarea', 'InstaGram')?></h5>
                                 </div>
                                 <?php 
-                                    echo $this->melisTag($this->mainPageId, 'footer_text_3', 'html',
+                                    echo $this->melisTag($this->SiteConfig('homePageId'), 'footer_text_3', 'html',
                                     '<div class="instagrm">
                                         <ul>
                                             <li><a href="#"><img src="'.$this->basePath('/MelisDemoCommerce/images/gallery/01.jpg').'" alt=""></a></li>
@@ -239,7 +239,7 @@
                         <div class="col-lg-3 col-md-3 col-sm-4 col-lg-offset-1 col-xs-12">
                             <div class="social-icon socile-icon-style-3">
                                 <div class="footer-title uppercase">
-                                    <h5><?php echo $this->MelisTag($this->mainPageId, "footer_title_4", 'textarea', 'Social Network')?></h5> 
+                                    <h5><?php echo $this->MelisTag($this->SiteConfig('homePageId'), "footer_title_4", 'textarea', 'Social Network')?></h5>
                                 </div>
                                 <ul>
                                     <li><a href="https://www.facebook.com/melistechnology" target="_blank"><i class="zmdi zmdi-facebook"></i></a></li>

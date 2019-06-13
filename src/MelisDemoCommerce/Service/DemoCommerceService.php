@@ -10,6 +10,7 @@
 namespace MelisDemoCommerce\Service;
 
 use MelisCore\Service\MelisCoreGeneralService;
+use MelisFront\Service\MelisSiteConfigService;
 use Zend\View\Model\JsonModel;
 use Zend\Session\Container;
 
@@ -139,15 +140,13 @@ class DemoCommerceService extends MelisCoreGeneralService
      */
     public function getSubCategoriesForMenu($categoryId, $pageId, $uri, $langId)
     {
-        // Getting the Site config "MelisDemoCms.config.php"
-        $siteConfig = $this->getServiceLocator()->get('config');
-        $siteConfig = $siteConfig['site']['MelisDemoCommerce'];
-        $siteDatas = $siteConfig['datas'];
+        /** @var MelisSiteConfigService $siteConfigSrv */
+        $siteConfigSrv = $this->getServiceLocator()->get('MelisSiteConfigService');
         // Product page id
-        $productPageId = $siteDatas['product_page_id'];
-        // 
-        $categoryProductsMenu = $siteDatas['category_product_menu'];
-        
+        $productPageId = $siteConfigSrv->getSiteConfigByKey('product_page_id', $pageId);
+        //
+        $categoryProductsMenu = $siteConfigSrv->getSiteConfigByKey('category_product_menu', $pageId);
+
         // Page Tree service to generate Page Link
         $melisTree = $this->getServiceLocator()->get('MelisEngineTree');
         
@@ -288,13 +287,12 @@ class DemoCommerceService extends MelisCoreGeneralService
      */
     public function getNewsListFormMenu($newsId, $limit = null)
     {
-        // Getting the Site config "MelisDemoCms.config.php"
-        $siteConfig = $this->getServiceLocator()->get('config');
-        $siteConfig = $siteConfig['site']['MelisDemoCommerce'];
-        $siteDatas = $siteConfig['datas'];
+        /** @var MelisSiteConfigService $siteConfigSrv */
+        $siteConfigSrv = $this->getServiceLocator()->get('MelisSiteConfigService');
+
         // Getting the Page Id where the News Details will render
-        $newsDetailsIdPage = $siteDatas['news_details_page_id'];
-    
+        $newsDetailsIdPage = $siteConfigSrv->getSiteConfigByKey('news_details_page_id', $newsId);
+        $siteId = $siteConfigSrv->getSiteConfigByKey('site_id', $newsId);
         /**
          * Retriving the List of Recent 4 News, this is group by month
          * Sample result :
@@ -316,7 +314,7 @@ class DemoCommerceService extends MelisCoreGeneralService
          *      ),
          */
         $newsTable = $this->serviceLocator->get('MelisCmsNewsTable');
-        $newsList = $newsTable->getNewsListByMonths(4, $siteDatas['site_id'])->toArray();
+        $newsList = $newsTable->getNewsListByMonths(4, $siteId)->toArray();
     
         // Page Tree service to generate Page Link
         $melisTree = $this->serviceLocator->get('MelisEngineTree');
@@ -329,7 +327,7 @@ class DemoCommerceService extends MelisCoreGeneralService
              */
             $news = array();
             if(!empty($val['month']) && !empty($val['year'])){
-                $news = $newsTable->getNewsByMonthYear($val['month'], $val['year'], $limit, $siteDatas['site_id'])->toArray();
+                $news = $newsTable->getNewsByMonthYear($val['month'], $val['year'], $limit, $siteId)->toArray();
             }
             
             $newsSubMenu = array();
@@ -385,80 +383,80 @@ class DemoCommerceService extends MelisCoreGeneralService
      * 
      * @return Array
      */
-    public function getNewsListMonthsYears($datefilter = null)
-    {
-        // Getting the Site config "MelisDemoCommerce.config.php"
-        $siteConfig = $this->getServiceLocator()->get('config');
-        $siteConfig = $siteConfig['site']['MelisDemoCommerce'];
-        $siteDatas = $siteConfig['datas'];
-        // Getting the Page Id where the News Details will render
-        $newsIdPage = $siteDatas['news_menu_page_id'];
-        
-        /**
-         * Retreiving the the list of News group by months and year
-         */
-        $newsTable = $this->serviceLocator->get('MelisCmsNewsTable');
-        $newsList = $newsTable->getNewsListByMonths(null, $siteDatas['site_id']);
-        
-        $list = array();
-        $addedYear = array();
-        
-        foreach ($newsList As $key => $val)
-        {
-            // Checking if the year is already created for groupOption
-            if (!in_array($val->year, $addedYear))
-            {
-                $optgroup = array(
-                    'id' => $newsIdPage,
-                    'text' => $val->year,
-                    'type' => 'optgroup'
-                );
-                
-                // Adding the year groupOption using the year as index
-                $list[$val->year] = $optgroup;
-                
-                // Adding the year to the existing groupOption
-                array_push($addedYear, $val->year);
-            }
-            
-            // Creating option for each group
-            $dataDate = date('Y-m-d', strtotime($val->year.'-'.$val->month.'-01'));
-            $option = array(
-                'id' => $newsIdPage,
-                'text' => date('F', strtotime('01-'.$val->month.'-'.$val->year)),
-                'opt-data' => array( // Custom data added to the anchor of the link
-                    'datefilter' => $dataDate
-                ),
-                'type' => 'option',
-                'selected' => false
-            );
-            
-            /**
-             * Checking if the date is match to the selected date
-             * if the date match to the datefilter this date will set as select
-             */
-            if (!is_null($datefilter))
-            {
-                if ($dataDate ==  $datefilter)
-                {
-                    $option['selected'] = true;
-                }
-            }
-            
-            // Adding the option of the year
-            $list[$val->year]['options'][] = $option;
-        }
-        
-        /**
-         * Sorting the months of each year to asc
-         */
-        foreach ($list As $key => $val)
-        {
-            rsort($list[$key]['options']);
-        }
-        
-        return $list;
-    }
+//    public function getNewsListMonthsYears($datefilter = null)
+//    {
+//        // Getting the Site config "MelisDemoCommerce.config.php"
+//        $siteConfig = $this->getServiceLocator()->get('config');
+//        $siteConfig = $siteConfig['site']['MelisDemoCommerce'];
+//        $siteDatas = $siteConfig['datas'];
+//        // Getting the Page Id where the News Details will render
+//        $newsIdPage = $siteDatas['news_menu_page_id'];
+//
+//        /**
+//         * Retreiving the the list of News group by months and year
+//         */
+//        $newsTable = $this->serviceLocator->get('MelisCmsNewsTable');
+//        $newsList = $newsTable->getNewsListByMonths(null, $siteDatas['site_id']);
+//
+//        $list = array();
+//        $addedYear = array();
+//
+//        foreach ($newsList As $key => $val)
+//        {
+//            // Checking if the year is already created for groupOption
+//            if (!in_array($val->year, $addedYear))
+//            {
+//                $optgroup = array(
+//                    'id' => $newsIdPage,
+//                    'text' => $val->year,
+//                    'type' => 'optgroup'
+//                );
+//
+//                // Adding the year groupOption using the year as index
+//                $list[$val->year] = $optgroup;
+//
+//                // Adding the year to the existing groupOption
+//                array_push($addedYear, $val->year);
+//            }
+//
+//            // Creating option for each group
+//            $dataDate = date('Y-m-d', strtotime($val->year.'-'.$val->month.'-01'));
+//            $option = array(
+//                'id' => $newsIdPage,
+//                'text' => date('F', strtotime('01-'.$val->month.'-'.$val->year)),
+//                'opt-data' => array( // Custom data added to the anchor of the link
+//                    'datefilter' => $dataDate
+//                ),
+//                'type' => 'option',
+//                'selected' => false
+//            );
+//
+//            /**
+//             * Checking if the date is match to the selected date
+//             * if the date match to the datefilter this date will set as select
+//             */
+//            if (!is_null($datefilter))
+//            {
+//                if ($dataDate ==  $datefilter)
+//                {
+//                    $option['selected'] = true;
+//                }
+//            }
+//
+//            // Adding the option of the year
+//            $list[$val->year]['options'][] = $option;
+//        }
+//
+//        /**
+//         * Sorting the months of each year to asc
+//         */
+//        foreach ($list As $key => $val)
+//        {
+//            rsort($list[$key]['options']);
+//        }
+//
+//        return $list;
+//    }
     
     /**
      * This method will customize the breadcrumb on the Product page
@@ -703,17 +701,16 @@ class DemoCommerceService extends MelisCoreGeneralService
         return $breadCrumb;
     }
     
-    public function getVariantbyAttributes($productId, $attrSelection, $action)
+    public function getVariantbyAttributes($productId, $attrSelection, $action, $pageId)
     {
         $container = new Container('melisplugins');
         $langId = $container['melis-plugins-lang-id'];
-        
-        // Getting the Site config "MelisDemoCommerce.config.php"
-        $siteConfig = $this->getServiceLocator()->get('config');
-        $siteConfig = $siteConfig['site']['MelisDemoCommerce'];
-        $siteDatas = $siteConfig['datas'];
-        $countryId = $siteDatas['site_country_id'];
-        
+
+        /** @var MelisSiteConfigService $siteConfigSrv */
+        $siteConfigSrv = $this->getServiceLocator()->get('MelisSiteConfigService');
+
+        $countryId = $siteConfigSrv->getSiteConfigByKey('site_country_id', $pageId);
+
         $variant = array();
         $varPrice = array();
         $varStock = array();

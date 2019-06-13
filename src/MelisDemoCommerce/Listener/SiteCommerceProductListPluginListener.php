@@ -9,6 +9,7 @@
 
 namespace MelisDemoCommerce\Listener;
 
+use MelisFront\Service\MelisSiteConfigService;
 use Zend\EventManager\EventManagerInterface;
 use Zend\EventManager\ListenerAggregateInterface;
 use Zend\Stdlib\ArrayUtils;
@@ -65,13 +66,20 @@ class SiteCommerceProductListPluginListener implements ListenerAggregateInterfac
         $melisComVariantService = $this->serviceLocator->get('MelisComVariantService');
         $melisComProductService = $this->serviceLocator->get('MelisComProductService');
         $documentSrv = $this->serviceLocator->get('MelisComDocumentService');
-    
-        // Getting the Site config "MelisDemoCommerce.config.php"
-        $siteConfig = $this->serviceLocator->get('config');
-        $siteConfig = $siteConfig['site']['MelisDemoCommerce'];
-        $siteDatas = $siteConfig['datas'];
-    
-        $countryId = $siteDatas['site_country_id'];
+
+        /** @var MelisSiteConfigService $siteConfigSrv */
+        $siteConfigSrv = $this->serviceLocator->get('MelisSiteConfigService');
+
+        /**
+         * access the router to get the
+         * page id
+         */
+        $router = $this->serviceLocator->get('router');
+        $request = $this->serviceLocator->get('request');
+        $routeMatch = $router->match($request);
+        $params = $routeMatch->getParams();
+
+        $countryId = $siteConfigSrv->getSiteConfigByKey('site_country_id', $params['idpage']);
 
         // Getting the Lowest Price of Product variants and
         // Secondary image for slider image hover

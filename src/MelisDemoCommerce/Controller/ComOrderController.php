@@ -16,13 +16,6 @@ class ComOrderController extends BaseController
 {
     public function indexAction()
     {
-        /*
-         *  Getting site config 
-         */
-        $siteConfig = $this->getServiceLocator()->get('config');
-        $siteConfig = $siteConfig['site']['MelisDemoCommerce'];
-        $siteDatas = $siteConfig['datas'];
-        
         $orderPlugin = $this->MelisCommerceOrderPlugin();
         $orderParameter = array(
             'template_path' => 'MelisDemoCommerce/order-details',
