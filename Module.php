@@ -84,12 +84,12 @@ class Module
             print_r($e->getControllerClass()).'<br>';
             print_r($e->getParam('exception')->getMessage()); */
     
-            $exception = $e->getParam('exception');
-            
-            if (is_object($exception))
-                die($exception->getMessage());
-            else
-                die($exception);
+//            $exception = $e->getParam('exception');
+
+//            if (is_object($exception))
+//                die($exception->getMessage());
+//            else
+//                die($exception);
             
         });
         

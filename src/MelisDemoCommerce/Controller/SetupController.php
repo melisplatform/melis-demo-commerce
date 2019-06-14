@@ -90,104 +90,104 @@ class SetupController extends MelisSiteActionController
                 $step = $post['step'];
                 
                 $this->config = file_get_contents($this->configDir);
-                
-                switch ($step)
-                {
-                    case 'templates' :
-                        $setupDatas = include __DIR__ . '../../../../install/MelisDemoCommerce.'.$step.'.setup.php';
-                        $this->setTemplates($setupDatas);
-                        $nextStep = 'pages';
-                        break;
-                    case 'pages' :
-                        $setupDatas = include __DIR__ . '../../../../install/MelisDemoCommerce.'.$step.'.setup.php';
-                        $this->setupPages($setupDatas);
-                        $nextStep = 'sliders';
-                        break;
-                    case 'sliders' :
-                        $setupDatas = include __DIR__ . '../../../../install/MelisDemoCommerce.'.$step.'.setup.php';
-                        $this->setupSliders($setupDatas);
-                        $nextStep = 'news';
-                        break;
-                    case 'news' :
-                        $setupDatas = include __DIR__ . '../../../../install/MelisDemoCommerce.'.$step.'.setup.php';
-                        $this->setupNews($setupDatas);
-                        $nextStep = 'prospects_theme';
-                        break;
-                    case 'prospects_theme' :
-                        $setupDatas = include __DIR__ . '../../../../install/MelisDemoCommerce.'.$step.'.setup.php';
-                        $this->setupProspectsThemes($setupDatas);
-                        $nextStep = 'document_types';
-                        break;
-                    case 'document_types' :
-                        $setupDatas = include __DIR__ . '../../../../install/MelisDemoCommerce.'.$step.'.setup.php';
-                        $this->setupDocumentTypes($setupDatas);
-                        $nextStep = 'attributes';
-                        break;
-                    case 'attributes' :
-                        $setupDatas = include __DIR__ . '../../../../install/MelisDemoCommerce.'.$step.'.setup.php';
-                        $this->setupAttibutes($setupDatas);
-                        $nextStep = 'product_text_types';
-                        break;
-                    case 'product_text_types' :
-                        $setupDatas = include __DIR__ . '../../../../install/MelisDemoCommerce.'.$step.'.setup.php';
-                        $this->setupProductTextTypes($setupDatas);
-                        $nextStep = 'products';
-                        break;
-                    case 'products' :
-                        $setupDatas = include __DIR__ . '../../../../install/MelisDemoCommerce.'.$step.'.setup.php';
-                        $this->setupProducts($setupDatas);
-                        $nextStep = 'categories';
-                        break;
-                    case 'categories' :
-                        $setupDatas = include __DIR__ . '../../../../install/MelisDemoCommerce.'.$step.'.setup.php';
-                        $this->setupCategories($setupDatas);
-                        $this->setupCategoriesIds();
-                        $nextStep = 'variants';
-                        break;
-                        
-                    case 'variants' :
-                        $setupDatas = include __DIR__ . '../../../../install/MelisDemoCommerce.'.$step.'.setup.php';
-                        $this->setupVariants($setupDatas);
-                        $nextStep = 'coupons';
-                        break;
-                    case 'coupons' : 
-                        $setupDatas = include __DIR__ . '../../../../install/MelisDemoCommerce.'.$step.'.setup.php';
-                        $this->setupCoupon($setupDatas);
-                        $nextStep = 'client_and_orders';
-                        break;
-                    case 'client_and_orders' :
-                        $setupDatas = include __DIR__ . '../../../../install/MelisDemoCommerce.'.$step.'.setup.php';
-                        $this->setupClientAndOrders($setupDatas);
-                        $nextStep = 'setup_main_page';
-                        break;
-                    case 'setup_main_page' :
-                        $container = new Container('MelisDemoCommerceSetup');
-                        $siteId = $container['MelisDemoCommerceSetup']['siteId'];
-                        $mainPageId = $container['MelisDemoCommerceSetup']['mainPageId'];
-                        // Update the main page id of the Site created for MelisDemoSite
-                        $this->setupSite(array('site_main_page_id' => $mainPageId), $siteId);
-                        $done = 1;
-                        break;
-                    default:
-                        $container = new Container('MelisDemoCommerceSetup');
-                        $container['MelisDemoCommerceSetup'] = array();
-                        
-                        if (!empty($post['protocol']) && !empty($post['domain']))
-                        {
-                            $container['MelisDemoCommerceSetup']['protocol'] = $post['protocol'];
-                            $container['MelisDemoCommerceSetup']['domain'] = $post['domain'];
-                        }
-                        
-                        $setupDatas = include __DIR__ . '../../../../install/MelisDemoCommerce.site.setup.php';
-                        # Site label
-                        $siteLabel = !empty($post['site_label']) ? $post['site_label'] : null;
-                        if (!empty($siteLabel)) $setupDatas['site_label'] = $siteLabel;
-                        # Start setup
-                        $this->setupSite($setupDatas);
-                        $nextStep = 'templates';
-                        break;
+                try {
+                    switch ($step) {
+                        case 'templates' :
+                            $setupDatas = include __DIR__ . '../../../../install/MelisDemoCommerce.' . $step . '.setup.php';
+                            $this->setTemplates($setupDatas);
+                            $nextStep = 'pages';
+                            break;
+                        case 'pages' :
+                            $setupDatas = include __DIR__ . '../../../../install/MelisDemoCommerce.' . $step . '.setup.php';
+                            $this->setupPages($setupDatas);
+                            $nextStep = 'sliders';
+                            break;
+                        case 'sliders' :
+                            $setupDatas = include __DIR__ . '../../../../install/MelisDemoCommerce.' . $step . '.setup.php';
+                            $this->setupSliders($setupDatas);
+                            $nextStep = 'news';
+                            break;
+                        case 'news' :
+                            $setupDatas = include __DIR__ . '../../../../install/MelisDemoCommerce.' . $step . '.setup.php';
+                            $this->setupNews($setupDatas);
+                            $nextStep = 'prospects_theme';
+                            break;
+                        case 'prospects_theme' :
+                            $setupDatas = include __DIR__ . '../../../../install/MelisDemoCommerce.' . $step . '.setup.php';
+                            $this->setupProspectsThemes($setupDatas);
+                            $nextStep = 'document_types';
+                            break;
+                        case 'document_types' :
+                            $setupDatas = include __DIR__ . '../../../../install/MelisDemoCommerce.' . $step . '.setup.php';
+                            $this->setupDocumentTypes($setupDatas);
+                            $nextStep = 'attributes';
+                            break;
+                        case 'attributes' :
+                            $setupDatas = include __DIR__ . '../../../../install/MelisDemoCommerce.' . $step . '.setup.php';
+                            $this->setupAttibutes($setupDatas);
+                            $nextStep = 'product_text_types';
+                            break;
+                        case 'product_text_types' :
+                            $setupDatas = include __DIR__ . '../../../../install/MelisDemoCommerce.' . $step . '.setup.php';
+                            $this->setupProductTextTypes($setupDatas);
+                            $nextStep = 'products';
+                            break;
+                        case 'products' :
+                            $setupDatas = include __DIR__ . '../../../../install/MelisDemoCommerce.' . $step . '.setup.php';
+                            $this->setupProducts($setupDatas);
+                            $nextStep = 'categories';
+                            break;
+                        case 'categories' :
+                            $setupDatas = include __DIR__ . '../../../../install/MelisDemoCommerce.' . $step . '.setup.php';
+                            $this->setupCategories($setupDatas);
+                            $this->setupCategoriesIds();
+                            $nextStep = 'variants';
+                            break;
+
+                        case 'variants' :
+                            $setupDatas = include __DIR__ . '../../../../install/MelisDemoCommerce.' . $step . '.setup.php';
+                            $this->setupVariants($setupDatas);
+                            $nextStep = 'coupons';
+                            break;
+                        case 'coupons' :
+                            $setupDatas = include __DIR__ . '../../../../install/MelisDemoCommerce.' . $step . '.setup.php';
+                            $this->setupCoupon($setupDatas);
+                            $nextStep = 'client_and_orders';
+                            break;
+                        case 'client_and_orders' :
+                            $setupDatas = include __DIR__ . '../../../../install/MelisDemoCommerce.' . $step . '.setup.php';
+                            $this->setupClientAndOrders($setupDatas);
+                            $nextStep = 'setup_main_page';
+                            break;
+                        case 'setup_main_page' :
+                            $container = new Container('MelisDemoCommerceSetup');
+                            $siteId = $container['MelisDemoCommerceSetup']['siteId'];
+                            $mainPageId = $container['MelisDemoCommerceSetup']['mainPageId'];
+                            // Update the main page id of the Site created for MelisDemoSite
+                            $this->setupSite(array('site_main_page_id' => $mainPageId), $siteId);
+                            $done = 1;
+                            break;
+                        default:
+                            $container = new Container('MelisDemoCommerceSetup');
+                            $container['MelisDemoCommerceSetup'] = array();
+
+                            if (!empty($post['protocol']) && !empty($post['domain'])) {
+                                $container['MelisDemoCommerceSetup']['protocol'] = $post['protocol'];
+                                $container['MelisDemoCommerceSetup']['domain'] = $post['domain'];
+                            }
+
+                            $setupDatas = include __DIR__ . '../../../../install/MelisDemoCommerce.site.setup.php';
+                            # Site label
+                            $siteLabel = !empty($post['site_label']) ? $post['site_label'] : null;
+                            if (!empty($siteLabel)) $setupDatas['site_label'] = $siteLabel;
+                            # Start setup
+                            $this->setupSite($setupDatas);
+                            $nextStep = 'templates';
+                            break;
+                    }
+                }catch(\Exception $ex){
+                    exit($ex->getMessage());
                 }
-                
                 file_put_contents($this->configDir, $this->config);
             }
         }
@@ -295,6 +295,9 @@ class SetupController extends MelisSiteActionController
         {
             $this->config = str_replace('\'[:siteId]\'', $this->siteId, $this->config);
             $this->setupSiteDomain();
+
+            //site lang
+            $this->setupSiteLang();
         }
     }
     
@@ -311,6 +314,20 @@ class SetupController extends MelisSiteActionController
         );
         
         $this->saveData($siteDomainTbl, $siteDomain);
+    }
+
+    /**
+     * Save site lang data
+     */
+    private function setupSiteLang()
+    {
+        $container = new Container('MelisDemoCommerceSetup');
+        $sitelangsTable = $this->getServiceLocator()->get('MelisEngineTableCmsSiteLangs');
+        $siteLangData = array(
+            'slang_site_id' => $container['MelisDemoCommerceSetup']['siteId'],
+            'slang_lang_id' => 1,
+        );
+        $this->saveData($sitelangsTable, $siteLangData);
     }
     
     /**
@@ -358,7 +375,9 @@ class SetupController extends MelisSiteActionController
         $pagePublishedTbl = $this->getServiceLocator()->get('MelisEngineTablePagePublished');
         $platformIdsTbl = $this->getServiceLocator()->get('MelisEngineTablePlatformIds');
         $melisTablePageSeo = $this->getServiceLocator()->get('MelisEngineTablePageSeo');
-        
+        $melisTableSite404 = $this->getServiceLocator()->get('MelisEngineTableSite404');
+        $siteHomeTable = $this->getServiceLocator()->get('MelisEngineTableCmsSiteHome');
+
         // Getting the DemoSite config
         $melisSite = $_SERVER['DOCUMENT_ROOT'].'/../module/MelisSites';
         $outputFileName = 'module.config.php';
@@ -407,12 +426,32 @@ class SetupController extends MelisSiteActionController
                 'plang_page_id_initial' => $tmpPageId,
             );
             $this->saveData($pageLangTbl, $pageLang);
-    
+
+            /**
+             * insert the site 404 data
+             */
+            if($page['columns']['page_name'] == '404') {
+                //site 404
+                $site404Data = array(
+                    's404_site_id' => $container['MelisDemoCommerceSetup']['siteId'],
+                    's404_page_id' => $tmpPageId,
+                );
+                $this->saveData($melisTableSite404, $site404Data);
+            }
+
             if (!empty($page['is_main_page']))
             {
                 $this->mainPageId = $tmpPageId;
                 $container['MelisDemoCommerceSetup']['mainPageId'] = $this->mainPageId;
                 $this->config = str_replace('\'[:homePageId]\'', $tmpPageId, $this->config);
+
+                //insert site home data
+                $siteHomeData = array(
+                    'shome_site_id' => $container['MelisDemoCommerceSetup']['siteId'],
+                    'shome_lang_id' => 1,
+                    'shome_page_id' => $tmpPageId
+                );
+                $this->saveData($siteHomeTable, $siteHomeData);
             }
             
             if (!empty($page['site_config']))

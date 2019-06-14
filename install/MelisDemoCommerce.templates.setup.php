@@ -111,5 +111,13 @@
             'tpl_zf2_layout' => 'defaultLayout',
             'tpl_zf2_controller' => 'ComOrder',
             'tpl_zf2_action' => 'index',
-        )
+        ),
+        array(
+            'tpl_name' => '404',
+            'tpl_type' => 'ZF2',
+            'tpl_zf2_website_folder'=> 'MelisDemoCommerce',
+            'tpl_zf2_layout' => 'defaultLayout',
+            'tpl_zf2_controller' => 'Page404',
+            'tpl_zf2_action' => 'index',
+        ),
     );

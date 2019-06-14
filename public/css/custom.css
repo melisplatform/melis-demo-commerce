@@ -897,6 +897,30 @@ input {
     overflow-y: auto;
 }
 
+/* Page 404 */
+.page-404-container{
+    width: 100%;
+    padding: 140px;
+    text-align:center;
+}
+
+.page-404-container h1{
+    font-weight: 600;
+    font-size: 60pt;
+}
+
+.page-404-container p{
+    font-size: 14pt;
+}
+
+.page-404-container p a{
+    color: #c33 !important;
+}
+
+.page-404-container p a:hover{
+    text-decoration: underline;
+}
+
 @media (min-width: 480px){
 	.tab_thumbnail .thumbnail-carousel img {
 	    height: 121px;
