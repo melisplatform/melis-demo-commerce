@@ -119,6 +119,7 @@ return array(
             'MelisDemoCommerce\Controller\ComOrder'         => 'MelisDemoCommerce\Controller\ComOrderController',
             'MelisDemoCommerce\Controller\FakeServerPayment'=> 'MelisDemoCommerce\Controller\FakeServerPaymentController',
             'MelisDemoCommerce\Controller\Setup'            => 'MelisDemoCommerce\Controller\SetupController',
+            'MelisDemoCommerce\Controller\Page404'          => 'MelisDemoCommerce\Controller\Page404Controller',
         ),
     ),
     'view_helpers' => array(
