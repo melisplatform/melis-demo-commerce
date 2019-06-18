@@ -67,7 +67,6 @@ class SiteBreadcrumbCustomizationListener implements ListenerAggregateInterface
             	        {
             	            // Customize Site menu using MelisDemoCmsService
             	            $viewVariables['breadcrumb'] = $melisDemoCommerceSrv->customizeSiteBreadcrumb($viewVariables['breadcrumb'], $productPageid, $langId, $siteConfigCatalogue, $productId);
-            	            $viewVariables['breadcrumb'] = $melisDemoCommerceSrv->customizeSiteBreadcrumb($viewVariables['breadcrumb'], $productPageid, $langId, $siteConfigCatalogue, $productId);
             	        }
             	        
             	        $categoryId = !empty($route['categoryId']) ? $route['categoryId'] : null;

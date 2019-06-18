@@ -54,7 +54,7 @@ class SiteCommerceRelatedProductsPluginListener implements ListenerAggregateInte
         /** @var MelisSiteConfigService $siteConfigSrv */
         $siteConfigSrv = $this->serviceLocator->get('MelisSiteConfigService');
 
-        $countryId = $siteConfigSrv->getSiteConfigByKey('site_country_id', $params['idPage']);
+        $countryId = $siteConfigSrv->getSiteConfigByKey('site_country_id', $params['pluginFronConfig']['pageId']);
 
         if (!empty($relProducts))
         {
