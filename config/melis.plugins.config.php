@@ -6,8 +6,8 @@ return [
         'meliscommerce' => [
             'datas' => [
                 'seo_default_pages' => [
-                    'category' => 3,
-                    'product' => 19,
+                    'category' => '[:menCategoryId]',
+                    'product' => '[:productPageId]',
                     // variant is not used, there's no spcific page to display just a variant
                     // 'variant' => 17,
                 ],
