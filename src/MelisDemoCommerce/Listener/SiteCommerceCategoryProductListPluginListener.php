@@ -140,28 +140,9 @@ class SiteCommerceCategoryProductListPluginListener implements ListenerAggregate
                         // adding product price as index and product id as value in-order to sort
                         $productsPrices[$lowestPrice] = $prdId;
                     }
-                    
-                    // Getting the Secondary Image with the image type of "SMALL"
-//                    $doc = $documentSrv->getDocumentsByRelationAndTypes('product', $prdId, 'IMG', array('SMALL'));
-//
-//                    if (!empty($doc))
-//                    {
-//                        $customDocs = array(
-//                            'imageSecondary' => $doc[0]->doc_path,
-//                            'imageSecondaryType' => $doc[0]->dtype_sub_code
-//                        );
-//
-//                        foreach ($prd->getDocuments() As $dVal)
-//                        {
-//                            if ($dVal->dtype_sub_code == 'DEFAULT')
-//                            {
-//                                $docs = ArrayUtils::merge((Array)$dVal, $customDocs);
-//                            }
-//                        }
-//
-//                        $relProducts[$key]->products[$pKey]->setDocuments($docs);
-//                    }
 
+
+                    //process the product image
                     if(!empty($prd->getDocuments())){
                         $customDocs = array(
                             'imageSecondary' => '',
