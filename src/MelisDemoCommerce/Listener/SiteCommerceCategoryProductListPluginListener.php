@@ -55,7 +55,9 @@ class SiteCommerceCategoryProductListPluginListener implements ListenerAggregate
         /** @var MelisSiteConfigService $siteConfigSrv */
         $siteConfigSrv = $this->serviceLocator->get('MelisSiteConfigService');
 
-        $countryId = $siteConfigSrv->getSiteConfigByKey('site_country_id', $params['pluginFronConfig']['pageId']);
+        $pageId = $params['pluginFronConfig']['pageId'];
+
+        $countryId = $siteConfigSrv->getSiteConfigByKey('site_country_id', $pageId);
 
         if (!empty($relProducts))
         {
@@ -112,18 +114,16 @@ class SiteCommerceCategoryProductListPluginListener implements ListenerAggregate
                             }
                         } 
                     }
-
                     // If the Lowest Price is still null
                     // this will try to get from the Product Price
                     if (empty($lowestPrice))
                     {
-                        $prdPrice = $melisComProductService->getProductVariantPriceById($prdId);
-                        
+                        $prdPrice = $prd->getPrice();
                         if (!empty($prdPrice))
                         {
-                            $lowestPrice = $prdPrice->price_net;
-                            $lowestPriceCurrency = $prdPrice->cur_symbol;
-                            $lowestPriceCurrencyCode = $prdPrice->cur_code;
+                            $lowestPrice = $prdPrice[0]->price_net;
+                            $lowestPriceCurrency = (!empty($prdPrice[0]->cur_symbol)) ? $prdPrice[0]->cur_symbol : $siteConfigSrv->getSiteConfigByKey('site_currency_symbol', $pageId);
+                            $lowestPriceCurrencyCode = (!empty($prdPrice[0]->cur_code)) ? $prdPrice[0]->cur_code : $siteConfigSrv->getSiteConfigByKey('site_currency_symbol', $pageId);
                         }
                     }
                     

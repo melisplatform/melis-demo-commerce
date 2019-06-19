@@ -7,6 +7,12 @@ return array(
 		        'en_EN' => array(
 		            'homePageId' => '[:homePageId]',
 		            /**
+                     * Site default currency code
+                     * and symbol
+                     */
+                    'site_currency_code' => 'EUR',
+                    'site_currency_symbol' => '€',
+		            /**
                      * Site default Country ID
                      * General country is using -1 value
                      */
