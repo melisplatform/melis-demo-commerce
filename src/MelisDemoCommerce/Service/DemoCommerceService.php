@@ -814,7 +814,7 @@ class DemoCommerceService extends MelisCoreGeneralService
                 // Getting the Final Price of the variant
                 $varPrice = $variantSrv->getVariantFinalPrice($variantsIds[0], $countryId);
 
-                if (is_null($varPrice))
+                if (empty($varPrice))
                 {
                     $productSrv = $this->getServiceLocator()->get('MelisComProductService');
                     // If the variant price not set on variant page this will try to get from the Product Price

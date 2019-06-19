@@ -164,16 +164,6 @@ class ComProductController extends BaseController
     
     public function getVariantCommonAttributesAction()
     {
-
-        /**
-         * access the router to get the
-         * page id
-         */
-        $router = $this->getServiceLocator()->get('router');
-        $req = $this->getServiceLocator()->get('request');
-        $routeMatch = $router->match($req);
-        $params = $routeMatch->getParams();
-
         $result = array();
         $request = $this->getRequest();
         
@@ -186,7 +176,7 @@ class ComProductController extends BaseController
             $action = $post['action'];
             
             $demoCommreceSrv = $this->getServiceLocator()->get('DemoCommerceService');
-            $result = $demoCommreceSrv->getVariantbyAttributes($productId, $attrSelection, $action, $params['idPage']);
+            $result = $demoCommreceSrv->getVariantbyAttributes($productId, $attrSelection, $action, $post['page_id']);
         }
         
         return new JsonModel($result);

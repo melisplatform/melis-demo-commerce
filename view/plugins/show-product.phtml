@@ -7,7 +7,7 @@
     {
         $varId = $variant->getId();
     }
-    
+
     if(!empty($product))
     {
 ?>
@@ -71,7 +71,7 @@
                 	</div>
             	</div>
                 <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12">
-                    <div class="single-product-description" data-variantid="<?= $varId ?>">
+                    <div class="single-product-description" data-variantid="<?= $varId ?>" data-pageid="<?= $this->layout()->idPage; ?>">
                        	<div class="sp-top-des">
                        		<?php 
                            		$prodTexts = $product->getTexts();

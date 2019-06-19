@@ -12,11 +12,13 @@ $(function(){
         enableDisableAttribute($(this));
 
 		var dataString = new Array;
-		
-		/*dataString.push({
-			name : 'm_attr_value',
-			value : $(this).val()
-		});*/
+
+		//add page id to the request
+
+		dataString.push({
+			name : 'page_id',
+			value : body.find(".single-product-description").data("pageid")
+		});
 		
 		var attrIdAction = $(this).data("attributeid");
 		dataString.push({
