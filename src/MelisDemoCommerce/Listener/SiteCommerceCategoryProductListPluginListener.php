@@ -64,7 +64,7 @@ class SiteCommerceCategoryProductListPluginListener implements ListenerAggregate
             foreach ($relProducts As $key => $val)
             {
                 $productsPrices = array();
-                
+
                 foreach ($val->products As $pKey => $prd)
                 {
                     $prdId = $prd->getId();
@@ -73,13 +73,13 @@ class SiteCommerceCategoryProductListPluginListener implements ListenerAggregate
                     
                     // Getting the List of Variants of the Product
                     $prdVar = $melisComProductService->getProductVariants($prdId, true);
-                    
+
                     $lowestPrice = null;
                     $lowestPriceCurrency = null;
                     $lowestPriceCurrencyCode = null;
                     foreach ($prdVar As $var)
                     {
-                        if (is_null($lowestPrice))
+                        if (empty($lowestPrice))
                         {
                             // Getting the Final Price of a variant
                             $varPrice = $melisComVariantService->getVariantFinalPrice($var->var_id, $countryId);
@@ -112,14 +112,14 @@ class SiteCommerceCategoryProductListPluginListener implements ListenerAggregate
                             }
                         } 
                     }
-                    
+
                     // If the Lowest Price is still null
                     // this will try to get from the Product Price
-                    if (is_null($lowestPrice))
+                    if (empty($lowestPrice))
                     {
                         $prdPrice = $melisComProductService->getProductVariantPriceById($prdId);
                         
-                        if (!is_null($prdPrice))
+                        if (!empty($prdPrice))
                         {
                             $lowestPrice = $prdPrice->price_net;
                             $lowestPriceCurrency = $prdPrice->cur_symbol;
@@ -127,7 +127,7 @@ class SiteCommerceCategoryProductListPluginListener implements ListenerAggregate
                         }
                     }
                     
-                    if (!is_null($lowestPrice))
+                    if (!empty($lowestPrice))
                     {
                         $customPrice = array(
                             'prd_price_net' => $lowestPrice,

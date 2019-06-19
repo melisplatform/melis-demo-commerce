@@ -40,9 +40,9 @@
                             						    if (!empty($prdDoc))
                             						    {
                             						        // Product primary image
-                            						        $productImg = ($prdDoc['doc_path']) ? $prdDoc['doc_path'] : '';
+                            						        $productImg = (!empty($prdDoc['doc_path'])) ? $prdDoc['doc_path'] : '';
                             						        // Product secondary image
-                            						        $imageSecondary = ($prdDoc['imageSecondary']) ? $prdDoc['imageSecondary'] : '';
+                            						        $imageSecondary = (!empty($prdDoc['imageSecondary'])) ? $prdDoc['imageSecondary'] : '';
                             						    }
                             						    
                             						    // Gettking Product Name
