@@ -60,7 +60,7 @@ class SiteProductShowPluginListener implements ListenerAggregateInterface
                         $action = null;
                         $selection = array();
 
-                        $countryId = $siteConfigSrv->getSiteConfigByKey('aboutus_slider', $params['idPage']);
+                        $countryId = $siteConfigSrv->getSiteConfigByKey('aboutus_slider', $params['pluginFronConfig']['pageId']);
 
                         if ($productId)
                         {
