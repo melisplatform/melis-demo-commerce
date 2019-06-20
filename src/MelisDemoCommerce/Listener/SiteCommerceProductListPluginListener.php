@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /**
  * Melis Technology (http://www.melistechnology.com)
@@ -19,49 +19,49 @@ use Zend\Paginator\Adapter\ArrayAdapter;
 class SiteCommerceProductListPluginListener implements ListenerAggregateInterface
 {
     private $serviceLocator;
-	
+
     public function attach(EventManagerInterface $events)
     {
         $sharedEvents = $events->getSharedManager();
-        
+
         $callBackHandler = $sharedEvents->attach(
-        	'*',
+            '*',
             array(
-                'MelisCommerceProductListPlugin_melistemplating_plugin_generate_view',
+                'MelisCommerceProductListPlugin_melistemplating_plugin_end',
             ),
-        	function($e){
-        	    // Getting the Service Locator from param target
-        	    $this->serviceLocator = $e->getTarget()->getServiceLocator();
-        	    
-        	    // Getting the Datas from the Event Parameters
-        	    $params = $e->getParams();
-        	    
-        	    $products = $params['categoryListProducts']->getAdapter()->getItems(0, $params['categoryListProducts']->getAdapter()->count());
-        	    $pageCurrent = $params['categoryListProducts']->getCurrentPageNumber();
-        	    $pageNbPerPage = $params['categoryListProducts']->getItemCountPerPage();
-        	    
-        	    
-        	    if (!empty($params['template'] && !empty($params['categoryListProducts'])))
+            function($e){
+                // Getting the Service Locator from param target
+                $this->serviceLocator = $e->getTarget()->getServiceLocator();
+
+                // Getting the Datas from the Event Parameters
+                $params = $e->getParams();
+
+                if (!empty($params['view']->getTemplate() && !empty($params['view']->getVariables()['categoryListProducts'])))
                 {
-                    if ($params['template'] == 'MelisDemoCommerce/plugin/product-list')
+                    if ($params['view']->getTemplate() == 'MelisDemoCommerce/plugin/product-list')
                     {
-                        
-                        $products = $this->customizeProductList($products);
-                         
+
+
+                        $categoryListProd = $params['view']->getVariables()['categoryListProducts'];
+                        $products = $categoryListProd->getAdapter()->getItems(0, $categoryListProd->getAdapter()->count());
+                        $pageCurrent = $categoryListProd->getCurrentPageNumber();
+                        $pageNbPerPage = $categoryListProd->getItemCountPerPage();
+                        $products = $this->customizeProductList($products, $params);
+
                         $paginator = new Paginator(new ArrayAdapter($products));
-                            $paginator->setCurrentPageNumber($pageCurrent)
+                        $paginator->setCurrentPageNumber($pageCurrent)
                             ->setItemCountPerPage($pageNbPerPage);
-                        
-                        $params['categoryListProducts'] = $paginator;
+
+                        $params['view']->getVariables()['categoryListProducts'] = $paginator;
                     }
                 }
-        	},
-        100);
-        
+            },
+            100);
+
         $this->listeners[] = $callBackHandler;
     }
-    
-    public function customizeProductList($products)
+
+    public function customizeProductList($products, $params)
     {
         $melisComVariantService = $this->serviceLocator->get('MelisComVariantService');
         $melisComProductService = $this->serviceLocator->get('MelisComProductService');
@@ -70,16 +70,7 @@ class SiteCommerceProductListPluginListener implements ListenerAggregateInterfac
         /** @var MelisSiteConfigService $siteConfigSrv */
         $siteConfigSrv = $this->serviceLocator->get('MelisSiteConfigService');
 
-        /**
-         * access the router to get the
-         * page id
-         */
-        $router = $this->serviceLocator->get('router');
-        $request = $this->serviceLocator->get('request');
-        $routeMatch = $router->match($request);
-        $params = $routeMatch->getParams();
-
-        $countryId = $siteConfigSrv->getSiteConfigByKey('site_country_id', $params['idpage']);
+        $countryId = $siteConfigSrv->getSiteConfigByKey('site_country_id', $params['pluginFronConfig']['pageId']);
 
         // Getting the Lowest Price of Product variants and
         // Secondary image for slider image hover
@@ -96,7 +87,7 @@ class SiteCommerceProductListPluginListener implements ListenerAggregateInterfac
                 $lowestPriceCurrencyCode = null;
                 foreach ($prdVar As $var)
                 {
-                    if (is_null($lowestPrice))
+                    if (empty($lowestPrice))
                     {
                         // Getting the Final Price of a variant
                         $varPrice = $melisComVariantService->getVariantFinalPrice($var->var_id, $countryId);
@@ -129,10 +120,10 @@ class SiteCommerceProductListPluginListener implements ListenerAggregateInterfac
                         }
                     }
                 }
-                
+
                 // If the Lowest Price is still null
                 // this will try to get from the Product Price
-                if (is_null($lowestPrice))
+                if (empty($lowestPrice))
                 {
                     $prdPrice = $melisComProductService->getProductVariantPriceById($prd['prd_id']);
 
@@ -144,14 +135,14 @@ class SiteCommerceProductListPluginListener implements ListenerAggregateInterfac
                     }
                 }
 
-                if (!is_null($lowestPrice))
+                if (!empty($lowestPrice))
                 {
                     $customPrice = array(
                         'prd_price_net' => $lowestPrice,
                         'prd_currency_code' => $lowestPriceCurrencyCode,
                         'prd_currency_symbol' => $lowestPriceCurrency,
                     );
-                    
+
                     $products[$key]['prd_price_details'] = $customPrice;
                 }
 
@@ -171,10 +162,10 @@ class SiteCommerceProductListPluginListener implements ListenerAggregateInterfac
                 }
             }
         }
-    
+
         return $products;
     }
-    
+
     /**
      * Array sorter using array index
      * @param Array $array, the list to be sort
@@ -183,10 +174,10 @@ class SiteCommerceProductListPluginListener implements ListenerAggregateInterfac
      * @return Array
      */
     function array_sort($array, $on, $order = SORT_ASC){
-    
+
         $new_array = array();
         $sortable_array = array();
-    
+
         if (count($array) > 0) {
             foreach ($array as $k => $v) {
                 if (is_array($v)) {
@@ -199,7 +190,7 @@ class SiteCommerceProductListPluginListener implements ListenerAggregateInterfac
                     $sortable_array[$k] = $v;
                 }
             }
-    
+
             switch ($order) {
                 case SORT_ASC:
                     asort($sortable_array);
@@ -208,15 +199,15 @@ class SiteCommerceProductListPluginListener implements ListenerAggregateInterfac
                     arsort($sortable_array);
                     break;
             }
-    
+
             foreach ($sortable_array as $k => $v) {
                 $new_array[$k] = $array[$k];
             }
         }
-    
+
         return $new_array;
     }
-    
+
     public function detach(EventManagerInterface $events)
     {
         foreach ($this->listeners as $index => $listener) {

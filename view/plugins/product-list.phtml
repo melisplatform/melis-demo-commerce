@@ -129,7 +129,7 @@
                             }
 
                             // Product price
-                            $price = '';
+                            $price = 'NA';
                             if (!empty($product['prd_price_details']['prd_price_net']) && $product['prd_price_details']['prd_currency_symbol'])
                             {
                                 $price = $product['prd_price_details']['prd_currency_symbol'].number_format($product['prd_price_details']['prd_price_net'], 2);
