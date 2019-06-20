@@ -154,4 +154,8 @@
 	
     <?php echo $this->orderMessages ?> 
     
-<?php }?>
+<?php } else { ?>
+    <div class="alert alert-danger">
+        <?= $this->SiteTranslate('tr_melisdemocommerce_general_no_result_found', $this->SiteConfig('site_lang_id'), $this->SiteConfig('site_id')) ?>
+    </div>
+<?php } ?>
