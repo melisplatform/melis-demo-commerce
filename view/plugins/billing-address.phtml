@@ -29,6 +29,14 @@
 	$form->prepare();
 	$form->setAttribute('id', 'billing-address-form');
 	$form->setAttribute('data-type', 'billing');
+
+	foreach ($form->getElements() as $element => $val) {
+	    $el = $form->get($element);
+	    $elId = $el->getAttribute('id') ?? $el->getName();
+	    // make the id unique from the delivery form
+	    $el->setAttribute('id', 'billing_' . $elId);
+    }
+
 	echo $this->form()->openTag($form); 
     echo $this->DemoSiteFieldCollection($form);
 ?>
