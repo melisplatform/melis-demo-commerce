@@ -152,7 +152,9 @@ $(function(){
     
 });
 
-function setAddTocartState(disable = true){
+function setAddTocartState(disable){
+
+	disable = (typeof disable == 'undefined') ? true : disable;
 	
 	$(".add-to-cart-quantity-zone #add-to-cart-form input[name='m_variant_id']").val("");
 	$(".add-to-cart-quantity-zone #add-to-cart-form input[name='m_variant_country']").val("");
