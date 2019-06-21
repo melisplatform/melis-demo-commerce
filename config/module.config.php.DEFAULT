@@ -61,7 +61,6 @@ return array(
                             ),
                             'defaults' => array(
                                 'renderMode' => 'front',
-                                'frontIdpage' => 'indexsite',
                             ),
                         ),
                     ),
