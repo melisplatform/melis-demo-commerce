@@ -382,10 +382,10 @@ class SetupController extends MelisSiteActionController
         $melisSite = $_SERVER['DOCUMENT_ROOT'].'/../module/MelisSites';
         $outputFileName = 'module.config.php';
         $moduleConfigDir = $melisSite.'/MelisDemoCommerce/config/'.$outputFileName;
-        $modulePluginsConfigDir = $melisSite.'/MelisDemoCommerce/config/melis.plugins.config.php';
+//        $modulePluginsConfigDir = $melisSite.'/MelisDemoCommerce/config/melis.plugins.config.php';
         
         $moduleConfig = file_get_contents($moduleConfigDir);
-        $modulePluginsConfig = file_get_contents($modulePluginsConfigDir);
+//        $modulePluginsConfig = file_get_contents($modulePluginsConfigDir);
 
         $pageOrder = 1;
         foreach ($pages As $page)
@@ -461,7 +461,7 @@ class SetupController extends MelisSiteActionController
                 $this->config = str_replace('\'[:'.$page['site_config'].']\'', $tmpPageId, $this->config);
                 $moduleConfig = str_replace('\'[:'.$page['site_config'].']\'', $tmpPageId, $moduleConfig);
                 //update plugins module config
-                $modulePluginsConfig = str_replace('\'[:'.$page['site_config'].']\'', $tmpPageId, $modulePluginsConfig);
+//                $modulePluginsConfig = str_replace('\'[:'.$page['site_config'].']\'', $tmpPageId, $modulePluginsConfig);
             }
             
             // Page SEO
@@ -481,7 +481,7 @@ class SetupController extends MelisSiteActionController
         }
         
         file_put_contents($moduleConfigDir, $moduleConfig);
-        file_put_contents($modulePluginsConfigDir, $modulePluginsConfig);
+//        file_put_contents($modulePluginsConfigDir, $modulePluginsConfig);
 
         $container['MelisDemoCommerceSetup']['pagesIds'] = $this->pagesIds;
     }
