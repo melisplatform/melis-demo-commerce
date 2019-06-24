@@ -15,7 +15,7 @@ $(function(){
 			
 			var form = "add-to-cart-form";
 			var dataString = $("form#"+form).serializeArray();
-			
+			dataString.push({name: "idpage", value: $(this).data('pageid')});
 			
 			setAddTocartState();
 			
@@ -156,8 +156,8 @@ function setAddTocartState(disable){
 
 	disable = (typeof disable == 'undefined') ? true : disable;
 	
-	$(".add-to-cart-quantity-zone #add-to-cart-form input[name='m_variant_id']").val("");
-	$(".add-to-cart-quantity-zone #add-to-cart-form input[name='m_variant_country']").val("");
+	// $(".add-to-cart-quantity-zone #add-to-cart-form input[name='m_variant_id']").val("");
+	// $(".add-to-cart-quantity-zone #add-to-cart-form input[name='m_variant_country']").val("");
 	$(".add-to-cart-quantity-zone .cart-plus-minus-box").val("1");
 	
 	$(".add-to-cart-zone .alert").addClass("hidden");

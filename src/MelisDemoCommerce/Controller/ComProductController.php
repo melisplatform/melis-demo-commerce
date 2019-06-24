@@ -176,7 +176,7 @@ class ComProductController extends BaseController
             $action = $post['action'];
             
             $demoCommreceSrv = $this->getServiceLocator()->get('DemoCommerceService');
-            $result = $demoCommreceSrv->getVariantbyAttributes($productId, $attrSelection, $action, $post['page_id']);
+            $result = $demoCommreceSrv->getVariantbyAttributes($productId, $attrSelection, $action, $post['idpage']);
         }
         
         return new JsonModel($result);
@@ -193,6 +193,7 @@ class ComProductController extends BaseController
         
         if ($request->isPost())
         {
+            $post = $request->getPost();
             /**
              * Validating the AddToCart form by Calling the plugin
              */
@@ -210,9 +211,9 @@ class ComProductController extends BaseController
                 $menuParameters = array(
                     'template_path' => 'MelisDemoCommerce/plugin/menu-cart',
                     'id' => 'menuCartPlugin',
+                    'idPage' => $post['idpage'],
                 );
                 $cartViewModel = $cartPlugin->render($menuParameters);
-                
                 // Rendering the viewmodel of the plugin 
                 $viewRender = $this->getServiceLocator()->get('ViewRenderer');
                 $cartList = $viewRender->render($cartViewModel);

@@ -28,7 +28,7 @@ class BaseController extends MelisSiteActionController
     {
         $sm = $event->getApplication()->getServiceManager();
 
-        $pageId = $this->params()->fromRoute('idpage');
+        $pageId = $this->params()->fromRoute('idpage', $this->params()->fromPost('idpage'));
         $renderMode = $this->params()->fromRoute('renderMode');
 
         $melisComAuthSrv = $sm->get('MelisComAuthenticationService');
@@ -59,6 +59,7 @@ class BaseController extends MelisSiteActionController
         $menuParameters = array(
             'template_path' => 'MelisDemoCommerce/plugin/menu',
             'pageIdRootMenu' => $siteConfigSrv->getSiteConfigByKey('homePageId', $pageId),
+            'pageId' => $pageId
         );
 
         // add generated view to children views for displaying it in the contact view
@@ -80,6 +81,7 @@ class BaseController extends MelisSiteActionController
         $cartParameters = array(
             'template_path' => 'MelisDemoCommerce/plugin/menu-cart',
             'id' => 'menuCartPlugin',
+            'pageId' => $pageId
         );
         $this->layout()->addChild($cartPlugin->render($cartParameters), 'menuCart');
         

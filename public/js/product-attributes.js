@@ -16,7 +16,7 @@ $(function(){
 		//add page id to the request
 
 		dataString.push({
-			name : 'page_id',
+			name : 'idpage',
 			value : body.find(".single-product-description").data("pageid")
 		});
 		
