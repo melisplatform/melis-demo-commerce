@@ -81,7 +81,7 @@ class SetupController extends MelisSiteActionController
             
             $tablePlatform = $this->getServiceLocator()->get('MelisPlatformTable');
             $platform = $tablePlatform->getEntryByField('plf_name', getenv('MELIS_PLATFORM'))->current();
-            
+
             if ($platform)
             {
                 $this->curPlatformId = $platform->plf_id;
@@ -382,10 +382,9 @@ class SetupController extends MelisSiteActionController
         $melisSite = $_SERVER['DOCUMENT_ROOT'].'/../module/MelisSites';
         $outputFileName = 'module.config.php';
         $moduleConfigDir = $melisSite.'/MelisDemoCommerce/config/'.$outputFileName;
-//        $modulePluginsConfigDir = $melisSite.'/MelisDemoCommerce/config/melis.plugins.config.php';
+        $modulePluginsConfigDir = $melisSite.'/MelisDemoCommerce/config/melis.plugins.config.php';
         
         $moduleConfig = file_get_contents($moduleConfigDir);
-//        $modulePluginsConfig = file_get_contents($modulePluginsConfigDir);
 
         $pageOrder = 1;
         foreach ($pages As $page)
@@ -461,7 +460,10 @@ class SetupController extends MelisSiteActionController
                 $this->config = str_replace('\'[:'.$page['site_config'].']\'', $tmpPageId, $this->config);
                 $moduleConfig = str_replace('\'[:'.$page['site_config'].']\'', $tmpPageId, $moduleConfig);
                 //update plugins module config
-//                $modulePluginsConfig = str_replace('\'[:'.$page['site_config'].']\'', $tmpPageId, $modulePluginsConfig);
+                if (strpos(file_get_contents($modulePluginsConfigDir), '\'[:'.$page['site_config'].']\'') !== false) {
+                    $modulePluginsConfig = preg_replace('(\'\[:'.$page['site_config'].'\]\')', $tmpPageId, file_get_contents($modulePluginsConfigDir));
+                    file_put_contents($modulePluginsConfigDir, $modulePluginsConfig);
+                }
             }
             
             // Page SEO
@@ -479,9 +481,9 @@ class SetupController extends MelisSiteActionController
                 $this->setupPages($page['page_subpages'], $tmpPageId);
             }
         }
-        
         file_put_contents($moduleConfigDir, $moduleConfig);
-//        file_put_contents($modulePluginsConfigDir, $modulePluginsConfig);
+
+
 
         $container['MelisDemoCommerceSetup']['pagesIds'] = $this->pagesIds;
     }
@@ -899,6 +901,11 @@ class SetupController extends MelisSiteActionController
         $seoTbl = $this->getServiceLocator()->get('MelisEcomSeoTable');
         $docTbl = $this->getServiceLocator()->get('MelisEcomDocumentTable');
         $docRelTbl = $this->getServiceLocator()->get('MelisEcomDocRelationsTable');
+
+        //get the melis.plugins.config.php
+        // Getting the DemoSite config
+        $melisSite = $_SERVER['DOCUMENT_ROOT'].'/../module/MelisSites';
+        $modulePluginsConfigDir = $melisSite.'/MelisDemoCommerce/config/melis.plugins.config.php';
     
         $order = 1;
         foreach ($categories As $key => $val)
@@ -990,6 +997,11 @@ class SetupController extends MelisSiteActionController
             if (!empty($val['site_config']))
             {
                 $this->config = str_replace('\'[:'.$val['site_config'].']\'', $catId, $this->config);
+                //update plugins module config
+                if (strpos(file_get_contents($modulePluginsConfigDir), '\'[:'.$val['site_config'].']\'') !== false) {
+                    $modulePluginsConfig = preg_replace('(\'\[:'.$val['site_config'].'\]\')', $catId, file_get_contents($modulePluginsConfigDir));
+                    file_put_contents($modulePluginsConfigDir, $modulePluginsConfig);
+                }
             }
     
             if (!empty($val['cat_subCategories']))
