@@ -120,10 +120,13 @@ class SiteProductShowPluginListener implements ListenerAggregateInterface
                         
                         $addToCartPlugin = $addToCartPlugin->render($pluginParams);
                         $viewVariables->addToCart = $viewRender->render($addToCartPlugin);
-                        
+
+                        // get list of active variants
+                        $activeVariants = $variantSvc->getVariantListByProductId($productId, $langId, $countryId, true);
                        
                         $viewVariables->product_variant = $variant;
                         $viewVariables->currency = $currency;
+                        $viewVariables->hasVariant = !empty($activeVariants) ? true : false;
                     }
                 }
             },

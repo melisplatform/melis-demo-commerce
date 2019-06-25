@@ -136,7 +136,9 @@
                             <?= $this->attribute ?>
                             <!-- attribute show plugin end -->
                             <!-- Quantitiy and add to cart view -->
+                            <?php if ($this->hasVariant) : ?>
                             <?= $this->addToCart ?>
+                            <?php endif; ?>
                             <!-- Quantitiy and add to cart view end-->
                       	</div>
                   	</div>
