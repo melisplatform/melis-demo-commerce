@@ -128,7 +128,7 @@ $(function(){
 				$("form#add-to-cart-form input[name='m_variant_id']").val('');
 				$("form#add-to-cart-form input[name='m_variant_quantity']").val(1);
 
-				if(!$.isEmptyObject(data.variant_stock)){
+				if(!$.isEmptyObject(data.variant_stock) && !$.isEmptyObject(data.variant_price.price_net && !$.isEmptyObject(data.variant.var_status))){
 					var varStock = parseInt(data.variant_stock.stock_quantity);
 					
 					if(varStock != 0){
