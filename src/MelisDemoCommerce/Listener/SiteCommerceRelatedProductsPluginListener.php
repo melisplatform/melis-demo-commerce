@@ -76,14 +76,14 @@ class SiteCommerceRelatedProductsPluginListener implements ListenerAggregateInte
 
                 foreach ($prdVar As $var)
                 {
-                    if (is_null($lowestPrice))
+                    if (empty($lowestPrice))
                     {
                         // Getting the Final Price of a variant
                         $varPrice = $melisComVariantService->getVariantFinalPrice($var->var_id, $countryId);
 
                         // if the variant has Price base on the Country
                         // this will partially assign as Lowest Prices
-                        if (!is_null($varPrice))
+                        if (!empty($varPrice))
                         {
                             $lowestPrice = $varPrice->price_net;
                             $lowestPriceCurrency = $varPrice->cur_symbol;
@@ -96,7 +96,7 @@ class SiteCommerceRelatedProductsPluginListener implements ListenerAggregateInte
                         $varPrice = $melisComVariantService->getVariantFinalPrice($var->var_id, $countryId);
 
                         // if the variant has Price base on the Country
-                        if (!is_null($varPrice))
+                        if (!empty($varPrice))
                         {
                             // Checking if the Variant Price is Less than the first variant
                             if ($lowestPrice > $varPrice->price_net)
@@ -112,11 +112,11 @@ class SiteCommerceRelatedProductsPluginListener implements ListenerAggregateInte
 
                 // If the Lowest Price is still null
                 // this will try to get from the Product Price
-                if (is_null($lowestPrice))
+                if (empty($lowestPrice))
                 {
                     $prdPrice = $melisComProductService->getProductVariantPriceById($prd_id);
 
-                    if (!is_null($prdPrice))
+                    if (!empty($prdPrice))
                     {
                         $lowestPrice = $prdPrice->price_net;
                         $lowestPriceCurrency = $prdPrice->cur_symbol;
@@ -124,7 +124,7 @@ class SiteCommerceRelatedProductsPluginListener implements ListenerAggregateInte
                     }
                 }
 
-                if (!is_null($lowestPrice))
+                if (!empty($lowestPrice))
                 {
                     $price->price_net = $lowestPrice;
                     $price->cur_symbol = $lowestPriceCurrency;
