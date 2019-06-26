@@ -91,4 +91,10 @@
             </div>
         </div>
     </div>
+<?php } else { ?>
+    <?php if(!$this->isInFront) { ?>
+        <div class="alert alert-warning" role="alert">
+            <?= $this->siteTranslate('tr_melisdemocommerce_general_no_result_found', $this->SiteConfig('default_lang_id'), $this->SiteConfig('site_id'));?>
+        </div>
+    <?php } ?>
 <?php } ?>
