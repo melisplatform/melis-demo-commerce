@@ -34,7 +34,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 1,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 1,
                     'stock_next_fill_up' => '',
                 ),
@@ -73,7 +73,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 2,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 10,
                     'stock_next_fill_up' => '',
                 ),
@@ -112,7 +112,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 3,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 15,
                     'stock_next_fill_up' => '',
                 ),
@@ -151,7 +151,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 4,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 20,
                     'stock_next_fill_up' => '',
                 ),
@@ -190,7 +190,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 5,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 8,
                     'stock_next_fill_up' => '',
                 ),
@@ -229,7 +229,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 6,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 3,
                     'stock_next_fill_up' => '',
                 ),
@@ -268,7 +268,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 7,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 1,
                     'stock_next_fill_up' => '',
                 ),
@@ -307,7 +307,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 8,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 12,
                     'stock_next_fill_up' => '',
                 ),
@@ -346,7 +346,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 9,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 5,
                     'stock_next_fill_up' => '',
                 ),
@@ -385,7 +385,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 10,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 7,
                     'stock_next_fill_up' => '',
                 ),
@@ -424,7 +424,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 11,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 2,
                     'stock_next_fill_up' => '',
                 ),
@@ -463,7 +463,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 12,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 18,
                     'stock_next_fill_up' => '',
                 ),
@@ -502,7 +502,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 13,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 14,
                     'stock_next_fill_up' => '',
                 ),
@@ -541,7 +541,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 14,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 22,
                     'stock_next_fill_up' => '',
                 ),
@@ -580,7 +580,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 15,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 22,
                     'stock_next_fill_up' => '',
                 ),
@@ -619,7 +619,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 16,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -658,7 +658,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 17,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -697,7 +697,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 18,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 7,
                     'stock_next_fill_up' => '',
                 ),
@@ -736,7 +736,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 19,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 12,
                     'stock_next_fill_up' => '',
                 ),
@@ -775,7 +775,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 20,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 2,
                     'stock_next_fill_up' => '',
                 ),
@@ -814,7 +814,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 21,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -853,7 +853,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 22,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 14,
                     'stock_next_fill_up' => '',
                 ),
@@ -892,7 +892,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 23,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 2,
                     'stock_next_fill_up' => '',
                 ),
@@ -931,7 +931,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 24,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 25,
                     'stock_next_fill_up' => '',
                 ),
@@ -970,7 +970,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 25,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -1009,7 +1009,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 26,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 12,
                     'stock_next_fill_up' => '',
                 ),
@@ -1048,7 +1048,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 27,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 15,
                     'stock_next_fill_up' => '',
                 ),
@@ -1087,7 +1087,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 28,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -1126,7 +1126,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 29,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 1,
                     'stock_next_fill_up' => '',
                 ),
@@ -1165,7 +1165,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 30,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 11,
                     'stock_next_fill_up' => '',
                 ),
@@ -1204,7 +1204,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 31,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -1243,7 +1243,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 32,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -1282,7 +1282,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 33,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 7,
                     'stock_next_fill_up' => '',
                 ),
@@ -1321,7 +1321,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 34,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 7,
                     'stock_next_fill_up' => '',
                 ),
@@ -1360,7 +1360,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 35,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -1399,7 +1399,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 36,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 12,
                     'stock_next_fill_up' => '',
                 ),
@@ -1438,7 +1438,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 37,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 25,
                     'stock_next_fill_up' => '',
                 ),
@@ -1477,7 +1477,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 38,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -1516,7 +1516,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 39,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -1555,7 +1555,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 40,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 10,
                     'stock_next_fill_up' => '',
                 ),
@@ -1594,7 +1594,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 41,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 23,
                     'stock_next_fill_up' => '',
                 ),
@@ -1633,7 +1633,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 42,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 4,
                     'stock_next_fill_up' => '',
                 ),
@@ -1672,7 +1672,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 43,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -1711,7 +1711,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 44,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 30,
                     'stock_next_fill_up' => '',
                 ),
@@ -1750,7 +1750,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 45,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 35,
                     'stock_next_fill_up' => '',
                 ),
@@ -1789,7 +1789,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 46,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 42,
                     'stock_next_fill_up' => '',
                 ),
@@ -1828,7 +1828,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 47,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -1867,7 +1867,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 48,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -1906,7 +1906,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 49,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 8,
                     'stock_next_fill_up' => '',
                 ),
@@ -1945,7 +1945,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 50,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 2,
                     'stock_next_fill_up' => '',
                 ),
@@ -1984,7 +1984,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 51,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 2,
                     'stock_next_fill_up' => '',
                 ),
@@ -2023,7 +2023,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 52,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -2062,7 +2062,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 53,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 5,
                     'stock_next_fill_up' => '',
                 ),
@@ -2101,7 +2101,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 54,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 18,
                     'stock_next_fill_up' => '',
                 ),
@@ -2140,7 +2140,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 55,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 10,
                     'stock_next_fill_up' => '',
                 ),
@@ -2179,7 +2179,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 56,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -2218,7 +2218,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 57,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -2257,7 +2257,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 58,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 1,
                     'stock_next_fill_up' => '',
                 ),
@@ -2287,7 +2287,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 59,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 12,
                     'stock_next_fill_up' => '',
                 ),
@@ -2317,7 +2317,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 60,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 5,
                     'stock_next_fill_up' => '',
                 ),
@@ -2347,7 +2347,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 61,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 2,
                     'stock_next_fill_up' => '',
                 ),
@@ -2377,7 +2377,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 62,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 7,
                     'stock_next_fill_up' => '',
                 ),
@@ -2407,7 +2407,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 63,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 1,
                     'stock_next_fill_up' => '',
                 ),
@@ -2437,7 +2437,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 64,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 8,
                     'stock_next_fill_up' => '',
                 ),
@@ -2467,7 +2467,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 65,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 1,
                     'stock_next_fill_up' => '',
                 ),
@@ -2497,7 +2497,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 66,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 5,
                     'stock_next_fill_up' => '',
                 ),
@@ -2527,7 +2527,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 67,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 13,
                     'stock_next_fill_up' => '',
                 ),
@@ -2557,7 +2557,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 68,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 7,
                     'stock_next_fill_up' => '',
                 ),
@@ -2587,7 +2587,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 69,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 4,
                     'stock_next_fill_up' => '',
                 ),
@@ -2617,7 +2617,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 70,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 2,
                     'stock_next_fill_up' => '',
                 ),
@@ -2647,7 +2647,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 71,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 14,
                     'stock_next_fill_up' => '',
                 ),
@@ -2677,7 +2677,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 72,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 3,
                     'stock_next_fill_up' => '',
                 ),
@@ -2707,7 +2707,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 73,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 5,
                     'stock_next_fill_up' => '',
                 ),
@@ -2746,7 +2746,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 74,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 7,
                     'stock_next_fill_up' => '',
                 ),
@@ -2785,7 +2785,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 75,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 9,
                     'stock_next_fill_up' => '',
                 ),
@@ -2824,7 +2824,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 76,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 2,
                     'stock_next_fill_up' => '',
                 ),
@@ -2863,7 +2863,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 77,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 11,
                     'stock_next_fill_up' => '',
                 ),
@@ -2902,7 +2902,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 78,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -2941,7 +2941,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 79,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 3,
                     'stock_next_fill_up' => '',
                 ),
@@ -2980,7 +2980,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 80,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 12,
                     'stock_next_fill_up' => '',
                 ),
@@ -3019,7 +3019,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 81,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 5,
                     'stock_next_fill_up' => '',
                 ),
@@ -3048,7 +3048,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 82,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 10,
                     'stock_next_fill_up' => '',
                 ),
@@ -3087,7 +3087,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 83,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -3126,7 +3126,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 84,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 3,
                     'stock_next_fill_up' => '',
                 ),
@@ -3165,7 +3165,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 85,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 7,
                     'stock_next_fill_up' => '',
                 ),
@@ -3204,7 +3204,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 86,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -3243,7 +3243,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 87,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 8,
                     'stock_next_fill_up' => '',
                 ),
@@ -3282,7 +3282,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 88,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 2,
                     'stock_next_fill_up' => '',
                 ),
@@ -3321,7 +3321,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 89,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -3360,7 +3360,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 90,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 15,
                     'stock_next_fill_up' => '',
                 ),
@@ -3399,7 +3399,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 91,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -3438,7 +3438,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 92,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 5,
                     'stock_next_fill_up' => '',
                 ),
@@ -3477,7 +3477,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 93,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 2,
                     'stock_next_fill_up' => '',
                 ),
@@ -3516,7 +3516,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 94,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 6,
                     'stock_next_fill_up' => '',
                 ),
@@ -3555,7 +3555,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 95,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -3594,7 +3594,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 96,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 12,
                     'stock_next_fill_up' => '',
                 ),
@@ -3633,7 +3633,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 97,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -3672,7 +3672,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 98,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 1,
                     'stock_next_fill_up' => '',
                 ),
@@ -3711,7 +3711,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 99,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 20,
                     'stock_next_fill_up' => '',
                 ),
@@ -3750,7 +3750,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 100,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 9,
                     'stock_next_fill_up' => '',
                 ),
@@ -3789,7 +3789,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 101,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -3828,7 +3828,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 102,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 5,
                     'stock_next_fill_up' => '',
                 ),
@@ -3867,7 +3867,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 103,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 19,
                     'stock_next_fill_up' => '',
                 ),
@@ -3903,7 +3903,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 104,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 6,
                     'stock_next_fill_up' => '',
                 ),
@@ -3939,7 +3939,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 105,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -3975,7 +3975,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 106,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 17,
                     'stock_next_fill_up' => '',
                 ),
@@ -4011,7 +4011,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 107,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 17,
                     'stock_next_fill_up' => '',
                 ),
@@ -4047,7 +4047,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 108,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 3,
                     'stock_next_fill_up' => '',
                 ),
@@ -4080,7 +4080,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 109,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 10,
                     'stock_next_fill_up' => '',
                 ),
@@ -4113,7 +4113,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 110,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 12,
                     'stock_next_fill_up' => '',
                 ),
@@ -4146,7 +4146,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 111,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 1,
                     'stock_next_fill_up' => '',
                 ),
@@ -4179,7 +4179,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 112,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -4212,7 +4212,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 113,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 7,
                     'stock_next_fill_up' => '',
                 ),
@@ -4245,7 +4245,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 114,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 6,
                     'stock_next_fill_up' => '',
                 ),
@@ -4278,7 +4278,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 115,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 15,
                     'stock_next_fill_up' => '',
                 ),
@@ -4314,7 +4314,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 116,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 7,
                     'stock_next_fill_up' => '',
                 ),
@@ -4350,7 +4350,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 117,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 3,
                     'stock_next_fill_up' => '',
                 ),
@@ -4389,7 +4389,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 118,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 12,
                     'stock_next_fill_up' => '',
                 ),
@@ -4428,7 +4428,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 119,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -4467,7 +4467,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 120,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 15,
                     'stock_next_fill_up' => '',
                 ),
@@ -4506,7 +4506,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 121,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 7,
                     'stock_next_fill_up' => '',
                 ),
@@ -4545,7 +4545,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 122,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -4574,7 +4574,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 123,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 10,
                     'stock_next_fill_up' => '',
                 ),
@@ -4613,7 +4613,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 124,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 6,
                     'stock_next_fill_up' => '',
                 ),
@@ -4652,7 +4652,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 125,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 18,
                     'stock_next_fill_up' => '',
                 ),
@@ -4691,7 +4691,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 126,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 9,
                     'stock_next_fill_up' => '',
                 ),
@@ -4730,7 +4730,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 127,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 3,
                     'stock_next_fill_up' => '',
                 ),
@@ -4769,7 +4769,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 128,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -4808,7 +4808,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 129,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 19,
                     'stock_next_fill_up' => '',
                 ),
@@ -4847,7 +4847,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 130,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 9,
                     'stock_next_fill_up' => '',
                 ),
@@ -4886,7 +4886,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 131,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 14,
                     'stock_next_fill_up' => '',
                 ),
@@ -4925,7 +4925,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 132,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 18,
                     'stock_next_fill_up' => '',
                 ),
@@ -4964,7 +4964,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 133,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -5003,7 +5003,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 134,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -5042,7 +5042,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 135,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 10,
                     'stock_next_fill_up' => '',
                 ),
@@ -5081,7 +5081,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 136,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 9,
                     'stock_next_fill_up' => '',
                 ),
@@ -5120,7 +5120,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 137,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 15,
                     'stock_next_fill_up' => '',
                 ),
@@ -5159,7 +5159,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 138,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -5198,7 +5198,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 139,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 22,
                     'stock_next_fill_up' => '',
                 ),
@@ -5237,7 +5237,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 140,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 18,
                     'stock_next_fill_up' => '',
                 ),
@@ -5276,7 +5276,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 141,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 7,
                     'stock_next_fill_up' => '',
                 ),
@@ -5315,7 +5315,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 142,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -5354,7 +5354,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 143,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 18,
                     'stock_next_fill_up' => '',
                 ),
@@ -5393,7 +5393,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 144,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 7,
                     'stock_next_fill_up' => '',
                 ),
@@ -5432,7 +5432,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 145,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 3,
                     'stock_next_fill_up' => '',
                 ),
@@ -5471,7 +5471,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 146,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -5510,7 +5510,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 147,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 21,
                     'stock_next_fill_up' => '',
                 ),
@@ -5549,7 +5549,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 148,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 20,
                     'stock_next_fill_up' => '',
                 ),
@@ -5588,7 +5588,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 149,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 18,
                     'stock_next_fill_up' => '',
                 ),
@@ -5627,7 +5627,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 150,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -5666,7 +5666,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 151,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 15,
                     'stock_next_fill_up' => '',
                 ),
@@ -5705,7 +5705,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 152,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -5744,7 +5744,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 153,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 12,
                     'stock_next_fill_up' => '',
                 ),
@@ -5783,7 +5783,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 154,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 18,
                     'stock_next_fill_up' => '',
                 ),
@@ -5822,7 +5822,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 155,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 20,
                     'stock_next_fill_up' => '',
                 ),
@@ -5861,7 +5861,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 156,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 11,
                     'stock_next_fill_up' => '',
                 ),
@@ -5900,7 +5900,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 157,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 5,
                     'stock_next_fill_up' => '',
                 ),
@@ -5939,7 +5939,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 158,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -5978,7 +5978,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 159,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -6017,7 +6017,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 160,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 11,
                     'stock_next_fill_up' => '',
                 ),
@@ -6056,7 +6056,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 161,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 16,
                     'stock_next_fill_up' => '',
                 ),
@@ -6095,7 +6095,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 162,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 16,
                     'stock_next_fill_up' => '',
                 ),
@@ -6134,7 +6134,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 163,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -6173,7 +6173,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 164,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 14,
                     'stock_next_fill_up' => '',
                 ),
@@ -6212,7 +6212,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 165,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 4,
                     'stock_next_fill_up' => '',
                 ),
@@ -6251,7 +6251,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 166,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -6290,7 +6290,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 167,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 2,
                     'stock_next_fill_up' => '',
                 ),
@@ -6329,7 +6329,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 168,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 27,
                     'stock_next_fill_up' => '',
                 ),
@@ -6368,7 +6368,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 169,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 27,
                     'stock_next_fill_up' => '',
                 ),
@@ -6407,7 +6407,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 170,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 25,
                     'stock_next_fill_up' => '',
                 ),
@@ -6446,7 +6446,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 171,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -6485,7 +6485,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 172,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 20,
                     'stock_next_fill_up' => '',
                 ),
@@ -6524,7 +6524,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 173,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -6563,7 +6563,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 174,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 15,
                     'stock_next_fill_up' => '',
                 ),
@@ -6602,7 +6602,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 175,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 25,
                     'stock_next_fill_up' => '',
                 ),
@@ -6641,7 +6641,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 176,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 7,
                     'stock_next_fill_up' => '',
                 ),
@@ -6680,7 +6680,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 177,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 15,
                     'stock_next_fill_up' => '',
                 ),
@@ -6719,7 +6719,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 178,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 5,
                     'stock_next_fill_up' => '',
                 ),
@@ -6758,7 +6758,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 179,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 14,
                     'stock_next_fill_up' => '',
                 ),
@@ -6797,7 +6797,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 180,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -6836,7 +6836,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 181,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -6875,7 +6875,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 182,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 10,
                     'stock_next_fill_up' => '',
                 ),
@@ -6914,7 +6914,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 183,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 12,
                     'stock_next_fill_up' => '',
                 ),
@@ -6953,7 +6953,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 184,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 7,
                     'stock_next_fill_up' => '',
                 ),
@@ -6992,7 +6992,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 185,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 9,
                     'stock_next_fill_up' => '',
                 ),
@@ -7031,7 +7031,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 186,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 19,
                     'stock_next_fill_up' => '',
                 ),
@@ -7070,7 +7070,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 187,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 2,
                     'stock_next_fill_up' => '',
                 ),
@@ -7109,7 +7109,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 188,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -7148,7 +7148,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 189,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 13,
                     'stock_next_fill_up' => '',
                 ),
@@ -7187,7 +7187,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 190,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 13,
                     'stock_next_fill_up' => '',
                 ),
@@ -7226,7 +7226,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 191,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 7,
                     'stock_next_fill_up' => '',
                 ),
@@ -7265,7 +7265,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 192,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -7304,7 +7304,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 193,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 25,
                     'stock_next_fill_up' => '',
                 ),
@@ -7343,7 +7343,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 194,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 5,
                     'stock_next_fill_up' => '',
                 ),
@@ -7382,7 +7382,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 195,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 2,
                     'stock_next_fill_up' => '',
                 ),
@@ -7421,7 +7421,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 196,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -7460,7 +7460,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 197,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 8,
                     'stock_next_fill_up' => '',
                 ),
@@ -7499,7 +7499,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 198,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 18,
                     'stock_next_fill_up' => '',
                 ),
@@ -7538,7 +7538,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 199,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 5,
                     'stock_next_fill_up' => '',
                 ),
@@ -7577,7 +7577,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 200,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -7616,7 +7616,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 201,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -7655,7 +7655,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 202,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 10,
                     'stock_next_fill_up' => '',
                 ),
@@ -7694,7 +7694,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 203,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 8,
                     'stock_next_fill_up' => '',
                 ),
@@ -7733,7 +7733,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 204,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 11,
                     'stock_next_fill_up' => '',
                 ),
@@ -7772,7 +7772,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 205,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 12,
                     'stock_next_fill_up' => '',
                 ),
@@ -7811,7 +7811,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 206,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -7850,7 +7850,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 207,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 21,
                     'stock_next_fill_up' => '',
                 ),
@@ -7889,7 +7889,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 208,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 8,
                     'stock_next_fill_up' => '',
                 ),
@@ -7928,7 +7928,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 209,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 5,
                     'stock_next_fill_up' => '',
                 ),
@@ -7967,7 +7967,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 210,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -8006,7 +8006,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 211,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 15,
                     'stock_next_fill_up' => '',
                 ),
@@ -8045,7 +8045,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 212,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 12,
                     'stock_next_fill_up' => '',
                 ),
@@ -8084,7 +8084,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 213,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -8123,7 +8123,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 214,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 2,
                     'stock_next_fill_up' => '',
                 ),
@@ -8162,7 +8162,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 215,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 8,
                     'stock_next_fill_up' => '',
                 ),
@@ -8201,7 +8201,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 216,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -8240,7 +8240,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 217,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 10,
                     'stock_next_fill_up' => '',
                 ),
@@ -8279,7 +8279,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 218,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 18,
                     'stock_next_fill_up' => '',
                 ),
@@ -8318,7 +8318,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 219,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 20,
                     'stock_next_fill_up' => '',
                 ),
@@ -8357,7 +8357,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 220,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 29,
                     'stock_next_fill_up' => '',
                 ),
@@ -8396,7 +8396,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 221,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 2,
                     'stock_next_fill_up' => '',
                 ),
@@ -8435,7 +8435,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 222,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 9,
                     'stock_next_fill_up' => '',
                 ),
@@ -8474,7 +8474,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 223,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -8513,7 +8513,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 224,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 23,
                     'stock_next_fill_up' => '',
                 ),
@@ -8552,7 +8552,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 225,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -8591,7 +8591,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 226,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 3,
                     'stock_next_fill_up' => '',
                 ),
@@ -8630,7 +8630,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 227,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 13,
                     'stock_next_fill_up' => '',
                 ),
@@ -8669,7 +8669,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 228,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 20,
                     'stock_next_fill_up' => '',
                 ),
@@ -8708,7 +8708,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 229,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 10,
                     'stock_next_fill_up' => '',
                 ),
@@ -8747,7 +8747,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 230,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -8786,7 +8786,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 231,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 10,
                     'stock_next_fill_up' => '',
                 ),
@@ -8825,7 +8825,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 232,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -8864,7 +8864,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 233,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 10,
                     'stock_next_fill_up' => '',
                 ),
@@ -8903,7 +8903,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 234,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 20,
                     'stock_next_fill_up' => '',
                 ),
@@ -8942,7 +8942,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 235,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 15,
                     'stock_next_fill_up' => '',
                 ),
@@ -8981,7 +8981,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 236,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 22,
                     'stock_next_fill_up' => '',
                 ),
@@ -9020,7 +9020,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 237,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 2,
                     'stock_next_fill_up' => '',
                 ),
@@ -9059,7 +9059,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 238,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 15,
                     'stock_next_fill_up' => '',
                 ),
@@ -9098,7 +9098,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 239,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -9137,7 +9137,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 240,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 12,
                     'stock_next_fill_up' => '',
                 ),
@@ -9176,7 +9176,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 241,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -9215,7 +9215,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 242,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 11,
                     'stock_next_fill_up' => '',
                 ),
@@ -9254,7 +9254,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 243,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 18,
                     'stock_next_fill_up' => '',
                 ),
@@ -9293,7 +9293,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 244,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 22,
                     'stock_next_fill_up' => '',
                 ),
@@ -9332,7 +9332,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 245,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 2,
                     'stock_next_fill_up' => '',
                 ),
@@ -9371,7 +9371,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 246,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 10,
                     'stock_next_fill_up' => '',
                 ),
@@ -9410,7 +9410,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 247,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -9449,7 +9449,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 248,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 18,
                     'stock_next_fill_up' => '',
                 ),
@@ -9488,7 +9488,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 249,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 1,
                     'stock_next_fill_up' => '',
                 ),
@@ -9527,7 +9527,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 250,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 9,
                     'stock_next_fill_up' => '',
                 ),
@@ -9566,7 +9566,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 251,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -9605,7 +9605,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 252,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -9644,7 +9644,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 253,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 7,
                     'stock_next_fill_up' => '',
                 ),
@@ -9683,7 +9683,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 254,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 30,
                     'stock_next_fill_up' => '',
                 ),
@@ -9722,7 +9722,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 255,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 7,
                     'stock_next_fill_up' => '',
                 ),
@@ -9761,7 +9761,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 256,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 14,
                     'stock_next_fill_up' => '',
                 ),
@@ -9800,7 +9800,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 257,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -9839,7 +9839,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 258,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 4,
                     'stock_next_fill_up' => '',
                 ),
@@ -9878,7 +9878,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 259,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 26,
                     'stock_next_fill_up' => '',
                 ),
@@ -9917,7 +9917,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 260,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 19,
                     'stock_next_fill_up' => '',
                 ),
@@ -9956,7 +9956,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 261,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 9,
                     'stock_next_fill_up' => '',
                 ),
@@ -9995,7 +9995,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 262,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -10034,7 +10034,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 263,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 5,
                     'stock_next_fill_up' => '',
                 ),
@@ -10073,7 +10073,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 264,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 10,
                     'stock_next_fill_up' => '',
                 ),
@@ -10112,7 +10112,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 265,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 15,
                     'stock_next_fill_up' => '',
                 ),
@@ -10151,7 +10151,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 266,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 18,
                     'stock_next_fill_up' => '',
                 ),
@@ -10190,7 +10190,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 267,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -10229,7 +10229,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 268,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 17,
                     'stock_next_fill_up' => '',
                 ),
@@ -10268,7 +10268,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 269,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 19,
                     'stock_next_fill_up' => '',
                 ),
@@ -10307,7 +10307,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 270,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 1,
                     'stock_next_fill_up' => '',
                 ),
@@ -10346,7 +10346,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 271,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -10385,7 +10385,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 272,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 5,
                     'stock_next_fill_up' => '',
                 ),
@@ -10424,7 +10424,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 273,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -10463,7 +10463,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 274,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 15,
                     'stock_next_fill_up' => '',
                 ),
@@ -10502,7 +10502,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 275,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 20,
                     'stock_next_fill_up' => '',
                 ),
@@ -10541,7 +10541,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 276,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 12,
                     'stock_next_fill_up' => '',
                 ),
@@ -10580,7 +10580,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 277,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -10619,7 +10619,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 278,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 2,
                     'stock_next_fill_up' => '',
                 ),
@@ -10658,7 +10658,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 279,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 15,
                     'stock_next_fill_up' => '',
                 ),
@@ -10697,7 +10697,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 280,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 9,
                     'stock_next_fill_up' => '',
                 ),
@@ -10736,7 +10736,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 281,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 19,
                     'stock_next_fill_up' => '',
                 ),
@@ -10775,7 +10775,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 282,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -10814,7 +10814,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 283,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 11,
                     'stock_next_fill_up' => '',
                 ),
@@ -10853,7 +10853,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 284,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 24,
                     'stock_next_fill_up' => '',
                 ),
@@ -10892,7 +10892,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 285,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 14,
                     'stock_next_fill_up' => '',
                 ),
@@ -10931,7 +10931,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 286,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 28,
                     'stock_next_fill_up' => '',
                 ),
@@ -10970,7 +10970,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 287,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -11009,7 +11009,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 288,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 22,
                     'stock_next_fill_up' => '',
                 ),
@@ -11048,7 +11048,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 289,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -11087,7 +11087,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 290,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 20,
                     'stock_next_fill_up' => '',
                 ),
@@ -11126,7 +11126,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 291,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 12,
                     'stock_next_fill_up' => '',
                 ),
@@ -11165,7 +11165,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 292,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 9,
                     'stock_next_fill_up' => '',
                 ),
@@ -11204,7 +11204,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 293,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 19,
                     'stock_next_fill_up' => '',
                 ),
@@ -11243,7 +11243,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 294,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -11282,7 +11282,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 295,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 19,
                     'stock_next_fill_up' => '',
                 ),
@@ -11321,7 +11321,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 296,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 24,
                     'stock_next_fill_up' => '',
                 ),
@@ -11360,7 +11360,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 297,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 20,
                     'stock_next_fill_up' => '',
                 ),
@@ -11399,7 +11399,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 298,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 18,
                     'stock_next_fill_up' => '',
                 ),
@@ -11438,7 +11438,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 299,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -11477,7 +11477,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 300,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 15,
                     'stock_next_fill_up' => '',
                 ),
@@ -11516,7 +11516,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 301,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 1,
                     'stock_next_fill_up' => '',
                 ),
@@ -11555,7 +11555,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 302,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 5,
                     'stock_next_fill_up' => '',
                 ),
@@ -11594,7 +11594,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 303,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 20,
                     'stock_next_fill_up' => '',
                 ),
@@ -11633,7 +11633,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 304,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 10,
                     'stock_next_fill_up' => '',
                 ),
@@ -11672,7 +11672,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 305,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 15,
                     'stock_next_fill_up' => '',
                 ),
@@ -11711,7 +11711,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 306,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 5,
                     'stock_next_fill_up' => '',
                 ),
@@ -11750,7 +11750,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 307,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 7,
                     'stock_next_fill_up' => '',
                 ),
@@ -11789,7 +11789,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 308,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -11828,7 +11828,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 309,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 19,
                     'stock_next_fill_up' => '',
                 ),
@@ -11867,7 +11867,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 310,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 20,
                     'stock_next_fill_up' => '',
                 ),
@@ -11906,7 +11906,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 311,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -11945,7 +11945,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 312,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 10,
                     'stock_next_fill_up' => '',
                 ),
@@ -11984,7 +11984,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 313,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 24,
                     'stock_next_fill_up' => '',
                 ),
@@ -12023,7 +12023,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 314,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 15,
                     'stock_next_fill_up' => '',
                 ),
@@ -12062,7 +12062,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 315,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 11,
                     'stock_next_fill_up' => '',
                 ),
@@ -12101,7 +12101,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 316,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 18,
                     'stock_next_fill_up' => '',
                 ),
@@ -12140,7 +12140,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 317,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 9,
                     'stock_next_fill_up' => '',
                 ),
@@ -12179,7 +12179,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 318,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 18,
                     'stock_next_fill_up' => '',
                 ),
@@ -12218,7 +12218,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 319,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -12257,7 +12257,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 320,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 15,
                     'stock_next_fill_up' => '',
                 ),
@@ -12296,7 +12296,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 321,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -12335,7 +12335,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 322,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 5,
                     'stock_next_fill_up' => '',
                 ),
@@ -12374,7 +12374,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 323,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 22,
                     'stock_next_fill_up' => '',
                 ),
@@ -12413,7 +12413,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 324,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 16,
                     'stock_next_fill_up' => '',
                 ),
@@ -12452,7 +12452,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 325,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -12491,7 +12491,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 326,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 20,
                     'stock_next_fill_up' => '',
                 ),
@@ -12530,7 +12530,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 327,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 15,
                     'stock_next_fill_up' => '',
                 ),
@@ -12569,7 +12569,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 328,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 12,
                     'stock_next_fill_up' => '',
                 ),
@@ -12608,7 +12608,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 329,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 19,
                     'stock_next_fill_up' => '',
                 ),
@@ -12647,7 +12647,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 330,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 10,
                     'stock_next_fill_up' => '',
                 ),
@@ -12686,7 +12686,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 331,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 11,
                     'stock_next_fill_up' => '',
                 ),
@@ -12725,7 +12725,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 332,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -12764,7 +12764,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 333,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 9,
                     'stock_next_fill_up' => '',
                 ),
@@ -12803,7 +12803,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 334,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 15,
                     'stock_next_fill_up' => '',
                 ),
@@ -12842,7 +12842,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 335,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 19,
                     'stock_next_fill_up' => '',
                 ),
@@ -12881,7 +12881,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 336,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 9,
                     'stock_next_fill_up' => '',
                 ),
@@ -12920,7 +12920,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 337,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 5,
                     'stock_next_fill_up' => '',
                 ),
@@ -12959,7 +12959,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 338,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -12998,7 +12998,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 339,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 22,
                     'stock_next_fill_up' => '',
                 ),
@@ -13037,7 +13037,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 340,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 16,
                     'stock_next_fill_up' => '',
                 ),
@@ -13076,7 +13076,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 341,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -13115,7 +13115,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 342,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 6,
                     'stock_next_fill_up' => '',
                 ),
@@ -13154,7 +13154,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 343,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 21,
                     'stock_next_fill_up' => '',
                 ),
@@ -13193,7 +13193,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 344,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 6,
                     'stock_next_fill_up' => '',
                 ),
@@ -13232,7 +13232,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 345,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 12,
                     'stock_next_fill_up' => '',
                 ),
@@ -13271,7 +13271,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 346,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 22,
                     'stock_next_fill_up' => '',
                 ),
@@ -13310,7 +13310,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 347,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 18,
                     'stock_next_fill_up' => '',
                 ),
@@ -13349,7 +13349,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 348,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 19,
                     'stock_next_fill_up' => '',
                 ),
@@ -13388,7 +13388,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 349,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -13427,7 +13427,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 350,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 1,
                     'stock_next_fill_up' => '',
                 ),
@@ -13466,7 +13466,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 351,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -13505,7 +13505,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 352,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 15,
                     'stock_next_fill_up' => '',
                 ),
@@ -13544,7 +13544,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 353,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 13,
                     'stock_next_fill_up' => '',
                 ),
@@ -13583,7 +13583,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 354,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 15,
                     'stock_next_fill_up' => '',
                 ),
@@ -13622,7 +13622,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 355,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 7,
                     'stock_next_fill_up' => '',
                 ),
@@ -13661,7 +13661,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 356,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 9,
                     'stock_next_fill_up' => '',
                 ),
@@ -13700,7 +13700,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 357,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 2,
                     'stock_next_fill_up' => '',
                 ),
@@ -13739,7 +13739,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 358,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -13778,7 +13778,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 359,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 12,
                     'stock_next_fill_up' => '',
                 ),
@@ -13817,7 +13817,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 360,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 15,
                     'stock_next_fill_up' => '',
                 ),
@@ -13856,7 +13856,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 361,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 5,
                     'stock_next_fill_up' => '',
                 ),
@@ -13895,7 +13895,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 362,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 12,
                     'stock_next_fill_up' => '',
                 ),
@@ -13934,7 +13934,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 363,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 9,
                     'stock_next_fill_up' => '',
                 ),
@@ -13973,7 +13973,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 364,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -14012,7 +14012,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 365,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 10,
                     'stock_next_fill_up' => '',
                 ),
@@ -14051,7 +14051,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 366,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 8,
                     'stock_next_fill_up' => '',
                 ),
@@ -14090,7 +14090,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 367,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 5,
                     'stock_next_fill_up' => '',
                 ),
@@ -14129,7 +14129,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 368,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -14168,7 +14168,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 369,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 4,
                     'stock_next_fill_up' => '',
                 ),
@@ -14207,7 +14207,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 370,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 4,
                     'stock_next_fill_up' => '',
                 ),
@@ -14246,7 +14246,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 371,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -14285,7 +14285,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 372,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 6,
                     'stock_next_fill_up' => '',
                 ),
@@ -14324,7 +14324,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 373,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 5,
                     'stock_next_fill_up' => '',
                 ),
@@ -14363,7 +14363,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 374,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 10,
                     'stock_next_fill_up' => '',
                 ),
@@ -14402,7 +14402,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 375,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -14441,7 +14441,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 376,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 5,
                     'stock_next_fill_up' => '',
                 ),
@@ -14480,7 +14480,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 377,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 8,
                     'stock_next_fill_up' => '',
                 ),
@@ -14519,7 +14519,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 378,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 9,
                     'stock_next_fill_up' => '',
                 ),
@@ -14558,7 +14558,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 379,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 12,
                     'stock_next_fill_up' => '',
                 ),
@@ -14597,7 +14597,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 380,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 8,
                     'stock_next_fill_up' => '',
                 ),
@@ -14636,7 +14636,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 381,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 4,
                     'stock_next_fill_up' => '',
                 ),
@@ -14675,7 +14675,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 382,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 19,
                     'stock_next_fill_up' => '',
                 ),
@@ -14714,7 +14714,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 383,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 2,
                     'stock_next_fill_up' => '',
                 ),
@@ -14753,7 +14753,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 384,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -14792,7 +14792,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 385,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 3,
                     'stock_next_fill_up' => '',
                 ),
@@ -14831,7 +14831,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 386,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -14870,7 +14870,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 387,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 7,
                     'stock_next_fill_up' => '',
                 ),
@@ -14909,7 +14909,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 388,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 13,
                     'stock_next_fill_up' => '',
                 ),
@@ -14948,7 +14948,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 389,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 15,
                     'stock_next_fill_up' => '',
                 ),
@@ -14987,7 +14987,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 390,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 6,
                     'stock_next_fill_up' => '',
                 ),
@@ -15026,7 +15026,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 391,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 8,
                     'stock_next_fill_up' => '',
                 ),
@@ -15065,7 +15065,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 392,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 5,
                     'stock_next_fill_up' => '',
                 ),
@@ -15104,7 +15104,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 393,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -15143,7 +15143,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 394,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 9,
                     'stock_next_fill_up' => '',
                 ),
@@ -15182,7 +15182,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 395,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 17,
                     'stock_next_fill_up' => '',
                 ),
@@ -15221,7 +15221,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 396,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 8,
                     'stock_next_fill_up' => '',
                 ),
@@ -15260,7 +15260,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 397,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 11,
                     'stock_next_fill_up' => '',
                 ),
@@ -15299,7 +15299,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 398,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 6,
                     'stock_next_fill_up' => '',
                 ),
@@ -15338,7 +15338,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 399,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -15377,7 +15377,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 400,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 20,
                     'stock_next_fill_up' => '',
                 ),
@@ -15416,7 +15416,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 401,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 22,
                     'stock_next_fill_up' => '',
                 ),
@@ -15455,7 +15455,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 402,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -15494,7 +15494,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 403,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 2,
                     'stock_next_fill_up' => '',
                 ),
@@ -15533,7 +15533,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 404,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 12,
                     'stock_next_fill_up' => '',
                 ),
@@ -15572,7 +15572,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 405,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 30,
                     'stock_next_fill_up' => '',
                 ),
@@ -15611,7 +15611,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 406,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 23,
                     'stock_next_fill_up' => '',
                 ),
@@ -15650,7 +15650,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 407,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 14,
                     'stock_next_fill_up' => '',
                 ),
@@ -15689,7 +15689,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 408,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 11,
                     'stock_next_fill_up' => '',
                 ),
@@ -15728,7 +15728,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 409,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -15767,7 +15767,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 410,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -15806,7 +15806,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 411,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 3,
                     'stock_next_fill_up' => '',
                 ),
@@ -15845,7 +15845,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 412,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 9,
                     'stock_next_fill_up' => '',
                 ),
@@ -15884,7 +15884,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 413,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 14,
                     'stock_next_fill_up' => '',
                 ),
@@ -15923,7 +15923,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 414,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 12,
                     'stock_next_fill_up' => '',
                 ),
@@ -15962,7 +15962,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 415,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 9,
                     'stock_next_fill_up' => '',
                 ),
@@ -16001,7 +16001,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 416,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -16040,7 +16040,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 417,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 7,
                     'stock_next_fill_up' => '',
                 ),
@@ -16079,7 +16079,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 418,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 16,
                     'stock_next_fill_up' => '',
                 ),
@@ -16118,7 +16118,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 419,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 18,
                     'stock_next_fill_up' => '',
                 ),
@@ -16157,7 +16157,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 420,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 9,
                     'stock_next_fill_up' => '',
                 ),
@@ -16196,7 +16196,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 421,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 21,
                     'stock_next_fill_up' => '',
                 ),
@@ -16235,7 +16235,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 422,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -16274,7 +16274,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 423,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 8,
                     'stock_next_fill_up' => '',
                 ),
@@ -16313,7 +16313,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 424,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 21,
                     'stock_next_fill_up' => '',
                 ),
@@ -16352,7 +16352,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 425,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -16391,7 +16391,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 426,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 10,
                     'stock_next_fill_up' => '',
                 ),
@@ -16430,7 +16430,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 427,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 5,
                     'stock_next_fill_up' => '',
                 ),
@@ -16469,7 +16469,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 428,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 11,
                     'stock_next_fill_up' => '',
                 ),
@@ -16508,7 +16508,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 429,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 18,
                     'stock_next_fill_up' => '',
                 ),
@@ -16547,7 +16547,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 430,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 15,
                     'stock_next_fill_up' => '',
                 ),
@@ -16586,7 +16586,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 431,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 5,
                     'stock_next_fill_up' => '',
                 ),
@@ -16625,7 +16625,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 432,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -16664,7 +16664,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 433,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 10,
                     'stock_next_fill_up' => '',
                 ),
@@ -16703,7 +16703,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 434,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 19,
                     'stock_next_fill_up' => '',
                 ),
@@ -16739,7 +16739,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 435,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 7,
                     'stock_next_fill_up' => '',
                 ),
@@ -16775,7 +16775,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 436,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 9,
                     'stock_next_fill_up' => '',
                 ),
@@ -16811,7 +16811,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 437,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -16847,7 +16847,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 438,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 18,
                     'stock_next_fill_up' => '',
                 ),
@@ -16883,7 +16883,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 439,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 16,
                     'stock_next_fill_up' => '',
                 ),
@@ -16919,7 +16919,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 440,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 19,
                     'stock_next_fill_up' => '',
                 ),
@@ -16955,7 +16955,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 441,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 11,
                     'stock_next_fill_up' => '',
                 ),
@@ -16991,7 +16991,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 442,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 10,
                     'stock_next_fill_up' => '',
                 ),
@@ -17027,7 +17027,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 443,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 1,
                     'stock_next_fill_up' => '',
                 ),
@@ -17063,7 +17063,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 444,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 6,
                     'stock_next_fill_up' => '',
                 ),
@@ -17099,7 +17099,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 445,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 10,
                     'stock_next_fill_up' => '',
                 ),
@@ -17135,7 +17135,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 446,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 18,
                     'stock_next_fill_up' => '',
                 ),
@@ -17171,7 +17171,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 447,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 20,
                     'stock_next_fill_up' => '',
                 ),
@@ -17207,7 +17207,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 448,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 30,
                     'stock_next_fill_up' => '',
                 ),
@@ -17243,7 +17243,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 449,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 21,
                     'stock_next_fill_up' => '',
                 ),
@@ -17279,7 +17279,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 450,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 13,
                     'stock_next_fill_up' => '',
                 ),
@@ -17315,7 +17315,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 451,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -17351,7 +17351,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 452,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 8,
                     'stock_next_fill_up' => '',
                 ),
@@ -17387,7 +17387,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 453,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 7,
                     'stock_next_fill_up' => '',
                 ),
@@ -17423,7 +17423,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 454,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 10,
                     'stock_next_fill_up' => '',
                 ),
@@ -17459,7 +17459,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 455,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 13,
                     'stock_next_fill_up' => '',
                 ),
@@ -17495,7 +17495,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 456,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 17,
                     'stock_next_fill_up' => '',
                 ),
@@ -17531,7 +17531,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 457,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 18,
                     'stock_next_fill_up' => '',
                 ),
@@ -17567,7 +17567,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 458,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 19,
                     'stock_next_fill_up' => '',
                 ),
@@ -17603,7 +17603,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 459,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 18,
                     'stock_next_fill_up' => '',
                 ),
@@ -17639,7 +17639,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 460,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 13,
                     'stock_next_fill_up' => '',
                 ),
@@ -17675,7 +17675,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 461,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -17711,7 +17711,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 462,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 3,
                     'stock_next_fill_up' => '',
                 ),
@@ -17747,7 +17747,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 463,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -17783,7 +17783,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 464,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 10,
                     'stock_next_fill_up' => '',
                 ),
@@ -17819,7 +17819,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 465,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 17,
                     'stock_next_fill_up' => '',
                 ),
@@ -17855,7 +17855,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 466,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 20,
                     'stock_next_fill_up' => '',
                 ),
@@ -17891,7 +17891,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 467,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 16,
                     'stock_next_fill_up' => '',
                 ),
@@ -17927,7 +17927,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 468,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 12,
                     'stock_next_fill_up' => '',
                 ),
@@ -17963,7 +17963,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 469,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 8,
                     'stock_next_fill_up' => '',
                 ),
@@ -17999,7 +17999,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 470,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 4,
                     'stock_next_fill_up' => '',
                 ),
@@ -18035,7 +18035,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 471,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 1,
                     'stock_next_fill_up' => '',
                 ),
@@ -18071,7 +18071,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 472,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 5,
                     'stock_next_fill_up' => '',
                 ),
@@ -18107,7 +18107,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 473,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 10,
                     'stock_next_fill_up' => '',
                 ),
@@ -18143,7 +18143,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 474,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 15,
                     'stock_next_fill_up' => '',
                 ),
@@ -18209,7 +18209,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 476,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -18245,7 +18245,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 477,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 18,
                     'stock_next_fill_up' => '',
                 ),
@@ -18281,7 +18281,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 478,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 11,
                     'stock_next_fill_up' => '',
                 ),
@@ -18317,7 +18317,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 479,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 1,
                     'stock_next_fill_up' => '',
                 ),
@@ -18353,7 +18353,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 480,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 5,
                     'stock_next_fill_up' => '',
                 ),
@@ -18389,7 +18389,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 481,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 7,
                     'stock_next_fill_up' => '',
                 ),
@@ -18425,7 +18425,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 482,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 10,
                     'stock_next_fill_up' => '',
                 ),
@@ -18461,7 +18461,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 483,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 14,
                     'stock_next_fill_up' => '',
                 ),
@@ -18497,7 +18497,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 484,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -18533,7 +18533,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 485,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 12,
                     'stock_next_fill_up' => '',
                 ),
@@ -18569,7 +18569,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 486,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 13,
                     'stock_next_fill_up' => '',
                 ),
@@ -18605,7 +18605,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 487,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 10,
                     'stock_next_fill_up' => '',
                 ),
@@ -18641,7 +18641,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 488,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 9,
                     'stock_next_fill_up' => '',
                 ),
@@ -18677,7 +18677,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 489,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 4,
                     'stock_next_fill_up' => '',
                 ),
@@ -18713,7 +18713,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 490,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 7,
                     'stock_next_fill_up' => '',
                 ),
@@ -18749,7 +18749,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 491,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 21,
                     'stock_next_fill_up' => '',
                 ),
@@ -18785,7 +18785,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 492,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -18821,7 +18821,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 493,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 18,
                     'stock_next_fill_up' => '',
                 ),
@@ -18857,7 +18857,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 494,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 20,
                     'stock_next_fill_up' => '',
                 ),
@@ -18893,7 +18893,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 495,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 15,
                     'stock_next_fill_up' => '',
                 ),
@@ -18929,7 +18929,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 496,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 11,
                     'stock_next_fill_up' => '',
                 ),
@@ -18965,7 +18965,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 497,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 6,
                     'stock_next_fill_up' => '',
                 ),
@@ -19001,7 +19001,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 498,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 7,
                     'stock_next_fill_up' => '',
                 ),
@@ -19037,7 +19037,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 499,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 7,
                     'stock_next_fill_up' => '',
                 ),
@@ -19073,7 +19073,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 500,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 10,
                     'stock_next_fill_up' => '',
                 ),
@@ -19109,7 +19109,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 501,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 12,
                     'stock_next_fill_up' => '',
                 ),
@@ -19145,7 +19145,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 502,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 14,
                     'stock_next_fill_up' => '',
                 ),
@@ -19181,7 +19181,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 503,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 14,
                     'stock_next_fill_up' => '',
                 ),
@@ -19217,7 +19217,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 504,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -19253,7 +19253,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 505,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 8,
                     'stock_next_fill_up' => '',
                 ),
@@ -19289,7 +19289,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 506,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 3,
                     'stock_next_fill_up' => '',
                 ),
@@ -19325,7 +19325,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 507,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 1,
                     'stock_next_fill_up' => '',
                 ),
@@ -19361,7 +19361,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 508,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -19397,7 +19397,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 509,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 5,
                     'stock_next_fill_up' => '',
                 ),
@@ -19433,7 +19433,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 510,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 8,
                     'stock_next_fill_up' => '',
                 ),
@@ -19469,7 +19469,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 511,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 13,
                     'stock_next_fill_up' => '',
                 ),
@@ -19505,7 +19505,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 512,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 14,
                     'stock_next_fill_up' => '',
                 ),
@@ -19541,7 +19541,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 513,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 10,
                     'stock_next_fill_up' => '',
                 ),
@@ -19577,7 +19577,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 514,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 7,
                     'stock_next_fill_up' => '',
                 ),
@@ -19613,7 +19613,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 515,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 3,
                     'stock_next_fill_up' => '',
                 ),
@@ -19649,7 +19649,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 516,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 6,
                     'stock_next_fill_up' => '',
                 ),
@@ -19685,7 +19685,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 517,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 8,
                     'stock_next_fill_up' => '',
                 ),
@@ -19721,7 +19721,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 518,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -19757,7 +19757,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 519,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 11,
                     'stock_next_fill_up' => '',
                 ),
@@ -19793,7 +19793,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 520,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 14,
                     'stock_next_fill_up' => '',
                 ),
@@ -19829,7 +19829,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 521,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 18,
                     'stock_next_fill_up' => '',
                 ),
@@ -19865,7 +19865,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 522,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 10,
                     'stock_next_fill_up' => '',
                 ),
@@ -19901,7 +19901,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 523,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 9,
                     'stock_next_fill_up' => '',
                 ),
@@ -19937,7 +19937,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 524,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 2,
                     'stock_next_fill_up' => '',
                 ),
@@ -19973,7 +19973,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 525,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 5,
                     'stock_next_fill_up' => '',
                 ),
@@ -20009,7 +20009,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 526,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 8,
                     'stock_next_fill_up' => '',
                 ),
@@ -20045,7 +20045,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 527,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 10,
                     'stock_next_fill_up' => '',
                 ),
@@ -20081,7 +20081,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 528,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 14,
                     'stock_next_fill_up' => '',
                 ),
@@ -20117,7 +20117,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 529,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 18,
                     'stock_next_fill_up' => '',
                 ),
@@ -20153,7 +20153,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 530,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 16,
                     'stock_next_fill_up' => '',
                 ),
@@ -20189,7 +20189,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 531,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -20225,7 +20225,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 532,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 12,
                     'stock_next_fill_up' => '',
                 ),
@@ -20261,7 +20261,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 533,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 7,
                     'stock_next_fill_up' => '',
                 ),
@@ -20297,7 +20297,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 534,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -20333,7 +20333,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 535,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 7,
                     'stock_next_fill_up' => '',
                 ),
@@ -20369,7 +20369,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 536,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 10,
                     'stock_next_fill_up' => '',
                 ),
@@ -20405,7 +20405,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 537,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 15,
                     'stock_next_fill_up' => '',
                 ),
@@ -20441,7 +20441,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 538,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 21,
                     'stock_next_fill_up' => '',
                 ),
@@ -20477,7 +20477,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 539,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 18,
                     'stock_next_fill_up' => '',
                 ),
@@ -20513,7 +20513,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 540,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 14,
                     'stock_next_fill_up' => '',
                 ),
@@ -20549,7 +20549,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 541,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 12,
                     'stock_next_fill_up' => '',
                 ),
@@ -20585,7 +20585,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 542,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 6,
                     'stock_next_fill_up' => '',
                 ),
@@ -20621,7 +20621,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 543,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 5,
                     'stock_next_fill_up' => '',
                 ),
@@ -20657,7 +20657,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 544,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -20693,7 +20693,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 545,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 8,
                     'stock_next_fill_up' => '',
                 ),
@@ -20729,7 +20729,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 546,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 13,
                     'stock_next_fill_up' => '',
                 ),
@@ -20765,7 +20765,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 547,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 10,
                     'stock_next_fill_up' => '',
                 ),
@@ -20801,7 +20801,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 548,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 15,
                     'stock_next_fill_up' => '',
                 ),
@@ -20837,7 +20837,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 549,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 14,
                     'stock_next_fill_up' => '',
                 ),
@@ -20873,7 +20873,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 550,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 8,
                     'stock_next_fill_up' => '',
                 ),
@@ -20909,7 +20909,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 551,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 4,
                     'stock_next_fill_up' => '',
                 ),
@@ -20945,7 +20945,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 552,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 6,
                     'stock_next_fill_up' => '',
                 ),
@@ -20981,7 +20981,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 553,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 9,
                     'stock_next_fill_up' => '',
                 ),
@@ -21017,7 +21017,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 554,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 12,
                     'stock_next_fill_up' => '',
                 ),
@@ -21053,7 +21053,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 555,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 15,
                     'stock_next_fill_up' => '',
                 ),
@@ -21089,7 +21089,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 556,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 18,
                     'stock_next_fill_up' => '',
                 ),
@@ -21125,7 +21125,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 557,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 9,
                     'stock_next_fill_up' => '',
                 ),
@@ -21161,7 +21161,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 558,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 8,
                     'stock_next_fill_up' => '',
                 ),
@@ -21197,7 +21197,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 559,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 4,
                     'stock_next_fill_up' => '',
                 ),
@@ -21233,7 +21233,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 560,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -21269,7 +21269,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 561,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 7,
                     'stock_next_fill_up' => '',
                 ),
@@ -21305,7 +21305,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 562,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -21341,7 +21341,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 563,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 12,
                     'stock_next_fill_up' => '',
                 ),
@@ -21377,7 +21377,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 564,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 15,
                     'stock_next_fill_up' => '',
                 ),
@@ -21413,7 +21413,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 565,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 20,
                     'stock_next_fill_up' => '',
                 ),
@@ -21449,7 +21449,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 566,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 20,
                     'stock_next_fill_up' => '',
                 ),
@@ -21485,7 +21485,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 567,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 12,
                     'stock_next_fill_up' => '',
                 ),
@@ -21521,7 +21521,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 568,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 8,
                     'stock_next_fill_up' => '',
                 ),
@@ -21557,7 +21557,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 569,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 3,
                     'stock_next_fill_up' => '',
                 ),
@@ -21593,7 +21593,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 570,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 4,
                     'stock_next_fill_up' => '',
                 ),
@@ -21629,7 +21629,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 571,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 9,
                     'stock_next_fill_up' => '',
                 ),
@@ -21665,7 +21665,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 572,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 18,
                     'stock_next_fill_up' => '',
                 ),
@@ -21701,7 +21701,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 573,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -21737,7 +21737,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 574,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 15,
                     'stock_next_fill_up' => '',
                 ),
@@ -21773,7 +21773,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 575,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 10,
                     'stock_next_fill_up' => '',
                 ),
@@ -21809,7 +21809,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 576,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 8,
                     'stock_next_fill_up' => '',
                 ),
@@ -21845,7 +21845,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 577,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 5,
                     'stock_next_fill_up' => '',
                 ),
@@ -21881,7 +21881,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 578,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 4,
                     'stock_next_fill_up' => '',
                 ),
@@ -21917,7 +21917,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 579,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 2,
                     'stock_next_fill_up' => '',
                 ),
@@ -21953,7 +21953,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 580,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 5,
                     'stock_next_fill_up' => '',
                 ),
@@ -21989,7 +21989,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 581,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 9,
                     'stock_next_fill_up' => '',
                 ),
@@ -22025,7 +22025,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 582,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 18,
                     'stock_next_fill_up' => '',
                 ),
@@ -22061,7 +22061,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 583,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 20,
                     'stock_next_fill_up' => '',
                 ),
@@ -22097,7 +22097,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 584,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 12,
                     'stock_next_fill_up' => '',
                 ),
@@ -22133,7 +22133,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 585,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 7,
                     'stock_next_fill_up' => '',
                 ),
@@ -22169,7 +22169,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 586,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 5,
                     'stock_next_fill_up' => '',
                 ),
@@ -22205,7 +22205,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 587,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
@@ -22244,7 +22244,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 588,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 7,
                     'stock_next_fill_up' => '',
                 ),
@@ -22283,7 +22283,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 589,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 18,
                     'stock_next_fill_up' => '',
                 ),
@@ -22322,7 +22322,7 @@
             'variant_stocks' => array(
                 array(
                     'stock_var_id' => 590,
-                    'stock_country_id' => 0,
+                    'stock_country_id' => -1,
                     'stock_quantity' => 0,
                     'stock_next_fill_up' => '',
                 ),
