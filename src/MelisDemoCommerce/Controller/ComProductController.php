@@ -9,11 +9,10 @@
 
 namespace MelisDemoCommerce\Controller;
 
-use MelisDemoCommerce\Controller\BaseController;
 use MelisFront\Service\MelisSiteConfigService;
-use Zend\View\Model\JsonModel;
-use Zend\Stdlib\Parameters;
-use Zend\Stdlib\ArrayUtils;
+use Laminas\View\Model\JsonModel;
+use Laminas\Stdlib\Parameters;
+use Laminas\Stdlib\ArrayUtils;
 
 class ComProductController extends BaseController
 {
@@ -21,24 +20,24 @@ class ComProductController extends BaseController
     {
 
         /** @var MelisSiteConfigService $siteConfigSrv */
-        $siteConfigSrv = $this->getServiceLocator()->get('MelisSiteConfigService');
+        $siteConfigSrv = $this->getServiceManager()->get('MelisSiteConfigService');
 
         $productId = array(
             'm_product_id' => $this->params()->fromRoute('productId', null)
         );
 
         if(empty($productId['m_product_id'])){
-            if(isset($this->getServiceLocator()->get('request')->getQuery()->toArray()["m_p_id"])){
-                $productId['m_product_id'] = $this->getServiceLocator()->get('request')->getQuery()->toArray()["m_p_id"];
+            if(isset($this->getServiceManager()->get('request')->getQuery()->toArray()["m_p_id"])){
+                $productId['m_product_id'] = $this->getServiceManager()->get('request')->getQuery()->toArray()["m_p_id"];
             }
         }
 
         // Merging current data from url 
-        $params = ArrayUtils::merge($this->getServiceLocator()->get('request')->getQuery()->toArray(), $productId);
+        $params = ArrayUtils::merge($this->getServiceManager()->get('request')->getQuery()->toArray(), $productId);
         
         // Setting the Get data to make product id of the plugin dynamic
         $postParam = new Parameters($params);
-        $this->getServiceLocator()->get('request')->setQuery($postParam);
+        $this->getServiceManager()->get('request')->setQuery($postParam);
         
         /**
          * Generating show product using MelisCommerceProductShowPlugin
@@ -78,12 +77,12 @@ class ComProductController extends BaseController
     private function setPageBanner()
     {
         /** @var MelisSiteConfigService $siteConfigSrv */
-        $siteConfigSrv = $this->getServiceLocator()->get('MelisSiteConfigService');
+        $siteConfigSrv = $this->getServiceManager()->get('MelisSiteConfigService');
         /**
          * Retrieving Categeries related to the selected product
          * using the Product Service
          */
-        $productSrv = $this->getServiceLocator()->get('MelisComProductService');
+        $productSrv = $this->getServiceManager()->get('MelisComProductService');
         $prdCat = null;
         
         $prdId = $this->params()->fromRoute('productId', null);
@@ -96,7 +95,7 @@ class ComProductController extends BaseController
         $pageBanner = '';
         if (!empty($prdCat))
         {
-            $catSrv = $this->getServiceLocator()->get('MelisComCategoryService');
+            $catSrv = $this->getServiceManager()->get('MelisComCategoryService');
             
             $siteConfigCatalogue = $siteConfigSrv->getSiteConfigByKey('catalogue_pages', $this->idPage);
             /**
@@ -151,7 +150,7 @@ class ComProductController extends BaseController
              * image for Default
              * with the return is multi array
              */
-            $documentSrv = $this->getServiceLocator()->get('MelisComDocumentService');
+            $documentSrv = $this->getServiceManager()->get('MelisComDocumentService');
             $doc = $documentSrv->getDocumentsByRelationAndTypes('category', $category['cat_id'], 'IMG', array('DEFAULT'));
             if (!empty($doc))
             {
@@ -175,7 +174,7 @@ class ComProductController extends BaseController
             $attrSelection = $post['attrSelection'];
             $action = $post['action'];
             
-            $demoCommreceSrv = $this->getServiceLocator()->get('DemoCommerceService');
+            $demoCommreceSrv = $this->getServiceManager()->get('DemoCommerceService');
             $result = $demoCommreceSrv->getVariantbyAttributes($productId, $attrSelection, $action, $post['idpage']);
         }
         
@@ -215,7 +214,7 @@ class ComProductController extends BaseController
                 );
                 $cartViewModel = $cartPlugin->render($menuParameters);
                 // Rendering the viewmodel of the plugin 
-                $viewRender = $this->getServiceLocator()->get('ViewRenderer');
+                $viewRender = $this->getServiceManager()->get('ViewRenderer');
                 $cartList = $viewRender->render($cartViewModel);
             }
         }
@@ -232,7 +231,7 @@ class ComProductController extends BaseController
     /**
      * Cart item deletion using plugin MelisCommerceCartPlugin()
      * 
-     * @return \Zend\View\Model\JsonModel
+     * @return \Laminas\View\Model\JsonModel
      */
     public function removeItemFromCartAction()
     {

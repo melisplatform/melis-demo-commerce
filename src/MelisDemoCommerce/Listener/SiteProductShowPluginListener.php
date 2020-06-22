@@ -10,24 +10,22 @@
 namespace MelisDemoCommerce\Listener;
 
 use MelisFront\Service\MelisSiteConfigService;
-use Zend\EventManager\EventManagerInterface;
-use Zend\EventManager\ListenerAggregateInterface;
-use Zend\Session\Container;
+use Laminas\EventManager\EventManagerInterface;
+use Laminas\Session\Container;
 
-class SiteProductShowPluginListener implements ListenerAggregateInterface
+class SiteProductShowPluginListener extends SiteGeneralListener
 {
-    public function attach(EventManagerInterface $events)
+    public function attach(EventManagerInterface $events, $priority = 1)
     {
-        $sharedEvents      = $events->getSharedManager();
-        
-        $callBackHandler = $sharedEvents->attach(
+        $this->attachEventListener(
+            $events,
             '*',
-            array(
+            [
                 'MelisCommerceProductShowPlugin_melistemplating_plugin_end',
-            ),
+            ],
             function($e){
-                // Getting the Service Locator from param target
-                $sm = $e->getTarget()->getServiceLocator();
+                // Getting the Service Manager from param target
+                $sm = $e->getTarget()->getServiceManager();
                 
                 // Getting the Datas from the Event Parameters
                 $params = $e->getParams();
@@ -123,24 +121,13 @@ class SiteProductShowPluginListener implements ListenerAggregateInterface
 
                         // get list of active variants
                         $activeVariants = $variantSvc->getVariantListByProductId($productId, $langId, $countryId, true);
-                       
                         $viewVariables->product_variant = $variant;
                         $viewVariables->currency = $currency;
                         $viewVariables->hasVariant = !empty($activeVariants) ? true : false;
                     }
                 }
             },
-            100);
-        
-        $this->listeners[] = $callBackHandler;
-    }
-    
-    public function detach(EventManagerInterface $events)
-    {
-        foreach ($this->listeners as $index => $listener) {
-            if ($events->detach($listener)) {
-                unset($this->listeners[$index]);
-            }
-        }
+            100
+        );
     }
 }

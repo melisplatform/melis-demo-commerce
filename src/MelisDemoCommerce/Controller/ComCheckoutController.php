@@ -9,11 +9,10 @@
 
 namespace MelisDemoCommerce\Controller;
 
-use MelisDemoCommerce\Controller\BaseController;
 use MelisFront\Service\MelisSiteConfigService;
-use Zend\View\Model\JsonModel;
-use Zend\Config\Reader\Json;
-use Zend\Stdlib\ArrayUtils;
+use Laminas\View\Model\JsonModel;
+use Laminas\Config\Reader\Json;
+use Laminas\Stdlib\ArrayUtils;
 
 class ComCheckoutController extends BaseController
 {
@@ -24,14 +23,14 @@ class ComCheckoutController extends BaseController
     public function checkoutAction()
     {
         /** @var MelisSiteConfigService $siteConfigSrv */
-        $siteConfigSrv = $this->getServiceLocator()->get('MelisSiteConfigService');
+        $siteConfigSrv = $this->getServiceManager()->get('MelisSiteConfigService');
 
         $countryId = $siteConfigSrv->getSiteConfigByKey('site_country_id', $this->idPage);
         $siteId = $siteConfigSrv->getSiteConfigByKey('site_id', $this->idPage);
         $loginPageId = $siteConfigSrv->getSiteConfigByKey('login_regestration_page_id', $this->idPage);
 
         // Generating the Product Remove link using MelisEngineTree Service
-        $melisTree = $this->getServiceLocator()->get('MelisEngineTree');
+        $melisTree = $this->getServiceManager()->get('MelisEngineTree');
         
         $checkoutPageLink = $melisTree->getPageLink($this->idPage, false);
         $loginPage = $melisTree->getPageLink($loginPageId, false);

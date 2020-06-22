@@ -9,8 +9,7 @@
 
 namespace MelisDemoCommerce\Controller;
 
-use MelisDemoCommerce\Controller\BaseController;
-use Zend\View\Model\JsonModel;
+use Laminas\View\Model\JsonModel;
 
 class ContactController extends BaseController
 {

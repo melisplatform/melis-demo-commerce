@@ -11,25 +11,23 @@ namespace MelisDemoCommerce\Listener;
 
 
 use MelisFront\Service\MelisSiteConfigService;
-use Zend\EventManager\EventManagerInterface;
-use Zend\EventManager\ListenerAggregateInterface;
+use Laminas\EventManager\EventManagerInterface;
 
-class SiteCommerceRelatedProductsPluginListener implements ListenerAggregateInterface
+class SiteCommerceRelatedProductsPluginListener extends SiteGeneralListener
 {
-    private $serviceLocator;
+    private $serviceManager;
 
-    public function attach(EventManagerInterface $events)
+    public function attach(EventManagerInterface $events, $priority = 1)
     {
-        $sharedEvents = $events->getSharedManager();
-
-        $callBackHandler = $sharedEvents->attach(
+        $this->attachEventListener(
+            $events,
             '*',
-            array(
+            [
                 'MelisCommerceRelatedProductsPlugin_melistemplating_plugin_end',
-            ),
+            ],
             function($e){
-                // Getting the Service Locator from param target
-                $this->serviceLocator = $e->getTarget()->getServiceLocator();
+                // Getting the Service Manager from param target
+                $this->serviceManager = $e->getTarget()->getServiceManager();
 
                 // Getting the Datas from the Event Parameters
                 $params = $e->getParams();
@@ -41,18 +39,17 @@ class SiteCommerceRelatedProductsPluginListener implements ListenerAggregateInte
                     $viewVariables['relatedProducts'] = $this->customizeRelatedProductsPrice($viewVariables['relatedProducts'], $params);
                 }
             },
-            100);
-
-        $this->listeners[] = $callBackHandler;
+            100
+        );
     }
 
     public function customizeRelatedProductsPrice($relProducts = array(), $params)
     {
-        $melisComVariantService = $this->serviceLocator->get('MelisComVariantService');
-        $melisComProductService = $this->serviceLocator->get('MelisComProductService');
+        $melisComVariantService = $this->serviceManager->get('MelisComVariantService');
+        $melisComProductService = $this->serviceManager->get('MelisComProductService');
 
         /** @var MelisSiteConfigService $siteConfigSrv */
-        $siteConfigSrv = $this->serviceLocator->get('MelisSiteConfigService');
+        $siteConfigSrv = $this->serviceManager->get('MelisSiteConfigService');
 
         $countryId = $siteConfigSrv->getSiteConfigByKey('site_country_id', $params['pluginFronConfig']['pageId']);
 
@@ -133,14 +130,5 @@ class SiteCommerceRelatedProductsPluginListener implements ListenerAggregateInte
             }
         }
         return $relProducts;
-    }
-
-    public function detach(EventManagerInterface $events)
-    {
-        foreach ($this->listeners as $index => $listener) {
-            if ($events->detach($listener)) {
-                unset($this->listeners[$index]);
-            }
-        }
     }
 }

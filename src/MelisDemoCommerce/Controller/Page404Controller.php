@@ -9,7 +9,6 @@
 
 namespace MelisDemoCommerce\Controller;
 
-
 class Page404Controller extends BaseController
 {
     public function indexAction()

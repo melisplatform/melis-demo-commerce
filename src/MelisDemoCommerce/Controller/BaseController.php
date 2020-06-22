@@ -11,8 +11,8 @@ namespace MelisDemoCommerce\Controller;
 
 use MelisFront\Controller\MelisSiteActionController;
 use MelisFront\Service\MelisSiteConfigService;
-use Zend\View\Model\ViewModel;
-use Zend\Mvc\MvcEvent;
+use Laminas\View\Model\ViewModel;
+use Laminas\Mvc\MvcEvent;
 
 class BaseController extends MelisSiteActionController
 {
@@ -21,7 +21,6 @@ class BaseController extends MelisSiteActionController
     function __construct()
     {
         $this->view = new ViewModel();
-        set_time_limit (1000);
     }
     
     public function onDispatch(MvcEvent $event)

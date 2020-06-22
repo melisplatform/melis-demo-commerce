@@ -17,12 +17,12 @@ class NewsController extends BaseController
     /**
      * This method will render the list of news
      *
-     * @return \Zend\View\Model\ViewModel
+     * @return \Laminas\View\Model\ViewModel
      */
     public function listAction()
     {
         /** @var MelisSiteConfigService $siteConfigSrv */
-        $siteConfigSrv = $this->getServiceLocator()->get('MelisSiteConfigService');
+        $siteConfigSrv = $this->getServiceManager()->get('MelisSiteConfigService');
         /**
          * Listing News using MelisCmsNewsListNewsPlugin
          */
@@ -45,7 +45,7 @@ class NewsController extends BaseController
         // add generated view to children views for displaying it in the contact view
         $this->view->addChild($listNewsPluginView->render($listNewsParameters), 'listNews');
         
-		$this->view->setVariable('renderMode', $this->renderMode);
+        $this->view->setVariable('renderMode', $this->renderMode);
         $this->view->setVariable('idPage', $this->idPage);
         return $this->view;
     }
@@ -53,39 +53,39 @@ class NewsController extends BaseController
     /**
      * This methos will render the Details of a single News
      * 
-     * @return \Zend\View\Model\ViewModel
+     * @return \Laminas\View\Model\ViewModel
      */
     public function detailsAction()
     {
         /** @var MelisSiteConfigService $siteConfigSrv */
-        $siteConfigSrv = $this->getServiceLocator()->get('MelisSiteConfigService');
+        $siteConfigSrv = $this->getServiceManager()->get('MelisSiteConfigService');
         
         $dateMax = date("Y-m-d H:i:s", strtotime("now"));
-		$listNewsPluginView = $this->MelisCmsNewsShowNewsPlugin();
-		$listNewsParameters = array(
-		    'id' => 'newsDetails',
-		    'template_path' => 'MelisDemoCommerce/plugin/news-details',
-		);
-		// add generated view to children views for displaying it in the contact view
-		$this->view->addChild($listNewsPluginView->render($listNewsParameters), 'newsDetails');
-		
-		/**
-		 * Generating Homepage Latest News slider using MelisCmsNewsLatestNewsPlugin Plugin
-		 */
-		$latestNewsPluginView = $this->MelisCmsNewsLatestNewsPlugin();
-		$latestNewsParameters = array(
-		    'template_path' => 'MelisDemoCommerce/plugin/latest-news',
-		    'filter' => array(
-		        'column' => 'cnews_publish_date',
-		        'order' => 'DESC',
-		        'limit' => 10,
-		        'unpublish_filter' => true,
-		        'date_max' => null,
-		        'site_id' => $siteConfigSrv->getSiteConfigByKey('site_id', $this->idPage),
-		    )
-		);
-		// add generated view to children views for displaying it in the contact view
-		$this->view->addChild($latestNewsPluginView->render($latestNewsParameters), 'latestNews');
+        $listNewsPluginView = $this->MelisCmsNewsShowNewsPlugin();
+        $listNewsParameters = array(
+            'id' => 'newsDetails',
+            'template_path' => 'MelisDemoCommerce/plugin/news-details',
+        );
+        // add generated view to children views for displaying it in the contact view
+        $this->view->addChild($listNewsPluginView->render($listNewsParameters), 'newsDetails');
+        
+        /**
+         * Generating Homepage Latest News slider using MelisCmsNewsLatestNewsPlugin Plugin
+         */
+        $latestNewsPluginView = $this->MelisCmsNewsLatestNewsPlugin();
+        $latestNewsParameters = array(
+            'template_path' => 'MelisDemoCommerce/plugin/latest-news',
+            'filter' => array(
+                'column' => 'cnews_publish_date',
+                'order' => 'DESC',
+                'limit' => 10,
+                'unpublish_filter' => true,
+                'date_max' => null,
+                'site_id' => $siteConfigSrv->getSiteConfigByKey('site_id', $this->idPage),
+            )
+        );
+        // add generated view to children views for displaying it in the contact view
+        $this->view->addChild($latestNewsPluginView->render($latestNewsParameters), 'latestNews');
         
         $this->view->setVariable('renderMode', $this->renderMode);
         $this->view->setVariable('idPage', $this->idPage);

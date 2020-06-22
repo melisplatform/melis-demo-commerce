@@ -9,23 +9,22 @@
 
 namespace MelisDemoCommerce\Controller;
 
-use MelisDemoCommerce\Controller\BaseController;
 use MelisFront\Service\MelisSiteConfigService;
-use Zend\View\Model\JsonModel;
-use Zend\Stdlib\ArrayUtils;
+use Laminas\View\Model\JsonModel;
+use Laminas\Stdlib\ArrayUtils;
 class ComMyAccountController extends BaseController
 {
     public function indexAction()
     {
         /** @var MelisSiteConfigService $siteConfigSrv */
-        $siteConfigSrv = $this->getServiceLocator()->get('MelisSiteConfigService');
+        $siteConfigSrv = $this->getServiceManager()->get('MelisSiteConfigService');
         /**
          * Getting the Login page id as Page redirected
          * if the user doesn't have authenticated yet
          */
         $loginPageId = $siteConfigSrv->getSiteConfigByKey('login_regestration_page_id', $this->idPage);
         // Generating the Redirect link using MelisEngineTree Service
-        $melisTree = $this->getServiceLocator()->get('MelisEngineTree');
+        $melisTree = $this->getServiceManager()->get('MelisEngineTree');
         $redirect_link = $melisTree->getPageLink($loginPageId, true);
         
         $countryId = $siteConfigSrv->getSiteConfigByKey('site_country_id', $this->idPage);
@@ -34,7 +33,7 @@ class ComMyAccountController extends BaseController
          * Checking if the user is logged in else
          * this will redirect to login page
          */
-        $melisComAuthSrv = $this->getServiceLocator()->get('MelisComAuthenticationService');
+        $melisComAuthSrv = $this->getServiceManager()->get('MelisComAuthenticationService');
         // only redirect if rendering is front
         if($this->renderMode == 'front'){
             if (!$melisComAuthSrv->hasIdentity())
@@ -219,7 +218,7 @@ class ComMyAccountController extends BaseController
             $orderHistoryViewModel = $orderHistoryPlugin->render($menuParameters);
 
             // Rendering the viewmodel of the plugin
-            $viewRender = $this->getServiceLocator()->get('ViewRenderer');
+            $viewRender = $this->getServiceManager()->get('ViewRenderer');
             $orderHistory = $viewRender->render($orderHistoryViewModel);
         }
 
@@ -250,7 +249,7 @@ class ComMyAccountController extends BaseController
             $cartViewModel = $cartPlugin->render($menuParameters);
 
             // Rendering the viewmodel of the plugin
-            $viewRender = $this->getServiceLocator()->get('ViewRenderer');
+            $viewRender = $this->getServiceManager()->get('ViewRenderer');
             $cart = $viewRender->render($cartViewModel);
         }
 
@@ -264,7 +263,7 @@ class ComMyAccountController extends BaseController
     private function getUserName()
     {
         $personName = null;
-        $melisComAuthSrv = $this->getServiceLocator()->get('MelisComAuthenticationService');
+        $melisComAuthSrv = $this->getServiceManager()->get('MelisComAuthenticationService');
         /**
          * Preparing the header link of the page
          * If user has been logged in the $personName will return

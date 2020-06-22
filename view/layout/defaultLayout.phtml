@@ -2,7 +2,7 @@
 <html class="no-js" lang="en">
 
 <head>
-  <title></title>
+<title></title>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="description" content="">
@@ -26,7 +26,7 @@
         
         // Modernizr JS
         $this->headScript()->appendFile($this->basePath('/MelisDemoCommerce/js/vendor/modernizr-2.8.3.min.js'));
-          
+        
         // Generate JS
         echo $this->headScript();
     ?>
@@ -46,13 +46,13 @@
                             <div class="col-md-3 col-sm-3 col-xs-6">
                                 <div class="login-register-area">
                                     <ul>
-                                    	<?php if ($this->layout()->isLoggedin):?>
-                                    		<li><a href="<?php echo $this->MelisLink($this->SiteConfig('account_page_id'), true)?>" id="person-name"><?php echo ucwords(strtolower($this->layout()->personName)) ?></a></li>
+                                        <?php if ($this->layout()->isLoggedin):?>
+                                            <li><a href="<?php echo $this->MelisLink($this->SiteConfig('account_page_id'), true)?>" id="person-name"><?php echo ucwords(strtolower($this->layout()->personName)) ?></a></li>
                                             <li><a href="/MelisDemoCommerce/ComLogout/logout?pageId=<?= $this->idPage; ?>">Logout</a></li>
-                                    	<?php else:?>
+                                        <?php else:?>
                                             <li><a href="<?php echo $this->MelisLink($this->SiteConfig('login_regestration_page_id'), true)?>">Login</a></li>
                                             <li><a href="<?php echo $this->MelisLink($this->SiteConfig('login_regestration_page_id'), true)?>">Register</a></li>
-                                    	<?php endif;?>
+                                        <?php endif;?>
                                     </ul>
                                 </div>
                             </div>
@@ -64,7 +64,7 @@
                                             <li><a href="https://twitter.com/meliscms" title="twitter" target="_blank"><i class="fa fa-twitter"></i></a> </li>
                                             <li><a href="https://www.linkedin.com/company/melis-technology" title="linkedin" target="_blank"><i class="fa fa-linkedin"></i></a> </li>
                                         </ul>
-                                     </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-3 col-sm-3 col-xs-6">
@@ -87,7 +87,7 @@
                             <div class="row">
                                 <div class="col-md-2 col-sm-2">
                                     <div class="logo ptb-20"><a href="/"> 
-                                      <img src="<?php echo $this->basePath('/MelisDemoCommerce/images/logo/logo.png')?>" alt="main logo"></a>
+                                    <img src="<?php echo $this->basePath('/MelisDemoCommerce/images/logo/logo.png')?>" alt="main logo"></a>
                                     </div>
                                 </div>
                                 <div class="col-md-8 col-sm-10 col-xs-12 m-no-padding">
@@ -128,8 +128,8 @@
             
             <?php 
                 /*
-                 * Layout footer can only edit/modified on Main Page of the Site or the Homepage of the site
-                 * */
+                * Layout footer can only edit/modified on Main Page of the Site or the Homepage of the site
+                * */
             ?>
             <!-- footer area start-->
             <div class="footer-area ptb-50">
@@ -139,16 +139,16 @@
                             <div class="single-footer contact-us">
                                 <div class="footer-title uppercase">
                                     <h5>
-                                      <?php echo $this->MelisTag($this->SiteConfig('homePageId'), "footer_title_1", 'textarea', 'Contact US') ?>
-                                 </h5> 
+                                    <?php echo $this->MelisTag($this->SiteConfig('homePageId'), "footer_title_1", 'textarea', 'Contact US') ?>
+                                </h5> 
                                 </div>
                                 <?php 
-                                    echo $this->melisTag($this->SiteConfig('homePageId'), 'footer_text_1', 'html',
+                                    echo $this->MelisTag($this->SiteConfig('homePageId'), 'footer_text_1', 'html',
                                     '<ul>
                                         <li>
                                             <div class="contact-icon"> 
-                                              <i class="zmdi zmdi-pin-drop"></i>
-                                          </div>
+                                            <i class="zmdi zmdi-pin-drop"></i>
+                                        </div>
                                             <div class="contact-text">
                                                 <p><span>777/a  Seventh Street,</span> <span>Rampura, Bonosri</span></p>
                                             </div>
@@ -176,8 +176,8 @@
                                 </div>
                                 <div class="informatoin">
                                     <ul>
-                                      <?php 
-                                            echo $this->melisTag($this->SiteConfig('homePageId'), 'footer_text_2', 'html',
+                                    <?php 
+                                            echo $this->MelisTag($this->SiteConfig('homePageId'), 'footer_text_2', 'html',
                                                 '<li><a href="#">My Account</a></li>
                                                 <li><a href="#">Order History</a></li>
                                                 <li><a href="#">Wishlist</a></li>
@@ -195,7 +195,7 @@
                                     <h5><?php echo $this->MelisTag($this->SiteConfig('homePageId'), "footer_title_3", 'textarea', 'InstaGram')?></h5>
                                 </div>
                                 <?php 
-                                    echo $this->melisTag($this->SiteConfig('homePageId'), 'footer_text_3', 'html',
+                                    echo $this->MelisTag($this->SiteConfig('homePageId'), 'footer_text_3', 'html',
                                     '<div class="instagrm">
                                         <ul>
                                             <li><a href="#"><img src="'.$this->basePath('/MelisDemoCommerce/images/gallery/01.jpg').'" alt=""></a></li>
@@ -234,8 +234,8 @@
                             <div class="row">
                                 <div class="col-md-12 col-sm-12 col-xs-12">
                                     <div class="site-note">
-    									<p>All of this demo website images are used under license from Shutterstock.com. It is strictly forbidden to reuse or reproduce them for any other use, even personal.
-    								</div>
+                                        <p>All of this demo website images are used under license from Shutterstock.com. It is strictly forbidden to reuse or reproduce them for any other use, even personal.
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -254,7 +254,7 @@
                     $this->inlineScript()->appendFile($this->pageJs[$i]);
                 }
             }
-              
+            
             // Generate JS
             echo $this->inlineScript();
             

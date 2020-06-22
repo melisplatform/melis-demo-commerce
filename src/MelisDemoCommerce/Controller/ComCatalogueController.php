@@ -9,15 +9,13 @@
 
 namespace MelisDemoCommerce\Controller;
 
-use MelisDemoCommerce\Controller\BaseController;
 use MelisFront\Service\MelisSiteConfigService;
-
 class ComCatalogueController extends BaseController
 {
     public function indexAction()
     {
         /** @var MelisSiteConfigService $siteConfigSrv */
-        $siteConfigSrv = $this->getServiceLocator()->get('MelisSiteConfigService');
+        $siteConfigSrv = $this->getServiceManager()->get('MelisSiteConfigService');
 
         $catalogueFilter = array();
         $queryParameters = $this->params()->fromQuery();
@@ -40,7 +38,7 @@ class ComCatalogueController extends BaseController
                  * image for Default
                  * with the return is multi array
                  */
-                $documentSrv = $this->getServiceLocator()->get('MelisComDocumentService');
+                $documentSrv = $this->getServiceManager()->get('MelisComDocumentService');
                 $doc = $documentSrv->getDocumentsByRelationAndTypes('category', $val['category_id'], 'IMG', array('DEFAULT'));
                 if (!empty($doc))
                 {

@@ -9,41 +9,27 @@
 
 namespace MelisDemoCommerce\Listener;
 
-use Zend\EventManager\EventManagerInterface;
-use Zend\EventManager\ListenerAggregateInterface;
+use Laminas\EventManager\EventManagerInterface;
 
-class SiteShipmentCostListener implements ListenerAggregateInterface
+class SiteShipmentCostListener extends SiteGeneralListener
 {
-    private $serviceLocator;
-	
-    public function attach(EventManagerInterface $events)
+    public function attach(EventManagerInterface $events, $priority = 1)
     {
-        $sharedEvents      = $events->getSharedManager();
-        
-        $callBackHandler = $sharedEvents->attach(
-        	'*',
-            array(
+        $this->attachEventListener(
+            $events,
+            '*',
+            [
                 'meliscommerce_service_checkout_shipment_computation_end',
                 'meliscommerce_service_checkout_post_shipment_computation_end',
-            ),
-        	function($e){
-        	    $sm = $e->getTarget()->getServiceLocator();
-        	    $params = $e->getParams();
-        	    
-        	    $siteShipmentCostService = $sm->get('SiteShipmentCostService');
-        	    $params['results'] = $siteShipmentCostService->computeShipmentCost(get_object_vars($params)['results']);
-        	},
-        100);
-        
-        $this->listeners[] = $callBackHandler;
-    }
-    
-    public function detach(EventManagerInterface $events)
-    {
-        foreach ($this->listeners as $index => $listener) {
-            if ($events->detach($listener)) {
-                unset($this->listeners[$index]);
-            }
-        }
+            ],
+            function($e){
+                $sm = $e->getTarget()->getServiceManager();
+                $params = $e->getParams();
+                
+                $siteShipmentCostService = $sm->get('SiteShipmentCostService');
+                $params['results'] = $siteShipmentCostService->computeShipmentCost(get_object_vars($params)['results']);
+            },
+            100
+        );
     }
 }

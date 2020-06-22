@@ -11,11 +11,11 @@ namespace MelisDemoCommerce\Controller;
 
 use MelisFront\Controller\MelisSiteActionController;
 
-use Zend\Db\Adapter\Adapter as DbAdapter;
-use Zend\Session\Container;
-use Zend\View\Helper\ViewModel;
-use Zend\View\Model\JsonModel;
-use Zend\Stdlib\ArrayUtils;
+use Laminas\Db\Adapter\Adapter as DbAdapter;
+use Laminas\Session\Container;
+use Laminas\View\Helper\ViewModel;
+use Laminas\View\Model\JsonModel;
+use Laminas\Stdlib\ArrayUtils;
 
 class SetupController extends MelisSiteActionController
 {
@@ -54,13 +54,18 @@ class SetupController extends MelisSiteActionController
         $this->layout('MelisDemoCommerce/setupLayout');
         $view = new ViewModel();
         
-        $tablePlatform = $this->getServiceLocator()->get('MelisPlatformTable');
+        $tablePlatform = $this->getServiceManager()->get('MelisPlatformTable');
         $platform = $tablePlatform->getEntryByField('plf_name', getenv('MELIS_PLATFORM'))->current();
         
         if (empty($platform))
-        {
             exit('Current Platform "'.getenv('MELIS_PLATFORM').'" has no data on database.');
-        }
+
+        $platformIdsTbl = $this->getServiceManager()->get('MelisEngineTablePlatformIds');
+        if (empty($platformIdsTbl->getEntryById($platform->plf_id)->current()))
+            exit('Current Platform "'.getenv('MELIS_PLATFORM').'" has no Platform ID\'s to be used.');
+
+        // Updating modules path config
+        unlink($_SERVER['DOCUMENT_ROOT'].'/../config/melis.modules.path.php');
         
         return $view;
     }
@@ -79,7 +84,7 @@ class SetupController extends MelisSiteActionController
             $outputFileName = 'MelisDemoCommerce.config.php';
             $this->configDir = $melisSite.'/MelisDemoCommerce/config/'.$outputFileName;
             
-            $tablePlatform = $this->getServiceLocator()->get('MelisPlatformTable');
+            $tablePlatform = $this->getServiceManager()->get('MelisPlatformTable');
             $platform = $tablePlatform->getEntryByField('plf_name', getenv('MELIS_PLATFORM'))->current();
 
             if ($platform)
@@ -268,7 +273,7 @@ class SetupController extends MelisSiteActionController
     {
         $container = new Container('MelisDemoCommerceSetup');
         
-        $siteTbl = $this->getServiceLocator()->get('MelisEngineTableSite');
+        $siteTbl = $this->getServiceManager()->get('MelisEngineTableSite');
         
         if (is_null($siteId))
         {
@@ -305,7 +310,7 @@ class SetupController extends MelisSiteActionController
     {
         $container = new Container('MelisDemoCommerceSetup');
         
-        $siteDomainTbl = $this->getServiceLocator()->get('MelisEngineTableSiteDomain');
+        $siteDomainTbl = $this->getServiceManager()->get('MelisEngineTableSiteDomain');
         $siteDomain = array(
             'sdom_site_id' => $container['MelisDemoCommerceSetup']['siteId'],
             'sdom_env' => getenv('MELIS_PLATFORM'),
@@ -322,7 +327,7 @@ class SetupController extends MelisSiteActionController
     private function setupSiteLang()
     {
         $container = new Container('MelisDemoCommerceSetup');
-        $sitelangsTable = $this->getServiceLocator()->get('MelisEngineTableCmsSiteLangs');
+        $sitelangsTable = $this->getServiceManager()->get('MelisEngineTableCmsSiteLangs');
         $siteLangData = array(
             'slang_site_id' => $container['MelisDemoCommerceSetup']['siteId'],
             'slang_lang_id' => 1,
@@ -338,8 +343,8 @@ class SetupController extends MelisSiteActionController
     {
         $container = new Container('MelisDemoCommerceSetup');
         
-        $tplTbl = $this->getServiceLocator()->get('MelisEngineTableTemplate');
-        $platformIdsTbl = $this->getServiceLocator()->get('MelisEngineTablePlatformIds');
+        $tplTbl = $this->getServiceManager()->get('MelisEngineTableTemplate');
+        $platformIdsTbl = $this->getServiceManager()->get('MelisEngineTablePlatformIds');
     
         foreach ($templates As $tpl)
         {
@@ -369,14 +374,14 @@ class SetupController extends MelisSiteActionController
     {
         $container = new Container('MelisDemoCommerceSetup');
         
-        $pageTreeTbl = $this->getServiceLocator()->get('MelisEngineTablePageTree');
-        $pageLangTbl = $this->getServiceLocator()->get('MelisEngineTablePageLang');
-        $pageSavedTbl = $this->getServiceLocator()->get('MelisEngineTablePageSaved');
-        $pagePublishedTbl = $this->getServiceLocator()->get('MelisEngineTablePagePublished');
-        $platformIdsTbl = $this->getServiceLocator()->get('MelisEngineTablePlatformIds');
-        $melisTablePageSeo = $this->getServiceLocator()->get('MelisEngineTablePageSeo');
-        $melisTableSite404 = $this->getServiceLocator()->get('MelisEngineTableSite404');
-        $siteHomeTable = $this->getServiceLocator()->get('MelisEngineTableCmsSiteHome');
+        $pageTreeTbl = $this->getServiceManager()->get('MelisEngineTablePageTree');
+        $pageLangTbl = $this->getServiceManager()->get('MelisEngineTablePageLang');
+        $pageSavedTbl = $this->getServiceManager()->get('MelisEngineTablePageSaved');
+        $pagePublishedTbl = $this->getServiceManager()->get('MelisEngineTablePagePublished');
+        $platformIdsTbl = $this->getServiceManager()->get('MelisEngineTablePlatformIds');
+        $melisTablePageSeo = $this->getServiceManager()->get('MelisEngineTablePageSeo');
+        $melisTableSite404 = $this->getServiceManager()->get('MelisEngineTableSite404');
+        $siteHomeTable = $this->getServiceManager()->get('MelisEngineTableCmsSiteHome');
 
         // Getting the DemoSite config
         $melisSite = $_SERVER['DOCUMENT_ROOT'].'/../module/MelisSites';
@@ -494,8 +499,8 @@ class SetupController extends MelisSiteActionController
      */
     private  function setupSliders($sliders)
     {
-        $sliderTbl = $this->getServiceLocator()->get('MelisCmsSliderTable');
-        $sliderDetailsTbl = $this->getServiceLocator()->get('MelisCmsSliderDetailTable');
+        $sliderTbl = $this->getServiceManager()->get('MelisCmsSliderTable');
+        $sliderDetailsTbl = $this->getServiceManager()->get('MelisCmsSliderDetailTable');
         
         foreach ($sliders As $slider)
         {
@@ -527,8 +532,8 @@ class SetupController extends MelisSiteActionController
     private function setupNews($news)
     {
         $container = new Container('MelisDemoCommerceSetup');
-        $newsTbl = $this->getServiceLocator()->get('MelisCmsNewsTable');
-        $newsTxtTbl = $this->getServiceLocator()->get('MelisCmsNewsTextsTable');
+        $newsTbl = $this->getServiceManager()->get('MelisCmsNewsTable');
+        $newsTxtTbl = $this->getServiceManager()->get('MelisCmsNewsTextsTable');
         
         $ctr = 0;
         $monthCtr = 0;
@@ -566,9 +571,9 @@ class SetupController extends MelisSiteActionController
      */
     private function setupProspectsThemes($items)
     {
-        $themeTbl = $this->getServiceLocator()->get('MelisCmsProspectsThemeTable');
-        $themeItemTbl = $this->getServiceLocator()->get('MelisCmsProspectsThemeItemTable');
-        $themeItemTransTbl = $this->getServiceLocator()->get('MelisCmsProspectsThemeItemTransTable');
+        $themeTbl = $this->getServiceManager()->get('MelisCmsProspectsThemeTable');
+        $themeItemTbl = $this->getServiceManager()->get('MelisCmsProspectsThemeItemTable');
+        $themeItemTransTbl = $this->getServiceManager()->get('MelisCmsProspectsThemeItemTransTable');
         
         foreach ($items As $val)
         {
@@ -599,7 +604,7 @@ class SetupController extends MelisSiteActionController
     private function setupDocumentTypes($docTypes)
     {
         $container = new Container('MelisDemoCommerceSetup');
-        $docTypeTbl = $this->getServiceLocator()->get('MelisEcomDocTypeTable');
+        $docTypeTbl = $this->getServiceManager()->get('MelisEcomDocTypeTable');
         
         foreach ($docTypes As $key => $val)
         {
@@ -626,7 +631,7 @@ class SetupController extends MelisSiteActionController
     {
         $container = new Container('MelisDemoCommerceSetup');
         
-        $attrTypeTable = $this->getServiceLocator()->get('MelisEcomAttributeTypeTable');
+        $attrTypeTable = $this->getServiceManager()->get('MelisEcomAttributeTypeTable');
         
         foreach ($attrTypeTable->fetchAll()->toArray() As $val)
         {
@@ -646,10 +651,10 @@ class SetupController extends MelisSiteActionController
     {
         $container = new Container('MelisDemoCommerceSetup');
         
-        $attrTable = $this->getServiceLocator()->get('MelisEcomAttributeTable');
-        $attrTransTable = $this->getServiceLocator()->get('MelisEcomAttributeTransTable');
-        $attrValTable = $this->getServiceLocator()->get('MelisEcomAttributeValueTable');
-        $attrValTransTable = $this->getServiceLocator()->get('MelisEcomAttributeValueTransTable');
+        $attrTable = $this->getServiceManager()->get('MelisEcomAttributeTable');
+        $attrTransTable = $this->getServiceManager()->get('MelisEcomAttributeTransTable');
+        $attrValTable = $this->getServiceManager()->get('MelisEcomAttributeValueTable');
+        $attrValTransTable = $this->getServiceManager()->get('MelisEcomAttributeValueTransTable');
         
         $this->getAttributeTypes();
         
@@ -737,7 +742,7 @@ class SetupController extends MelisSiteActionController
     {
         $container = new Container('MelisDemoCommerceSetup');
         
-        $prdTextTypesTbl = $this->getServiceLocator()->get('MelisEcomProductTextTypeTable');
+        $prdTextTypesTbl = $this->getServiceManager()->get('MelisEcomProductTextTypeTable');
         $productTextCodes = array();
         foreach ($prdTextTypesTbl->fetchAll()->toArray() As $val)
         {
@@ -765,13 +770,13 @@ class SetupController extends MelisSiteActionController
     {
         $container = new Container('MelisDemoCommerceSetup');
         
-        $prdTbl = $this->getServiceLocator()->get('MelisEcomProductTable');
-        $prdCatTbl = $this->getServiceLocator()->get('MelisEcomProductCategoryTable');
-        $prdAttrTbl = $this->getServiceLocator()->get('MelisEcomProductAttributeTable');
-        $docRelTbl = $this->getServiceLocator()->get('MelisEcomDocRelationsTable');
-        $docTbl = $this->getServiceLocator()->get('MelisEcomDocumentTable');
-        $prdTxtTbl = $this->getServiceLocator()->get('MelisEcomProductTextTable');
-        $priceTbl = $this->getServiceLocator()->get('MelisEcomPriceTable');
+        $prdTbl = $this->getServiceManager()->get('MelisEcomProductTable');
+        $prdCatTbl = $this->getServiceManager()->get('MelisEcomProductCategoryTable');
+        $prdAttrTbl = $this->getServiceManager()->get('MelisEcomProductAttributeTable');
+        $docRelTbl = $this->getServiceManager()->get('MelisEcomDocRelationsTable');
+        $docTbl = $this->getServiceManager()->get('MelisEcomDocumentTable');
+        $prdTxtTbl = $this->getServiceManager()->get('MelisEcomProductTextTable');
+        $priceTbl = $this->getServiceManager()->get('MelisEcomPriceTable');
         
 //         $prdCategories = array();
         $prdAttributes = array();
@@ -895,12 +900,12 @@ class SetupController extends MelisSiteActionController
     {
         $container = new Container('MelisDemoCommerceSetup');
     
-        $catTbl = $this->getServiceLocator()->get('MelisEcomCategoryTable');
-        $catTransTbl = $this->getServiceLocator()->get('MelisEcomCategoryTransTable');
-        $catCountryTbl = $this->getServiceLocator()->get('MelisEcomCountryCategoryTable');
-        $seoTbl = $this->getServiceLocator()->get('MelisEcomSeoTable');
-        $docTbl = $this->getServiceLocator()->get('MelisEcomDocumentTable');
-        $docRelTbl = $this->getServiceLocator()->get('MelisEcomDocRelationsTable');
+        $catTbl = $this->getServiceManager()->get('MelisEcomCategoryTable');
+        $catTransTbl = $this->getServiceManager()->get('MelisEcomCategoryTransTable');
+        $catCountryTbl = $this->getServiceManager()->get('MelisEcomCountryCategoryTable');
+        $seoTbl = $this->getServiceManager()->get('MelisEcomSeoTable');
+        $docTbl = $this->getServiceManager()->get('MelisEcomDocumentTable');
+        $docRelTbl = $this->getServiceManager()->get('MelisEcomDocRelationsTable');
 
         //get the melis.plugins.config.php
         // Getting the DemoSite config
@@ -1013,9 +1018,9 @@ class SetupController extends MelisSiteActionController
     
     private function setupCategoriesIds()
     {
-        $catTransTbl = $this->getServiceLocator()->get('MelisEcomCategoryTransTable');
-        $docRelTbl = $this->getServiceLocator()->get('MelisEcomDocRelationsTable');
-        $catPrdTbl = $this->getServiceLocator()->get('MelisEcomProductCategoryTable');
+        $catTransTbl = $this->getServiceManager()->get('MelisEcomCategoryTransTable');
+        $docRelTbl = $this->getServiceManager()->get('MelisEcomDocRelationsTable');
+        $catPrdTbl = $this->getServiceManager()->get('MelisEcomProductCategoryTable');
         
         $this->saveBatchData($catTransTbl, $this->catTranslations);
         $this->saveBatchData($docRelTbl, $this->catDocumentRelations);
@@ -1032,10 +1037,10 @@ class SetupController extends MelisSiteActionController
     {
         $container = new Container('MelisDemoCommerceSetup');
         
-        $varTbl = $this->getServiceLocator()->get('MelisEcomVariantTable');
-        $varAttrTbl = $this->getServiceLocator()->get('MelisEcomProductVariantAttributeValueTable');
-        $priceTbl = $this->getServiceLocator()->get('MelisEcomPriceTable');
-        $varStockTbl = $this->getServiceLocator()->get('MelisEcomVariantStockTable');
+        $varTbl = $this->getServiceManager()->get('MelisEcomVariantTable');
+        $varAttrTbl = $this->getServiceManager()->get('MelisEcomProductVariantAttributeValueTable');
+        $priceTbl = $this->getServiceManager()->get('MelisEcomPriceTable');
+        $varStockTbl = $this->getServiceManager()->get('MelisEcomVariantStockTable');
         
         $varAttrs = array();
         $varPrices = array();
@@ -1092,7 +1097,7 @@ class SetupController extends MelisSiteActionController
     {
         $container = new Container('MelisDemoCommerceSetup');
         
-        $couponTbl = $this->getServiceLocator()->get('MelisEcomCouponTable');
+        $couponTbl = $this->getServiceManager()->get('MelisEcomCouponTable');
         
         foreach ($coupon As $val)
         {
@@ -1115,15 +1120,15 @@ class SetupController extends MelisSiteActionController
     {
         $container = new Container('MelisDemoCommerceSetup');
         
-        $clientTlb = $this->getServiceLocator()->get('MelisEcomClientTable');
-        $clientPersonTlb = $this->getServiceLocator()->get('MelisEcomClientPersonTable');
-        $clientAddressesTlb = $this->getServiceLocator()->get('MelisEcomClientAddressTable');
-        $orderTbl = $this->getServiceLocator()->get('MelisEcomOrderTable');
-        $orderBasketTbl = $this->getServiceLocator()->get('MelisEcomOrderBasketTable');
-        $orderAddTbl = $this->getServiceLocator()->get('MelisEcomOrderAddressTable');
-        $orderCouponTbl = $this->getServiceLocator()->get('MelisEcomCouponOrderTable');
-        $orderPaymentTbl = $this->getServiceLocator()->get('MelisEcomOrderPaymentTable');
-        $clientSrv = $this->getServiceLocator()->get('MelisComClientService');
+        $clientTlb = $this->getServiceManager()->get('MelisEcomClientTable');
+        $clientPersonTlb = $this->getServiceManager()->get('MelisEcomClientPersonTable');
+        $clientAddressesTlb = $this->getServiceManager()->get('MelisEcomClientAddressTable');
+        $orderTbl = $this->getServiceManager()->get('MelisEcomOrderTable');
+        $orderBasketTbl = $this->getServiceManager()->get('MelisEcomOrderBasketTable');
+        $orderAddTbl = $this->getServiceManager()->get('MelisEcomOrderAddressTable');
+        $orderCouponTbl = $this->getServiceManager()->get('MelisEcomCouponOrderTable');
+        $orderPaymentTbl = $this->getServiceManager()->get('MelisEcomOrderPaymentTable');
+        $clientSrv = $this->getServiceManager()->get('MelisComClientService');
         
         foreach ($clientAndOrders As $key => $val)
         {

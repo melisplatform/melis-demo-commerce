@@ -11,10 +11,10 @@ namespace MelisDemoCommerce;
 
 use MelisDemoCommerce\Listener\SiteCommerceProductPriceRangePluginListener;
 use MelisDemoCommerce\Listener\SiteCommerceRelatedProductsPluginListener;
-use Zend\Mvc\ModuleRouteListener;
-use Zend\Mvc\MvcEvent;
-use Zend\ModuleManager\ModuleManager;
-use Zend\Stdlib\ArrayUtils;
+use Laminas\Mvc\ModuleRouteListener;
+use Laminas\Mvc\MvcEvent;
+use Laminas\ModuleManager\ModuleManager;
+use Laminas\Stdlib\ArrayUtils;
 use MelisDemoCommerce\Listener\SiteMenuCustomizationListener;
 use MelisDemoCommerce\Listener\SiteBreadcrumbCustomizationListener;
 // use MelisDemoCommerce\Listener\SiteFakePaymentListener;
@@ -34,109 +34,71 @@ class Module
 {
     public function onBootstrap(MvcEvent $e)
     {
-        $eventManager        = $e->getApplication()->getEventManager();
+        $eventManager = $e->getApplication()->getEventManager();
         $moduleRouteListener = new ModuleRouteListener();
         $moduleRouteListener->attach($eventManager);
         
-        $eventManager->attach(MvcEvent::EVENT_DISPATCH_ERROR, function($e) {
-        	$viewModel = $e->getViewModel();
-        	$viewModel->setTemplate('layout/errorLayout');
-        });
-        $eventManager->attach(MvcEvent::EVENT_RENDER_ERROR, function($e) {
-        	$viewModel = $e->getViewModel();
-        	$viewModel->setTemplate('layout/errorLayout');
-        }); 
+        // $eventManager->attach(MvcEvent::EVENT_DISPATCH_ERROR, function($e) {
+        //     $viewModel = $e->getViewModel();
+        //     $viewModel->setTemplate('layout/errorLayout');
+        // });
+        
+        // $eventManager->attach(MvcEvent::EVENT_RENDER_ERROR, function($e) {
+        //     $viewModel = $e->getViewModel();
+        //     $viewModel->setTemplate('layout/errorLayout');
+        // }); 
         
         // Adding Event listener to customize the Site menu from Plugin
-        $eventManager->attach(new SiteMenuCustomizationListener());
-        $eventManager->attach(new SiteBreadcrumbCustomizationListener());
+        (new SiteMenuCustomizationListener())->attach($eventManager);
+        (new SiteBreadcrumbCustomizationListener())->attach($eventManager);
         
         // Fake payments listener, for testing purposes
-//         $eventManager->attach(new SiteFakePaymentListener());
-//         $eventManager->attach(new SiteFakePaymentProcesstListener());
+        // (new SiteFakePaymentListener())->attach($eventManager);
+        // (new SiteFakePaymentProcesstListener())->attach($eventManager);
         // Paypal style payment integration
-        $eventManager->attach(new SiteFakePaypalStyleListener());
-        $eventManager->attach(new SiteFakePaypalStyleProcesstListener());
-        
-        $eventManager->attach(new SiteShipmentCostListener());
+        (new SiteFakePaypalStyleListener())->attach($eventManager);
+        (new SiteFakePaypalStyleProcesstListener())->attach($eventManager);
+
+        (new SiteShipmentCostListener())->attach($eventManager);
         
         // Plugin customization
-        $eventManager->attach(new SiteCommerceCategoryProductListPluginListener());
-        $eventManager->attach(new SiteProductShowPluginListener());
-        $eventManager->attach(new SiteCommerceProductListPluginListener());
-        $eventManager->attach(new SiteCommerceProductPriceRangePluginListener());
-        $eventManager->attach(new SiteCommerceRelatedProductsPluginListener());
-        $eventManager->attach(new SiteCartPluginListener());
-        $eventManager->attach(new SiteCheckoutCartPluginListener());
-        $eventManager->attach(new SiteCheckoutConfirmPluginListener());
-        $eventManager->attach(new SiteOrderPluginListener());
-        
-        $this->mvcEventErrors($eventManager);
+        (new SiteCommerceCategoryProductListPluginListener())->attach($eventManager);
+        (new SiteProductShowPluginListener())->attach($eventManager);
+        (new SiteCommerceProductListPluginListener())->attach($eventManager);
+        (new SiteCommerceProductPriceRangePluginListener())->attach($eventManager);
+        (new SiteCommerceRelatedProductsPluginListener())->attach($eventManager);
+        (new SiteCartPluginListener())->attach($eventManager);
+        (new SiteCheckoutCartPluginListener())->attach($eventManager);
+        (new SiteCheckoutConfirmPluginListener())->attach($eventManager);
+        (new SiteOrderPluginListener())->attach($eventManager);
     }
     
-    public function mvcEventErrors($eventManager)
-    {
-        $eventManager->attach(MvcEvent::EVENT_DISPATCH_ERROR, function($e) {
-            $viewModel = $e->getViewModel();
-            $viewModel->setTemplate('layout/errorLayout');
-             
-            /* print_r($e->getError()).'<br>';
-            print_r($e->getControllerClass()).'<br>';
-            print_r($e->getParam('exception')->getMessage()); */
-    
-//            $exception = $e->getParam('exception');
-
-//            if (is_object($exception))
-//                die($exception->getMessage());
-//            else
-//                die($exception);
-            
-        });
-        
-        $eventManager->attach(MvcEvent::EVENT_RENDER_ERROR, function($e) {
-            $viewModel = $e->getViewModel();
-            $viewModel->setTemplate('layout/errorLayout');
-            
-            $exception = $e->getParam('exception');
-            
-            if (is_object($exception))
-                die($exception->getMessage());
-            else
-                die($exception);
-        });
-    }
-    
-    public function init(ModuleManager $manager)
-    {
-        
-    }
-
     public function getConfig()
     {
-    	$config = array();
-    	$configFiles = array(
-    			include __DIR__ . '/config/module.config.php',
-    			include __DIR__ . '/config/melis.plugins.config.php',
-    			include __DIR__ . '/config/MelisDemoCommerce.config.php',
-    			include __DIR__ . '/config/assets.config.php',
-    			include __DIR__ . '/config/app.forms.php',
-    	);
-    	
-    	foreach ($configFiles as $file) {
-    		$config = ArrayUtils::merge($config, $file);
-    	} 
-    	
-    	return $config;
+        $config = [];
+        $configFiles = [
+            include __DIR__ . '/config/module.config.php',
+            include __DIR__ . '/config/melis.plugins.config.php',
+            include __DIR__ . '/config/MelisDemoCommerce.config.php',
+            include __DIR__ . '/config/assets.config.php',
+            include __DIR__ . '/config/app.forms.php',
+        ];
+        
+        foreach ($configFiles as $file) {
+            $config = ArrayUtils::merge($config, $file);
+        } 
+        
+        return $config;
     }
 
     public function getAutoloaderConfig()
     {
-        return array(
-            'Zend\Loader\StandardAutoloader' => array(
-                'namespaces' => array(
+        return [
+            'Laminas\Loader\StandardAutoloader' => [
+                'namespaces' => [
                     __NAMESPACE__ => __DIR__ . '/src/' . __NAMESPACE__,
-                ),
-            ),
-        );
+                ],
+            ],
+        ];
     }
 }

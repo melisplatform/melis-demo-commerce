@@ -1,64 +1,64 @@
 <?php
-return array(
-    'plugins' => array(
-        'MelisDemoCommerce' => array(
-            'forms' => array(
-                'MelisDemoCommerce_checkout_fake_payment_form' => array(
-                    'attributes' => array(
+return [
+    'plugins' => [
+        'MelisDemoCommerce' => [
+            'forms' => [
+                'MelisDemoCommerce_checkout_fake_payment_form' => [
+                    'attributes' => [
                         'method' => '',
                         'action' => '',
-                    ),
-                    'hydrator'  => 'Zend\Stdlib\Hydrator\ArraySerializable',
-                    'elements' => array(
-                        array(
-                            'spec' => array(
+                    ],
+                    'hydrator'  => 'Laminas\Hydrator\ArraySerializable',
+                    'elements' => [
+                        [
+                            'spec' => [
                                 'name' => 'order-id',
                                 'type' => 'hidden',
-                            )
-                        ),
-                        array(
-                            'spec' => array(
+                            ]
+                        ],
+                        [
+                            'spec' => [
                                 'name' => 'payment-transaction-total-cost',
                                 'type' => 'hidden',
-                            )
-                        ),
-                        array(
-                            'spec' => array(
+                            ]
+                        ],
+                        [
+                            'spec' => [
                                 'name' => 'payment-transaction-currency-code',
                                 'type' => 'hidden',
-                            )
-                        ),
-                        array(
-                            'spec' => array(
+                            ]
+                        ],
+                        [
+                            'spec' => [
                                 'name' => 'card-holder-name',
                                 'type' => 'Text',
-                                'options' => array(
+                                'options' => [
                                     'label' => 'Card Holder\'s Name',
-                                ),
-                                'attributes' => array(
+                                ],
+                                'attributes' => [
                                     'id' => 'card-holder-name',
-                                )
-                            )
-                        ),
-                        array(
-                            'spec' => array(
+                                ]
+                            ]
+                        ],
+                        [
+                            'spec' => [
                                 'name' => 'card-number',
                                 'type' => 'Text',
-                                'options' => array(
+                                'options' => [
                                     'label' => 'Debit/Credit Card Number',
-                                ),
-                                'attributes' => array(
+                                ],
+                                'attributes' => [
                                     'id' => 'card-number',
-                                )
-                            )
-                        ),
-                        array(
-                            'spec' => array(
+                                ]
+                            ]
+                        ],
+                        [
+                            'spec' => [
                                 'name' => 'expiry-month',
                                 'type' => 'Select',
-                                'options' => array(
+                                'options' => [
                                     'label' => 'Month expiration',
-                                    'value_options' => array(
+                                    'value_options' => [
                                         '01' => 'Jan (01)',
                                         '02' => 'Feb (02)',
                                         '03' => 'Mar (03)',
@@ -71,20 +71,20 @@ return array(
                                         '10' => 'Oct (10)',
                                         '11' => 'Nov (11)',
                                         '12' => 'Dec (12)',
-                                    ),
-                                ),
-                                'attributes' => array(
+                                    ],
+                                ],
+                                'attributes' => [
                                     'id' => 'expiry-month',
-                                )
-                            )
-                        ),
-                        array(
-                            'spec' => array(
+                                ]
+                            ]
+                        ],
+                        [
+                            'spec' => [
                                 'name' => 'expiry-year',
                                 'type' => 'Select',
-                                'options' => array(
+                                'options' => [
                                     'label' => 'Year expiration',
-                                    'value_options' => array(
+                                    'value_options' => [
                                         '2017' => '2017',
                                         '2018' => '2018',
                                         '2019' => '2019',
@@ -92,177 +92,177 @@ return array(
                                         '2021' => '2021',
                                         '2022' => '2022',
                                         '2023' => '2023',
-                                    ),
-                                ),
-                                'attributes' => array(
+                                    ],
+                                ],
+                                'attributes' => [
                                     'id' => 'expiry-year"',
-                                )
-                            )
-                        ),
-                        array(
-                            'spec' => array(
+                                ]
+                            ]
+                        ],
+                        [
+                            'spec' => [
                                 'name' => 'cvv',
                                 'type' => 'Text',
-                                'options' => array(
+                                'options' => [
                                     'label' => 'Card CVV',
-                                ),
-                                'attributes' => array(
+                                ],
+                                'attributes' => [
                                     'id' => 'cvv',
-                                )
-                            )
-                        ),
-                    ),
-                    'input_filter' => array(
-                        'card-holder-name' => array(
+                                ]
+                            ]
+                        ],
+                    ],
+                    'input_filter' => [
+                        'card-holder-name' => [
                             'name'     => 'card-holder-name',
                             'required' => true,
-                            'validators' => array(
-                            ),
-                            'filters'  => array(
-                                array('name' => 'StripTags'),
-                                array('name' => 'StringTrim'),
-                            ),
-                        ),
-                        'card-number' => array(
+                            'validators' => [
+                            ],
+                            'filters'  => [
+                                ['name' => 'StripTags'],
+                                ['name' => 'StringTrim'],
+                            ],
+                        ],
+                        'card-number' => [
                             'name'     => 'card-number',
                             'required' => true,
-                            'validators' => array(
-                                array(
+                            'validators' => [
+                                [
                                     'name' => 'InArray',
-                                    'options' => array(
-                                        'haystack' => array('1111222233334444'),
-                                        'messages' => array(
-                                            \Zend\Validator\InArray::NOT_IN_ARRAY => 'Invalid Card number, Please try again'
-                                        ),
-                                    ),
-                                ),
-                            ),
-                            'filters'  => array(
-                                array('name' => 'StripTags'),
-                                array('name' => 'StringTrim'),
-                            ),
-                        ),
-                        'cvv' => array(
+                                    'options' => [
+                                        'haystack' => ['1111222233334444'],
+                                        'messages' => [
+                                            \Laminas\Validator\InArray::NOT_IN_ARRAY => 'Invalid Card number, Please try again'
+                                        ],
+                                    ],
+                                ],
+                            ],
+                            'filters'  => [
+                                ['name' => 'StripTags'],
+                                ['name' => 'StringTrim'],
+                            ],
+                        ],
+                        'cvv' => [
                             'name'     => 'cvv',
                             'required' => true,
-                            'validators' => array(
-                                array(
+                            'validators' => [
+                                [
                                     'name' => 'InArray',
-                                    'options' => array(
-                                        'haystack' => array('123'),
-                                        'messages' => array(
-                                            \Zend\Validator\InArray::NOT_IN_ARRAY => 'Invalid Card CVV, Please try again'
-                                        ),
-                                    ),
-                                ),
-                            ),
-                            'filters'  => array(
-                                array('name' => 'StripTags'),
-                                array('name' => 'StringTrim'),
-                            ),
-                        ),
-                    ),
-                ),
-                'MelisDemoCommerce_checkout_fake_paypal_form' => array(
-                    'attributes' => array(
+                                    'options' => [
+                                        'haystack' => ['123'],
+                                        'messages' => [
+                                            \Laminas\Validator\InArray::NOT_IN_ARRAY => 'Invalid Card CVV, Please try again'
+                                        ],
+                                    ],
+                                ],
+                            ],
+                            'filters'  => [
+                                ['name' => 'StripTags'],
+                                ['name' => 'StringTrim'],
+                            ],
+                        ],
+                    ],
+                ],
+                'MelisDemoCommerce_checkout_fake_paypal_form' => [
+                    'attributes' => [
                         'method' => '',
                         'action' => '',
-                    ),
-                    'hydrator'  => 'Zend\Stdlib\Hydrator\ArraySerializable',
-                    'elements' => array(
-                        array(
-                            'spec' => array(
+                    ],
+                    'hydrator'  => 'Laminas\Hydrator\ArraySerializable',
+                    'elements' => [
+                        [
+                            'spec' => [
                                 'name' => 'order-id',
                                 'type' => 'hidden',
-                            )
-                        ),
-                        array(
-                            'spec' => array(
+                            ]
+                        ],
+                        [
+                            'spec' => [
                                 'name' => 'payment-transaction-country-id',
                                 'type' => 'hidden',
-                            )
-                        ),
-                        array(
-                            'spec' => array(
+                            ]
+                        ],
+                        [
+                            'spec' => [
                                 'name' => 'payment-transaction-coupon-id',
                                 'type' => 'hidden',
-                            )
-                        ),
-                        array(
-                            'spec' => array(
+                            ]
+                        ],
+                        [
+                            'spec' => [
                                 'name' => 'payment-transaction-total-cost',
                                 'type' => 'hidden',
-                            )
-                        ),
-                        array(
-                            'spec' => array(
+                            ]
+                        ],
+                        [
+                            'spec' => [
                                 'name' => 'payment-transaction-currency-code',
                                 'type' => 'hidden',
-                            )
-                        ),
-                        array(
-                            'spec' => array(
+                            ]
+                        ],
+                        [
+                            'spec' => [
                                 'name' => 'checkout-confirm-url',
                                 'type' => 'hidden',
-                            )
-                        ),
-                        array(
-                            'spec' => array(
+                            ]
+                        ],
+                        [
+                            'spec' => [
                                 'name' => 'card-holder-name',
                                 'type' => 'Text',
-                                'options' => array(
+                                'options' => [
                                     'label' => 'Card Holder\'s Name',
-                                ),
-                                'attributes' => array(
+                                ],
+                                'attributes' => [
                                     'id' => 'card-holder-name',
-                                )
-                            )
-                        ),
-                        array(
-                            'spec' => array(
+                                ]
+                            ]
+                        ],
+                        [
+                            'spec' => [
                                 'name' => 'card-number',
                                 'type' => 'Text',
-                                'options' => array(
+                                'options' => [
                                     'label' => 'Debit/Credit Card Number',
-                                ),
-                                'attributes' => array(
+                                ],
+                                'attributes' => [
                                     'id' => 'card-number',
-                                )
-                            )
-                        ),
-                        array(
-                            'spec' => array(
+                                ]
+                            ]
+                        ],
+                        [
+                            'spec' => [
                                 'name' => 'expiry-month',
                                 'type' => 'Select',
-                                'options' => array(
+                                'options' => [
                                     'label' => 'Month expiration',
-                                    'value_options' => array(
-                                        '01' => 'Jan (01)',
-                                        '02' => 'Feb (02)',
-                                        '03' => 'Mar (03)',
-                                        '04' => 'Apr (04)',
-                                        '05' => 'May (05)',
-                                        '06' => 'June (06)',
-                                        '07' => 'July (07)',
-                                        '08' => 'Aug (08)',
-                                        '09' => 'Sep (09)',
-                                        '10' => 'Oct (10)',
-                                        '11' => 'Nov (11)',
-                                        '12' => 'Dec (12)',
-                                    ),
-                                ),
-                                'attributes' => array(
+                                    'value_options' => [
+                                        '01' => 'Jan (01]',
+                                        '02' => 'Feb (02]',
+                                        '03' => 'Mar (03]',
+                                        '04' => 'Apr (04]',
+                                        '05' => 'May (05]',
+                                        '06' => 'June (06]',
+                                        '07' => 'July (07]',
+                                        '08' => 'Aug (08]',
+                                        '09' => 'Sep (09]',
+                                        '10' => 'Oct (10]',
+                                        '11' => 'Nov (11]',
+                                        '12' => 'Dec (12]',
+                                    ],
+                                ],
+                                'attributes' => [
                                     'id' => 'expiry-month',
-                                )
-                            )
-                        ),
-                        array(
-                            'spec' => array(
+                                ]
+                            ]
+                        ],
+                        [
+                            'spec' => [
                                 'name' => 'expiry-year',
                                 'type' => 'Select',
-                                'options' => array(
+                                'options' => [
                                     'label' => 'Year expiration',
-                                    'value_options' => array(
+                                    'value_options' => [
                                         '2017' => '2017',
                                         '2018' => '2018',
                                         '2019' => '2019',
@@ -270,78 +270,78 @@ return array(
                                         '2021' => '2021',
                                         '2022' => '2022',
                                         '2023' => '2023',
-                                    ),
-                                ),
-                                'attributes' => array(
+                                    ],
+                                ],
+                                'attributes' => [
                                     'id' => 'expiry-year"',
-                                )
-                            )
-                        ),
-                        array(
-                            'spec' => array(
+                                ]
+                            ]
+                        ],
+                        [
+                            'spec' => [
                                 'name' => 'cvv',
                                 'type' => 'Text',
-                                'options' => array(
+                                'options' => [
                                     'label' => 'Card CVV',
-                                ),
-                                'attributes' => array(
+                                ],
+                                'attributes' => [
                                     'id' => 'cvv',
-                                )
-                            )
-                        ),
-                    ),
-                    'input_filter' => array(
-                        'card-holder-name' => array(
+                                ]
+                            ]
+                        ],
+                    ],
+                    'input_filter' => [
+                        'card-holder-name' => [
                             'name'     => 'card-holder-name',
                             'required' => true,
-                            'validators' => array(
-                            ),
-                            'filters'  => array(
-                                array('name' => 'StripTags'),
-                                array('name' => 'StringTrim'),
-                            ),
-                        ),
-                        'card-number' => array(
+                            'validators' => [
+                            ],
+                            'filters'  => [
+                                ['name' => 'StripTags'],
+                                ['name' => 'StringTrim'],
+                            ],
+                        ],
+                        'card-number' => [
                             'name'     => 'card-number',
                             'required' => true,
-                            'validators' => array(
-                                array(
+                            'validators' => [
+                                [
                                     'name' => 'InArray',
-                                    'options' => array(
-                                        'haystack' => array('1111222233334444'),
-                                        'messages' => array(
-                                            \Zend\Validator\InArray::NOT_IN_ARRAY => 'Invalid Card number, Please try again'
-                                        ),
-                                    ),
-                                ),
-                            ),
-                            'filters'  => array(
-                                array('name' => 'StripTags'),
-                                array('name' => 'StringTrim'),
-                            ),
-                        ),
-                        'cvv' => array(
+                                    'options' => [
+                                        'haystack' => ['1111222233334444'],
+                                        'messages' => [
+                                            \Laminas\Validator\InArray::NOT_IN_ARRAY => 'Invalid Card number, Please try again'
+                                        ],
+                                    ],
+                                ],
+                            ],
+                            'filters'  => [
+                                ['name' => 'StripTags'],
+                                ['name' => 'StringTrim'],
+                            ],
+                        ],
+                        'cvv' => [
                             'name'     => 'cvv',
                             'required' => true,
-                            'validators' => array(
-                                array(
+                            'validators' => [
+                                [
                                     'name' => 'InArray',
-                                    'options' => array(
-                                        'haystack' => array('123'),
-                                        'messages' => array(
-                                            \Zend\Validator\InArray::NOT_IN_ARRAY => 'Invalid Card CVV, Please try again'
-                                        ),
-                                    ),
-                                ),
-                            ),
-                            'filters'  => array(
-                                array('name' => 'StripTags'),
-                                array('name' => 'StringTrim'),
-                            ),
-                        ),
-                    ),
-                ),
-            )
-        )
-    )
-);
+                                    'options' => [
+                                        'haystack' => ['123'],
+                                        'messages' => [
+                                            \Laminas\Validator\InArray::NOT_IN_ARRAY => 'Invalid Card CVV, Please try again'
+                                        ],
+                                    ],
+                                ],
+                            ],
+                            'filters'  => [
+                                ['name' => 'StripTags'],
+                                ['name' => 'StringTrim'],
+                            ],
+                        ],
+                    ],
+                ],
+            ]
+        ]
+    ]
+];

@@ -9,12 +9,12 @@
 
 namespace MelisDemoCommerce\Service;
 
-use MelisCore\Service\MelisCoreGeneralService;
+use MelisCore\Service\MelisServiceManager;
 
 /**
- * SiteShipmentCost Services handle the Cost of the Shiiping
+ * SiteShipmentCost Services handle the Cost of the Shipping
  */
-class SiteShipmentCostService extends MelisCoreGeneralService
+class SiteShipmentCostService extends MelisServiceManager
 {
     public function computeShipmentCost($shipment)
     {

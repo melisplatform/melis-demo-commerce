@@ -10,28 +10,26 @@
 namespace MelisDemoCommerce\Listener;
 
 use MelisFront\Service\MelisSiteConfigService;
-use Zend\EventManager\EventManagerInterface;
-use Zend\EventManager\ListenerAggregateInterface;
-use Zend\Stdlib\ArrayUtils;
-use Zend\Paginator\Paginator;
-use Zend\Paginator\Adapter\ArrayAdapter;
+use Laminas\EventManager\EventManagerInterface;
+use Laminas\Stdlib\ArrayUtils;
+use Laminas\Paginator\Paginator;
+use Laminas\Paginator\Adapter\ArrayAdapter;
 
-class SiteCommerceProductListPluginListener implements ListenerAggregateInterface
+class SiteCommerceProductListPluginListener extends SiteGeneralListener
 {
-    private $serviceLocator;
+    private $serviceManager;
 
-    public function attach(EventManagerInterface $events)
+    public function attach(EventManagerInterface $events, $priority = 1)
     {
-        $sharedEvents = $events->getSharedManager();
-
-        $callBackHandler = $sharedEvents->attach(
+        $this->attachEventListener(
+            $events,
             '*',
-            array(
+            [
                 'MelisCommerceProductListPlugin_melistemplating_plugin_end',
-            ),
+            ],
             function($e){
-                // Getting the Service Locator from param target
-                $this->serviceLocator = $e->getTarget()->getServiceLocator();
+                // Getting the Service Manager from param target
+                $this->serviceManager = $e->getTarget()->getServiceManager();
 
                 // Getting the Datas from the Event Parameters
                 $params = $e->getParams();
@@ -40,8 +38,6 @@ class SiteCommerceProductListPluginListener implements ListenerAggregateInterfac
                 {
                     if ($params['view']->getTemplate() == 'MelisDemoCommerce/plugin/product-list')
                     {
-
-
                         $categoryListProd = $params['view']->getVariables()['categoryListProducts'];
                         $products = $categoryListProd->getAdapter()->getItems(0, $categoryListProd->getAdapter()->count());
                         $pageCurrent = $categoryListProd->getCurrentPageNumber();
@@ -56,19 +52,19 @@ class SiteCommerceProductListPluginListener implements ListenerAggregateInterfac
                     }
                 }
             },
-            100);
+            100
+        );
 
-        $this->listeners[] = $callBackHandler;
     }
 
     public function customizeProductList($products, $params)
     {
-        $melisComVariantService = $this->serviceLocator->get('MelisComVariantService');
-        $melisComProductService = $this->serviceLocator->get('MelisComProductService');
-        $documentSrv = $this->serviceLocator->get('MelisComDocumentService');
+        $melisComVariantService = $this->serviceManager->get('MelisComVariantService');
+        $melisComProductService = $this->serviceManager->get('MelisComProductService');
+        $documentSrv = $this->serviceManager->get('MelisComDocumentService');
 
         /** @var MelisSiteConfigService $siteConfigSrv */
-        $siteConfigSrv = $this->serviceLocator->get('MelisSiteConfigService');
+        $siteConfigSrv = $this->serviceManager->get('MelisSiteConfigService');
 
         $countryId = $siteConfigSrv->getSiteConfigByKey('site_country_id', $params['pluginFronConfig']['pageId']);
 
@@ -206,14 +202,5 @@ class SiteCommerceProductListPluginListener implements ListenerAggregateInterfac
         }
 
         return $new_array;
-    }
-
-    public function detach(EventManagerInterface $events)
-    {
-        foreach ($this->listeners as $index => $listener) {
-            if ($events->detach($listener)) {
-                unset($this->listeners[$index]);
-            }
-        }
     }
 }
