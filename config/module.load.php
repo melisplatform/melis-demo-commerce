@@ -1,14 +1,17 @@
-<?php 
-
+<?php
 return array(
-    'MelisAssetManager',
-	'MelisEngine',
-	'MelisFront',
-    'MelisCmsNews',
-    'MelisCmsSlider',
-    'MelisCmsProspects',
-    'MelisCommerce',
-	'MelisCommerceOrderInvoice',
-    'MelisDemoCommerce'
-   # 'MelisCmsSiteRobot',
+  'MelisAssetManager',
+  'MelisEngine',
+  'MelisFront',
+  'MelisCmsNews',
+  'MelisCmsSlider',
+  'MelisCmsProspects',
+  'MelisCommerce',
+  'MelisCommerceOrderInvoice',
+  'MelisDemoCommerce',
+  'MelisCms',
+  'MelisCmsPageAnalytics',
+  'MelisCmsBlog',
+  'MelisNewsletter',
+  'MelisCmsShare',
 );

@@ -81,7 +81,7 @@ return [
     'service_manager' => [
         'aliases' => [
             // Table
-            'MelisPlatformTable'    => \MelisDemoCommerce\Model\MelisPlatformTable::class,
+            'MelisPlatformTable'    => \MelisCore\Model\Tables\MelisPlatformTable::class,
             // Services
             'DemoCommerceService'   => \MelisDemoCommerce\Service\DemoCommerceService::class,
             'SiteShipmentCostService'  => \MelisDemoCommerce\Service\SiteShipmentCostService::class,
