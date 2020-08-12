@@ -30,7 +30,7 @@ class SiteFakePaypalStyleListener extends SiteGeneralListener
 				$this->serviceManager = $e->getTarget()->getServiceManager();
 				// Getting the Datas from the Event Parameters
 				$params = $e->getParams();
-				
+
 				$viewModel = new ViewModel();
 				$viewModel->setTemplate('MelisDemoCommerce/plugin/checkout-fake-paypal-style');
 
@@ -43,7 +43,8 @@ class SiteFakePaypalStyleListener extends SiteGeneralListener
 					'm_checkout_step' => 'checkout-confirm',
 					'm_conf_order_id' => $params['orderDetails']['orderId']
 				);
-				$checkoutConfirmPage = $melisTree->getPageLink($siteConfigSrv->getSiteConfigByKey('checkout_page_id', $this->idPage), true).'?'.http_build_query($queryData);
+
+				$checkoutConfirmPage = $melisTree->getPageLink($siteConfigSrv->getSiteConfigByKey('checkout_page_id',  $e->getTarget()->getController()->idPage), true).'?'.http_build_query($queryData);
 
 				/**
 				 * This process will display a fake payment form

@@ -39,7 +39,6 @@ class SiteFakePaypalStyleProcesstListener extends SiteGeneralListener
                 if ($data['payment-transaction-return-code'] == 'A')
                 {
                     $orderCheckoutService = $this->serviceManager->get('MelisComOrderCheckoutService');
-                    $orderCheckoutService->setSiteId($siteConfigSrv->getSiteConfigByKey('site_id', $params['idPage']));
                     $orderCheckoutService->checkoutStep2_postPayment();
                 }
             },
