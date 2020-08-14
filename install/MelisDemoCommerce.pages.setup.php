@@ -80,7 +80,7 @@
                             'site_config' => 'newsDetailsPageId',
                             'page_type' => 'published',
                             'columns' => array(
-                                'page_type' => 'PAGE',
+                                'page_type' => 'NEWS_DETAIL',
                                 'page_status' => '1',
                                 'page_menu' => 'LINK',
                                 'page_name' => 'News details',
