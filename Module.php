@@ -38,15 +38,15 @@ class Module
         $moduleRouteListener = new ModuleRouteListener();
         $moduleRouteListener->attach($eventManager);
         
-        $eventManager->attach(MvcEvent::EVENT_DISPATCH_ERROR, function($e) {
-            $viewModel = $e->getViewModel();
-            $viewModel->setTemplate('layout/errorLayout');
-        });
+        // $eventManager->attach(MvcEvent::EVENT_DISPATCH_ERROR, function($e) {
+        //     $viewModel = $e->getViewModel();
+        //     $viewModel->setTemplate('layout/errorLayout');
+        // });
         
-        $eventManager->attach(MvcEvent::EVENT_RENDER_ERROR, function($e) {
-            $viewModel = $e->getViewModel();
-            $viewModel->setTemplate('layout/errorLayout');
-        }); 
+        // $eventManager->attach(MvcEvent::EVENT_RENDER_ERROR, function($e) {
+        //     $viewModel = $e->getViewModel();
+        //     $viewModel->setTemplate('layout/errorLayout');
+        // }); 
         
         // Adding Event listener to customize the Site menu from Plugin
         (new SiteMenuCustomizationListener())->attach($eventManager);
