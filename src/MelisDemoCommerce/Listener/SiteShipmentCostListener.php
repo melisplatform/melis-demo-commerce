@@ -27,7 +27,7 @@ class SiteShipmentCostListener extends SiteGeneralListener
                 $params = $e->getParams();
                 
                 $siteShipmentCostService = $sm->get('SiteShipmentCostService');
-                $params['results'] = $siteShipmentCostService->computeShipmentCost(get_object_vars($params)['results']);
+                $params['results'] = $siteShipmentCostService->computeShipmentCost($params['results']);
             },
             100
         );

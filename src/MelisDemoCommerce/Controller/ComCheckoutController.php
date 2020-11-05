@@ -111,7 +111,7 @@ class ComCheckoutController extends BaseController
         
         if ($request->isPost())
         {
-            $postData = get_object_vars($request->getPost());
+            $postData = $request->getPost()->toArray();
             
             $accountPlugin = $this->MelisCommerceAccountPlugin();
             $data = $accountPlugin->getSelectedAddressDetailsAction($postData['cadd_id']);

@@ -33,7 +33,7 @@ class SiteFakePaymentProcesstListener extends SiteGeneralListener
 				$params = $e->getParams();
 				
 				$request = $this->serviceManager->get('Request');
-				$data = get_object_vars($request->getQuery());
+				$data = $request->getPost()->toArray();
 
 				/** @var MelisSiteConfigService $siteConfigSrv */
 				$siteConfigSrv = $this->serviceManager->get('MelisSiteConfigService');

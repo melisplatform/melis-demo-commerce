@@ -53,7 +53,7 @@ class SiteFakePaymentListener extends SiteGeneralListener
 				);
 				
 				$request = $this->serviceManager->get('Request');
-				$getData = get_object_vars($request->getQuery());
+				$getData = $request->getPost()->toArray();
 				
 				$paymentForm->setData($data);
 				$viewModel->setVariable('fakePaymentForm', $paymentForm);

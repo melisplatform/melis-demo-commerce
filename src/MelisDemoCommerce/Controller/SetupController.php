@@ -91,7 +91,7 @@ class SetupController extends MelisSiteActionController
             {
                 $this->curPlatformId = $platform->plf_id;
             
-                $post = get_object_vars($request->getPost());
+                $post = $request->getPost()->toArray();
                 $step = $post['step'];
                 
                 $this->config = file_get_contents($this->configDir);

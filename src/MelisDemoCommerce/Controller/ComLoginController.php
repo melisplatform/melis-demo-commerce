@@ -93,7 +93,7 @@ class ComLoginController extends BaseController
              * plugin and adding Post as parameter
              */
             $registration = $this->MelisCommerceRegisterPlugin();
-            $result = $registration->render(get_object_vars($request->getPost()))->getVariables();
+            $result = $registration->render($request->getPost()->toArray())->getVariables();
         
             // Retrieving view variable from view
             $status = $result->success;
@@ -127,7 +127,7 @@ class ComLoginController extends BaseController
              * plugin and adding Post as parameter
              */
             $login = $this->MelisCommerceLoginPlugin();
-            $result = $login->render(get_object_vars($request->getPost()))->getVariables();
+            $result = $login->render($request->getPost()->toArray())->getVariables();
             
             // Retrieving view variable from view
             $message = $result->message;

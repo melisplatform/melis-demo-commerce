@@ -86,7 +86,7 @@ class FakeServerPaymentController extends BaseController
         
         if ($request->isPost())
         {
-            $postData = get_object_vars($request->getPost());
+            $postData = $request->getPost()->toArray();
             
             /**
              * This process will display a fake payment form

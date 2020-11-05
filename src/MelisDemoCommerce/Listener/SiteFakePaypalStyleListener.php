@@ -68,7 +68,7 @@ class SiteFakePaypalStyleListener extends SiteGeneralListener
 				);
 				
 				$request = $this->serviceManager->get('Request');
-				$getData = get_object_vars($request->getQuery());
+				$getData = $request->getPost()->toArray();
 				
 				$e->getTarget()->getController()->layout()->setVariables(array(
 					'pageJs' => array(

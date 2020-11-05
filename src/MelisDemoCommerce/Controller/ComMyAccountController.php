@@ -82,7 +82,7 @@ class ComMyAccountController extends BaseController
         $status  = 0;
         $errors  = array();
         $personName = '';
-         
+        
         $request = $this->getRequest();
         
         if ($request->isPost())
@@ -90,7 +90,7 @@ class ComMyAccountController extends BaseController
             $formType = $this->params()->fromQuery('form-type');
             
             $profilePlugin = $this->MelisCommerceProfilePlugin();
-            $result = $profilePlugin->render(get_object_vars($request->getPost()))->getVariables();
+            $result = $profilePlugin->render($request->getPost()->toArray())->getVariables();
             
             // Retrieving view variable from view
             $status = $result->success;
@@ -107,7 +107,7 @@ class ComMyAccountController extends BaseController
             'success' => $status,
             'errors' => $errors,
         );
-         
+        
         return new JsonModel($response);
     }
 
@@ -124,7 +124,7 @@ class ComMyAccountController extends BaseController
             $pluginClass = 'MelisCommerce'.ucfirst($post['type']).'AddressPlugin';
             
             $addressPlugin = $this->$pluginClass();
-            $param = ArrayUtils::merge(get_object_vars($request->getPost()), array('show_select_address_data' => true));
+            $param = ArrayUtils::merge($request->getPost()->toArray()), array('show_select_address_data' => true));
             $result = $addressPlugin->render($param);
             
             $selAdd = $post['type'].'Address';
@@ -163,7 +163,7 @@ class ComMyAccountController extends BaseController
             $pluginClass = 'MelisCommerce'.$type.'AddressPlugin';
             
             $addressPlugin = $this->$pluginClass();
-            $param = ArrayUtils::merge(get_object_vars($request->getPost()), array('show_select_address_data' => true));
+            $param = ArrayUtils::merge($request->getPost()->toArray()), array('show_select_address_data' => true));
             $result = $addressPlugin->render($param)->getVariables();
             
             $selAdd = 'select'.$type.'Address';
