@@ -807,25 +807,31 @@ class DemoCommerceService extends MelisServiceManager
             if (!empty($variantsIds))
             {
                 sort($variantsIds);
+
+                // Client group
+                $ecomAuthSrv = $this->getServiceManager()->get('MelisComAuthenticationService');
+                $clientGroup = null;
+                if ($ecomAuthSrv->hasIdentity())
+                    $clientGroup = $ecomAuthSrv->getClientGroup();
                 
                 // Getting the Variant from Variant Service Entity
                 $variant = $variantSrv->getVariantById($variantsIds[0], $langId);
                 
                 // Getting the Final Price of the variant
-                $varPrice = $variantSrv->getVariantFinalPrice($variantsIds[0], $countryId);
+                $varPrice = $variantSrv->getVariantFinalPrice($variantsIds[0], $countryId, $clientGroup);
 
                 if (empty($varPrice))
                 {
                     $productSrv = $this->getServiceManager()->get('MelisComProductService');
                     // If the variant price not set on variant page this will try to get from the Product Price
-                    $varPrice = $productSrv->getProductFinalPrice($productId, $countryId);
+                    $varPrice = $productSrv->getProductFinalPrice($productId, $countryId, $clientGroup);
                 }
                 
                 // Getting Variant stock
                 $varStock = $variantSrv->getVariantFinalStocks($variantsIds[0], $countryId);
                 if ($varStock)
                 {
-                    $ecomAuthSrv = $this->getServiceManager()->get('MelisComAuthenticationService');
+                    
                     $basketSrv = $this->getServiceManager()->get('MelisComBasketService');
                     
                     $clientKey = $ecomAuthSrv->getId();

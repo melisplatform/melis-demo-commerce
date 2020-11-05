@@ -55,6 +55,12 @@ class SiteCommerceCategoryProductListPluginListener extends SiteGeneralListener
 
         $countryId = $siteConfigSrv->getSiteConfigByKey('site_country_id', $pageId);
 
+        // Client group
+        $ecomAuthSrv = $this->serviceManager->get('MelisComAuthenticationService');
+        $clientGroup = null;
+        if ($ecomAuthSrv->hasIdentity())
+            $clientGroup = $ecomAuthSrv->getClientGroup();
+
         if (!empty($relProducts))
         {
             // Getting the Lowest Price of Product variants and
@@ -80,7 +86,7 @@ class SiteCommerceCategoryProductListPluginListener extends SiteGeneralListener
                         if (empty($lowestPrice))
                         {
                             // Getting the Final Price of a variant
-                            $varPrice = $melisComVariantService->getVariantFinalPrice($var->var_id, $countryId);
+                            $varPrice = $melisComVariantService->getVariantFinalPrice($var->var_id, $countryId, $clientGroup);
                             
                             // if the variant has Price base on the Country
                             // this will partially assign as Lowest Prices
@@ -94,7 +100,7 @@ class SiteCommerceCategoryProductListPluginListener extends SiteGeneralListener
                         else 
                         {
                             // Getting the Final Price of a variant
-                            $varPrice = $melisComVariantService->getVariantFinalPrice($var->var_id, $countryId);
+                            $varPrice = $melisComVariantService->getVariantFinalPrice($var->var_id, $countryId, $clientGroup);
                             
                             // if the variant has Price base on the Country
                             if (!empty($varPrice))

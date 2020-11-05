@@ -68,6 +68,12 @@ class SiteCommerceProductListPluginListener extends SiteGeneralListener
 
         $countryId = $siteConfigSrv->getSiteConfigByKey('site_country_id', $params['pluginFronConfig']['pageId']);
 
+        // Client group
+        $ecomAuthSrv = $this->getServiceManager()->get('MelisComAuthenticationService');
+        $clientGroup = null;
+        if ($ecomAuthSrv->hasIdentity())
+            $clientGroup = $ecomAuthSrv->getClientGroup();
+
         // Getting the Lowest Price of Product variants and
         // Secondary image for slider image hover
         if (!empty($products))
@@ -86,7 +92,7 @@ class SiteCommerceProductListPluginListener extends SiteGeneralListener
                     if (empty($lowestPrice))
                     {
                         // Getting the Final Price of a variant
-                        $varPrice = $melisComVariantService->getVariantFinalPrice($var->var_id, $countryId);
+                        $varPrice = $melisComVariantService->getVariantFinalPrice($var->var_id, $countryId, $clientGroup);
 
                         // if the variant has Price base on the Country
                         // this will partially assign as Lowest Prices
@@ -100,7 +106,7 @@ class SiteCommerceProductListPluginListener extends SiteGeneralListener
                     else
                     {
                         // Getting the Final Price of a variant
-                        $varPrice = $melisComVariantService->getVariantFinalPrice($var->var_id, $countryId);
+                        $varPrice = $melisComVariantService->getVariantFinalPrice($var->var_id, $countryId, $clientGroup);
 
                         // if the variant has Price base on the Country
                         if (!empty($varPrice))
