@@ -64,9 +64,16 @@ class SetupController extends MelisSiteActionController
         if (empty($platformIdsTbl->getEntryById($platform->plf_id)->current()))
             exit('Current Platform "'.getenv('MELIS_PLATFORM').'" has no Platform ID\'s to be used.');
 
-        // Updating modules path config
-        unlink($_SERVER['DOCUMENT_ROOT'].'/../config/melis.modules.path.php');
-        
+        $setupSessTmp = new Container('MelisDemoCommerce');
+        if (!isset($setupSessTmp['reload-path'])) {
+            // Updating modules path config
+            unlink($_SERVER['DOCUMENT_ROOT'].'/../config/melis.modules.path.php');
+            // declare the index
+            $setupSessTmp['reload-path'] = 1;
+            // reload
+            return $this->redirect()->toUrl('/MelisDemoCommerce/setup');
+        }
+
         return $view;
     }
     
