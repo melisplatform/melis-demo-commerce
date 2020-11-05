@@ -45,6 +45,7 @@
                                 'ord_status' => 4,
                                 'ord_country_id' => 1,
                                 'ord_reference' => 'I06DKJW7YE',
+                                'ord_delivery_method' => 'delivery',
                             ),
                             'order_baskets' => array(
                                 array(
@@ -150,6 +151,7 @@
                                 'ord_status' => 3,
                                 'ord_country_id' => 1,
                                 'ord_reference' => '3LUSO3M4CP',
+                                'ord_delivery_method' => 'delivery',
                             ),
                             'order_baskets' => array(
                                 array(
@@ -243,6 +245,7 @@
                                 'ord_status' => 1,
                                 'ord_country_id' => 1,
                                 'ord_reference' => 'B9OOR6SZ6V',
+                                'ord_delivery_method' => 'delivery',
                             ),
                             'order_baskets' => array(
                                 array(
@@ -362,6 +365,7 @@
                                 'ord_status' => 1,
                                 'ord_country_id' => 1,
                                 'ord_reference' => 'MLLV30XW72',
+                                'ord_delivery_method' => 'delivery',
                             ),
                             'order_baskets' => array(
                                 array(
