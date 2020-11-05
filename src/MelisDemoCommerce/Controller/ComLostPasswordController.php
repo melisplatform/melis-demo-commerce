@@ -86,7 +86,7 @@ class ComLostPasswordController extends BaseController
                 'email' => $siteConfigSrv->getSiteConfigByKey('lostpassword_email', $this->idPage),
             );
             
-            $emailConfig = ArrayUtils::merge($request->getPost()->toArray()), $data);
+            $emailConfig = ArrayUtils::merge($request->getPost()->toArray(), $data);
             
             $lostPasswordResetPlugin = $this->MelisCommerceLostPasswordGetEmailPlugin();
             $result = $lostPasswordResetPlugin->render($emailConfig)->getVariables();

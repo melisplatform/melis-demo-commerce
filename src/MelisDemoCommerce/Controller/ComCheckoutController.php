@@ -106,7 +106,7 @@ class ComCheckoutController extends BaseController
         // Default Values
         $status  = 0;
         $address  = array();
-         
+        
         $request = $this->getRequest();
         
         if ($request->isPost())
@@ -130,7 +130,7 @@ class ComCheckoutController extends BaseController
             'success' => $status,
             'address' => $address,
         );
-         
+        
         return new JsonModel($response);
     }
 }

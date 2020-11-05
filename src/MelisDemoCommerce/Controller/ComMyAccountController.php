@@ -124,7 +124,7 @@ class ComMyAccountController extends BaseController
             $pluginClass = 'MelisCommerce'.ucfirst($post['type']).'AddressPlugin';
             
             $addressPlugin = $this->$pluginClass();
-            $param = ArrayUtils::merge($request->getPost()->toArray()), array('show_select_address_data' => true));
+            $param = ArrayUtils::merge($request->getPost()->toArray(), array('show_select_address_data' => true));
             $result = $addressPlugin->render($param);
             
             $selAdd = $post['type'].'Address';
@@ -163,7 +163,7 @@ class ComMyAccountController extends BaseController
             $pluginClass = 'MelisCommerce'.$type.'AddressPlugin';
             
             $addressPlugin = $this->$pluginClass();
-            $param = ArrayUtils::merge($request->getPost()->toArray()), array('show_select_address_data' => true));
+            $param = ArrayUtils::merge($request->getPost()->toArray(), array('show_select_address_data' => true));
             $result = $addressPlugin->render($param)->getVariables();
             
             $selAdd = 'select'.$type.'Address';
