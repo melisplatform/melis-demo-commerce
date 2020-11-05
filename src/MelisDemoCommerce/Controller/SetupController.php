@@ -1389,6 +1389,7 @@ class SetupController extends MelisSiteActionController
             'price_var_id', 
             'price_country_id', 
             'price_currency', 
+            'price_group_id', 
             'price_net', 
             'price_gross', 
             'price_vat_percent', 
