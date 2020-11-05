@@ -4,6 +4,7 @@
             'columns' => array(
                 'cli_status' => 1,
                 'cli_country_id' => 1,
+                'cli_group_id' => 1,
             ),
             'client_persons' => array(
                 array(
