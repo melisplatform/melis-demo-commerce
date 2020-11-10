@@ -87,13 +87,14 @@ class SiteCommerceProductListPluginListener extends SiteGeneralListener
                 $lowestPrice = null;
                 $lowestPriceCurrency = null;
                 $lowestPriceCurrencyCode = null;
+                $groupPrice = null;
                 foreach ($prdVar As $var)
                 {
+                    // Getting the Final Price of a variant
+                    $varPrice = $melisComVariantService->getVariantFinalPrice($var->var_id, $countryId, $clientGroup);
+
                     if (empty($lowestPrice))
                     {
-                        // Getting the Final Price of a variant
-                        $varPrice = $melisComVariantService->getVariantFinalPrice($var->var_id, $countryId, $clientGroup);
-
                         // if the variant has Price base on the Country
                         // this will partially assign as Lowest Prices
                         if (!empty($varPrice))
@@ -105,9 +106,6 @@ class SiteCommerceProductListPluginListener extends SiteGeneralListener
                     }
                     else
                     {
-                        // Getting the Final Price of a variant
-                        $varPrice = $melisComVariantService->getVariantFinalPrice($var->var_id, $countryId, $clientGroup);
-
                         // if the variant has Price base on the Country
                         if (!empty($varPrice))
                         {
@@ -121,13 +119,30 @@ class SiteCommerceProductListPluginListener extends SiteGeneralListener
                             }
                         }
                     }
+
+                    //store group price
+                    if(!empty($varPrice)) {
+                        if ($varPrice->price_group_id > 1) {
+                            if (empty($groupPrice))
+                                $groupPrice = $varPrice->price_net;
+                            else {
+                                if ($groupPrice > $varPrice->price_net) {
+                                    $groupPrice = $varPrice->price_net;
+                                }
+                            }
+                        }
+                    }
                 }
+
+                //use the group price instead of one in the general if group price is not null
+                if(!empty($groupPrice))
+                    $lowestPrice = $groupPrice;
 
                 // If the Lowest Price is still null
                 // this will try to get from the Product Price
                 if (empty($lowestPrice))
                 {
-                    $prdPrice = $melisComProductService->getProductVariantPriceById($prd['prd_id']);
+                    $prdPrice = $melisComProductService->getProductFinalPrice($prd['prd_id'], -1);
 
                     if (!empty($prdPrice))
                     {

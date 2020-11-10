@@ -819,12 +819,20 @@ class DemoCommerceService extends MelisServiceManager
                 
                 // Getting the Final Price of the variant
                 $varPrice = $variantSrv->getVariantFinalPrice($variantsIds[0], $countryId, $clientGroup);
-
                 if (empty($varPrice))
                 {
-                    $productSrv = $this->getServiceManager()->get('MelisComProductService');
-                    // If the variant price not set on variant page this will try to get from the Product Price
-                    $varPrice = $productSrv->getProductFinalPrice($productId, $countryId, $clientGroup);
+                    /**
+                     * try to get the price from general group in variant
+                     */
+                    $varPrice = $variantSrv->getVariantFinalPrice($variantsIds[0], $countryId);
+                    if(empty($varPrice)) {
+                        $productSrv = $this->getServiceManager()->get('MelisComProductService');
+                        // If the variant price not set on variant page this will try to get from the Product Price
+                        $varPrice = $productSrv->getProductFinalPrice($productId, $countryId, $clientGroup);
+                        if(empty($varPrice))
+                            //get price form general group in product
+                            $varPrice = $productSrv->getProductFinalPrice($productId, $countryId);
+                    }
                 }
                 
                 // Getting Variant stock
