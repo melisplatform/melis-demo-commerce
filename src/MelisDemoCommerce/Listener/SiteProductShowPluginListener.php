@@ -58,7 +58,7 @@ class SiteProductShowPluginListener extends SiteGeneralListener
                         $action = null;
                         $selection = array();
 
-                        $countryId = $siteConfigSrv->getSiteConfigByKey('aboutus_slider', $params['pluginFronConfig']['pageId']);
+                        $countryId = $siteConfigSrv->getSiteConfigByKey('site_country_id', $params['pluginFronConfig']['pageId']);
 
                         if ($productId)
                         {
@@ -66,7 +66,6 @@ class SiteProductShowPluginListener extends SiteGeneralListener
                             
                             if(is_null($variant))
                             {
-                                
                                 $variant = $variantSvc->getVariantListByProductId($productId, $langId, $countryId);
                                 $variant = !empty($variant)? $variant[0] : $variant;
                             }
