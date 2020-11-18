@@ -88,11 +88,13 @@
 									$skuId = $variant->getId();
 									$sku = !empty($variant->getVariant())? '('.$variant->getVariant()->var_sku.')' : '';
 									
-									if(!empty($variant->getPrices()))
+									if(!empty($variant->getPrices())){
+
 										if (!empty($variant->getPrices()[0]->price_net))
 											$price = $this->currency->cur_symbol. ' ' .$variant->getPrices()[0]->price_net;
+									}
 									
-									if (!empty($price)) 
+									if (empty($price)) 
 										$price = $this->currency->cur_symbol. ' ' .$product->getPrice()[0]->price_net;
 								}
 								
