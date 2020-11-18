@@ -60,13 +60,18 @@ class SiteProductShowPluginListener extends SiteGeneralListener
 
                         $countryId = $siteConfigSrv->getSiteConfigByKey('site_country_id', $params['pluginFronConfig']['pageId']);
 
+                        $ecomAuthSrv = $sm->get('MelisComAuthenticationService');
+                        $clientGroupId = null;
+                        if ($ecomAuthSrv->hasIdentity())
+                            $clientGroupId = $ecomAuthSrv->getClientGroup();
+
                         if ($productId)
                         {
-                            $variant = $variantSvc->getMainVariantByProductId($productId, $langId, $countryId);
+                            $variant = $variantSvc->getMainVariantByProductId($productId, $langId, $countryId, $clientGroupId);
                             
                             if(is_null($variant))
                             {
-                                $variant = $variantSvc->getVariantListByProductId($productId, $langId, $countryId);
+                                $variant = $variantSvc->getVariantListByProductId($productId, $langId, $countryId, $clientGroupId);
                                 $variant = !empty($variant)? $variant[0] : $variant;
                             }
                             
@@ -119,7 +124,7 @@ class SiteProductShowPluginListener extends SiteGeneralListener
                         $viewVariables->addToCart = $viewRender->render($addToCartPlugin);
 
                         // get list of active variants
-                        $activeVariants = $variantSvc->getVariantListByProductId($productId, $langId, $countryId, true);
+                        $activeVariants = $variantSvc->getVariantListByProductId($productId, $langId, $countryId, $clientGroupId, true);
                         $viewVariables->product_variant = $variant;
                         $viewVariables->currency = $currency;
                         $viewVariables->hasVariant = !empty($activeVariants) ? true : false;
