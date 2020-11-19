@@ -117,7 +117,7 @@ class SiteProductShowPluginListener extends SiteGeneralListener
                                     if ((!empty($variantPrice) || !empty($productPrice))) {
                                         $variant = $var;
                                         $variantId = $variant->getId();
-                                        $price = $variantPrice;
+                                        $price = !empty($variantPrice) ? $variantPrice : $productPrice;
                                         break;
                                     }
                                 }
