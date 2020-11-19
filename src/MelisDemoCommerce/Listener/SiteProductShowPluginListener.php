@@ -49,6 +49,7 @@ class SiteProductShowPluginListener extends SiteGeneralListener
                         $container = new Container('melisplugins');
                         $langId = $container['melis-plugins-lang-id'];
                         
+                        $productSvc = $sm->get('MelisComProductService');
                         $variantSvc = $sm->get('MelisComVariantService');
                         $currencySvc = $sm->get('MelisComCurrencyService');
                         $currency = $currencySvc->getDefaultCurrency();
@@ -57,6 +58,7 @@ class SiteProductShowPluginListener extends SiteGeneralListener
                         $variantId = null;
                         $action = null;
                         $selection = array();
+                        $price = null;
 
                         $countryId = $siteConfigSrv->getSiteConfigByKey('site_country_id', $params['pluginFronConfig']['pageId']);
 
@@ -65,32 +67,60 @@ class SiteProductShowPluginListener extends SiteGeneralListener
                         if ($ecomAuthSrv->hasIdentity())
                             $clientGroupId = $ecomAuthSrv->getClientGroup();
 
+                        // Product Price
+                        $productPrice = $productSvc->getProductFinalPrice($productId, $countryId, $clientGroupId);
+                        // dump($productPrice);
+                        $price = $productPrice;
+
                         if ($productId)
                         {
-                            $variant = $variantSvc->getMainVariantByProductId($productId, $langId, $countryId, $clientGroupId);
+                            // Product main variant
+                            $mainVariant = $variantSvc->getMainVariantByProductId($productId, null, $countryId, $clientGroupId);
                             
-                            if(is_null($variant))
+                            if(!empty($mainVariant))
                             {
-                                $variant = $variantSvc->getVariantListByProductId($productId, $langId, $countryId, $clientGroupId);
-                                $variant = !empty($variant)? $variant[0] : $variant;
-                            }
-                            
-                            if(!empty($variant))
-                            {
-                                $tmp = $variant->getAttributeValues();
+                                $variantPrice = $variantSvc->getVariantFinalPrice($mainVariant->getId(), $countryId, $clientGroupId);
+
+                                if (!empty($variantPrice)) {
+
+                                    $variant = $mainVariant;
+                                    $price = $variantPrice;
+
+                                    $tmp = $variant->getAttributeValues();
                                 
-                                usort($tmp, function($a, $b)
-                                {
-                                    return strcmp($a->atval_attribute_id, $b->atval_attribute_id);
-                                });
-                                
-                                foreach($tmp as $val)
-                                {
-                                    $action = $val->atval_attribute_id;
-                                    $selection[$val->atval_attribute_id] = $val->atval_id;
+                                    usort($tmp, function($a, $b){
+                                        return strcmp($a->atval_attribute_id, $b->atval_attribute_id);
+                                    });
+                                    
+                                    foreach($tmp as $val) {
+                                        $action = $val->atval_attribute_id;
+                                        $selection[$val->atval_attribute_id] = $val->atval_id;
+                                    }
+                                    
+                                    $variantId = $variant->getId();
                                 }
-                                
-                                $variantId = $variant->getId();
+                            }
+
+                            if(empty($variant))
+                            {
+                                $variants = $variantSvc->getVariantListByProductId($productId, $langId, $countryId, $clientGroupId);
+
+                                foreach ($variants As $var) {
+
+                                    // Variant price
+                                    $variantPrice = $variantSvc->getVariantFinalPrice($var->getId(), $countryId, $clientGroupId);
+
+                                    // Variant stock
+                                    // $variantStock = $variantSvc->getVariantFinalStocks($var->getId(), $countryId);
+
+                                    // Selecting variant with valid price and stock
+                                    if ((!empty($variantPrice) || !empty($productPrice))) {
+                                        $variant = $var;
+                                        $variantId = $variant->getId();
+                                        $price = $variantPrice;
+                                        break;
+                                    }
+                                }
                             }
                         }
                         
@@ -128,6 +158,7 @@ class SiteProductShowPluginListener extends SiteGeneralListener
                         $viewVariables->product_variant = $variant;
                         $viewVariables->currency = $currency;
                         $viewVariables->hasVariant = !empty($activeVariants) ? true : false;
+                        $viewVariables->price  = $price;
                     }
                 }
             },

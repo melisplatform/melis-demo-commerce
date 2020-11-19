@@ -5,14 +5,14 @@ $(function() {
 		if ($(".product-attribute-selection :first").length) {
 			$(".product-attribute-selection :first").trigger("change");
 		} else {
-			if (
-				$(".add-to-cart-zone .alert-danger").is(":visible") ||
-				$(".prodcut-price .new-price")
-					.text()
-					.trim() == "N/A"
-			) {
-				setAddTocartState(true);
-			}
+			// if (
+			// 	$(".add-to-cart-zone .alert-danger").is(":visible") ||
+			// 	$(".prodcut-price .new-price")
+			// 		.text()
+			// 		.trim() == "N/A"
+			// ) {
+			// 	setAddTocartState(true);
+			// }
 		}
 	}, 100);
 

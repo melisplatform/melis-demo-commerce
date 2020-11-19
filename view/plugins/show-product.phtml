@@ -73,7 +73,7 @@
 				<div class="col-lg-4 col-md-5 col-sm-12 col-xs-12">
 					<div class="single-product-description" data-variantid="<?= $varId ?>" data-pageid="<?= $this->layout()->idPage; ?>">
 							<?php dump($product->getPrice()); ?>
-							<?php dump($variant); ?>
+							<?php dump($this->price); ?>
 						<div class="sp-top-des">
 							<?php 
 								$prodTexts = $product->getTexts();
@@ -87,20 +87,12 @@
 								{
 									$skuId = $variant->getId();
 									$sku = !empty($variant->getVariant())? '('.$variant->getVariant()->var_sku.')' : '';
-									
-									if(!empty($variant->getPrices())){
-
-										if (!empty($variant->getPrices()[0]->price_net))
-											$price = $this->currency->cur_symbol. ' ' .$variant->getPrices()[0]->price_net;
-									}
-									
-									if (empty($price)) 
-										if ($product->getPrice())
-											if (!empty($product->getPrice()[0]->price_net))
-												$price = $this->currency->cur_symbol. ' ' .$product->getPrice()[0]->price_net;
-											else
-												$price = 'N/A';
 								}
+
+								if (!empty($this->price)) {
+									$price = $this->price->cur_symbol.$this->price->price_net;
+								}
+
 								
 								$subTitle = '';
 								foreach($prodTexts as $text)
