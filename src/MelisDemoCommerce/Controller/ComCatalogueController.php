@@ -17,6 +17,8 @@ class ComCatalogueController extends BaseController
         /** @var MelisSiteConfigService $siteConfigSrv */
         $siteConfigSrv = $this->getServiceManager()->get('MelisSiteConfigService');
 
+        $countryId = $siteConfigSrv->getSiteConfigByKey('site_country_id', $this->idPage);
+
         $catalogueFilter = array();
         $queryParameters = $this->params()->fromQuery();
         $routeparameters = array();
@@ -120,9 +122,13 @@ class ComCatalogueController extends BaseController
             'm_col_name' => $m_col_name,
             'm_order' => $m_order,
             'm_box_filter_docs' => array('mainImage' => 'DEFAULT', 'altImage' => 'SMALL'),
+            'm_box_product_country' => $countryId,
             'pagination' => array(
                 'm_page_nb_per_page' => 9,
             ),
+            'filters' => [
+                'm_box_product_country' => $countryId
+            ]
         );
         $params = array_merge($params, $routeparameters);
         
