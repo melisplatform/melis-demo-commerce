@@ -70,7 +70,7 @@ class SiteCommerceProductListPluginListener extends SiteGeneralListener
 
         // Client group
         $ecomAuthSrv = $this->serviceManager->get('MelisComAuthenticationService');
-        $clientGroup = null;
+        $clientGroup = 1;
         if ($ecomAuthSrv->hasIdentity())
             $clientGroup = $ecomAuthSrv->getClientGroup();
 
@@ -142,7 +142,7 @@ class SiteCommerceProductListPluginListener extends SiteGeneralListener
                 // this will try to get from the Product Price
                 if (empty($lowestPrice))
                 {
-                    $prdPrice = $melisComProductService->getProductFinalPrice($prd['prd_id'], -1);
+                    $prdPrice = $melisComProductService->getProductFinalPrice($prd['prd_id'], $countryId, $clientGroup);
 
                     if (!empty($prdPrice))
                     {
