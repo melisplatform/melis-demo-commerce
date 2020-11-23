@@ -27,6 +27,8 @@ class ComCatalogueController extends BaseController
         if(empty($queryParameters)){
             $routeparameters['m_box_category_tree_ids_selected'][] = $this->params()->fromRoute('categoryId');
             $queryParameters = $routeparameters;
+        }elseif(empty($queryParameters['m_box_category_tree_ids_selected'])){
+            $queryParameters['m_box_category_tree_ids_selected'][] = $this->params()->fromRoute('categoryId');
         }
         
         $pageBanner = '';
@@ -130,7 +132,7 @@ class ComCatalogueController extends BaseController
                 'm_box_product_country' => $countryId
             ]
         );
-        $params = array_merge($params, $routeparameters);
+        $params = array_merge($params, $queryParameters);
         
         // add generated view to children views for displaying it in the home page view
         $this->view->addChild($categoryProductList->render($params), 'categoryProductList');
