@@ -68,7 +68,7 @@ class SiteCommerceRelatedProductsPluginListener extends SiteGeneralListener
                 $prd_id = $val->getId();
 
                 //get original price
-                $price = $val->display_price;
+                $price = [];
 
                 // Getting the List of Variants of the Product
                 $prdVar = $melisComProductService->getProductVariants($prd_id, true);
@@ -154,10 +154,14 @@ class SiteCommerceRelatedProductsPluginListener extends SiteGeneralListener
 
                 if (!empty($lowestPrice))
                 {
-                    $price->price_net = $lowestPrice;
-                    $price->cur_symbol = $lowestPriceCurrency;
-                    $price->cur_code = $lowestPriceCurrencyCode;
+                    $price['price_net'] = $lowestPrice;
+                    $price['cur_symbol'] = $lowestPriceCurrency;
+                    $price['cur_code'] = $lowestPriceCurrencyCode;
                 }
+                // dump($price);
+                $relProducts[$key]->display_price = $price;
+                // dump($relProducts[$key]->setPrice());
+                // dump($lowestPrice);
             }
         }
         return $relProducts;

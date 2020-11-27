@@ -16,7 +16,6 @@
                             $productName = '';
                             $mainImage = $this->SiteConfig('default_image');
                             $hoverImage = '';
-                            $price = '';
 
                             $productPageLink = $this->MelisCommerceLink('product', $product->getId(), $this->langId, true);
 
@@ -35,7 +34,9 @@
                                 }
                             }
 
-                            $price = $product->display_price;
+                            $price = 'N/A';
+                            if (!empty($product->display_price))
+                                $price = $product->display_price['cur_symbol'].$product->display_price['price_net'];
 
                             foreach ($product->getTexts() as $text) {
                                 if ($text->ptt_code == 'TITLE') {
@@ -77,7 +78,7 @@
                                         </div>
                                         <div class="prodcut-ratting-price">
                                             <div class="prodcut-price">
-                                                <div> <b><?= $price->cur_symbol . ' ' . $price->price_net ?> </b></div>
+                                                <div> <b><?= $price ?> </b></div>
                                             </div>
                                         </div>
                                     </div>
