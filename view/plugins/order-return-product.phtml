@@ -1,78 +1,88 @@
 <?php
-    $returnProducts = $this->returnProducts;
-    if (!empty($returnProducts)){
-        foreach($returnProducts as $orderId => $order){
+    $order = $this->returnProducts;
+    if (!empty($order)){
 ?>
     <div class="checkout-payment-area order-det">
     	<div class="c-order-details-box">
     		<h3>Order: Return Products</h3>
-    		<div class="row">
-    			<div class="col-xs-12 col-sm-9">
-    				<div class="reference-box">
-    					<span>Reference:</span>
-    					<span class="ref-num r-highlight"><?= !empty($order['reference']) ? $order['reference'] : ''; ?></span>
-    				</div>
-    				<div class="order-date-box">
-    				
-    					Placed on <?= !empty($order['ord_date_creation']) ? date("F, d Y" ,strtotime($order['ord_date_creation'])) . ' at ' .date("H:iA" ,strtotime($order['ord_date_creation'])): ''; ?>
-    				</div>
-    			</div>
-    			<div class="col-xs-12 col-sm-3">
-    				<div class="status-box">
-    					<span>Status:</span>
-    					<span class="status r-highlight">Test status</span>
-    				</div>
-    			</div>
-    		</div>
-    		<div class="c-order-details-content">
+            <div class="row">
+                <div class="col-xs-12 col-sm-9">
+                    <div class="reference-box">
+                        <span>Reference:</span>
+                        <span class="ref-num r-highlight"><?= $reference = !empty($order['reference'])? $order['reference'] : ''; ?></span>
+                    </div>
+                    <div class="order-date-box">
+                        Placed on <?= $date = !empty($order['date'])? date("F, d Y" ,strtotime($order['date'])) . ' at ' .date("H:iA" ,strtotime($order['date'])): ''; ?>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-3">
+                    <div class="status-box">
+                        <span>Status:</span>
+                        <span class="status r-highlight"><?= $status = !empty($order['status'])? $order['status']: ''; ?></span>
+                    </div>
+                </div>
+            </div>
+            <div class="c-order-details-content">
                 <div class="table-responsive">
                     <table class="checkout-area table c-table-lists">
                         <thead>
-                            <tr class="cart_item check-heading">
-                                <td class="ctg-type">Product</td>
-                                <td class="ctg-type text-center">Unit Price</td>
-                                <td class="ctg-type text-center"><span class="desktop-only">Quantity</span><span class="mobile-only">Qty</span></td>
-                                <td class="ctg-type text-center"><span class="desktop-only">Discount</span><span class="mobile-only">Disc</span></td>
-                                <td class="ctg-type"> Total</td>
-                            </tr>
+                        <tr class="cart_item check-heading">
+                            <td class="ctg-type">Product</td>
+                            <td class="ctg-type text-center">Unit Price</td>
+                            <td class="ctg-type text-center"><span class="desktop-only">Quantity</span><span class="mobile-only">Qty</span></td>
+                            <td class="ctg-type text-center"><span class="desktop-only">Discount</span><span class="mobile-only">Disc</span></td>
+                            <td class="ctg-type text-center"> Returns</td>
+                            <td class="ctg-type"> Total</td>
+                        </tr>
                         </thead>
                         <tbody>
                         <?php
-                            if(!empty($order['products'])){
-                               foreach($order['products'] as $item){
-                            ?>
-                            <tr class="cart_item check-item prd-name">
-                                <td class="ctg-type c-product-img">
-                                    <div class="img-box modified">
-                                        <img src="<?= $item['productImage']?>" alt="">
-                                        <div class="c-product-sku-box">
-                                            <span><?= $item['productName']?></span><span class="c-product-sku">(<?= $item['productSKU']?>)</span>
-                                        </div>
-                                        <div class="mobile-only">
+                        if(!empty($order['items'])){
+                            foreach($order['items'] as $item){
+                                ?>
+                                <tr class="cart_item check-item prd-name">
+                                    <td class="ctg-type c-product-img">
+                                        <div class="img-box modified">
+                                            <img src="<?= $item['productImage']?>" alt="">
                                             <div class="c-product-sku-box">
-                                                <span class="c-product-sku-txt">SKU</span>
-                                                <span class="c-product-sku"><?= $item['productSKU']?></span>
+                                                <span><?= $item['productName']?></span><span class="c-product-sku">(<?= $item['sku']?>)</span>
                                             </div>
-                                            <span class="c-product-title"><?= $item['productName']?></span>
+                                            <div class="mobile-only">
+                                                <div class="c-product-sku-box">
+                                                    <span class="c-product-sku-txt">SKU</span>
+                                                    <span class="c-product-sku"><?= $item['sku']?></span>
+                                                </div>
+                                                <span class="c-product-title"><?= $item['productName']?></span>
+                                            </div>
                                         </div>
-                                    </div>
-                                 </td>
-                                <td class="ctg-type text-center"> <?= $item['currency']. '' .number_format($item['priceNet'], 2) ?> </td>
-                                <td class="ctg-type text-center"> <?= $item['qty']?>  </td>
-                                <td class="ctg-type text-center"> <?= ($item['discount'])? $item['currency']. '' .number_format($item['discount'], 2) : '' ?>   </td>
-                                <td class="ctg-type"> <?= $item['currency']. '' .number_format($item['total'], 2)?> </td>
-                            </tr>
-                        <?php
-                               }
+                                    </td>
+                                    <td class="ctg-type text-center"> <?= $item['currency']. '' .number_format($item['price'], 2) ?> </td>
+                                    <td class="ctg-type text-center"> <?= $item['quantity']?>  </td>
+                                    <td class="ctg-type text-center"> <?= ($item['discount'])? $item['currency']. '' .number_format($item['discount'], 2) : '' ?>   </td>
+                                    <td class="ctg-type text-center"><p>Returned: <?= $item['returnedProduct']; ?><br><?= ($item['returnedProduct'] >= $item['quantity']) ? '' : "<span class='return-product-show'>Return product</span>";?></p></td>
+                                    <td class="ctg-type"> <?= $item['currency']. '' .number_format($item['total'], 2)?> </td>
+                                </tr>
+                                <?php
                             }
+                        }
                         ?>
                         </tbody>
                     </table>
                 </div>
-    		</div>
+            </div>
     	</div>
     </div>
-    <?php } ?>
+    <div class="order-return-product-msg-form">
+        <div class="rp-msg-form-cont hidden">
+            <h4>You wish to return this product, please fill the form:</h4>
+            <?php
+            $form = $this->addMessageForm;
+            $form->prepare();
+            echo $this->form()->openTag($form);
+            echo $this->DemoSiteFieldCollection($form);
+            ?>
+        </div>
+    </div>
     <br>
 <?php } else { ?>
     <div class="alert alert-danger">

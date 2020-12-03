@@ -38,17 +38,23 @@ class SiteOrderReturnProductPluginListener extends SiteGeneralListener
                 // Checking the Plugin template for customization
                 if (in_array($params['view']->getTemplate(), array('MelisDemoCommerce/order-return-product')))
                 {
+                    $variantSvc = $sm->get('MelisComVariantService');
+
                     $viewVariables = $params['view']->getVariables();
-                    
-                    $returnProducts = $viewVariables->returnProducts;
-                    foreach($returnProducts as $orderId => $rProduct) {
-                        if (!empty($rProduct['products'])) {
-                            foreach ($rProduct['products'] As $key => $item) {
-                                $returnProducts[$orderId]['products'][$key]['productImage'] = $documentSrv->getDocDefaultImageFilePath('product', $item['productId']);
-                            }
+
+                    $orderList = $viewVariables->returnProducts;
+
+                    if (!empty($orderList['items']))
+                    {
+                        foreach ($orderList['items'] As $key => $item)
+                        {
+                            $product = $variantSvc->getProductByVariantId($item['variant_id']);
+                            $prdId = $product->prd_id;
+
+                            $orderList['items'][$key]['productImage'] = $documentSrv->getDocDefaultImageFilePath('product', $prdId);
                         }
+                        $viewVariables->returnProducts = $orderList;
                     }
-                    $viewVariables->returnProducts = $returnProducts;
                 }
             },
             100

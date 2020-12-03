@@ -27,15 +27,11 @@ class ComOrderController extends BaseController
             'order_messages_parameters' => array(
                 'template_path' => 'MelisDemocommerce/order-messages'
             ),
+            'order_return_product_parameters' => array(
+                'template_path' => 'MelisDemoCommerce/order-return-product'
+            ),
         );
         $this->view->addChild($orderPlugin->render($orderParameter), 'showOrderDetails');
-        
-        $this->layout()->setVariables(array(
-            'pageJs' => array(
-                '/MelisDemoCommerce/js/melisSiteHelper.js',
-                '/MelisDemoCommerce/js/order-details.js',
-            ),
-        ));
         
         $this->view->setVariable('idPage', $this->idPage);
         return $this->view;

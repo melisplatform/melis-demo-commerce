@@ -66,12 +66,12 @@ class ComMyAccountController extends BaseController
         );
         $this->view->addChild($clientAccount->render($clientAccountParam), 'account');
         
-        $this->layout()->setVariables(array(
-            'pageJs' => array(
-                '/MelisDemoCommerce/js/melisSiteHelper.js',
-                '/MelisDemoCommerce/js/account.js',
-            ),
-        ));
+//        $this->layout()->setVariables(array(
+//            'pageJs' => array(
+//                '/MelisDemoCommerce/js/melisSiteHelper.js',
+//                '/MelisDemoCommerce/js/account.js',
+//            ),
+//        ));
         
         $this->view->setVariable('idPage', $this->idPage);
         return $this->view;
