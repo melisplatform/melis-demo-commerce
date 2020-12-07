@@ -97,6 +97,7 @@ class SiteCommerceRelatedProductsPluginListener extends SiteGeneralListener
                             $lowestPrice = $varPrice->price_net;
                             $lowestPriceCurrency = $varPrice->cur_symbol;
                             $lowestPriceCurrencyCode = $varPrice->cur_code;
+                            $price['varPrice'][$var->var_id] = $varPrice;
                         }
                     }
                     else
@@ -140,6 +141,7 @@ class SiteCommerceRelatedProductsPluginListener extends SiteGeneralListener
 
                 // If the Lowest Price is still null
                 // this will try to get from the Product Price
+                $prdPrice = null;
                 if (empty($lowestPrice))
                 {
                     $prdPrice = $melisComProductService->getProductFinalPrice($prd_id, -1, $clientGroup);
@@ -157,6 +159,7 @@ class SiteCommerceRelatedProductsPluginListener extends SiteGeneralListener
                     $price['price_net'] = $lowestPrice;
                     $price['cur_symbol'] = $lowestPriceCurrency;
                     $price['cur_code'] = $lowestPriceCurrencyCode;
+                    $price['prdPrice'] = $prdPrice;
 
                     $relProducts[$key]->display_price = $price;
                 }
