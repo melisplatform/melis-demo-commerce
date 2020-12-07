@@ -55,7 +55,7 @@ class SiteCommerceRelatedProductsPluginListener extends SiteGeneralListener
 
         // Client group
         $ecomAuthSrv = $this->serviceManager->get('MelisComAuthenticationService');
-        $clientGroup = null;
+        $clientGroup = -1;
         if ($ecomAuthSrv->hasIdentity())
             $clientGroup = $ecomAuthSrv->getClientGroup();
 
