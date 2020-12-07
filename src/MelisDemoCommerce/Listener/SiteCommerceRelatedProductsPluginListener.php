@@ -118,6 +118,9 @@ class SiteCommerceRelatedProductsPluginListener extends SiteGeneralListener
                                 $lowestPrice = $varPrice->price_net;
                                 $lowestPriceCurrency = $varPrice->cur_symbol;
                                 $lowestPriceCurrencyCode = $varPrice->cur_code;
+
+                                $price['varPrice'][$var->var_id] = $varPrice;
+                                $price['second'] = true;
                             }
                         }
                     }
