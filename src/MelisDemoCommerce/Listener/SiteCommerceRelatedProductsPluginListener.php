@@ -148,7 +148,7 @@ class SiteCommerceRelatedProductsPluginListener extends SiteGeneralListener
 
                 //     $lowestPrice = $groupPrice;
                     
-                }
+                // }
 
                 // If the Lowest Price is still null
                 // this will try to get from the Product Price
