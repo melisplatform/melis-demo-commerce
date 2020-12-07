@@ -131,13 +131,13 @@ class SiteCommerceRelatedProductsPluginListener extends SiteGeneralListener
                             if (empty($groupPrice)) {
 
                                 $groupPrice = $varPrice->price_net;
-                                $price['prdPrice'] = $varPrice;
+                                $price['groupPrice'] = $varPrice;
                                 $price['first'] = true;
                             }
                             else {
                                 if ($groupPrice > $varPrice->price_net) {
                                     $groupPrice = $varPrice->price_net;
-                                    $price['prdPrice'] = $varPrice;
+                                    $price['groupPrice'] = $varPrice;
                                 }
                             }
                         }
