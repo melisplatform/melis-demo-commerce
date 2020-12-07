@@ -316,6 +316,13 @@ return [
                         ],
                     ],
                 ],
+                'MelisCommerceOrderReturnProductPlugin' => [
+                    'front' => [
+                        'template_path' => [
+                            'MelisDemoCommerce/order-return-product',
+                        ],
+                    ],
+                ],
             ]
         ],
         'melisfront' => [

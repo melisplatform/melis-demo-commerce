@@ -19,6 +19,7 @@ use MelisDemoCommerce\Listener\SiteMenuCustomizationListener;
 use MelisDemoCommerce\Listener\SiteBreadcrumbCustomizationListener;
 // use MelisDemoCommerce\Listener\SiteFakePaymentListener;
 // use MelisDemoCommerce\Listener\SiteFakePaymentProcesstListener;
+use MelisDemoCommerce\Listener\SiteOrderReturnProductPluginListener;
 use MelisDemoCommerce\Listener\SiteShipmentCostListener;
 use MelisDemoCommerce\Listener\SiteFakePaypalStyleListener;
 use MelisDemoCommerce\Listener\SiteFakePaypalStyleProcesstListener;
@@ -71,6 +72,7 @@ class Module
         (new SiteCheckoutCartPluginListener())->attach($eventManager);
         (new SiteCheckoutConfirmPluginListener())->attach($eventManager);
         (new SiteOrderPluginListener())->attach($eventManager);
+        (new SiteOrderReturnProductPluginListener())->attach($eventManager);
     }
     
     public function getConfig()
