@@ -126,27 +126,27 @@ class SiteCommerceRelatedProductsPluginListener extends SiteGeneralListener
                     }
 
                     //store group price
-                    if(!empty($varPrice)) {
-                        if ($varPrice->price_group_id > 1) {
-                            if (empty($groupPrice)) {
+                    // if(!empty($varPrice)) {
+                    //     if ($varPrice->price_group_id > 1) {
+                    //         if (empty($groupPrice)) {
 
-                                $groupPrice = $varPrice->price_net;
-                                $price['groupPrice'] = $varPrice;
-                                $price['first'] = true;
-                            }
-                            else {
-                                if ($groupPrice > $varPrice->price_net) {
-                                    $groupPrice = $varPrice->price_net;
-                                    $price['groupPrice'] = $varPrice;
-                                }
-                            }
-                        }
-                    }
+                    //             $groupPrice = $varPrice->price_net;
+                    //             $price['groupPrice'] = $varPrice;
+                    //             $price['first'] = true;
+                    //         }
+                    //         else {
+                    //             if ($groupPrice > $varPrice->price_net) {
+                    //                 $groupPrice = $varPrice->price_net;
+                    //                 $price['groupPrice'] = $varPrice;
+                    //             }
+                    //         }
+                    //     }
+                    // }
                 }
                 //use the group price instead of one in the general if group price is not null
-                if(!empty($groupPrice)) {
+                // if(!empty($groupPrice)) {
 
-                    $lowestPrice = $groupPrice;
+                //     $lowestPrice = $groupPrice;
                     
                 }
 
@@ -163,6 +163,7 @@ class SiteCommerceRelatedProductsPluginListener extends SiteGeneralListener
                         $lowestPriceCurrency = $prdPrice->cur_symbol;
                         $lowestPriceCurrencyCode = $prdPrice->cur_code;
                         $price['here'] = true;
+                        $price['prdPrice'] = $prdPrice;
                     }
                 }
 
@@ -171,10 +172,12 @@ class SiteCommerceRelatedProductsPluginListener extends SiteGeneralListener
                     $price['price_net'] = $lowestPrice;
                     $price['cur_symbol'] = $lowestPriceCurrency;
                     $price['cur_code'] = $lowestPriceCurrencyCode;
-                    $price['prdPrice'] = $prdPrice;
+                    
 
                     $relProducts[$key]->display_price = $price;
                 }
+
+                
                 // dump($price);
                 
                 // dump($relProducts[$key]->setPrice());
