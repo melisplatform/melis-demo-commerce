@@ -155,13 +155,14 @@ class SiteCommerceRelatedProductsPluginListener extends SiteGeneralListener
                 $prdPrice = null;
                 if (empty($lowestPrice))
                 {
-                    $prdPrice = $melisComProductService->getProductFinalPrice($prd_id, -1, $clientGroup);
+                    $prdPrice = $melisComProductService->getProductFinalPrice($prd_id, $countryId, $clientGroup);
 
                     if (!empty($prdPrice))
                     {
                         $lowestPrice = $prdPrice->price_net;
                         $lowestPriceCurrency = $prdPrice->cur_symbol;
                         $lowestPriceCurrencyCode = $prdPrice->cur_code;
+                        $price['here'] = true;
                     }
                 }
 
