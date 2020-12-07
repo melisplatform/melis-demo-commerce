@@ -38,7 +38,7 @@
                             if (!empty($product->display_price))
                                 $price = $product->display_price['cur_symbol'].$product->display_price['price_net'];
 
-                            // dump($product->display_price);
+                            
 
                             foreach ($product->getTexts() as $text) {
                                 if ($text->ptt_code == 'TITLE') {
@@ -81,6 +81,7 @@
                                         <div class="prodcut-ratting-price">
                                             <div class="prodcut-price">
                                                 <div> <b><?= $price ?> </b></div>
+                                                <?php dump($product->display_price); ?>
                                             </div>
                                         </div>
                                     </div>
