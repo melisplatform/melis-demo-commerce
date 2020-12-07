@@ -157,9 +157,11 @@ class SiteCommerceRelatedProductsPluginListener extends SiteGeneralListener
                     $price['price_net'] = $lowestPrice;
                     $price['cur_symbol'] = $lowestPriceCurrency;
                     $price['cur_code'] = $lowestPriceCurrencyCode;
+
+                    $relProducts[$key]->display_price = $price;
                 }
                 // dump($price);
-                $relProducts[$key]->display_price = $price;
+                
                 // dump($relProducts[$key]->setPrice());
                 // dump($lowestPrice);
             }
