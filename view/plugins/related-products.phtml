@@ -38,6 +38,8 @@
                             if (!empty($product->display_price))
                                 $price = $product->display_price['cur_symbol'].$product->display_price['price_net'];
 
+                            // dump($product->display_price);
+
                             foreach ($product->getTexts() as $text) {
                                 if ($text->ptt_code == 'TITLE') {
                                     $productName = $text->ptxt_field_short;
