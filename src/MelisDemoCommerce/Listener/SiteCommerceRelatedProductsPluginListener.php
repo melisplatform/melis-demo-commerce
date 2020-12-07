@@ -125,19 +125,27 @@ class SiteCommerceRelatedProductsPluginListener extends SiteGeneralListener
                     //store group price
                     if(!empty($varPrice)) {
                         if ($varPrice->price_group_id > 1) {
-                            if (empty($groupPrice))
+                            if (empty($groupPrice)) {
+
                                 $groupPrice = $varPrice->price_net;
+                                $price['prdPrice'] = $varPrice;
+                                $price['first'] = true;
+                            }
                             else {
                                 if ($groupPrice > $varPrice->price_net) {
                                     $groupPrice = $varPrice->price_net;
+                                    $price['prdPrice'] = $varPrice;
                                 }
                             }
                         }
                     }
                 }
                 //use the group price instead of one in the general if group price is not null
-                if(!empty($groupPrice))
+                if(!empty($groupPrice)) {
+
                     $lowestPrice = $groupPrice;
+                    
+                }
 
                 // If the Lowest Price is still null
                 // this will try to get from the Product Price
