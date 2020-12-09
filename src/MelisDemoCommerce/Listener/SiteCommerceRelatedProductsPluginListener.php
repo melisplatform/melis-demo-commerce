@@ -97,7 +97,6 @@ class SiteCommerceRelatedProductsPluginListener extends SiteGeneralListener
                             $lowestPrice = $varPrice->price_net;
                             $lowestPriceCurrency = $varPrice->cur_symbol;
                             $lowestPriceCurrencyCode = $varPrice->cur_code;
-                            $price['varPrice'][$var->var_id] = $varPrice;
                         }
                     }
                     else
@@ -118,26 +117,19 @@ class SiteCommerceRelatedProductsPluginListener extends SiteGeneralListener
                                 $lowestPrice = $varPrice->price_net;
                                 $lowestPriceCurrency = $varPrice->cur_symbol;
                                 $lowestPriceCurrencyCode = $varPrice->cur_code;
-
-                                $price['varPrice'][$var->var_id] = $varPrice;
-                                $price['second'] = true;
                             }
                         }
                     }
 
-                    //store group price
+                    // store group price
                     // if(!empty($varPrice)) {
                     //     if ($varPrice->price_group_id > 1) {
                     //         if (empty($groupPrice)) {
-
                     //             $groupPrice = $varPrice->price_net;
-                    //             $price['groupPrice'] = $varPrice;
-                    //             $price['first'] = true;
                     //         }
                     //         else {
                     //             if ($groupPrice > $varPrice->price_net) {
                     //                 $groupPrice = $varPrice->price_net;
-                    //                 $price['groupPrice'] = $varPrice;
                     //             }
                     //         }
                     //     }
@@ -145,14 +137,11 @@ class SiteCommerceRelatedProductsPluginListener extends SiteGeneralListener
                 }
                 //use the group price instead of one in the general if group price is not null
                 // if(!empty($groupPrice)) {
-
                 //     $lowestPrice = $groupPrice;
-                    
                 // }
 
                 // If the Lowest Price is still null
                 // this will try to get from the Product Price
-                $prdPrice = null;
                 if (empty($lowestPrice))
                 {
                     $prdPrice = $melisComProductService->getProductFinalPrice($prd_id, $countryId, $clientGroup);
@@ -162,8 +151,6 @@ class SiteCommerceRelatedProductsPluginListener extends SiteGeneralListener
                         $lowestPrice = $prdPrice->price_net;
                         $lowestPriceCurrency = $prdPrice->cur_symbol;
                         $lowestPriceCurrencyCode = $prdPrice->cur_code;
-                        $price['here'] = true;
-                        $price['prdPrice'] = $prdPrice;
                     }
                 }
 
@@ -173,8 +160,9 @@ class SiteCommerceRelatedProductsPluginListener extends SiteGeneralListener
                     $price['cur_symbol'] = $lowestPriceCurrency;
                     $price['cur_code'] = $lowestPriceCurrencyCode;
                     
-
                     $relProducts[$key]->display_price = $price;
+                }else{
+                    $relProducts[$key]->display_price = null;
                 }
 
                 
