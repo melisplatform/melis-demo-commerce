@@ -12,8 +12,10 @@
                     <?php
                         $products = $this->relatedProducts;
                         foreach($products as $product){
+
+                            
                             $categoryName = '';
-                            $productName = '';
+                            $productName = $product->getProduct()->prd_reference;
                             $mainImage = $this->SiteConfig('default_image');
                             $hoverImage = '';
 
