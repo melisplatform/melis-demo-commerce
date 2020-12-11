@@ -340,6 +340,13 @@ return [
                         'template_path' => [
                             'MelisDemoCommerce/order-return-product',
                         ],
+                        'files' => [
+                            'css' => [
+                            ],
+                            'js' => [
+                                '/MelisDemoCommerce/js/return-product.js',
+                            ],
+                        ],
                     ],
                 ],
             ]

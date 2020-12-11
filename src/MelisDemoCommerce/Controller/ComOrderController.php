@@ -50,5 +50,23 @@ class ComOrderController extends BaseController
         }
         return new JsonModel($result);
     }
-    
+
+    /**
+     * @return JsonModel
+     */
+    public function returnProductAction()
+    {
+        $result = array();
+
+        $request = $this->getRequest();
+        if ($request->isPost()) {
+            $postData = $request->getPost()->toArray();
+            $returnProductPlugin = $this->MelisCommerceOrderReturnProductPlugin();
+            $returnProductParameter = $postData;
+
+            $result = $returnProductPlugin->render($returnProductParameter)->getVariables();
+        }
+
+        return new JsonModel($result);
+    }
 }

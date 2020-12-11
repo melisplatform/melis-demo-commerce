@@ -22,7 +22,7 @@
                     </div>
                 </div>
             </div>
-            <div class="c-order-details-content">
+            <div class="c-order-return-product-content">
                 <div class="table-responsive">
                     <table class="checkout-area table c-table-lists">
                         <thead>
@@ -40,7 +40,7 @@
                         if(!empty($order['items'])){
                             foreach($order['items'] as $item){
                                 ?>
-                                <tr class="cart_item check-item prd-name">
+                                <tr class="cart_item check-item prd-name" id="variant-<?= $item['variant_id'];?>">
                                     <td class="ctg-type c-product-img">
                                         <div class="img-box modified">
                                             <img src="<?= $item['productImage']?>" alt="">
@@ -59,7 +59,7 @@
                                     <td class="ctg-type text-center"> <?= $item['currency']. '' .number_format($item['price'], 2) ?> </td>
                                     <td class="ctg-type text-center"> <?= $item['quantity']?>  </td>
                                     <td class="ctg-type text-center"> <?= ($item['discount'])? $item['currency']. '' .number_format($item['discount'], 2) : '' ?>   </td>
-                                    <td class="ctg-type text-center"><p>Returned: <?= $item['returnedProduct']; ?><br><?= ($item['returnedProduct'] >= $item['quantity']) ? '' : "<span class='return-product-show'>Return product</span>";?></p></td>
+                                    <td class="ctg-type text-center"><p>Returned: <span class="returned-product"><?= $item['returnedProduct']; ?></span><br><?= ($item['remainingQtyToReturn'] <= 0) ? '' : '<span data-variantid="'.$item['variant_id'].'" data-rm-pr="'.$item['remainingQtyToReturn'].'" data-sku="'.$item['sku'].'" class="return-product-show-form">Return product</span>';?></p></td>
                                     <td class="ctg-type"> <?= $item['currency']. '' .number_format($item['total'], 2)?> </td>
                                 </tr>
                                 <?php
@@ -73,19 +73,51 @@
     	</div>
     </div>
     <div class="order-return-product-msg-form">
+        <br>
+        <span class="alert alert-success hidden return-msg-status-success">Product successfully returned!</span>
+        <span class="alert alert-danger hidden return-msg-status-failed">Error occurred while returning product!</span>
+        <br>
         <div class="rp-msg-form-cont hidden">
-            <h4>You wish to return this product, please fill the form:</h4>
-            <?php
-            $form = $this->addMessageForm;
-            $form->prepare();
-            echo $this->form()->openTag($form);
-            echo $this->DemoSiteFieldCollection($form);
-            ?>
+            <div class="row">
+                <div class="col-md-6 col-sm-12">
+                    <h4>You wish to return this product, please fill the form:</h4>
+                    <?php
+                    $form = $this->addMessageForm;
+                    $form->prepare();
+                    echo $this->form()->openTag($form);
+
+                    foreach ($form->getElements() As $key => $val)
+                    {
+                        echo '<div class="form-group row" style="margin-bottom:7px;">';
+
+                        if ($val->getLabel())
+                        {
+                            $required = '';
+                            if(!empty($val->getAttribute('required'))){
+                                $required = ' <sup>*</sup>';
+                            }
+                            echo $this->formLabel()->openTag($val);
+                            echo $val->getLabel();
+                            echo $required;
+                            echo $this->formLabel()->closeTag();
+                        }
+
+                        echo '<div class="col-md-8">';
+                        echo $this->formElement($val, array('class' => 'form-control'));
+                        echo $this->formElementErrors($val, array('class' => 'default-form-err-msg-plugin text-danger'));
+                        echo '</div>';
+                        echo '</div>';
+                    }
+                    echo '<button type="submit" class="btn btn-default">'.$this->translate('Submit request for return').'</button>';
+                    echo $this->form()->closeTag();
+                    ?>
+                </div>
+            </div>
         </div>
     </div>
     <br>
 <?php } else { ?>
     <div class="alert alert-danger">
-        <?= $this->siteTranslate('tr_melisdemocommerce_general_no_result_found', $this->SiteConfig('site_lang_id'), $this->SiteConfig('site_id')) ?>
+        <?= $this->siteTranslate('tr_melisdemocommerce_general_no_product_to_return', $this->SiteConfig('site_lang_id'), $this->SiteConfig('site_id')) ?>
     </div>
 <?php } ?>
