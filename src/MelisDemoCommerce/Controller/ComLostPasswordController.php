@@ -58,13 +58,6 @@ class ComLostPasswordController extends BaseController
             $this->view->addChild($lostPasswordResetPlugin->render($lostPasswordResetParameter), 'lostPassword_lostPasswordReset');
         }
         
-        $this->layout()->setVariables(array(
-            'pageJs' => array(
-                '/MelisDemoCommerce/js/melisSiteHelper.js',
-                '/MelisDemoCommerce/js/lost-passsword-recovery.js',
-            ),
-        ));
-        
         $this->view->setVariable('idPage', $this->idPage);
         return $this->view;
     }

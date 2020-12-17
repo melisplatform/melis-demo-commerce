@@ -161,6 +161,11 @@ return [
                         'template_path' => [
                             'MelisDemoCommerce/plugin/lost-password',
                         ],
+                        'files' => [
+                            'js' => [
+                                '/MelisDemoCommerce/js/lost-passsword-recovery.js',
+                            ]
+                        ]
                     ],
                 ],
                 'MelisCommerceLostPasswordResetPlugin' => [
@@ -198,7 +203,6 @@ return [
                         ],
                         'files' => [
                             'js' => [
-                                '/MelisDemoCommerce/js/melisSiteHelper.js',
                                 '/MelisDemoCommerce/js/account.js',
                             ],
                         ],
@@ -307,7 +311,6 @@ return [
                             'MelisDemoCommerce/order-details',
                         ],'files' => [
                             'js' => [
-                                '/MelisDemoCommerce/js/melisSiteHelper.js',
                                 '/MelisDemoCommerce/js/order-details.js',
                             ],
                         ],
@@ -315,7 +318,6 @@ return [
                     'melis' => [
                         'files' => [
                             'js' => [
-                                '/MelisDemoCommerce/js/melisSiteHelper.js',
                                 '/MelisDemoCommerce/js/order-details.js',
                             ],
                         ],
@@ -426,6 +428,12 @@ return [
                 'MelisCmsProspectsShowFormPlugin' => [
                     'front' => [
                         'template_path' => ['MelisDemoCommerce/plugin/contactus'],
+                        'files' => [
+                            'js' => [
+                                '/MelisDemoCommerce/js/google-map.js',
+                                '/MelisDemoCommerce/js/contactus.js'
+                            ],
+                        ],
                     ],
                 ],
             ],

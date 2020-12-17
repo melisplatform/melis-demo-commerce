@@ -20,6 +20,7 @@ return [
         '/MelisDemoCommerce/public/js/owl.carousel.js',
         '/MelisDemoCommerce/public/js/jquery.countdown.min.js',
         '/MelisDemoCommerce/public/js/plugins.js',
+        '/MelisDemoCommerce/js/melisSiteHelper.js',
         '/MelisDemoCommerce/public/js/main.js',
         '/MelisDemoCommerce/public/js/custom.js',
         '/MelisDemoCommerce/public/js/checkout.js',

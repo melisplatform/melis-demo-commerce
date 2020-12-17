@@ -1,4 +1,8 @@
 $(function(){
+	var newsMenuHeight = $('.news-menu-area').height();
+	$('.news-menu-area .single-mega-item.coloum-4').addClass("line");
+	$('.news-menu-area .single-mega-item.coloum-4.line').css({'height': newsMenuHeight});
+
 	// Menu bug fixed on Firefox
 	$(".mega-menu-area a:not([href=''])").click(function(){
 		$(".mega-menu-area").css("display", "none");
