@@ -191,6 +191,7 @@ return [
             'MelisDemoCommerce/order-addresses'                         => __DIR__ . '/../view/plugins/order-addresses.phtml',
             'MelisDemocommerce/order-shipping-details'                  => __DIR__ . '/../view/plugins/order-shipping-details.phtml',
             'MelisDemocommerce/order-messages'                          => __DIR__ . '/../view/plugins/order-messages.phtml',
+            'MelisDemoCommerce/order-return-product'                    => __DIR__ . '/../view/plugins/order-return-product.phtml',
         ],
         'template_path_stack' => [
             __DIR__ . '/../view',
