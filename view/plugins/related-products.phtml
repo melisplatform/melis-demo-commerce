@@ -2,18 +2,20 @@
     <div class="new-arrival-area ptb-70">
         <div class="container">
             <div class="row">
-               <div class="col-xs-12 text-center">
-                   <div class="heading-title heading-style pos-rltv mb-50 text-center">
-                       <h5 class="uppercase">Related Product</h5>
-                   </div>
-               </div>
-               <div class="clearfix"></div>
+            <div class="col-xs-12 text-center">
+                <div class="heading-title heading-style pos-rltv mb-50 text-center">
+                    <h5 class="uppercase">Related Product</h5>
+                </div>
+            </div>
+            <div class="clearfix"></div>
                 <div class="total-new-arrival related-product-slider carsoule-btn">
                     <?php
                         $products = $this->relatedProducts;
                         foreach($products as $product){
+
+                            
                             $categoryName = '';
-                            $productName = '';
+                            $productName = $product->getProduct()->prd_reference;
                             $mainImage = $this->SiteConfig('default_image');
                             $hoverImage = '';
 
@@ -21,9 +23,9 @@
 
                             foreach ($product->getDocuments() as $document) {
                                 /*
-                                 * get image type, 3 for defualt image, 4 for small image.
-                                 * see melis_ecom_doc_type for all the document and images type
-                                 */
+                                * get image type, 3 for defualt image, 4 for small image.
+                                * see melis_ecom_doc_type for all the document and images type
+                                */
                                 switch ($document->doc_subtype_id) {
                                     case(3):
                                         $mainImage = $document->doc_path;
@@ -37,6 +39,8 @@
                             $price = 'N/A';
                             if (!empty($product->display_price))
                                 $price = $product->display_price['cur_symbol'].$product->display_price['price_net'];
+
+                            
 
                             foreach ($product->getTexts() as $text) {
                                 if ($text->ptt_code == 'TITLE') {
@@ -66,7 +70,7 @@
                                         <!--div class="product-icon socile-icon-tooltip text-center">
                                             <ul>
                                                 <li><a href="#" data-tooltip="Add To Cart" class="add-cart"
-                                                       data-placement="left"><i class="fa fa-cart-plus"></i></a></li>
+                                                    data-placement="left"><i class="fa fa-cart-plus"></i></a></li>
                                                 <li><a href="#" data-tooltip="Wishlist" class="w-list"><i class="fa fa-heart-o"></i></a></li>
                                                 <li><a href="#" data-tooltip="Compare" class="cpare"><i class="fa fa-refresh"></i></a></li>
                                                 <li><a href="#" data-tooltip="Quick View" class="q-view" data-toggle="modal" data-target=".modal"><i class="fa fa-eye"></i></a></li>
@@ -91,6 +95,9 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div>
+    <?php //phpinfo() ?>
     </div>
 <?php } else { ?>
     <?php if(!$this->isInFront) { ?>
