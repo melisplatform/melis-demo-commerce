@@ -38,6 +38,9 @@ $(function(){
                 $.each(qtySelect, function(){
                      $(this).closest("div.form-group").remove();
                 });
+
+                //clear form
+                $('form#returnProductForm')[0].reset();
             }else{
                 $(".return-msg-status-success").addClass("hidden");
                 $(".return-msg-status-failed").removeClass("hidden");
