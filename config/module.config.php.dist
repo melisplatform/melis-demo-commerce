@@ -101,7 +101,6 @@ return [
             'MelisDemoCommerce\Controller\ComCheckout'      => \MelisDemoCommerce\Controller\ComCheckoutController::class,
             'MelisDemoCommerce\Controller\ComLogin'         => \MelisDemoCommerce\Controller\ComLoginController::class,
             'MelisDemoCommerce\Controller\ComLostPassword'  => \MelisDemoCommerce\Controller\ComLostPasswordController::class,
-            'MelisDemoCommerce\Controller\Search'           => \MelisDemoCommerce\Controller\SearchController::class,
             'MelisDemoCommerce\Controller\ComMyAccount'     => \MelisDemoCommerce\Controller\ComMyAccountController::class,
             'MelisDemoCommerce\Controller\ComLogout'        => \MelisDemoCommerce\Controller\ComLogoutController::class,
             'MelisDemoCommerce\Controller\ComOrder'         => \MelisDemoCommerce\Controller\ComOrderController::class,
