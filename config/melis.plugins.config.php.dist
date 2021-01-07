@@ -244,6 +244,7 @@ return [
                             'js' => [
                                 '/MelisDemoCommerce/js/checkout.js',
                                 '/MelisDemoCommerce/js/cart.js',
+                                '/MelisDemoCommerce/js/checkout-paypal-style.js',
                             ],
                         ],
                     ],
