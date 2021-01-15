@@ -130,7 +130,7 @@ $(function() {
 
 			if (!$.isEmptyObject(data.variant_price)) {
 				var price = data.variant_price;
-				$(".new-price").text(price.cur_symbol + " " + price.price_net);
+				$(".new-price").text(price.price_currency.symbol + " " + price.price);
 			}
 
 			var inputField = $('input[name="qtybutton"]');
@@ -140,7 +140,6 @@ $(function() {
 
 			if (
 				!$.isEmptyObject(data.variant_stock) &&
-				data.variant_price.price_net > 0 &&
 				data.variant.var_status == 1
 			) {
 				var varStock = parseInt(data.variant_stock.stock_quantity);

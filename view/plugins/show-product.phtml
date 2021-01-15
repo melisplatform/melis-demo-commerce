@@ -79,7 +79,7 @@
 								$brand = '';
 								$sku = '';
 								$skuId = '';
-								$price = '';
+								$price = 'N/A';
 								
 								if(!empty($variant))
 								{
@@ -87,8 +87,8 @@
 									$sku = !empty($variant->getVariant())? '('.$variant->getVariant()->var_sku.')' : '';
 								}
 
-								if (!empty($this->price)) {
-									$price = $this->price->cur_symbol.$this->price->price_net;
+								if (!empty($this->price['price'])) {
+									$price = $this->price['price_currency']['symbol'].$this->price['price'];
 								}
 
 								
@@ -135,16 +135,16 @@
 							<?php if ($this->hasVariant) : ?>
 							<?= $this->addToCart ?>
 							<?php endif; ?>
-							<!-- Quantitiy and add to cart view end-->
+							<!-- Quantity and add to cart view end-->
 						</div>
 					</div>
 				</div>
 			</div>  
 		</div>
 	</div>
-	<!--single-protfolio-area are start-->
+	<!--single-portfolio-area are start-->
 	
-	<!--descripton-area start -->
+	<!--description-area start -->
 	<div class="descripton-area" style="margin-bottom:20px;">
 		<div class="container">
 			<div class="row">

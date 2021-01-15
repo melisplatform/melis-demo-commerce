@@ -61,6 +61,8 @@ class SiteCommerceProductListPluginListener extends SiteGeneralListener
     {
         $melisComVariantService = $this->serviceManager->get('MelisComVariantService');
         $melisComProductService = $this->serviceManager->get('MelisComProductService');
+        $melisComPriceService = $this->serviceManager->get('MelisComPriceService');
+        
         $documentSrv = $this->serviceManager->get('MelisComDocumentService');
 
         /** @var MelisSiteConfigService $siteConfigSrv */
@@ -91,47 +93,34 @@ class SiteCommerceProductListPluginListener extends SiteGeneralListener
                 foreach ($prdVar As $var)
                 {
                     // Getting the Final Price of a variant
-                    $varPrice = $melisComVariantService->getVariantFinalPrice($var->var_id, $countryId, $clientGroup);
+                    $varPrice = $melisComPriceService->getItemPrice($var->var_id, $countryId, $clientGroup);
 
                     if (empty($lowestPrice))
                     {
                         // if the variant has Price base on the Country
                         // this will partially assign as Lowest Prices
-                        if (!empty($varPrice))
+                        if (!empty($varPrice['price']))
                         {
-                            $lowestPrice = $varPrice->price_net;
-                            $lowestPriceCurrency = $varPrice->cur_symbol;
-                            $lowestPriceCurrencyCode = $varPrice->cur_code;
+                            $lowestPrice = $varPrice['price'];
+                            $lowestPriceCurrency = $varPrice['price_currency']['symbol'];
+                            $lowestPriceCurrencyCode = $varPrice['price_currency']['code'];
                         }
-                    }
+                }
                     else
                     {
                         // if the variant has Price base on the Country
-                        if (!empty($varPrice))
+                        if (!empty($varPrice['price']))
                         {
                             // Checking if the Variant Price is Less than the first variant
-                            if ($lowestPrice > $varPrice->price_net)
+                            if ($lowestPrice > $varPrice['price'])
                             {
                                 // assigning as the lowest Price to Product Price
-                                $lowestPrice = $varPrice->price_net;
-                                $lowestPriceCurrency = $varPrice->cur_symbol;
-                                $lowestPriceCurrencyCode = $varPrice->cur_code;
+                                $lowestPrice = $varPrice['price'];
+                                $lowestPriceCurrency = $varPrice['price_currency']['symbol'];
+                                $lowestPriceCurrencyCode = $varPrice['price_currency']['code'];
                             }
                         }
                     }
-
-                    //store group price
-                    // if(!empty($varPrice)) {
-                    //     if ($varPrice->price_group_id > 1) {
-                    //         if (empty($groupPrice))
-                    //             $groupPrice = $varPrice->price_net;
-                    //         else {
-                    //             if ($groupPrice > $varPrice->price_net) {
-                    //                 $groupPrice = $varPrice->price_net;
-                    //             }
-                    //         }
-                    //     }
-                    // }
                 }
 
                 //use the group price instead of one in the general if group price is not null
@@ -142,13 +131,14 @@ class SiteCommerceProductListPluginListener extends SiteGeneralListener
                 // this will try to get from the Product Price
                 if (empty($lowestPrice))
                 {
-                    $prdPrice = $melisComProductService->getProductFinalPrice($prd['prd_id'], $countryId, $clientGroup);
+                    // Product price
+                    $prdVarPrice = $melisComPriceService->getItemPrice($prd['prd_id'], $countryId, $clientGroup, 'product');
 
-                    if (!empty($prdPrice))
+                    if (!empty($prdVarPrice['price']))
                     {
-                        $lowestPrice = $prdPrice->price_net;
-                        $lowestPriceCurrency = $prdPrice->cur_symbol;
-                        $lowestPriceCurrencyCode = $prdPrice->cur_code;
+                        $lowestPrice = $prdVarPrice['price'];
+                        $lowestPriceCurrency = $prdVarPrice['price_currency']['symbol'];
+                        $lowestPriceCurrencyCode = $prdVarPrice['price_currency']['code'];
                     }
                 }
 

@@ -46,6 +46,8 @@ class SiteCommerceCategoryProductListPluginListener extends SiteGeneralListener
     {
         $melisComVariantService = $this->serviceManager->get('MelisComVariantService');
         $melisComProductService = $this->serviceManager->get('MelisComProductService');
+        $melisComPriceService = $this->serviceManager->get('MelisComPriceService');
+
         $documentSrv = $this->serviceManager->get('MelisComDocumentService');
 
         /** @var MelisSiteConfigService $siteConfigSrv */
@@ -86,32 +88,32 @@ class SiteCommerceCategoryProductListPluginListener extends SiteGeneralListener
                         if (empty($lowestPrice))
                         {
                             // Getting the Final Price of a variant
-                            $varPrice = $melisComVariantService->getVariantFinalPrice($var->var_id, $countryId, $clientGroup);
+                            $varPrice = $melisComPriceService->getItemPrice($var->var_id, $countryId, $clientGroup);
                             
                             // if the variant has Price base on the Country
                             // this will partially assign as Lowest Prices
-                            if (!empty($varPrice))
+                            if (!empty($varPrice['price']))
                             {
-                                $lowestPrice = $varPrice->price_net;
-                                $lowestPriceCurrency = $varPrice->cur_symbol;
-                                $lowestPriceCurrencyCode = $varPrice->cur_code;
+                                $lowestPrice = $varPrice['price'];
+                                $lowestPriceCurrency = $varPrice['price_currency']['symbol'];
+                                $lowestPriceCurrencyCode = $varPrice['price_currency']['code'];
                             }
                         }
                         else 
                         {
                             // Getting the Final Price of a variant
-                            $varPrice = $melisComVariantService->getVariantFinalPrice($var->var_id, $countryId, $clientGroup);
+                            $varPrice = $melisComPriceService->getItemPrice($var->var_id, $countryId, $clientGroup);
                             
                             // if the variant has Price base on the Country
-                            if (!empty($varPrice))
+                            if (!empty($varPrice['price']))
                             {
                                 // Checking if the Variant Price is Less than the first variant
-                                if ($lowestPrice > $varPrice->price_net)
+                                if ($lowestPrice > $varPrice['price'])
                                 {
                                     // assigning as the lowest Price to Product Price
-                                    $lowestPrice = $varPrice->price_net;
-                                    $lowestPriceCurrency = $varPrice->cur_symbol;
-                                    $lowestPriceCurrencyCode = $varPrice->cur_code;
+                                    $lowestPrice = $varPrice['price'];
+                                    $lowestPriceCurrency = $varPrice['price_currency']['symbol'];
+                                    $lowestPriceCurrencyCode = $varPrice['price_currency']['code'];
                                 }
                             }
                         } 
@@ -120,12 +122,15 @@ class SiteCommerceCategoryProductListPluginListener extends SiteGeneralListener
                     // this will try to get from the Product Price
                     if (empty($lowestPrice))
                     {
-                        $prdPrice = $prd->getPrice();
-                        if (!empty($prdPrice))
+                        $prdPrice = $varPrice = $melisComPriceService->getItemPrice($prdId, $countryId, $clientGroup, 'product');
+                        if (!empty($prdPrice['price']))
                         {
-                            $lowestPrice = $prdPrice[0]->price_net;
-                            $lowestPriceCurrency = (!empty($prdPrice[0]->cur_symbol)) ? $prdPrice[0]->cur_symbol : $siteConfigSrv->getSiteConfigByKey('site_currency_symbol', $pageId);
-                            $lowestPriceCurrencyCode = (!empty($prdPrice[0]->cur_code)) ? $prdPrice[0]->cur_code : $siteConfigSrv->getSiteConfigByKey('site_currency_symbol', $pageId);
+                            // $lowestPrice = $prdPrice[0]->price_net;
+                            // $lowestPriceCurrency = (!empty($prdPrice[0]->cur_symbol)) ? $prdPrice[0]->cur_symbol : $siteConfigSrv->getSiteConfigByKey('site_currency_symbol', $pageId);
+                            // $lowestPriceCurrencyCode = (!empty($prdPrice[0]->cur_code)) ? $prdPrice[0]->cur_code : $siteConfigSrv->getSiteConfigByKey('site_currency_symbol', $pageId);
+                            $lowestPrice = $varPrice['price'];
+                            $lowestPriceCurrency = $varPrice['price_currency']['symbol'];
+                            $lowestPriceCurrencyCode = $varPrice['price_currency']['code'];
                         }
                     }
                     

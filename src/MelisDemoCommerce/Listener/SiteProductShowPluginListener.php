@@ -39,7 +39,7 @@ class SiteProductShowPluginListener extends SiteGeneralListener
                     $viewVariables = $params['view']->getVariables();
                     
                     $product = $viewVariables->product;
-                    
+
                     $pluginConfig = $params['pluginFronConfig'];
                     
                     if (!empty($product->getId()))
@@ -52,6 +52,7 @@ class SiteProductShowPluginListener extends SiteGeneralListener
                         $productSvc = $sm->get('MelisComProductService');
                         $variantSvc = $sm->get('MelisComVariantService');
                         $currencySvc = $sm->get('MelisComCurrencyService');
+
                         $currency = $currencySvc->getDefaultCurrency();
                         
                         $variant = array();
@@ -67,21 +68,23 @@ class SiteProductShowPluginListener extends SiteGeneralListener
                         if ($ecomAuthSrv->hasIdentity())
                             $clientGroupId = $ecomAuthSrv->getClientGroup();
 
-                        // Product Price
-                        $productPrice = $productSvc->getProductFinalPrice($productId, $countryId, $clientGroupId);
-                        // dump($productPrice);
+                        // Product price
+                        $melisComPriceService = $sm->get('MelisComPriceService');
+                        $productPrice = $melisComPriceService->getItemPrice($productId, $countryId, $clientGroupId, 'product');
+
                         $price = $productPrice;
 
                         if ($productId)
                         {
                             // Product main variant
                             $mainVariant = $variantSvc->getMainVariantByProductId($productId, null, $countryId, $clientGroupId);
-                            
+
                             if(!empty($mainVariant))
                             {
-                                $variantPrice = $variantSvc->getVariantFinalPrice($mainVariant->getId(), $countryId, $clientGroupId);
+                                // Variant Price
+                                $variantPrice = $melisComPriceService->getItemPrice($mainVariant->getId(), $countryId, $clientGroupId);
 
-                                if (!empty($variantPrice)) {
+                                if (!empty($variantPrice['price'])) {
 
                                     $variant = $mainVariant;
                                     $price = $variantPrice;
@@ -105,19 +108,23 @@ class SiteProductShowPluginListener extends SiteGeneralListener
                             {
                                 $variants = $variantSvc->getVariantListByProductId($productId, $langId, $countryId, $clientGroupId);
 
+                                // dump($variants);
                                 foreach ($variants As $var) {
 
+                                    if (!$var->getVariant()->var_status)
+                                        break;
+
                                     // Variant price
-                                    $variantPrice = $variantSvc->getVariantFinalPrice($var->getId(), $countryId, $clientGroupId);
+                                    $variantPrice = $melisComPriceService->getItemPrice($var->getId(), $countryId, $clientGroupId);
 
                                     // Variant stock
                                     // $variantStock = $variantSvc->getVariantFinalStocks($var->getId(), $countryId);
 
                                     // Selecting variant with valid price and stock
-                                    if ((!empty($variantPrice) || !empty($productPrice))) {
+                                    if ((!empty($variantPrice['price']) || !empty($productPrice['price']))) {
                                         $variant = $var;
                                         $variantId = $variant->getId();
-                                        $price = !empty($variantPrice) ? $variantPrice : $productPrice;
+                                        $price = !empty($variantPrice['price']) ? $variantPrice : $productPrice;
                                         break;
                                     }
                                 }
