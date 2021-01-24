@@ -61,7 +61,7 @@
                                     'obas_currency' => 2,
                                     'obas_price_net' => 57,
                                     'obas_total_discount' => 0,
-                                    'obas_total_amount' => 57
+                                    'obas_total_price' => 57
                                 ),
                                 array(
                                     'obas_order_id' => 1,
@@ -75,7 +75,7 @@
                                     'obas_currency' => 2,
                                     'obas_price_net' => 65,
                                     'obas_total_discount' => 0,
-                                    'obas_total_amount' => 130
+                                    'obas_total_price' => 130
                                 ),
                                 array(
                                     'obas_order_id' => 1,
@@ -89,7 +89,7 @@
                                     'obas_currency' => 2,
                                     'obas_price_net' => 95,
                                     'obas_total_discount' => 0,
-                                    'obas_total_amount' => 95
+                                    'obas_total_price' => 95
                                 ),
                             ),
                             'order_addresses' => array(
@@ -173,7 +173,7 @@
                                     'obas_currency' => 2,
                                     'obas_price_net' => 26,
                                     'obas_total_discount' => 0,
-                                    'obas_total_amount' => 26
+                                    'obas_total_price' => 26
                                 ),
                                 array(
                                     'obas_order_id' => 2,
@@ -187,7 +187,7 @@
                                     'obas_currency' => 2,
                                     'obas_price_net' => 225,
                                     'obas_total_discount' => 0,
-                                    'obas_total_amount' => 225
+                                    'obas_total_price' => 225
                                 ),
                             ),
                             'order_addresses' => array(
@@ -271,7 +271,7 @@
                                     'obas_currency' => 2,
                                     'obas_price_net' => 320,
                                     'obas_total_discount' => 0,
-                                    'obas_total_amount' => 230
+                                    'obas_total_price' => 230
                                 ),
                                 array(
                                     'obas_order_id' => 3,
@@ -285,7 +285,7 @@
                                     'obas_currency' => 2,
                                     'obas_price_net' => 32,
                                     'obas_total_discount' => 0,
-                                    'obas_total_amount' => 32
+                                    'obas_total_price' => 32
                                 ),
                                 array(
                                     'obas_order_id' => 3,
@@ -299,7 +299,7 @@
                                     'obas_currency' => 2,
                                     'obas_price_net' => 156,
                                     'obas_total_discount' => 0,
-                                    'obas_total_amount' => 156
+                                    'obas_total_price' => 156
                                 ),
                                 array(
                                     'obas_order_id' => 3,
@@ -313,7 +313,7 @@
                                     'obas_currency' => 2,
                                     'obas_price_net' => 145,
                                     'obas_total_discount' => 0,
-                                    'obas_total_amount' => 145
+                                    'obas_total_price' => 145
                                 ),
                             ),
                             'order_addresses' => array(
@@ -399,7 +399,7 @@
                                     'obas_currency' => 2,
                                     'obas_price_net' => 68,
                                     'obas_total_discount' => 0,
-                                    'obas_total_amount' => 68
+                                    'obas_total_price' => 68
                                 ),
                                 array(
                                     'obas_order_id' => 4,
@@ -413,7 +413,7 @@
                                     'obas_currency' => 2,
                                     'obas_price_net' => 184,
                                     'obas_total_discount' => 0,
-                                    'obas_total_amount' => 184
+                                    'obas_total_price' => 184
                                 ),
                                 array(
                                     'obas_order_id' => 4,
@@ -427,7 +427,7 @@
                                     'obas_currency' => 2,
                                     'obas_price_net' => 280,
                                     'obas_total_discount' => 0,
-                                    'obas_total_amount' => 280
+                                    'obas_total_price' => 280
                                 ),
                             ),
                             'order_addresses' => array(
