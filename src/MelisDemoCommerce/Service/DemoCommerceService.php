@@ -818,7 +818,7 @@ class DemoCommerceService extends MelisServiceManager
                 $variant = $variantSrv->getVariantById($variantsIds[0], $langId);
                 
                 // Product price
-                $melisComPriceService = $sm->get('MelisComPriceService');
+                $melisComPriceService = $this->getServiceManager()->get('MelisComPriceService');
                 $prodVarPrice = $melisComPriceService->getItemPrice($variantsIds[0], $countryId, $clientGroup);
                 if (!empty($prodVarPrice['price']))
                     $varPrice = $prodVarPrice;
