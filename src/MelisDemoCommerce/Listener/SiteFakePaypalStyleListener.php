@@ -70,12 +70,12 @@ class SiteFakePaypalStyleListener extends SiteGeneralListener
 				$request = $this->serviceManager->get('Request');
 				$getData = $request->getPost()->toArray();
 				
-				$e->getTarget()->getController()->layout()->setVariables(array(
-					'pageJs' => array(
-						'/MelisDemoCommerce/js/melisSiteHelper.js',
-						'/MelisDemoCommerce/js/checkout-paypal-style.js',
-					),
-				));
+				// $e->getTarget()->getController()->layout()->setVariables(array(
+				// 	'pageJs' => array(
+				// 		'/MelisDemoCommerce/js/melisSiteHelper.js',
+				// 		'/MelisDemoCommerce/js/checkout-paypal-style.js',
+				// 	),
+				// ));
 				
 				$paymentForm->setData($data);
 				$viewModel->setVariable('fakePaymentForm', $paymentForm);

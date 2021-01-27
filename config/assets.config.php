@@ -24,5 +24,7 @@ return [
         '/MelisDemoCommerce/public/js/custom.js',
         '/MelisDemoCommerce/public/js/checkout.js',
         '/MelisDemoCommerce/public/js/remove-cart.js',
+        '/MelisDemoCommerce/public/js/melisSiteHelper.js',
+        '/MelisDemoCommerce/public/js/checkout-paypal-style.js',
     ]
 ];
