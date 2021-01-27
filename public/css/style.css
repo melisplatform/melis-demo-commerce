@@ -478,7 +478,7 @@ CSS INDEX
     margin-left: 40px;
 }
 .title-tab-product-category li + li a:after {
-    content: url("../images/icons/tab-style.png");
+    content: url("/MelisDemoCommerce/images/icons/tab-style.png");
     height: 100%;
     left: -19px;
     position: absolute;
@@ -490,7 +490,7 @@ CSS INDEX
 /*----------------------------------------*/
 
 .testimonial-area {
-    background: rgba(0, 0, 0, 0) url("../images/bg/testimonial.jpg") no-repeat fixed 50% 50% / cover;
+    background: rgba(0, 0, 0, 0) url("/MelisDemoCommerce/images/bg/testimonial.jpg") no-repeat fixed 50% 50% / cover;
 }
 .total-testimonial {
     margin: auto;
@@ -645,11 +645,11 @@ CSS INDEX
 /*----------------------------------------*/
 
 .best-product {
-    background: rgba(0, 0, 0, 0) url("../images/bg/best-product.jpg") no-repeat scroll 0 0;
+    background: rgba(0, 0, 0, 0) url("/MelisDemoCommerce/images/bg/best-product.jpg") no-repeat scroll 0 0;
 }
 
 .best-product.cars {
-    background: rgba(0, 0, 0, 0) url("../images/bg/best-product-cars.jpg") no-repeat scroll 0 0;
+    background: rgba(0, 0, 0, 0) url("/MelisDemoCommerce/images/bg/best-product-cars.jpg") no-repeat scroll 0 0;
 }
 .best-text {
     color: #ddd;
@@ -758,11 +758,11 @@ CSS INDEX
 /*----------------------------------------*/
 
 .fashion-banner {
-    background: rgba(0, 0, 0, 0) url("../images/banner/banner-fashion-03.jpg") no-repeat scroll center center;
+    background: rgba(0, 0, 0, 0) url("/MelisDemoCommerce/images/banner/banner-fashion-03.jpg") no-repeat scroll center center;
     padding: 120px 0;
 }
 .cars-banner {
-    background: rgba(0, 0, 0, 0) url("../images/banner/banner-cars.jpg") no-repeat scroll center center;
+    background: rgba(0, 0, 0, 0) url("/MelisDemoCommerce/images/banner/banner-cars.jpg") no-repeat scroll center center;
     padding: 120px 0;
 }
 .cars-banner .fashoin-banner-content > h3 {
@@ -823,7 +823,7 @@ CSS INDEX
     text-align: center;
 }
 .breadcumb-area {
-    background: rgba(0, 0, 0, 0) url("../images/bg/breadcumb.jpg") no-repeat scroll 0 0;
+    background: rgba(0, 0, 0, 0) url("/MelisDemoCommerce/images/bg/breadcumb.jpg") no-repeat scroll 0 0;
     min-height: 245px;
 }
 .bread-main {
@@ -849,10 +849,10 @@ CSS INDEX
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
 }
 .breadcumb-area.breadcumb-2 {
-    background: rgba(0, 0, 0, 0) url("../images/bg/breadcumb2.jpg") no-repeat scroll 0 0;
+    background: rgba(0, 0, 0, 0) url("/MelisDemoCommerce/images/bg/breadcumb2.jpg") no-repeat scroll 0 0;
 }
 .breadcumb-area.breadcumb-3 {
-    background: rgba(0, 0, 0, 0) url("../images/bg/breadcumb3.jpg") no-repeat scroll 0 0;
+    background: rgba(0, 0, 0, 0) url("/MelisDemoCommerce/images/bg/breadcumb3.jpg") no-repeat scroll 0 0;
 }
 /* shop full grid page */
 
@@ -861,7 +861,7 @@ CSS INDEX
 }
 .sort select {
     -moz-appearance: none;
-    background: rgba(0, 0, 0, 0) url("../images/icons/down5.png") no-repeat scroll 90% 50%;
+    background: rgba(0, 0, 0, 0) url("/MelisDemoCommerce/images/icons/down5.png") no-repeat scroll 90% 50%;
     border: 1px solid #eceff8;
     color: #999;
     cursor: pointer;
