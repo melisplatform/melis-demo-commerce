@@ -35,6 +35,16 @@ class ComCheckoutController extends BaseController
         $checkoutPageLink = $melisTree->getPageLink($this->idPage, false);
         $loginPage = $melisTree->getPageLink($loginPageId, false);
 
+
+        // Removing Coupon by submitting empty form
+        if ($this->getRequest()->isPost()) {
+            $postData = $this->getRequest()->getPost()->toArray();
+            if (isset($postData['m_coupon_is_submit']) && isset($postData['m_coupon_code']) && empty($postData['m_coupon_code'])) {
+                $container = new \Laminas\Session\Container('meliscommerce');
+                $container['checkout'][$siteId]['coupons'] = [];
+            }
+        }
+
         /**
          * MelisCommerceCheckoutPlugin this Plugin process the Checkout
          * This pulig provides pages with specific task as follows

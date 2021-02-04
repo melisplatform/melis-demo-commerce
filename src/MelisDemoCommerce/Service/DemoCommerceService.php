@@ -816,10 +816,15 @@ class DemoCommerceService extends MelisServiceManager
                 
                 // Getting the Variant from Variant Service Entity
                 $variant = $variantSrv->getVariantById($variantsIds[0], $langId);
+
+                // Category
+                $category = [];
+                if (!empty($this->getServiceManager()->get('request')->getQuery('categoryId')))
+                    $category['categoryId'] = $this->getServiceManager()->get('request')->getQuery('categoryId');
                 
                 // Product price
                 $melisComPriceService = $this->getServiceManager()->get('MelisComPriceService');
-                $prodVarPrice = $melisComPriceService->getItemPrice($variantsIds[0], $countryId, $clientGroup);
+                $prodVarPrice = $melisComPriceService->getItemPrice($variantsIds[0], $countryId, $clientGroup, 'variant', $category);
                 if (!empty($prodVarPrice['price']))
                     $varPrice = $prodVarPrice;
                 

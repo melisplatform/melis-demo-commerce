@@ -1,12 +1,12 @@
 <?php if ($this->checkoutHasErr):?>
-	<div class="alert alert-danger">
-		<strong>Product error(s) occured.</strong> Error message appeared under the name of the Product.
-	</div>
+    <div class="alert alert-danger">
+        <strong>Product error(s) occured.</strong> Error message appeared under the name of the Product.
+    </div>
 <?php endif;?>
 <!-- cart are start-->
 <div class="cart-page-area">
-   	<form id="checkout-cart" method="POST">
-       	<div class="table-responsive mb-20">
+    <form id="checkout-cart" method="POST">
+        <div class="table-responsive mb-20">
             <table class="shop_table-2 cart table">
                 <thead>
                     <tr>
@@ -27,11 +27,17 @@
                             $discount = !empty($item['var_discount'])? $item['var_currency_symbol'].number_format($item['var_discount'], 2) : '';
                             echo '<tr>';
                             echo    '<td class="item-img">'.$productImg.'</td>';
-                            echo    '<td class="item-title">'.$item['product_name'].' <span class="c-product-sku desktop-only desk-inline">('.$item['var_sku'].')</span>';
-                                if (!empty($item['var_err']))
-                                {
-                                    echo '<div class="text-danger">'.$item['var_err'].'</div>';
-                                }
+                            echo    '<td class="item-title">
+                                        <div style="margin-bottom: 10px;">'.$item['product_name'].' <span class="c-product-sku desktop-only desk-inline">('.$item['var_sku'].')</span></div>';
+                                    foreach($item['var_discount_details'] As $dis) {
+                                        foreach($dis As $disLbl) {
+                                            echo '<p style="margin-bottom: 5px;font-size: 12px;line-height: 10px;">'. $disLbl . '</p>';
+                                        }
+                                    }
+
+                            if (!empty($item['var_err'])) {
+                                echo '<div class="text-danger">'.$item['var_err'].'</div>';
+                            }
                             echo    '</td>';
                             echo    '<td class="item-price" data-price="'.$item['var_price'].'">'.$item['var_currency_symbol'].$item['var_price'].'</td>';
                             echo    '<td class="item-qty">
@@ -59,54 +65,57 @@
                 </tbody>
             </table>
         </div>
- 	</form>   
+    </form>   
     <div class="cart-bottom-area">
         <div class="row">
-        	<div class="col-xs-12">
-        		<div class="update-continue-btn text-right pb-20">
-                	<?php if (!empty($this->checkOutCart)):?>
-                    	<button class="btn-def btn2 update-checkout-cart"><strong>UPDATE CART</strong></button>
+            <div class="col-xs-12">
+                <div class="update-continue-btn text-right pb-20">
+                    <?php if (!empty($this->checkOutCart)):?>
+                        <button class="btn-def btn2 update-checkout-cart"><strong>UPDATE CART</strong></button>
                     <?php endif;?>
                 </div>
-        	</div>
+            </div>
             <div class="col-md-8 col-sm-7 col-xs-12">
                 <div class="update-coupne-area">
-                	<?php if (!empty($this->checkOutCart)):?>
-                		<?php echo $this->checkoutCoupon?>
-                	<?php endif;?>
+                    <?php if (!empty($this->checkOutCart)):?>
+                        <?php echo $this->checkoutCoupon?>
+                    <?php endif;?>
                 </div>
             </div>
             <div class="col-md-4 col-sm-5 col-xs-12">
                 <div class="cart-total-area">
                     <div class="catagory-title cat-tit-5 mb-20 text-right">
                             <h3>Cart Totals</h3> 
-                     </div>
-                     <div class="sub-shipping">
+                    </div>
+                    <div class="sub-shipping">
                         <p>Subtotal <span><?php echo $this->checkOutCurrency.$this->checkOutCartSubTotal ?></span></p>
                         <?php 
                             if ($this->checkoutHasCoupon){
                                     
                                 if (!empty($this->checkOutCartDiscountInfo))
-                             	{
-                             	    echo '<p>Order discount </p>';
-                             	    foreach($this->checkOutCartDiscountInfo as $discInfo){
-                             	        echo '<p>';
-                             	        echo '(-'.$discInfo['details'].')';
-                             	        echo '<span>';
-                             	        echo $this->checkOutCurrency.$discInfo['amount'];
+                                {
+                                    echo '<p>Order discount </p>';
+                                    foreach($this->checkOutCartDiscountInfo as $discInfo){
+                                        echo '<p>';
+                                        echo '(-'.$discInfo['details'].')';
+                                        echo '<span>';
+                                        echo $this->checkOutCurrency.$discInfo['amount'];
                                         echo '</span>';
                                         echo '</p>';
-                             	    }
-                             	    
-                             	}
-                         	}
-                     	?>
-                     </div>
-                     <div class="process-cart-total">
-                         <p>Total <span><?php echo $this->checkOutCurrency.$this->checkOutCartTotal ?></span></p>
-                     </div>
-                     <?php if ($this->checkOutCart):?>
-                    	<div class="process-checkout-btn text-right">
+                                    }
+                                    
+                                }
+                            }
+                        ?>
+                    </div>
+                    <div class="sub-shipping">
+                        <p>Shipping <span><?php echo $this->checkOutCurrency.$this->checkoutShipping ?></span></p>
+                    </div>
+                    <div class="process-cart-total">
+                        <p>Total <span><?php echo $this->checkOutCurrency.$this->checkOutCartTotal ?></span></p>
+                    </div>
+                    <?php if ($this->checkOutCart):?>
+                        <div class="process-checkout-btn text-right">
                             <a class="btn-def btn2" href="<?php echo $this->nextStep_link?>">Process To Checkout Addresses</a>
                         </div>
                     <?php endif;?>

@@ -88,7 +88,7 @@ class SiteCommerceCategoryProductListPluginListener extends SiteGeneralListener
                         if (empty($lowestPrice))
                         {
                             // Getting the Final Price of a variant
-                            $varPrice = $melisComPriceService->getItemPrice($var->var_id, $countryId, $clientGroup);
+                            $varPrice = $melisComPriceService->getItemPrice($var->var_id, $countryId, $clientGroup, 'variant', ['categoryId' => $val->getId()]);
                             
                             // if the variant has Price base on the Country
                             // this will partially assign as Lowest Prices
@@ -102,7 +102,7 @@ class SiteCommerceCategoryProductListPluginListener extends SiteGeneralListener
                         else 
                         {
                             // Getting the Final Price of a variant
-                            $varPrice = $melisComPriceService->getItemPrice($var->var_id, $countryId, $clientGroup);
+                            $varPrice = $melisComPriceService->getItemPrice($var->var_id, $countryId, $clientGroup, 'variant', ['categoryId' => $val->getId()]);
                             
                             // if the variant has Price base on the Country
                             if (!empty($varPrice['price']))
@@ -122,7 +122,7 @@ class SiteCommerceCategoryProductListPluginListener extends SiteGeneralListener
                     // this will try to get from the Product Price
                     if (empty($lowestPrice))
                     {
-                        $prdPrice = $varPrice = $melisComPriceService->getItemPrice($prdId, $countryId, $clientGroup, 'product');
+                        $prdPrice = $varPrice = $melisComPriceService->getItemPrice($prdId, $countryId, $clientGroup, 'product', ['categoryId' => $val->getId()]);
                         if (!empty($prdPrice['price']))
                         {
                             // $lowestPrice = $prdPrice[0]->price_net;

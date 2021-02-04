@@ -11,7 +11,7 @@ $(function() {
 			// 		.text()
 			// 		.trim() == "N/A"
 			// ) {
-			// 	setAddTocartState(true);
+			// 	setAddToCartState(true);
 			// }
 		}
 	}, 100);
@@ -50,11 +50,14 @@ $(function() {
 
 		setAttrSelectionsState();
 
-		setAddTocartState();
+		setAddToCartState();
+
+		let queryStr = window.location.search;
 
 		$.ajax({
 			type: "POST",
-			url: "/MelisDemoCommerce/ComProduct/getVariantCommonAttributes",
+			url:
+				"/MelisDemoCommerce/ComProduct/getVariantCommonAttributes" + queryStr,
 			data: dataString,
 			dataType: "json",
 			encode: true,
@@ -145,7 +148,7 @@ $(function() {
 				var varStock = parseInt(data.variant_stock.stock_quantity);
 
 				if (varStock != 0) {
-					setAddTocartState(false);
+					setAddToCartState(false);
 					$(".add-to-cart-zone .alert-danger").addClass("hidden");
 					$("form#add-to-cart-form input[name='m_variant_id']").val(
 						data.variant.var_id

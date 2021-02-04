@@ -21,7 +21,7 @@ class SiteShipmentCostService extends MelisServiceManager
         // Shipping Total Amount
         $total = 0;
         // Shipping errors
-        $errors = array();
+        $errors = [];
         
         // Static Value for Shipping Cost, for testing
         $total = 100;
@@ -29,9 +29,7 @@ class SiteShipmentCostService extends MelisServiceManager
         //  Results initialization
         $shipment['costs']['shipment']['total'] = $total;
         if (!empty($errors))
-        {
             $shipment['costs']['shipment']['errors'] = $errors;
-        }
         
         return $shipment;
     }

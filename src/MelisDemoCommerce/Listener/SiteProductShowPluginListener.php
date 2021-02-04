@@ -29,6 +29,8 @@ class SiteProductShowPluginListener extends SiteGeneralListener
                 
                 // Getting the Datas from the Event Parameters
                 $params = $e->getParams();
+
+                $categoryId = $sm->get('request')->getQuery('categoryId', null);
                 
                 // Checking the DemoCommerce template assigned to the ProductShow plugin
                 if ($params['view']->getTemplate() == 'MelisDemoCommerce/plugin/show-product')
@@ -68,21 +70,27 @@ class SiteProductShowPluginListener extends SiteGeneralListener
                         if ($ecomAuthSrv->hasIdentity())
                             $clientGroupId = $ecomAuthSrv->getClientGroup();
 
+                        $categoryParam = [];
+                        if ($categoryId)
+                            $categoryParam['categoryId'] = $categoryId;
+
                         // Product price
                         $melisComPriceService = $sm->get('MelisComPriceService');
-                        $productPrice = $melisComPriceService->getItemPrice($productId, $countryId, $clientGroupId, 'product');
+                        $productPrice = $melisComPriceService->getItemPrice($productId, $countryId, $clientGroupId, 'product', $categoryParam);
 
                         $price = $productPrice;
 
                         if ($productId)
                         {
+                            
                             // Product main variant
                             $mainVariant = $variantSvc->getMainVariantByProductId($productId, null, $countryId, $clientGroupId);
 
                             if(!empty($mainVariant))
                             {
                                 // Variant Price
-                                $variantPrice = $melisComPriceService->getItemPrice($mainVariant->getId(), $countryId, $clientGroupId);
+                                $variantPrice = $melisComPriceService->getItemPrice($mainVariant->getId(), 
+                                                                $countryId, $clientGroupId, 'variant', $categoryParam);
 
                                 if (!empty($variantPrice['price'])) {
 
@@ -115,7 +123,8 @@ class SiteProductShowPluginListener extends SiteGeneralListener
                                         break;
 
                                     // Variant price
-                                    $variantPrice = $melisComPriceService->getItemPrice($var->getId(), $countryId, $clientGroupId);
+                                    $variantPrice = $melisComPriceService->getItemPrice($var->getId(), $countryId, 
+                                                                    $clientGroupId, 'variant', $categoryParam);
 
                                     // Variant stock
                                     // $variantStock = $variantSvc->getVariantFinalStocks($var->getId(), $countryId);

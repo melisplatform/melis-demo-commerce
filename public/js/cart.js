@@ -16,16 +16,18 @@ $(function() {
 			var dataString = $("form#" + form).serializeArray();
 			dataString.push({ name: "idpage", value: $(this).data("pageid") });
 
-			setAddTocartState();
+			setAddToCartState();
+
+			let queryStr = window.location.search;
 
 			$.ajax({
 				type: "POST",
-				url: "/MelisDemoCommerce/ComProduct/addToCart",
+				url: "/MelisDemoCommerce/ComProduct/addToCart" + queryStr,
 				data: dataString,
 				dataType: "json",
 				encode: true,
 			}).success(function(data) {
-				setAddTocartState(false);
+				setAddToCartState(false);
 
 				if (data.success) {
 					$(".add-to-cart-zone .alert-success").removeClass("hidden");
@@ -157,7 +159,7 @@ $(function() {
 			discount = discountValue * itemQty;
 		}
 
-		// Applying discount to total amount of the porduct
+		// Applying discount to total amount of the product
 		if (discount) {
 			tmpTotal = tmpTotal - discount;
 			parent
@@ -171,7 +173,7 @@ $(function() {
 	});
 });
 
-function setAddTocartState(disable) {
+function setAddToCartState(disable) {
 	disable = typeof disable == "undefined" ? true : disable;
 
 	// $(".add-to-cart-quantity-zone #add-to-cart-form input[name='m_variant_id']").val("");
