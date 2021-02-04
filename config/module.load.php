@@ -8,7 +8,7 @@ return array(
     'MelisCmsProspects',
     'MelisCommerce',
     'MelisCommerceOrderInvoice',
-    'MelisCommerceGroupDiscountPerCategory',
+    // 'MelisCommerceGroupDiscountPerCategory',
     'MelisDemoCommerce'
     // MelisCmsSiteRobot',
 );

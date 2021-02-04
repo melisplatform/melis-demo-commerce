@@ -1,4 +1,14 @@
 <?php
+
+$cardExpYear = [];
+
+$ctr = 0;
+do{
+    $year = date('y') + $ctr;
+    $cardExpYear[$year] = ($ctr + date('Y'));
+    $ctr++;
+} while ($ctr != 5 );
+
 return [
     'plugins' => [
         'MelisDemoCommerce' => [
@@ -84,18 +94,10 @@ return [
                                 'type' => 'Select',
                                 'options' => [
                                     'label' => 'Year expiration',
-                                    'value_options' => [
-                                        '2017' => '2017',
-                                        '2018' => '2018',
-                                        '2019' => '2019',
-                                        '2020' => '2020',
-                                        '2021' => '2021',
-                                        '2022' => '2022',
-                                        '2023' => '2023',
-                                    ],
+                                    'value_options' => $cardExpYear,
                                 ],
                                 'attributes' => [
-                                    'id' => 'expiry-year"',
+                                    'id' => 'expiry-year',
                                 ]
                             ]
                         ],
@@ -262,18 +264,10 @@ return [
                                 'type' => 'Select',
                                 'options' => [
                                     'label' => 'Year expiration',
-                                    'value_options' => [
-                                        '2017' => '2017',
-                                        '2018' => '2018',
-                                        '2019' => '2019',
-                                        '2020' => '2020',
-                                        '2021' => '2021',
-                                        '2022' => '2022',
-                                        '2023' => '2023',
-                                    ],
+                                    'value_options' => $cardExpYear,
                                 ],
                                 'attributes' => [
-                                    'id' => 'expiry-year"',
+                                    'id' => 'expiry-year',
                                 ]
                             ]
                         ],
