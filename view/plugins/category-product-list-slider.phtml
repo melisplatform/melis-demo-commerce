@@ -7,86 +7,101 @@
                     <div class="title-tab-product-category">
                         <div class="col-md-12 text-center">
                             <ul class="nav mb-40 heading-style-2" role="tablist">                               
-                            	<?php foreach ($this->categoryProducts As $key => $val):?>
-                            		<li role="presentation" class="<?php echo (!$key) ? 'active' : ''?>">
-                            			<?php 
-                              			    foreach ($val->getTranslations() As $tVal)
-                              			    {
-                              			        $catName = $tVal->catt_name;
-                              			    }
-                              			?>
-                                    	<a href="#<?php echo $val->getId().'-'.$this->pluginGeneratedId?>" aria-controls="<?php echo $val->getId().'-'.$this->pluginGeneratedId?>" role="tab" data-toggle="tab"><?php echo $catName ?></a>
-                                	</li>
-                            	<?php endforeach;?>
+                                <?php foreach ($this->categoryProducts As $key => $val):?>
+                                    <li role="presentation" class="<?php echo (!$key) ? 'active' : ''?>">
+                                        <?php 
+                                            foreach ($val->getTranslations() As $tVal)
+                                            {
+                                                $catName = $tVal->catt_name;
+                                            }
+                                        ?>
+                                        <a href="#<?php echo $val->getId().'-'.$this->pluginGeneratedId?>" aria-controls="<?php echo $val->getId().'-'.$this->pluginGeneratedId?>" role="tab" data-toggle="tab"><?php echo $catName ?></a>
+                                    </li>
+                                <?php endforeach;?>
                             </ul>
                         </div>
                     </div>
                     <div class="clearfix"></div>
-    				<div class="content-tab-product-category">
+                    <div class="content-tab-product-category">
                         <!-- Tab panes -->
                         <div class="tab-content">
-                        	<?php if (!empty($this->categoryProducts)){?>
+                            <?php if (!empty($this->categoryProducts)){?>
                                 <?php foreach ($this->categoryProducts As $key => $val){?>
-                                	<div role="tabpanel" class="tab-pane fade in <?php echo (!$key) ? 'active' : ''?>" id="<?php echo $val->getId().'-'.$this->pluginGeneratedId?>">
+                                    <div role="tabpanel" class="tab-pane fade in <?php echo (!$key) ? 'active' : ''?>" id="<?php echo $val->getId().'-'.$this->pluginGeneratedId?>">
                                         <?php if (!empty($val->products)){?>
                                             <div class="category-productlist-list-slider carsoule-btn">   
                                                 <?php foreach ($val->products As $prd){?>
                                                 
-                                                	<?php 
-                            						    // Getting Product Default Image
-                            						    $productImg = '';
-                            						    $imageSecondary = '';
-                            						    $prdDoc = $prd->getDocuments();
-                            						    if (!empty($prdDoc))
-                            						    {
-                            						        // Product primary image
-                            						        $productImg = (!empty($prdDoc['doc_path'])) ? $prdDoc['doc_path'] : '';
-                            						        // Product secondary image
-                            						        $imageSecondary = (!empty($prdDoc['imageSecondary'])) ? $prdDoc['imageSecondary'] : '';
-                            						    }
-                            						    
-                            						    // Gettking Product Name
-                            						    $productName = '';
-                            						    foreach ($prd->getTexts() As $tKey => $tVal)
-                            						    {
-                            						        if ($tVal->ptt_code == 'TITLE')
-                            						        {
-                            						            $productName = $tVal->ptxt_field_short;
-                            						        }
-                            						    }
-                                					?>
+                                                    <?php 
+                                                        // Getting Product Default Image
+                                                        $productImg = '';
+                                                        $imageSecondary = '';
+                                                        $prdDoc = $prd->getDocuments();
+                                                        if (!empty($prdDoc))
+                                                        {
+                                                            // Product primary image
+                                                            $productImg = (!empty($prdDoc['doc_path'])) ? $prdDoc['doc_path'] : '';
+                                                            // Product secondary image
+                                                            $imageSecondary = (!empty($prdDoc['imageSecondary'])) ? $prdDoc['imageSecondary'] : '';
+                                                        }
+
+                                                        $productPageLink = $this->MelisCommerceLink('product', $prd->getId(), $this->langId, true);
+                                                        
+                                                        // Gettking Product Name
+                                                        $productName = '';
+                                                        foreach ($prd->getTexts() As $tKey => $tVal)
+                                                        {
+                                                            if ($tVal->ptt_code == 'TITLE')
+                                                            {
+                                                                $productName = $tVal->ptxt_field_short;
+                                                            }
+                                                        }
+
+                                                        $categoryName;
+                                                        if (!empty($prd->getCategories()))
+                                                        {
+                                                            $categoryName = $prd->getCategories()[0]->catt_name;
+                                                        }
+
+                                                        $productPrice = $prd->getPrice();
+                                                        if (!empty($productPrice['category_discount'])) {
+                                                            $categoryName = $productPrice['category_discount']['label'];
+                                                            $productPageLink .= '?categoryId='.$productPrice['category_discount']['category_id'];
+                                                        }
+
+                                                    ?>
                                                     <div class="col-md-3">
                                                         <!-- single product start-->
                                                         <div class="single-product">
                                                             <div class="product-img">
                                                                 <div class="product-label">
                                                                     <?php if (!empty($prd->getCategories()[0])){?>
-                                                                    	<div class="new"><?php echo $prd->getCategories()[0]->catt_name; ?></div>
+                                                                        <div class="new"><?php echo $categoryName; ?></div>
                                                                     <?php }?>
                                                                 </div>
                                                                 <div class="single-prodcut-img  product-overlay pos-rltv">
-                                                                    <a href="<?php echo $this->MelisCommerceLink('product', $prd->getId(), $this->langId, true) ?>"> 
-                                                                    	<img alt="" src="<?php echo $productImg ?>" class="primary-image"> 
-                                                                    	<?php if (!empty($imageSecondary)){?>
-                                                                    		<img alt="" src="<?php echo $imageSecondary ?>" class="secondary-image"> 
-                                                                    	<?php }?>
+                                                                    <a href="<?php echo $productPageLink ?>"> 
+                                                                        <img alt="" src="<?php echo $productImg ?>" class="primary-image"> 
+                                                                        <?php if (!empty($imageSecondary)){?>
+                                                                            <img alt="" src="<?php echo $imageSecondary ?>" class="secondary-image"> 
+                                                                        <?php }?>
                                                                     </a>
                                                                 </div>
                                                             </div>
                                                             <div class="product-text">
                                                                 <div class="prodcut-name"> 
-                                                                	<a href="<?php echo $this->MelisCommerceLink('product', $prd->getId(), $this->langId, true) ?>"><?php echo $productName ?></a> 
-                                                            	</div>
+                                                                    <a href="<?php echo $productPageLink ?>"><?php echo $productName ?></a> 
+                                                                </div>
                                                                 <div class="prodcut-ratting-price">
                                                                     <div class="prodcut-price">
-                                                                    	<?php 
-                                                                    	    $prdPrice = $prd->getPrice();
-                                                                    	    $prdPriceStr = 'N/A';
-                                                                    	    if (!empty($prdPrice['prd_currency_symbol']) && !empty($prdPrice['prd_price_net']))
-                                                                    	    {
-                                                                    	        $prdPriceStr = $prdPrice['prd_currency_symbol'].number_format($prdPrice['prd_price_net'],2);
-                                                                    	    }
-                                                                    	?>
+                                                                        <?php 
+                                                                            $prdPrice = $prd->getPrice();
+                                                                            $prdPriceStr = 'N/A';
+                                                                            if (!empty($prdPrice['prd_currency_symbol']) && !empty($prdPrice['prd_price_net']))
+                                                                            {
+                                                                                $prdPriceStr = $prdPrice['prd_currency_symbol'].number_format($prdPrice['prd_price_net'],2);
+                                                                            }
+                                                                        ?>
                                                                         <div class="new-price"> <?php echo $prdPriceStr?> </div>
                                                                     </div>
                                                                 </div>
@@ -98,22 +113,22 @@
                                             </div>
                                         <?php }else{?>
                                             <div class="alert alert-warning" role="alert">
-                                            	No product
+                                                No product
                                             </div>
                                         <?php }?>
                                     </div>
-                            	<?php }?>
-                        	<?php }?>
+                                <?php }?>
+                            <?php }?>
                         </div>
                         <!-- Tab panes end -->
                     </div>
-    			</div>
+                </div>
             </div>
         </div>
     </div> 
 <?php }else{?>
     <div class="alert alert-warning" role="alert">
-    	No result
+        No result
     </div>
 <?php }?>
 <!-- category product list slider end-->                   

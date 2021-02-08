@@ -142,7 +142,6 @@ class SiteCommerceProductListPluginListener extends SiteGeneralListener
                                         ->getCategoryDiscount($cat, $countryId, $clientGroup);
 
                             if (empty($categoryDiscount) && !empty($catDiscount)){
-
                                 $categoryDiscount = $catDiscount;
                             } elseif (!empty($categoryDiscount) && !empty($catDiscount)) {
                                 if ($catDiscount->gdc_discount_percentage > $categoryDiscount->gdc_discount_percentage)
