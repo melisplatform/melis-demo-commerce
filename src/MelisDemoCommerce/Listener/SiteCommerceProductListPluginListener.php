@@ -88,7 +88,7 @@ class SiteCommerceProductListPluginListener extends SiteGeneralListener
         $container = new Container('melisplugins');
         $langId = $container['melis-plugins-lang-id'];
 
-        if ($routeParams['categoryId']) {
+        if (!empty($routeParams['categoryId'])) {
             $currentCategoryId = $routeParams['categoryId'];
         }
         
