@@ -67,12 +67,6 @@ class ComLoginController extends BaseController
         // add generated view to children views for displaying it in the contact view
         $this->view->addChild($registration->render($registrationParameters), 'registration');
         
-        $this->layout()->setVariables(array(
-            'pageJs' => array(
-                '/MelisDemoCommerce/js/melisSiteHelper.js',
-            ),
-        ));
-        
         $this->view->setVariable('idPage', $this->idPage);
         return $this->view;
     }
@@ -83,7 +77,7 @@ class ComLoginController extends BaseController
         $status  = 0;
         $errors  = array();
         $redirect_link = null;
-         
+        
         $request = $this->getRequest();
         
         if ($request->isPost())
@@ -106,7 +100,7 @@ class ComLoginController extends BaseController
             'errors' => $errors,
             'redirect_link' => $redirect_link
         );
-         
+        
         return new JsonModel($response);
     }
     
