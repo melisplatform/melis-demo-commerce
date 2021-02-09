@@ -593,7 +593,7 @@ class DemoCommerceService extends MelisServiceManager
                         $categoryPageUri = $comLinkSrv->getPageLink('category', $val['cat_id'], $langId, false);
                     }
                     
-                    // Gererating the datas for breadcrumb
+                    // Generating the datas for breadcrumb
                     $tmp = array(
                         'label' => $label,
                         'menu' => 'LINK',
@@ -606,6 +606,17 @@ class DemoCommerceService extends MelisServiceManager
                     );
                     
                     array_push($breadcrumb, $tmp);
+                }
+
+                $request = $this->getServiceManager()->get('request');
+                if (!empty($request->getQuery('categoryId'))) {
+                    $cateName = $catSrv->getCategoryNameById($request->getQuery('categoryId'), $langId);
+
+                    $comLinkSrv = $this->getServiceManager()->get('MelisComLinksService');
+                    $categoryPageUri = $comLinkSrv->getPageLink('category', $request->getQuery('categoryId'), $langId, false);
+
+                    $breadcrumb[count($breadcrumb)]['label'] = $cateName;
+                    $breadcrumb[count($breadcrumb)]['uri'] = $categoryPageUri;
                 }
                 
                 /**
