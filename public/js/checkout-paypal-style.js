@@ -26,7 +26,6 @@ $(function() {
 					window.location = data.result["checkout-confirm-url"];
 				});
 			} else {
-				console.log("shitss");
 				// Showing the Error result for submitting form
 				$(".fake-paypal-style-form-alert").removeClass("hidden");
 			}
