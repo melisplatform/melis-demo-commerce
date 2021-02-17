@@ -9,19 +9,19 @@
 
 namespace MelisDemoCommerce\Service;
 
-use MelisCore\Service\MelisCoreGeneralService;
+use MelisCore\Service\MelisServiceManager;
 
 /**
- * SiteShipmentCost Services handle the Cost of the Shiiping
+ * SiteShipmentCost Services handle the Cost of the Shipping
  */
-class SiteShipmentCostService extends MelisCoreGeneralService
+class SiteShipmentCostService extends MelisServiceManager
 {
     public function computeShipmentCost($shipment)
     {
         // Shipping Total Amount
         $total = 0;
         // Shipping errors
-        $errors = array();
+        $errors = [];
         
         // Static Value for Shipping Cost, for testing
         $total = 100;
@@ -29,9 +29,7 @@ class SiteShipmentCostService extends MelisCoreGeneralService
         //  Results initialization
         $shipment['costs']['shipment']['total'] = $total;
         if (!empty($errors))
-        {
             $shipment['costs']['shipment']['errors'] = $errors;
-        }
         
         return $shipment;
     }

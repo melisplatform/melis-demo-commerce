@@ -9,8 +9,6 @@
 
 namespace MelisDemoCommerce\Controller;
 
-use MelisDemoCommerce\Controller\BaseController;
-
 class SearchController extends BaseController
 {
     public function resultsAction()
@@ -21,19 +19,19 @@ class SearchController extends BaseController
         /**
          * Search result using MelisFrontSearchResultsPlugin
          */
-	    $searchResults = $this->MelisFrontSearchResultsPlugin();
-	    $searchParameters = array(
-	        'template_path' => 'MelisDemoCommerce/plugin/search-results',
-	        'pageId' => $this->idPage,
-	        'siteModuleName' => 'MelisDemoCommerce',
-	        'pagination' => array(
-	            'nbPerPage' => 10,
-	            'nbPageBeforeAfter' => 3
-	        ),
-	    );
-		// add generated view to children views for displaying it in the contact view
-		$this->view->addChild($searchResults->render($searchParameters), 'searchresults');
-		
+        $searchResults = $this->MelisFrontSearchResultsPlugin();
+        $searchParameters = array(
+            'template_path' => 'MelisDemoCommerce/plugin/search-results',
+            'pageId' => $this->idPage,
+            'siteModuleName' => 'MelisDemoCommerce',
+            'pagination' => array(
+                'nbPerPage' => 10,
+                'nbPageBeforeAfter' => 3
+            ),
+        );
+        // add generated view to children views for displaying it in the contact view
+        $this->view->addChild($searchResults->render($searchParameters), 'searchresults');
+        
         $this->view->setVariable('renderMode', $this->renderMode);
         $this->view->setVariable('idPage', $this->idPage);
         return $this->view;

@@ -9,24 +9,22 @@
 
 namespace MelisDemoCommerce\Listener;
 
-use Zend\EventManager\EventManagerInterface;
-use Zend\EventManager\ListenerAggregateInterface;
-use Zend\Session\Container;
+use Laminas\EventManager\EventManagerInterface;
+use Laminas\Session\Container;
 
-class SiteCheckoutCartPluginListener implements ListenerAggregateInterface
+class SiteCheckoutCartPluginListener extends SiteGeneralListener
 {
-    public function attach(EventManagerInterface $events)
+    public function attach(EventManagerInterface $events, $priority = 1)
     {
-        $sharedEvents      = $events->getSharedManager();
-        
-        $callBackHandler = $sharedEvents->attach(
+        $this->attachEventListener(
+            $events,
             '*',
-            array(
+            [
                 'MelisCommerceCheckoutCartPlugin_melistemplating_plugin_end',
-            ),
+            ],
             function($e){
-                // Getting the Service Locator from param target
-                $sm = $e->getTarget()->getServiceLocator();
+                // Getting the Service Manager from param target
+                $sm = $e->getTarget()->getServiceManager();
                 
                 // Getting the Datas from the Event Parameters
                 $params = $e->getParams();
@@ -56,17 +54,7 @@ class SiteCheckoutCartPluginListener implements ListenerAggregateInterface
                     $viewVariables->checkOutCart = $list; 
                 }
             },
-            100);
-        
-        $this->listeners[] = $callBackHandler;
-    }
-    
-    public function detach(EventManagerInterface $events)
-    {
-        foreach ($this->listeners as $index => $listener) {
-            if ($events->detach($listener)) {
-                unset($this->listeners[$index]);
-            }
-        }
+            100
+        );
     }
 }

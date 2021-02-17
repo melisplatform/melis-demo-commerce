@@ -16,7 +16,7 @@ class HomeController extends BaseController
     public function indexAction()
     {
         /** @var MelisSiteConfigService $siteConfigSrv */
-        $siteConfigSrv = $this->getServiceLocator()->get('MelisSiteConfigService');
+        $siteConfigSrv = $this->getServiceManager()->get('MelisSiteConfigService');
         /**
          * Generating Homepage header Slider using MelisCmsSliderShowSliderPlugin Plugin
          */
@@ -101,13 +101,6 @@ class HomeController extends BaseController
         
         // add generated view to children views for displaying it in the home page view
         $this->view->addChild($melisCommerceCategoryProductListPlugin->render($categorySliderListProductsParameters), 'homepageCategoryProductSlider2');
-
-        $this->layout()->setVariables(array(
-            'pageJs' => array(
-                '/MelisDemoCommerce/js/MelisPlugins/MelisDemoCommerce.MelisCommerceCategoryProductListPlugin.init.js',
-                //'/MelisDemoCommerce/js/MelisPlugins/MelisDemoCommerce.MelisCommerceCategoryTree.init.js'
-            ),
-        ));
         
         $this->view->setVariable('idPage', $this->idPage);
         $this->view->setVariable('renderType', $this->renderType);

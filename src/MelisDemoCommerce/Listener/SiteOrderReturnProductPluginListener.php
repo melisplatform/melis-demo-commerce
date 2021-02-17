@@ -10,11 +10,9 @@
 namespace MelisDemoCommerce\Listener;
 
 use Laminas\EventManager\EventManagerInterface;
-use Laminas\Paginator\Paginator;
-use Laminas\Paginator\Adapter\ArrayAdapter;
 use Laminas\Session\Container;
 
-class SiteCartPluginListener extends SiteGeneralListener
+class SiteOrderReturnProductPluginListener extends SiteGeneralListener
 {
     public function attach(EventManagerInterface $events, $priority = 1)
     {
@@ -22,7 +20,7 @@ class SiteCartPluginListener extends SiteGeneralListener
             $events,
             '*',
             [
-                'MelisCommerceCartPlugin_melistemplating_plugin_end',
+                'MelisCommerceOrderReturnProductPlugin_melistemplating_plugin_end',
             ],
             function($e){
                 // Getting the Service Manager from param target
@@ -38,26 +36,19 @@ class SiteCartPluginListener extends SiteGeneralListener
                 $documentSrv = $sm->get('MelisComDocumentService');
                 
                 // Checking the Plugin template for customization
-                if (in_array($params['view']->getTemplate(), array('MelisDemoCommerce/plugin/my-cart', 'MelisDemoCommerce/plugin/menu-cart')))
+                if (in_array($params['view']->getTemplate(), array('MelisDemoCommerce/order-return-product')))
                 {
                     $viewVariables = $params['view']->getVariables();
                     
-                    $cartList = $viewVariables->cartList;
-                    
-                    $list = array();
-                    foreach ($cartList->getAdapter()->getItems(0, null) As $item)
-                    {
-                        $variant = $item;
-                        $variant['name'] = $prodSvc->getProductName($item['product_id'], $langId);
-                        $variant['image'] = $documentSrv->getDocDefaultImageFilePath('product', $item['product_id']);
-                        array_push($list, $variant);
+                    $returnProducts = $viewVariables->returnProducts;
+                    foreach($returnProducts as $orderId => $rProduct) {
+                        if (!empty($rProduct['products'])) {
+                            foreach ($rProduct['products'] As $key => $item) {
+                                $returnProducts[$orderId]['products'][$key]['productImage'] = $documentSrv->getDocDefaultImageFilePath('product', $item['productId']);
+                            }
+                        }
                     }
-                    
-                    $paginator = new Paginator(new ArrayAdapter($list));
-                    $paginator->setCurrentPageNumber($cartList->getCurrentPageNumber())
-                                ->setItemCountPerPage($cartList->getItemCountPerPage());
-                    
-                    $viewVariables->cartList = $paginator;
+                    $viewVariables->returnProducts = $returnProducts;
                 }
             },
             100

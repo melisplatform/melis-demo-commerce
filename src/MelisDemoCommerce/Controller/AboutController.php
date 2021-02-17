@@ -8,7 +8,7 @@
  */
 
 namespace MelisDemoCommerce\Controller;
-use MelisDemoCommerce\Controller\BaseController;
+
 use MelisFront\Service\MelisSiteConfigService;
 
 class AboutController extends BaseController
@@ -16,7 +16,7 @@ class AboutController extends BaseController
     public function aboutusAction()
     {
         /** @var MelisSiteConfigService $siteConfigSrv */
-        $siteConfigSrv = $this->getServiceLocator()->get('MelisSiteConfigService');
+        $siteConfigSrv = $this->getServiceManager()->get('MelisSiteConfigService');
 
         /**
          * Generating Homepage header Slider using MelisCmsSliderShowSliderPlugin Plugin

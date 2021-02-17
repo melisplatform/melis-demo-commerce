@@ -7,136 +7,123 @@
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
-return array(
-    'router' => array(
-        'routes' => array(
-            'MelisDemoCommerce-pageids' => array(
+return [
+    'router' => [
+        'routes' => [
+            'MelisDemoCommerce-pageids' => [
                 'type'    => 'regex',
-                'options' => array(
+                'options' => [
                     'regex'    => '.*/MelisDemoCommerce/.*/id/(?<idpage>[0-9]+)',
-                    'defaults' => array(
+                    'defaults' => [
                         'controller' => 'MelisDemoCommerce\Controller\Index',
                         'action'     => 'indexsite',
-                    ),
+                    ],
                     'spec' => '%idpage'
-                ),
-            ),
-            'MelisDemoCommerce-homepage' => array(
+                ],
+            ],
+            'MelisDemoCommerce-homepage' => [
                 'type'    => 'Literal',
-                'options' => array(
+                'options' => [
                     'route'    => '/',
-                    'defaults' => array(
+                    'defaults' => [
                         'controller'     => 'MelisFront\Controller\Index',
                         'action'         => 'index',
                         'renderType'     => 'melis_zf2_mvc',
                         'renderMode'     => 'front',
                         'preview'        => false,
                         'idpage'         => '[:homePageId]'
-                    )
-                ),
-            ),
+                    ]
+                ],
+            ],
             // The following is a route to simplify getting started creating
             // new controllers and actions without needing to create a new
             // module. Simply drop new controllers in, and you can access them
             // using the path /application/:controller/:action
-            'applicationMelisDemoCommerce' => array(
+            'applicationMelisDemoCommerce' => [
                 'type'    => 'Literal',
-                'options' => array(
+                'options' => [
                     'route'    => '/MelisDemoCommerce',
-                    'defaults' => array(
+                    'defaults' => [
                         '__NAMESPACE__' => 'MelisDemoCommerce\Controller',
                         'controller'    => 'Index',
                         'action'        => 'indexsite',
-                    ),
-                ),
+                    ],
+                ],
                 'may_terminate' => true,
-                'child_routes' => array(
-                    'default' => array(
+                'child_routes' => [
+                    'default' => [
                         'type'    => 'Segment',
-                        'options' => array(
+                        'options' => [
                             'route'    => '/[:controller[/:action]]',
-                            'constraints' => array(
+                            'constraints' => [
                                 'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
                                 'action'     => '[a-zA-Z][a-zA-Z0-9_-]*',
-                            ),
-                            'defaults' => array(
+                            ],
+                            'defaults' => [
                                 'renderMode' => 'front',
-                            ),
-                        ),
-                    ),
-                    'setup' => array(
+                            ],
+                        ],
+                    ],
+                    'setup' => [
                         'type' => 'Segment',
-                        'options' => array(
+                        'options' => [
                             'route' => '/setup',
-                            'defaults' => array(
+                            'defaults' => [
                                 'controller' => 'MelisDemoCommerce\Controller\Setup',
                                 'action' => 'setup',
-                            ),
-                        ),
-                    ),
-                ),
-            ),
-        ),
-    ),
-    'service_manager' => array(
-        'abstract_factories' => array(
-            'Zend\Cache\Service\StorageCacheAbstractServiceFactory',
-            'Zend\Log\LoggerAbstractServiceFactory',
-        ),
-        'aliases' => array(
-            'translator' => 'MvcTranslator',
-            'MelisPlatformTable' => 'MelisDemoCommerce\Model\Tables\MelisPlatformTable',
-        ),
-        'factories' => array(
-            // MelisDemoCommerce Services
-            'DemoCommerceService'       => 'MelisDemoCommerce\Service\Factory\DemoCommerceServiceFactory',
-            'SiteShipmentCostService'  => 'MelisDemoCommerce\Service\Factory\SiteShipmentCostServiceFactory',
-            
-            'MelisDemoCommerce\Model\Tables\MelisPlatformTable' => 'MelisDemoCommerce\Model\Tables\Factory\MelisPlatformTableFactory',
-        )
-    ),
-    'translator' => array(
-        // 'locale' => 'en_US',
-    ),
-    'controllers' => array(
-        'invokables' => array(
-            'MelisDemoCommerce\Controller\Test'             => 'MelisDemoCommerce\Controller\TestController',
-            'MelisDemoCommerce\Controller\Base'             => 'MelisDemoCommerce\Controller\BaseController',
-            'MelisDemoCommerce\Controller\Home'             => 'MelisDemoCommerce\Controller\HomeController',
-            'MelisDemoCommerce\Controller\ComCatalogue'     => 'MelisDemoCommerce\Controller\ComCatalogueController',
-            'MelisDemoCommerce\Controller\News'             => 'MelisDemoCommerce\Controller\NewsController',
-            'MelisDemoCommerce\Controller\About'            => 'MelisDemoCommerce\Controller\AboutController',
-            'MelisDemoCommerce\Controller\Contact'          => 'MelisDemoCommerce\Controller\ContactController',
-            'MelisDemoCommerce\Controller\Testimonial'      => 'MelisDemoCommerce\Controller\TestimonialController',
-            'MelisDemoCommerce\Controller\ComProduct'       => 'MelisDemoCommerce\Controller\ComProductController',
-            'MelisDemoCommerce\Controller\ComCheckout'      => 'MelisDemoCommerce\Controller\ComCheckoutController',
-            'MelisDemoCommerce\Controller\ComLogin'         => 'MelisDemoCommerce\Controller\ComLoginController',
-            'MelisDemoCommerce\Controller\ComLostPassword'  => 'MelisDemoCommerce\Controller\ComLostPasswordController',
-            'MelisDemoCommerce\Controller\Search'           => 'MelisDemoCommerce\Controller\SearchController',
-            'MelisDemoCommerce\Controller\ComMyAccount'     => 'MelisDemoCommerce\Controller\ComMyAccountController',
-            'MelisDemoCommerce\Controller\ComLogout'        => 'MelisDemoCommerce\Controller\ComLogoutController',
-            'MelisDemoCommerce\Controller\ComOrder'         => 'MelisDemoCommerce\Controller\ComOrderController',
-            'MelisDemoCommerce\Controller\FakeServerPayment'=> 'MelisDemoCommerce\Controller\FakeServerPaymentController',
-            'MelisDemoCommerce\Controller\Setup'            => 'MelisDemoCommerce\Controller\SetupController',
-            'MelisDemoCommerce\Controller\Page404'          => 'MelisDemoCommerce\Controller\Page404Controller',
-        ),
-    ),
-    'view_helpers' => array(
-        'invokables' => array(
-            'DemoSiteFieldCollection'  => 'MelisDemoCommerce\Form\View\Helper\DemoSiteFieldCollection',
-            'DemoSiteFieldRow'         => 'MelisDemoCommerce\Form\View\Helper\DemoSiteFieldRow',
-        ),
-    ),
-    'view_manager' => array(
-        'display_not_found_reason' => true,
-        'display_exceptions'       => true,
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+        ],
+    ],
+    'service_manager' => [
+        'aliases' => [
+            // Table
+            'MelisPlatformTable'    => \MelisCore\Model\Tables\MelisPlatformTable::class,
+            // Services
+            'DemoCommerceService'   => \MelisDemoCommerce\Service\DemoCommerceService::class,
+            'SiteShipmentCostService'  => \MelisDemoCommerce\Service\SiteShipmentCostService::class,
+        ]
+    ],
+    'controllers' => [
+        'invokables' => [
+            'MelisDemoCommerce\Controller\Test'             => \MelisDemoCommerce\Controller\TestController::class,
+            'MelisDemoCommerce\Controller\Base'             => \MelisDemoCommerce\Controller\BaseController::class,
+            'MelisDemoCommerce\Controller\Home'             => \MelisDemoCommerce\Controller\HomeController::class,
+            'MelisDemoCommerce\Controller\ComCatalogue'     => \MelisDemoCommerce\Controller\ComCatalogueController::class,
+            'MelisDemoCommerce\Controller\News'             => \MelisDemoCommerce\Controller\NewsController::class,
+            'MelisDemoCommerce\Controller\About'            => \MelisDemoCommerce\Controller\AboutController::class,
+            'MelisDemoCommerce\Controller\Contact'          => \MelisDemoCommerce\Controller\ContactController::class,
+            'MelisDemoCommerce\Controller\Testimonial'      => \MelisDemoCommerce\Controller\TestimonialController::class,
+            'MelisDemoCommerce\Controller\ComProduct'       => \MelisDemoCommerce\Controller\ComProductController::class,
+            'MelisDemoCommerce\Controller\ComCheckout'      => \MelisDemoCommerce\Controller\ComCheckoutController::class,
+            'MelisDemoCommerce\Controller\ComLogin'         => \MelisDemoCommerce\Controller\ComLoginController::class,
+            'MelisDemoCommerce\Controller\ComLostPassword'  => \MelisDemoCommerce\Controller\ComLostPasswordController::class,
+            'MelisDemoCommerce\Controller\Search'           => \MelisDemoCommerce\Controller\SearchController::class,
+            'MelisDemoCommerce\Controller\ComMyAccount'     => \MelisDemoCommerce\Controller\ComMyAccountController::class,
+            'MelisDemoCommerce\Controller\ComLogout'        => \MelisDemoCommerce\Controller\ComLogoutController::class,
+            'MelisDemoCommerce\Controller\ComOrder'         => \MelisDemoCommerce\Controller\ComOrderController::class,
+            'MelisDemoCommerce\Controller\FakeServerPayment'=> \MelisDemoCommerce\Controller\FakeServerPaymentController::class,
+            'MelisDemoCommerce\Controller\Setup'            => \MelisDemoCommerce\Controller\SetupController::class,
+            'MelisDemoCommerce\Controller\Page404'          => \MelisDemoCommerce\Controller\Page404Controller::class,
+        ],
+    ],
+    'view_helpers' => [
+        'invokables' => [
+            'DemoSiteFieldCollection'  => \MelisDemoCommerce\Form\View\Helper\DemoSiteFieldCollection::class,
+            'DemoSiteFieldRow'         => \MelisDemoCommerce\Form\View\Helper\DemoSiteFieldRow::class,
+        ],
+    ],
+    'view_manager' => [
         'doctype'                  => 'HTML5',
         'not_found_template'       => 'error/404',
         'exception_template'       => 'error/index',
-        'controller_map' => array(
+        'controller_map' => [
             'MelisDemoCommerce' => true,
-        ),
-        'template_map' => array(
+        ],
+        'template_map' => [
             // Zend default layout
             'layout/layout'                     => __DIR__ . '/../view/layout/defaultLayout.phtml',
             // Main layout
@@ -204,16 +191,16 @@ return array(
             'MelisDemoCommerce/order-addresses'                         => __DIR__ . '/../view/plugins/order-addresses.phtml',
             'MelisDemocommerce/order-shipping-details'                  => __DIR__ . '/../view/plugins/order-shipping-details.phtml',
             'MelisDemocommerce/order-messages'                          => __DIR__ . '/../view/plugins/order-messages.phtml',
-        ),
-        'template_path_stack' => array(
+        ],
+        'template_path_stack' => [
             __DIR__ . '/../view',
-        ),
-    ),
-    'asset_manager' => array(
-        'resolver_configs' => array(
-            'aliases' => array(
+        ],
+    ],
+    'asset_manager' => [
+        'resolver_configs' => [
+            'aliases' => [
                 'MelisDemoCommerce/' => __DIR__ . '/../public/',
-            ),
-        ),
-    ),
-);
+            ],
+        ],
+    ],
+];

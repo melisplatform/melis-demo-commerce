@@ -10,45 +10,43 @@
 namespace MelisDemoCommerce\Listener;
 
 use MelisFront\Service\MelisSiteConfigService;
-use Zend\EventManager\EventManagerInterface;
-use Zend\EventManager\ListenerAggregateInterface;
-use Zend\Session\Container;
+use Laminas\EventManager\EventManagerInterface;
+use Laminas\Session\Container;
 
-class SiteMenuCustomizationListener implements ListenerAggregateInterface
+class SiteMenuCustomizationListener extends SiteGeneralListener
 {
-    private $serviceLocator;
-	
-    public function attach(EventManagerInterface $events)
+    private $serviceManager;
+    
+    public function attach(EventManagerInterface $events, $priority = 1)
     {
-        $sharedEvents      = $events->getSharedManager();
-        
-        $callBackHandler = $sharedEvents->attach(
+        $this->attachEventListener(
+            $events,
             '*',
-            array(
+            [
                 'MelisFrontMenuPlugin_melistemplating_plugin_end',
-            ),
-        	function($e){
-        	    // Getting the Service Locator from param target
-        	    $this->serviceLocator = $e->getTarget()->getServiceLocator();
-        	    // Getting the Datas from the Event Parameters
-        	    $params = $e->getParams();
+            ],
+            function($e){
+                // Getting the Service Manager from param target
+                $this->serviceManager = $e->getTarget()->getServiceManager();
+                // Getting the Datas from the Event Parameters
+                $params = $e->getParams();
 
-        	    $viewVariables = $params['view']->getVariables();
-        	    
-        	    if ($params['view']->getTemplate() == 'MelisDemoCommerce/plugin/menu' && !empty($viewVariables['menu']))
-        	    {
+                $viewVariables = $params['view']->getVariables();
+                
+                if ($params['view']->getTemplate() == 'MelisDemoCommerce/plugin/menu' && !empty($viewVariables['menu']))
+                {
                     /** @var MelisSiteConfigService $siteConfigSrv */
-                    $siteConfigSrv = $this->serviceLocator->get('MelisSiteConfigService');
+                    $siteConfigSrv = $this->serviceManager->get('MelisSiteConfigService');
 
-        	        $container = new Container('melisplugins');
-        	        $langId = $container['melis-plugins-lang-id'];
+                    $container = new Container('melisplugins');
+                    $langId = $container['melis-plugins-lang-id'];
 
-        	        $sumMenuLimit = $siteConfigSrv->getSiteConfigByKey('sub_menu_limit', $params['pluginFronConfig']['pageId']);
-        	        $newsMenuPageId = $siteConfigSrv->getSiteConfigByKey('news_menu_page_id', $params['pluginFronConfig']['pageId']);
-        	        $cataloguePages = $siteConfigSrv->getSiteConfigByKey('catalogue_pages', $params['pluginFronConfig']['pageId']);
+                    $sumMenuLimit = $siteConfigSrv->getSiteConfigByKey('sub_menu_limit', $params['pluginFronConfig']['pageId']);
+                    $newsMenuPageId = $siteConfigSrv->getSiteConfigByKey('news_menu_page_id', $params['pluginFronConfig']['pageId']);
+                    $cataloguePages = $siteConfigSrv->getSiteConfigByKey('catalogue_pages', $params['pluginFronConfig']['pageId']);
 
-        	        // Geeting the custom datas from site config
-        	        $limit = (!empty($sumMenuLimit)) ? $sumMenuLimit : null;
+                    // Geeting the custom datas from site config
+                    $limit = (!empty($sumMenuLimit)) ? $sumMenuLimit : null;
                     $newsMenuPageId = (!empty($newsMenuPageId)) ? $newsMenuPageId : null;
                     $cataloguePages = (!empty($cataloguePages)) ? $cataloguePages : array();
                     
@@ -56,21 +54,11 @@ class SiteMenuCustomizationListener implements ListenerAggregateInterface
                     $sitePages = (!empty($viewVariables['menu'][0]['pages'])) ? $viewVariables['menu'][0]['pages'] : array();
                     
                     // Customize Site menu using MelisDemoCmsService
-                    $melisDemoCommerceSrv = $this->serviceLocator->get('DemoCommerceService');
+                    $melisDemoCommerceSrv = $this->serviceManager->get('DemoCommerceService');
                     $params['view']->menu = $melisDemoCommerceSrv->customizeSiteMenu($sitePages, 1, $limit, $newsMenuPageId, $cataloguePages, $langId);
-        	    }
-        	},
-        100);
-        
-        $this->listeners[] = $callBackHandler;
-    }
-    
-    public function detach(EventManagerInterface $events)
-    {
-        foreach ($this->listeners as $index => $listener) {
-            if ($events->detach($listener)) {
-                unset($this->listeners[$index]);
-            }
-        }
+                }
+            },
+            100
+        );
     }
 }

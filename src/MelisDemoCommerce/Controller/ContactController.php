@@ -9,8 +9,7 @@
 
 namespace MelisDemoCommerce\Controller;
 
-use MelisDemoCommerce\Controller\BaseController;
-use Zend\View\Model\JsonModel;
+use Laminas\View\Model\JsonModel;
 
 class ContactController extends BaseController
 {
@@ -46,8 +45,6 @@ class ContactController extends BaseController
                 'pageJs' => array(
                     'https://maps.googleapis.com/maps/api/js?key=AIzaSyA-IIoucJ-70FQg6xZsORjQCUPHCVj9GV4',
                     '/MelisDemoCommerce/js/google-map.js',
-                    '/MelisDemoCommerce/js/melisSiteHelper.js',
-                    '/MelisDemoCommerce/js/contactus.js',
                 ),
             ));
             

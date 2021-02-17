@@ -11,25 +11,23 @@ namespace MelisDemoCommerce\Listener;
 
 
 use MelisFront\Service\MelisSiteConfigService;
-use Zend\EventManager\EventManagerInterface;
-use Zend\EventManager\ListenerAggregateInterface;
+use Laminas\EventManager\EventManagerInterface;
 
-class SiteCommerceRelatedProductsPluginListener implements ListenerAggregateInterface
+class SiteCommerceRelatedProductsPluginListener extends SiteGeneralListener
 {
-    private $serviceLocator;
+    private $serviceManager;
 
-    public function attach(EventManagerInterface $events)
+    public function attach(EventManagerInterface $events, $priority = 1)
     {
-        $sharedEvents = $events->getSharedManager();
-
-        $callBackHandler = $sharedEvents->attach(
+        $this->attachEventListener(
+            $events,
             '*',
-            array(
+            [
                 'MelisCommerceRelatedProductsPlugin_melistemplating_plugin_end',
-            ),
+            ],
             function($e){
-                // Getting the Service Locator from param target
-                $this->serviceLocator = $e->getTarget()->getServiceLocator();
+                // Getting the Service Manager from param target
+                $this->serviceManager = $e->getTarget()->getServiceManager();
 
                 // Getting the Datas from the Event Parameters
                 $params = $e->getParams();
@@ -41,20 +39,26 @@ class SiteCommerceRelatedProductsPluginListener implements ListenerAggregateInte
                     $viewVariables['relatedProducts'] = $this->customizeRelatedProductsPrice($viewVariables['relatedProducts'], $params);
                 }
             },
-            100);
-
-        $this->listeners[] = $callBackHandler;
+            100
+        );
     }
 
     public function customizeRelatedProductsPrice($relProducts = array(), $params)
     {
-        $melisComVariantService = $this->serviceLocator->get('MelisComVariantService');
-        $melisComProductService = $this->serviceLocator->get('MelisComProductService');
+        $melisComVariantService = $this->serviceManager->get('MelisComVariantService');
+        $melisComProductService = $this->serviceManager->get('MelisComProductService');
+        $melisComPriceService = $this->serviceManager->get('MelisComPriceService');
 
         /** @var MelisSiteConfigService $siteConfigSrv */
-        $siteConfigSrv = $this->serviceLocator->get('MelisSiteConfigService');
+        $siteConfigSrv = $this->serviceManager->get('MelisSiteConfigService');
 
         $countryId = $siteConfigSrv->getSiteConfigByKey('site_country_id', $params['pluginFronConfig']['pageId']);
+
+        // Client group
+        $ecomAuthSrv = $this->serviceManager->get('MelisComAuthenticationService');
+        $clientGroup = 1;
+        if ($ecomAuthSrv->hasIdentity())
+            $clientGroup = $ecomAuthSrv->getClientGroup();
 
         if (!empty($relProducts))
         {
@@ -65,7 +69,7 @@ class SiteCommerceRelatedProductsPluginListener implements ListenerAggregateInte
                 $prd_id = $val->getId();
 
                 //get original price
-                $price = $val->display_price;
+                $price = [];
 
                 // Getting the List of Variants of the Product
                 $prdVar = $melisComProductService->getProductVariants($prd_id, true);
@@ -76,71 +80,82 @@ class SiteCommerceRelatedProductsPluginListener implements ListenerAggregateInte
 
                 foreach ($prdVar As $var)
                 {
+                    // Getting the Final Price of a variant
+                    $varPrice = $melisComPriceService->getItemPrice($var->var_id, $countryId, $clientGroup);
+
                     if (empty($lowestPrice))
                     {
-                        // Getting the Final Price of a variant
-                        $varPrice = $melisComVariantService->getVariantFinalPrice($var->var_id, $countryId);
+                        /**
+                         * variant price is empty on given group, try to get the price from general group
+                         */
+                        if(empty($varPrice['price']))
+                            $varPrice = $melisComPriceService->getItemPrice($var->var_id, $countryId, $clientGroup);
+                            // $varPrice = $melisComVariantService->getVariantFinalPrice($var->var_id, $countryId, $clientGroup);
 
                         // if the variant has Price base on the Country
                         // this will partially assign as Lowest Prices
-                        if (!empty($varPrice))
+                        if (!empty($varPrice['price']))
                         {
-                            $lowestPrice = $varPrice->price_net;
-                            $lowestPriceCurrency = $varPrice->cur_symbol;
-                            $lowestPriceCurrencyCode = $varPrice->cur_code;
+                            $lowestPrice = $varPrice['price'];
+                            $lowestPriceCurrency = $varPrice['price_currency']['symbol'];
+                            $lowestPriceCurrencyCode = $varPrice['price_currency']['code'];
                         }
                     }
                     else
                     {
-                        // Getting the Final Price of a variant
-                        $varPrice = $melisComVariantService->getVariantFinalPrice($var->var_id, $countryId);
+                        /**
+                         * variant price is empty on given group, try to get the price from general group
+                         */
+                        if(empty($varPrice['price']))
+                            $varPrice = $melisComPriceService->getItemPrice($var->var_id, $countryId, $clientGroup);
+                            // $varPrice = $melisComVariantService->getVariantFinalPrice($var->var_id, $countryId, $clientGroup);
 
                         // if the variant has Price base on the Country
-                        if (!empty($varPrice))
+                        if (!empty($varPrice['price']))
                         {
                             // Checking if the Variant Price is Less than the first variant
-                            if ($lowestPrice > $varPrice->price_net)
+                            if ($lowestPrice > $varPrice['price'])
                             {
                                 // assigning as the lowest Price to Product Price
-                                $lowestPrice = $varPrice->price_net;
-                                $lowestPriceCurrency = $varPrice->cur_symbol;
-                                $lowestPriceCurrencyCode = $varPrice->cur_code;
+                                $lowestPrice = $varPrice['price'];
+                                $lowestPriceCurrency = $varPrice['price_currency']['symbol'];
+                                $lowestPriceCurrencyCode = $varPrice['price_currency']['code'];
                             }
                         }
                     }
                 }
+                //use the group price instead of one in the general if group price is not null
+                // if(!empty($groupPrice)) {
+                //     $lowestPrice = $groupPrice;
+                // }
 
                 // If the Lowest Price is still null
                 // this will try to get from the Product Price
                 if (empty($lowestPrice))
                 {
-                    $prdPrice = $melisComProductService->getProductVariantPriceById($prd_id);
+                    // Product price
+                    $prdVarPrice = $melisComPriceService->getItemPrice($prd_id, $countryId, $clientGroup, 'product');
 
-                    if (!empty($prdPrice))
+                    if (!empty($prdVarPrice['price']))
                     {
-                        $lowestPrice = $prdPrice->price_net;
-                        $lowestPriceCurrency = $prdPrice->cur_symbol;
-                        $lowestPriceCurrencyCode = $prdPrice->cur_code;
+                        $lowestPrice = $prdVarPrice['price'];
+                        $lowestPriceCurrency = $prdVarPrice['price_currency']['symbol'];
+                        $lowestPriceCurrencyCode = $prdVarPrice['price_currency']['code'];
                     }
                 }
 
                 if (!empty($lowestPrice))
                 {
-                    $price->price_net = $lowestPrice;
-                    $price->cur_symbol = $lowestPriceCurrency;
-                    $price->cur_code = $lowestPriceCurrencyCode;
+                    $price['price_net'] = $lowestPrice;
+                    $price['cur_symbol'] = $lowestPriceCurrency;
+                    $price['cur_code'] = $lowestPriceCurrencyCode;
+                    
+                    $relProducts[$key]->display_price = $price;
+                }else{
+                    $relProducts[$key]->display_price = null;
                 }
             }
         }
         return $relProducts;
-    }
-
-    public function detach(EventManagerInterface $events)
-    {
-        foreach ($this->listeners as $index => $listener) {
-            if ($events->detach($listener)) {
-                unset($this->listeners[$index]);
-            }
-        }
     }
 }

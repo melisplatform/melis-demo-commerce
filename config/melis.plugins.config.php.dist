@@ -130,6 +130,11 @@ return [
                         'template_path' => [
                             'MelisDemoCommerce/plugin/order-history',
                         ],
+                        'files' => [
+                            'js' => [
+                                '/MelisDemoCommerce/js/order-details.js',
+                            ],
+                        ],
                     ],
                 ],
                 'MelisCommerceLoginPlugin' => [
@@ -161,12 +166,22 @@ return [
                         'template_path' => [
                             'MelisDemoCommerce/plugin/lost-password',
                         ],
+                        'files' => [
+                            'js' => [
+                                '/MelisDemoCommerce/js/lost-passsword-recovery.js',
+                            ],
+                        ],
                     ],
                 ],
                 'MelisCommerceLostPasswordResetPlugin' => [
                     'front' => [
                         'template_path' => [
                             'MelisDemoCommerce/plugin/reset-password',
+                        ],
+                        'files' => [
+                            'js' => [
+                                '/MelisDemoCommerce/js/lost-passsword-recovery.js',
+                            ],
                         ],
                     ],
                 ],
@@ -196,6 +211,11 @@ return [
                         'template_path' => [
                             'MelisDemoCommerce/plugin/account',
                         ],
+                        'files' => [
+                            'js' => [
+                                '/MelisDemoCommerce/js/account.js'
+                            ]
+                        ]
                     ],
                 ],
                 'MelisCommerceProductShowPlugin' => [
@@ -300,6 +320,11 @@ return [
                         'template_path' => [
                             'MelisDemoCommerce/order-details',
                         ],
+                        'files' => [
+                            'js' => [
+                                '/MelisDemoCommerce/js/order-details.js',
+                            ],
+                        ],
                     ],
                 ],
                 'MelisCommerceOrderShippingDetailsPlugin' => [
@@ -313,6 +338,13 @@ return [
                     'front' => [
                         'template_path' => [
                             'MelisDemocommerce/order-messages',
+                        ],
+                    ],
+                ],
+                'MelisCommerceOrderReturnProductPlugin' => [
+                    'front' => [
+                        'template_path' => [
+                            'MelisDemoCommerce/order-return-product',
                         ],
                     ],
                 ],

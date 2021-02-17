@@ -9,19 +9,19 @@
 
 namespace MelisDemoCommerce\Controller;
 
-use MelisDemoCommerce\Controller\BaseController;
 use MelisFront\Service\MelisSiteConfigService;
-use Zend\View\Model\JsonModel;
-use Zend\Stdlib\ArrayUtils;
+use Laminas\View\Model\JsonModel;
+use Laminas\Stdlib\ArrayUtils;
+
 class ComLostPasswordController extends BaseController
 {
     public function indexAction()
     {
         /** @var MelisSiteConfigService $siteConfigSrv */
-        $siteConfigSrv = $this->getServiceLocator()->get('MelisSiteConfigService');
+        $siteConfigSrv = $this->getServiceManager()->get('MelisSiteConfigService');
 
         // Generating the Redirect link using MelisEngineTree Service
-        $melisTree = $this->getServiceLocator()->get('MelisEngineTree');
+        $melisTree = $this->getServiceManager()->get('MelisEngineTree');
         
         // Login page
         $loginPage = $melisTree->getPageLink($siteConfigSrv->getSiteConfigByKey('login_regestration_page_id', $this->idPage));
@@ -58,13 +58,6 @@ class ComLostPasswordController extends BaseController
             $this->view->addChild($lostPasswordResetPlugin->render($lostPasswordResetParameter), 'lostPassword_lostPasswordReset');
         }
         
-        $this->layout()->setVariables(array(
-            'pageJs' => array(
-                '/MelisDemoCommerce/js/melisSiteHelper.js',
-                '/MelisDemoCommerce/js/lost-passsword-recovery.js',
-            ),
-        ));
-        
         $this->view->setVariable('idPage', $this->idPage);
         return $this->view;
     }
@@ -73,7 +66,7 @@ class ComLostPasswordController extends BaseController
     {
 
         /** @var MelisSiteConfigService $siteConfigSrv */
-        $siteConfigSrv = $this->getServiceLocator()->get('MelisSiteConfigService');
+        $siteConfigSrv = $this->getServiceManager()->get('MelisSiteConfigService');
 
         $success = 0;
         $errors  = 0;
@@ -86,7 +79,7 @@ class ComLostPasswordController extends BaseController
                 'email' => $siteConfigSrv->getSiteConfigByKey('lostpassword_email', $this->idPage),
             );
             
-            $emailConfig = ArrayUtils::merge(get_object_vars($request->getPost()), $data);
+            $emailConfig = ArrayUtils::merge($request->getPost()->toArray(), $data);
             
             $lostPasswordResetPlugin = $this->MelisCommerceLostPasswordGetEmailPlugin();
             $result = $lostPasswordResetPlugin->render($emailConfig)->getVariables();
@@ -116,7 +109,7 @@ class ComLostPasswordController extends BaseController
         if($request->isPost()) 
         {
             $lostPasswordResetPlugin = $this->MelisCommerceLostPasswordResetPlugin();
-            $result = $lostPasswordResetPlugin->render(get_object_vars($request->getPost()))->getVariables();
+            $result = $lostPasswordResetPlugin->render($request->getPost()->toArray())->getVariables();
             
             // Retrieving view variable from view
             $success = $result->success;

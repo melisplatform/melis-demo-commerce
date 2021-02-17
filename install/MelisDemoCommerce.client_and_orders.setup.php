@@ -4,6 +4,7 @@
             'columns' => array(
                 'cli_status' => 1,
                 'cli_country_id' => 1,
+                'cli_group_id' => 1,
             ),
             'client_persons' => array(
                 array(
@@ -45,6 +46,7 @@
                                 'ord_status' => 4,
                                 'ord_country_id' => 1,
                                 'ord_reference' => 'I06DKJW7YE',
+                                'ord_delivery_method' => 'delivery',
                             ),
                             'order_baskets' => array(
                                 array(
@@ -58,6 +60,8 @@
                                     'obas_category_name' => 'Trendy',
                                     'obas_currency' => 2,
                                     'obas_price_net' => 57,
+                                    'obas_total_discount' => 0,
+                                    'obas_total_price' => 57
                                 ),
                                 array(
                                     'obas_order_id' => 1,
@@ -70,6 +74,8 @@
                                     'obas_category_name' => 'Hats',
                                     'obas_currency' => 2,
                                     'obas_price_net' => 65,
+                                    'obas_total_discount' => 0,
+                                    'obas_total_price' => 130
                                 ),
                                 array(
                                     'obas_order_id' => 1,
@@ -82,6 +88,8 @@
                                     'obas_category_name' => 'Classy',
                                     'obas_currency' => 2,
                                     'obas_price_net' => 95,
+                                    'obas_total_discount' => 0,
+                                    'obas_total_price' => 95
                                 ),
                             ),
                             'order_addresses' => array(
@@ -150,6 +158,7 @@
                                 'ord_status' => 3,
                                 'ord_country_id' => 1,
                                 'ord_reference' => '3LUSO3M4CP',
+                                'ord_delivery_method' => 'delivery',
                             ),
                             'order_baskets' => array(
                                 array(
@@ -163,6 +172,8 @@
                                     'obas_category_name' => 'Flashy',
                                     'obas_currency' => 2,
                                     'obas_price_net' => 26,
+                                    'obas_total_discount' => 0,
+                                    'obas_total_price' => 26
                                 ),
                                 array(
                                     'obas_order_id' => 2,
@@ -175,6 +186,8 @@
                                     'obas_category_name' => 'Best seller',
                                     'obas_currency' => 2,
                                     'obas_price_net' => 225,
+                                    'obas_total_discount' => 0,
+                                    'obas_total_price' => 225
                                 ),
                             ),
                             'order_addresses' => array(
@@ -243,6 +256,7 @@
                                 'ord_status' => 1,
                                 'ord_country_id' => 1,
                                 'ord_reference' => 'B9OOR6SZ6V',
+                                'ord_delivery_method' => 'delivery',
                             ),
                             'order_baskets' => array(
                                 array(
@@ -256,6 +270,8 @@
                                     'obas_category_name' => 'Silver pure',
                                     'obas_currency' => 2,
                                     'obas_price_net' => 320,
+                                    'obas_total_discount' => 0,
+                                    'obas_total_price' => 230
                                 ),
                                 array(
                                     'obas_order_id' => 3,
@@ -268,6 +284,8 @@
                                     'obas_category_name' => 'Treasure',
                                     'obas_currency' => 2,
                                     'obas_price_net' => 32,
+                                    'obas_total_discount' => 0,
+                                    'obas_total_price' => 32
                                 ),
                                 array(
                                     'obas_order_id' => 3,
@@ -280,6 +298,8 @@
                                     'obas_category_name' => 'Boots',
                                     'obas_currency' => 2,
                                     'obas_price_net' => 156,
+                                    'obas_total_discount' => 0,
+                                    'obas_total_price' => 156
                                 ),
                                 array(
                                     'obas_order_id' => 3,
@@ -292,6 +312,8 @@
                                     'obas_category_name' => 'Best seller',
                                     'obas_currency' => 2,
                                     'obas_price_net' => 145,
+                                    'obas_total_discount' => 0,
+                                    'obas_total_price' => 145
                                 ),
                             ),
                             'order_addresses' => array(
@@ -362,6 +384,7 @@
                                 'ord_status' => 1,
                                 'ord_country_id' => 1,
                                 'ord_reference' => 'MLLV30XW72',
+                                'ord_delivery_method' => 'delivery',
                             ),
                             'order_baskets' => array(
                                 array(
@@ -375,6 +398,8 @@
                                     'obas_category_name' => 'Styled',
                                     'obas_currency' => 2,
                                     'obas_price_net' => 68,
+                                    'obas_total_discount' => 0,
+                                    'obas_total_price' => 68
                                 ),
                                 array(
                                     'obas_order_id' => 4,
@@ -387,6 +412,8 @@
                                     'obas_category_name' => 'Classy',
                                     'obas_currency' => 2,
                                     'obas_price_net' => 184,
+                                    'obas_total_discount' => 0,
+                                    'obas_total_price' => 184
                                 ),
                                 array(
                                     'obas_order_id' => 4,
@@ -399,6 +426,8 @@
                                     'obas_category_name' => 'Watches',
                                     'obas_currency' => 2,
                                     'obas_price_net' => 280,
+                                    'obas_total_discount' => 0,
+                                    'obas_total_price' => 280
                                 ),
                             ),
                             'order_addresses' => array(

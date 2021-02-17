@@ -1,10 +1,10 @@
 <?php
 
-return array(
-	'site' => array(
-		'MelisDemoCommerce' => array(
-		    '[:siteId]' => array(
-		        'en_EN' => array(
+return [
+	'site' => [
+		'MelisDemoCommerce' => [
+		    '[:siteId]' => [
+		        'en_EN' => [
 		            'homePageId' => '[:homePageId]',
 		            /**
                      * Site default currency code
@@ -56,9 +56,9 @@ return array(
                     // Slider product limit
                     'homepage_category_product_slider_limit' => 10,
                     // Homepage first Category Slider
-                    'homepage_category_product_slider_1' => array('[:menCategoryId]'),
-                    // Homepage Secon Category Slider (New Arrivals, Best Seller, Special Offers)
-                    'homepage_category_product_slider_2' => array('[:bestSellerCategoryId]', '[:newArrivalsCategoryId]', '[:specialOfferCategoryId]'),
+                    'homepage_category_product_slider_1' => ['[:menCategoryId]'],
+                    // Homepage Secon Category Slider (New Arrivals, Best Seller, Special Offers]
+                    'homepage_category_product_slider_2' => ['[:bestSellerCategoryId]', '[:newArrivalsCategoryId]', '[:specialOfferCategoryId]'],
                     // Parent category ID
                     'parent_category_id' => '[:collection2017CategoryId]',
                     // Color attribute filter
@@ -66,62 +66,62 @@ return array(
                     // Size attribute filter
                     'size_attribute_id' => '[:sizeAttributeId]',
                     // catalogue pages filter
-                    'catalogue_pages' => array(
-                        'men_catalogue_filter' => array(
+                    'catalogue_pages' => [
+                        'men_catalogue_filter' => [
                             'page_id' => '[:menPageId]',
                             'category_id' => '[:menCategoryId]',
-                        ),
-                        'women_catalogue_filter' => array(
+                        ],
+                        'women_catalogue_filter' => [
                             'page_id' => '[:womenPageId]',
                             'category_id' => '[:womenCategoryId]',
-                        ),
-                        'shoes_catalogue_filter' => array(
+                        ],
+                        'shoes_catalogue_filter' => [
                             'page_id' => '[:shoesPageId]',
                             'category_id' => '[:shoesCategoryId]',
-                        ),
-                        'accessories_catalogue_filter' => array(
+                        ],
+                        'accessories_catalogue_filter' => [
                             'page_id' => '[:accessoriesPageId]',
                             'category_id' => '[:accessoriesCategoryId]',
-                        ),
-                    ),
+                        ],
+                    ],
                     // Category menu id that has sub menu of products
-                    'category_product_menu' => array('[:joggingCategoryId]', '[:classy_CategoryId]', '[:bootsCategoryId]', '[:highHeelsCategoryId]', '[:accessoriesCategoryId]', '[:hatsCategoryId]', '[:watchesCategoryId]', '[:bagsCategoryId]'),
+                    'category_product_menu' => ['[:joggingCategoryId]', '[:classy_CategoryId]', '[:bootsCategoryId]', '[:highHeelsCategoryId]', '[:accessoriesCategoryId]', '[:hatsCategoryId]', '[:watchesCategoryId]', '[:bagsCategoryId]'],
                     // Order Details Page Id
                     'order_details_page_id' => '[:orderDetailsPageId]',
                     // pagination config
-                    'pagination_config' => array(
-                         'limit' => array(9, 12, 15, 18),
-                    ),
-                    'sort_config' => array(
-                        array(
+                    'pagination_config' => [
+                         'limit' => [9, 12, 15, 18],
+                    ],
+                    'sort_config' => [
+                        [
                            'm_col_name' => 'ptxt_field_short',
                            'm_order' => 'ASC',
                            'text' => 'Name (A - Z)',
-                        ),
-                        array(
+                        ],
+                        [
                             'm_col_name' => 'ptxt_field_short',
                             'm_order' => 'DESC',
                             'text' => 'Name (Z - A)',
-                        ),
-                        array(
+                        ],
+                        [
                             'm_col_name' => 'price',
                             'm_order' => 'ASC',
                             'text' => 'Price (Low &gt; High)',
-                        ),
-                        array(
+                        ],
+                        [
                             'm_col_name' => 'price',
                             'm_order' => 'DESC',
                             'text' => 'Price (High &gt; Low)',
-                        ),
-                    ),
-                    'sort_default' => array(
+                        ],
+                    ],
+                    'sort_default' => [
                         'm_col_name' => 'price',
                         'm_order' => 'ASC',
-                    ),
+                    ],
                     'default_image' => '/MelisDemoCommerce/images/default/melis-default.jpg',
                     'image_preview' => 'DEFAULT',
                     'image_src' => 'product',
-                    'lostpassword_email' => array(
+                    'lostpassword_email' => [
                         'email_template_path' => 'MelisDemoCommerce/emailLayout',
                         'email_to' => '',
                         'email_from' => 'noreply@melistechnology.com',
@@ -130,24 +130,23 @@ return array(
                         'email_content' => 'Please click the link below to reset your password.<br>'
                                         .'<a href="[lostPasswordLink]?m_recovery_key=[recoveryKey]">'
                                         .'Reset password link</a><br>',
-                        'email_content_tag_replace' => array('lostPasswordLink', 'recoveryKey'),
-                    ),
-		        ),
-		    ),
-			'allSites' => array(
+                        'email_content_tag_replace' => ['lostPasswordLink', 'recoveryKey'],
+                    ],
+		        ],
+		    ],
+			'allSites' => [
                 /**
                  * Required Modules for installation,
                  * to trigger services that needed to install the MelisDemoCommerce
                  * and to avoid deselect from selecting modules during installations.
                  */
-                'required_modules' => array(
+                'required_modules' => [
                     'MelisCmsNews',
                     'MelisCmsSlider',
                     'MelisCmsProspects',
                     'MelisCommerce',
-                ),
-
-            ),
-		)
-	),
-);
+                ],
+            ],
+		]
+	],
+];

@@ -3,27 +3,25 @@
 namespace MelisDemoCommerce\Listener;
 
 
-use Zend\EventManager\EventManagerInterface;
-use Zend\EventManager\ListenerAggregateInterface;
+use Laminas\EventManager\EventManagerInterface;
 
-class SiteCommerceProductPriceRangePluginListener implements ListenerAggregateInterface
+class SiteCommerceProductPriceRangePluginListener extends SiteGeneralListener
 {
-    private $serviceLocator;
+    private $serviceManager;
 
-    public function attach(EventManagerInterface $events)
+    public function attach(EventManagerInterface $events, $priority = 1)
     {
-        $sharedEvents = $events->getSharedManager();
-
-        $callBackHandler = $sharedEvents->attach(
+        $this->attachEventListener(
+            $events,
             '*',
-            array(
+            [
                 'MelisCommerceProductPriceRangePlugin_melistemplating_plugin_end',
-            ),
+            ],
             function($e){
-                // Getting the Service Locator from param target
-                $this->serviceLocator = $e->getTarget()->getServiceLocator();
+                // Getting the Service Manager from param target
+                $this->serviceManager = $e->getTarget()->getServiceManager();
 
-                // Getting the Datas from the Event Parameters
+                // Getting the Datas from the Event Para meters
                 $params = $e->getParams();
 
                 $viewVariables = $params['view']->getVariables();
@@ -33,18 +31,17 @@ class SiteCommerceProductPriceRangePluginListener implements ListenerAggregateIn
                     $viewVariables['filterMenuPriceValue'] = $this->processProductPrice($viewVariables['filterMenuPriceValue']);
                 }
             },
-            100);
-
-        $this->listeners[] = $callBackHandler;
+            100
+        );
     }
 
     private function processProductPrice($filterMenuPriceValue)
     {
-        $req = $this->serviceLocator->get('request');
+        $req = $this->serviceManager->get('request');
         $fromFilter = $req->getQuery('m_box_product_price_max');
 
         // Retrieving the default Values for Product prices
-        $proService = $this->serviceLocator->get('MelisComProductService');
+        $proService = $this->serviceManager->get('MelisComProductService');
         $priceMin = $proService->getMaximumMinimumPrice('min', $filterMenuPriceValue['m_box_product_price_column'], 'variant');
         $priceMax = $proService->getMaximumMinimumPrice('max', $filterMenuPriceValue['m_box_product_price_column'], 'variant');
 
@@ -58,14 +55,5 @@ class SiteCommerceProductPriceRangePluginListener implements ListenerAggregateIn
         $filterMenuPriceValue['default_max_price'] = ($filterMenuPriceValue['default_max_price'] >= $priceMax->max_price && $filterMenuPriceValue['default_max_price'] != 0) ? (int) $filterMenuPriceValue['default_max_price'] : (int) $priceMax->max_price;
 
         return $filterMenuPriceValue;
-    }
-
-    public function detach(EventManagerInterface $events)
-    {
-        foreach ($this->listeners as $index => $listener) {
-            if ($events->detach($listener)) {
-                unset($this->listeners[$index]);
-            }
-        }
     }
 }

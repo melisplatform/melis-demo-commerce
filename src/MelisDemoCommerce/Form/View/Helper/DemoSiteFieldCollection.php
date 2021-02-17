@@ -2,8 +2,8 @@
 
 namespace MelisDemoCommerce\Form\View\Helper;
  
-use Zend\Form\View\Helper\FormCollection;
-use Zend\Form\ElementInterface;
+use Laminas\Form\View\Helper\FormCollection;
+use Laminas\Form\ElementInterface;
  
 class DemoSiteFieldCollection extends FormCollection
 {

@@ -9,8 +9,7 @@
 
 namespace MelisDemoCommerce\Controller;
 
-use MelisDemoCommerce\Controller\BaseController;
-use Zend\View\Model\JsonModel;
+use Laminas\View\Model\JsonModel;
 
 class ComOrderController extends BaseController
 {
@@ -30,13 +29,6 @@ class ComOrderController extends BaseController
             ),
         );
         $this->view->addChild($orderPlugin->render($orderParameter), 'showOrderDetails');
-        
-        $this->layout()->setVariables(array(
-            'pageJs' => array(
-                '/MelisDemoCommerce/js/melisSiteHelper.js',
-                '/MelisDemoCommerce/js/order-details.js',
-            ),
-        ));
         
         $this->view->setVariable('idPage', $this->idPage);
         return $this->view;

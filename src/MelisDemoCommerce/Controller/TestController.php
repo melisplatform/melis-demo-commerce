@@ -10,11 +10,11 @@
 namespace MelisDemoCommerce\Controller;
 
 use MelisFront\Controller\MelisSiteActionController;
-use Zend\View\Model\JsonModel;
-// use Zend\Session\Container;
-// use Zend\Session\SessionManager;
-// use Zend\Crypt\Key\Derivation\Pbkdf2;
-// use Zend\Session\Container;
+use Laminas\View\Model\JsonModel;
+// use Laminas\Session\Container;
+// use Laminas\Session\SessionManager;
+// use Laminas\Crypt\Key\Derivation\Pbkdf2;
+// use Laminas\Session\Container;
 
 
 class TestController extends MelisSiteActionController
@@ -29,14 +29,14 @@ class TestController extends MelisSiteActionController
         
         die();
         
-        $catSrv = $this->getServiceLocator()->get('MelisComCategoryService');
+        $catSrv = $this->getServiceManager()->get('MelisComCategoryService');
         
 //         $cats = $catSrv->getCategoryListById(-1, 2, true);
 //         $cats = $catSrv->getCategoryListByIdRecursive(2, 2, $onlyValid = false, null, null);
 
 //         $cats = $catSrv->getCategoryById(2, 2);
 
-        $prdSrv = $this->getServiceLocator()->get('MelisComProductService');
+        $prdSrv = $this->getServiceManager()->get('MelisComProductService');
         $prds = $prdSrv->getProductList();//$langId = null, $categoryId = array(), $countryId = null,$onlyValid = null, $start = 0, $limit = null, $search = '', $order = 'ASC', $orderColumn = 'prd_id')
 //         $prds = $prdSrv->getProductById(1, 1);//, $langId = null, $countryId = null, $docType = null, $docSubType = array())
         
@@ -45,7 +45,7 @@ class TestController extends MelisSiteActionController
         echo '</pre>';
         
         // Get Cureent User ID
-//         $melisCoreAuth = $this->getServiceLocator()->get('MelisCoreAuth');
+//         $melisCoreAuth = $this->getServiceManager()->get('MelisCoreAuth');
 //         $userAuthDatas =  $melisCoreAuth->getStorage()->read();
         
 //         echo '<pre>';
@@ -57,8 +57,8 @@ class TestController extends MelisSiteActionController
 //         $countryId = 1;
 //         $onlyValid = true;
         
-//         $catSrv = $this->getServiceLocator()->get('MelisComCategoryService');
-//         $prdSrv = $this->getServiceLocator()->get('MelisComProductService');
+//         $catSrv = $this->getServiceManager()->get('MelisComCategoryService');
+//         $prdSrv = $this->getServiceManager()->get('MelisComProductService');
         
 //         $cats = $catSrv->getCategoriesByIds(array(51, 52, 53), true, 1, 'cat_order');
         
@@ -99,16 +99,16 @@ class TestController extends MelisSiteActionController
     }
     public function category($fatherId = -1, $level = 0)
     {
-        $catTbl = $this->getServiceLocator()->get('MelisEcomCategoryTable');
-        $catCountryTbl = $this->getServiceLocator()->get('MelisEcomCountryCategoryTable');
-        $catTransTbl = $this->getServiceLocator()->get('MelisEcomCategoryTransTable');
-        $seoTbl = $this->getServiceLocator()->get('MelisEcomSeoTable');
-        $docRelTbl = $this->getServiceLocator()->get('MelisEcomDocRelationsTable');
-        $docTbl = $this->getServiceLocator()->get('MelisEcomDocumentTable');
-        $docTypeTbl = $this->getServiceLocator()->get('MelisEcomDocTypeTable');
-        $catPrdTbl = $this->getServiceLocator()->get('MelisEcomProductCategoryTable');
-        $prdTbl = $this->getServiceLocator()->get('MelisEcomProductTable');
-        $pageTreeSrv = $this->getServiceLocator()->get('MelisEnginePage');
+        $catTbl = $this->getServiceManager()->get('MelisEcomCategoryTable');
+        $catCountryTbl = $this->getServiceManager()->get('MelisEcomCountryCategoryTable');
+        $catTransTbl = $this->getServiceManager()->get('MelisEcomCategoryTransTable');
+        $seoTbl = $this->getServiceManager()->get('MelisEcomSeoTable');
+        $docRelTbl = $this->getServiceManager()->get('MelisEcomDocRelationsTable');
+        $docTbl = $this->getServiceManager()->get('MelisEcomDocumentTable');
+        $docTypeTbl = $this->getServiceManager()->get('MelisEcomDocTypeTable');
+        $catPrdTbl = $this->getServiceManager()->get('MelisEcomProductCategoryTable');
+        $prdTbl = $this->getServiceManager()->get('MelisEcomProductTable');
+        $pageTreeSrv = $this->getServiceManager()->get('MelisEnginePage');
         
         $lvl = str_repeat("\t", $level);
         foreach ($catTbl->getEntryByField('cat_father_cat_id', $fatherId)->toArray() As $val)
@@ -253,7 +253,7 @@ class TestController extends MelisSiteActionController
     
     public function coupon()
     {
-        $couponTbl = $this->getServiceLocator()->get('MelisEcomCouponTable');
+        $couponTbl = $this->getServiceManager()->get('MelisEcomCouponTable');
         
         foreach ($couponTbl->fetchAll() As $val)
         {
@@ -275,18 +275,18 @@ class TestController extends MelisSiteActionController
     
     public function clients()
     {
-        $clientTlb = $this->getServiceLocator()->get('MelisEcomClientTable');
-        $clientPersonTlb = $this->getServiceLocator()->get('MelisEcomClientPersonTable');
-        $clientAddressesTlb = $this->getServiceLocator()->get('MelisEcomClientAddressTable');
-        $basketPersistentTlb = $this->getServiceLocator()->get('MelisEcomBasketPersistentTable');
-        $orderTbl = $this->getServiceLocator()->get('MelisEcomOrderTable');
-        $orderAddTbl = $this->getServiceLocator()->get('MelisEcomOrderAddressTable');
-        $orderCouponTbl = $this->getServiceLocator()->get('MelisEcomCouponOrderTable');
-        $couponTbl = $this->getServiceLocator()->get('MelisEcomCouponTable');
-        $orderPaymentTbl = $this->getServiceLocator()->get('MelisEcomOrderPaymentTable');
-        $orderShippingTbl = $this->getServiceLocator()->get('MelisEcomOrderShippingTable');
-        $orderBasketTbl = $this->getServiceLocator()->get('MelisEcomOrderBasketTable');
-        $varTbl = $this->getServiceLocator()->get('MelisEcomVariantTable');
+        $clientTlb = $this->getServiceManager()->get('MelisEcomClientTable');
+        $clientPersonTlb = $this->getServiceManager()->get('MelisEcomClientPersonTable');
+        $clientAddressesTlb = $this->getServiceManager()->get('MelisEcomClientAddressTable');
+        $basketPersistentTlb = $this->getServiceManager()->get('MelisEcomBasketPersistentTable');
+        $orderTbl = $this->getServiceManager()->get('MelisEcomOrderTable');
+        $orderAddTbl = $this->getServiceManager()->get('MelisEcomOrderAddressTable');
+        $orderCouponTbl = $this->getServiceManager()->get('MelisEcomCouponOrderTable');
+        $couponTbl = $this->getServiceManager()->get('MelisEcomCouponTable');
+        $orderPaymentTbl = $this->getServiceManager()->get('MelisEcomOrderPaymentTable');
+        $orderShippingTbl = $this->getServiceManager()->get('MelisEcomOrderShippingTable');
+        $orderBasketTbl = $this->getServiceManager()->get('MelisEcomOrderBasketTable');
+        $varTbl = $this->getServiceManager()->get('MelisEcomVariantTable');
         
         foreach ($clientTlb->fetchAll()->toArray() As $key => $val)
         {
@@ -442,15 +442,15 @@ class TestController extends MelisSiteActionController
     
     public function variants()
     {
-        $varTbl = $this->getServiceLocator()->get('MelisEcomVariantTable');
-        $prdTbl = $this->getServiceLocator()->get('MelisEcomProductTable');
-        $varAttrTbl = $this->getServiceLocator()->get('MelisEcomProductVariantAttributeValueTable');
-        $attrValTable = $this->getServiceLocator()->get('MelisEcomAttributeValueTable');
-        $attrTypeTable = $this->getServiceLocator()->get('MelisEcomAttributeTypeTable');
-        $attrValTransTable = $this->getServiceLocator()->get('MelisEcomAttributeValueTransTable');
-        $attrTable = $this->getServiceLocator()->get('MelisEcomAttributeTable');
-        $priceTbl = $this->getServiceLocator()->get('MelisEcomPriceTable');
-        $varStockTbl = $this->getServiceLocator()->get('MelisEcomVariantStockTable');
+        $varTbl = $this->getServiceManager()->get('MelisEcomVariantTable');
+        $prdTbl = $this->getServiceManager()->get('MelisEcomProductTable');
+        $varAttrTbl = $this->getServiceManager()->get('MelisEcomProductVariantAttributeValueTable');
+        $attrValTable = $this->getServiceManager()->get('MelisEcomAttributeValueTable');
+        $attrTypeTable = $this->getServiceManager()->get('MelisEcomAttributeTypeTable');
+        $attrValTransTable = $this->getServiceManager()->get('MelisEcomAttributeValueTransTable');
+        $attrTable = $this->getServiceManager()->get('MelisEcomAttributeTable');
+        $priceTbl = $this->getServiceManager()->get('MelisEcomPriceTable');
+        $varStockTbl = $this->getServiceManager()->get('MelisEcomVariantStockTable');
         
         foreach ($varTbl->fetchAll()->toArray() As $key => $val)
         {
@@ -534,7 +534,7 @@ class TestController extends MelisSiteActionController
     
     public function textTypes()
     {
-        $prdTextTypesTbl = $this->getServiceLocator()->get('MelisEcomProductTextTypeTable');
+        $prdTextTypesTbl = $this->getServiceManager()->get('MelisEcomProductTextTypeTable');
         
         foreach ($prdTextTypesTbl->fetchAll()->toArray() As $key => $val)
         {
@@ -550,7 +550,7 @@ class TestController extends MelisSiteActionController
     
     public function attributesTypes()
     {
-        $attrTypeTable = $this->getServiceLocator()->get('MelisEcomAttributeTypeTable');
+        $attrTypeTable = $this->getServiceManager()->get('MelisEcomAttributeTypeTable');
         
         foreach ($attrTypeTable->fetchAll()->toArray() As $key => $val)
         {
@@ -571,11 +571,11 @@ class TestController extends MelisSiteActionController
     
     public function attributes()
     {
-        $attrTable = $this->getServiceLocator()->get('MelisEcomAttributeTable');
-        $attrTransTable = $this->getServiceLocator()->get('MelisEcomAttributeTransTable');
-        $attrTypeTable = $this->getServiceLocator()->get('MelisEcomAttributeTypeTable');
-        $attrValTable = $this->getServiceLocator()->get('MelisEcomAttributeValueTable');
-        $attrValTransTable = $this->getServiceLocator()->get('MelisEcomAttributeValueTransTable');
+        $attrTable = $this->getServiceManager()->get('MelisEcomAttributeTable');
+        $attrTransTable = $this->getServiceManager()->get('MelisEcomAttributeTransTable');
+        $attrTypeTable = $this->getServiceManager()->get('MelisEcomAttributeTypeTable');
+        $attrValTable = $this->getServiceManager()->get('MelisEcomAttributeValueTable');
+        $attrValTransTable = $this->getServiceManager()->get('MelisEcomAttributeValueTransTable');
         
         foreach ($attrTable->fetchAll()->toArray() As $key => $val)
         {
@@ -660,18 +660,18 @@ class TestController extends MelisSiteActionController
     
     public function products()
     {
-        $prdTbl = $this->getServiceLocator()->get('MelisEcomProductTable');
-        $prdCatTbl = $this->getServiceLocator()->get('MelisEcomProductCategoryTable');
-        $catSrv = $this->getServiceLocator()->get('MelisComCategoryService');
-        $prdAttrTbl = $this->getServiceLocator()->get('MelisEcomProductAttributeTable');
-        $attrTable = $this->getServiceLocator()->get('MelisEcomAttributeTable');
-        $docRelTbl = $this->getServiceLocator()->get('MelisEcomDocRelationsTable');
-        $docTbl = $this->getServiceLocator()->get('MelisEcomDocumentTable');
-        $docTypeTbl = $this->getServiceLocator()->get('MelisEcomDocTypeTable');
-        $prdTxtTbl = $this->getServiceLocator()->get('MelisEcomProductTextTable');
-        $prdTxtTypeTbl = $this->getServiceLocator()->get('MelisEcomProductTextTypeTable');
-        $priceTbl = $this->getServiceLocator()->get('MelisEcomPriceTable');
-        $catTbl = $this->getServiceLocator()->get('MelisEcomCategoryTable');
+        $prdTbl = $this->getServiceManager()->get('MelisEcomProductTable');
+        $prdCatTbl = $this->getServiceManager()->get('MelisEcomProductCategoryTable');
+        $catSrv = $this->getServiceManager()->get('MelisComCategoryService');
+        $prdAttrTbl = $this->getServiceManager()->get('MelisEcomProductAttributeTable');
+        $attrTable = $this->getServiceManager()->get('MelisEcomAttributeTable');
+        $docRelTbl = $this->getServiceManager()->get('MelisEcomDocRelationsTable');
+        $docTbl = $this->getServiceManager()->get('MelisEcomDocumentTable');
+        $docTypeTbl = $this->getServiceManager()->get('MelisEcomDocTypeTable');
+        $prdTxtTbl = $this->getServiceManager()->get('MelisEcomProductTextTable');
+        $prdTxtTypeTbl = $this->getServiceManager()->get('MelisEcomProductTextTypeTable');
+        $priceTbl = $this->getServiceManager()->get('MelisEcomPriceTable');
+        $catTbl = $this->getServiceManager()->get('MelisEcomCategoryTable');
         
         foreach ($prdTbl->fetchAll()->toArray() As $key => $val)
         {

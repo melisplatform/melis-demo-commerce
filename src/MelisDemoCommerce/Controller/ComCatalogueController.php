@@ -9,15 +9,15 @@
 
 namespace MelisDemoCommerce\Controller;
 
-use MelisDemoCommerce\Controller\BaseController;
 use MelisFront\Service\MelisSiteConfigService;
-
 class ComCatalogueController extends BaseController
 {
     public function indexAction()
     {
         /** @var MelisSiteConfigService $siteConfigSrv */
-        $siteConfigSrv = $this->getServiceLocator()->get('MelisSiteConfigService');
+        $siteConfigSrv = $this->getServiceManager()->get('MelisSiteConfigService');
+
+        $countryId = $siteConfigSrv->getSiteConfigByKey('site_country_id', $this->idPage);
 
         $catalogueFilter = array();
         $queryParameters = $this->params()->fromQuery();
@@ -27,6 +27,8 @@ class ComCatalogueController extends BaseController
         if(empty($queryParameters)){
             $routeparameters['m_box_category_tree_ids_selected'][] = $this->params()->fromRoute('categoryId');
             $queryParameters = $routeparameters;
+        }elseif(empty($queryParameters['m_box_category_tree_ids_selected'])){
+            $queryParameters['m_box_category_tree_ids_selected'][] = $this->params()->fromRoute('categoryId');
         }
         
         $pageBanner = '';
@@ -40,7 +42,7 @@ class ComCatalogueController extends BaseController
                  * image for Default
                  * with the return is multi array
                  */
-                $documentSrv = $this->getServiceLocator()->get('MelisComDocumentService');
+                $documentSrv = $this->getServiceManager()->get('MelisComDocumentService');
                 $doc = $documentSrv->getDocumentsByRelationAndTypes('category', $val['category_id'], 'IMG', array('DEFAULT'));
                 if (!empty($doc))
                 {
@@ -122,11 +124,15 @@ class ComCatalogueController extends BaseController
             'm_col_name' => $m_col_name,
             'm_order' => $m_order,
             'm_box_filter_docs' => array('mainImage' => 'DEFAULT', 'altImage' => 'SMALL'),
+            'm_box_product_country' => $countryId,
             'pagination' => array(
                 'm_page_nb_per_page' => 9,
             ),
+            'filters' => [
+                'm_box_product_country' => $countryId
+            ]
         );
-        $params = array_merge($params, $routeparameters);
+        $params = array_merge($params, $queryParameters);
         
         // add generated view to children views for displaying it in the home page view
         $this->view->addChild($categoryProductList->render($params), 'categoryProductList');

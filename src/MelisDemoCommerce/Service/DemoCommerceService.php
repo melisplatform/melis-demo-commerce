@@ -9,15 +9,15 @@
 
 namespace MelisDemoCommerce\Service;
 
-use MelisCore\Service\MelisCoreGeneralService;
+use MelisCore\Service\MelisServiceManager;
 use MelisFront\Service\MelisSiteConfigService;
-use Zend\View\Model\JsonModel;
-use Zend\Session\Container;
+use Laminas\View\Model\JsonModel;
+use Laminas\Session\Container;
 
 /**
  * MelisDemoCommerce Services
  */
-class DemoCommerceService extends MelisCoreGeneralService
+class DemoCommerceService extends MelisServiceManager
 {
     
     private $melisTree;
@@ -37,10 +37,10 @@ class DemoCommerceService extends MelisCoreGeneralService
      */
     public function customizeSiteMenu($siteMenu, $level, $limit = null, $newsMenuPageId = null, $cataloguePages = array(), $langId)
     {
-        $this->melisTree = $this->getServiceLocator()->get('MelisEngineTree');
-        $this->productSrv = $this->getServiceLocator()->get('MelisComProductService');
-        $this->comLinkSrv = $this->getServiceLocator()->get('MelisComLinksService');
-        $this->categorySrv = $this->getServiceLocator()->get('MelisComCategoryService');
+        $this->melisTree = $this->getServiceManager()->get('MelisEngineTree');
+        $this->productSrv = $this->getServiceManager()->get('MelisComProductService');
+        $this->comLinkSrv = $this->getServiceManager()->get('MelisComLinksService');
+        $this->categorySrv = $this->getServiceManager()->get('MelisComCategoryService');
         
         
         // Modified Site Menu handler
@@ -56,7 +56,7 @@ class DemoCommerceService extends MelisCoreGeneralService
                 {
                     if($page['page_id'] == $val['idPage'])
                     {
-                        $categorySrv = $this->getServiceLocator()->get('MelisComCategoryService');
+                        $categorySrv = $this->getServiceManager()->get('MelisComCategoryService');
                         $cat = $categorySrv->getCategoryById($page['category_id'])->getCategory();
                         
                         if (!empty($cat))
@@ -69,7 +69,7 @@ class DemoCommerceService extends MelisCoreGeneralService
                                 $val['pages'] = $this->getSubCategoriesForMenu($page['category_id'], $val['idPage'], $val['uri'], $langId);
                             
                                 // Generating Category link using MelisComLinkService
-                                $comLinkSrv = $this->getServiceLocator()->get('MelisComLinksService');
+                                $comLinkSrv = $this->getServiceManager()->get('MelisComLinksService');
                                 $val['uri'] = $comLinkSrv->getPageLink('category', $page['category_id'], $langId, false);
                             
                                 /**
@@ -78,7 +78,7 @@ class DemoCommerceService extends MelisCoreGeneralService
                                  * image for Menu
                                  * with the return is multi array
                                  */
-                                $documentSrv = $this->getServiceLocator()->get('MelisComDocumentService');
+                                $documentSrv = $this->getServiceManager()->get('MelisComDocumentService');
                                 $doc = $documentSrv->getDocumentsByRelationAndTypes('category', $page['category_id'], 'IMG', array('MENU'));
                                 if (!empty($doc))
                                 {
@@ -141,18 +141,18 @@ class DemoCommerceService extends MelisCoreGeneralService
     public function getSubCategoriesForMenu($categoryId, $pageId, $uri, $langId)
     {
         /** @var MelisSiteConfigService $siteConfigSrv */
-        $siteConfigSrv = $this->getServiceLocator()->get('MelisSiteConfigService');
+        $siteConfigSrv = $this->getServiceManager()->get('MelisSiteConfigService');
         // Product page id
         $productPageId = $siteConfigSrv->getSiteConfigByKey('product_page_id', $pageId);
         //
         $categoryProductsMenu = $siteConfigSrv->getSiteConfigByKey('category_product_menu', $pageId);
 
         // Page Tree service to generate Page Link
-        $melisTree = $this->getServiceLocator()->get('MelisEngineTree');
+        $melisTree = $this->getServiceManager()->get('MelisEngineTree');
         
-        $productSrv = $this->getServiceLocator()->get('MelisComProductService');
+        $productSrv = $this->getServiceManager()->get('MelisComProductService');
         
-        $comLinkSrv = $this->getServiceLocator()->get('MelisComLinksService');
+        $comLinkSrv = $this->getServiceManager()->get('MelisComLinksService');
         
         $pages = array();
         // Sub menu column limit
@@ -288,7 +288,7 @@ class DemoCommerceService extends MelisCoreGeneralService
     public function getNewsListFormMenu($newsId, $limit = null)
     {
         /** @var MelisSiteConfigService $siteConfigSrv */
-        $siteConfigSrv = $this->getServiceLocator()->get('MelisSiteConfigService');
+        $siteConfigSrv = $this->getServiceManager()->get('MelisSiteConfigService');
 
         // Getting the Page Id where the News Details will render
         $newsDetailsIdPage = $siteConfigSrv->getSiteConfigByKey('news_details_page_id', $newsId);
@@ -313,11 +313,11 @@ class DemoCommerceService extends MelisCoreGeneralService
          *          'year' => 2016,
          *      ),
          */
-        $newsTable = $this->serviceLocator->get('MelisCmsNewsTable');
+        $newsTable = $this->getServiceManager()->get('MelisCmsNewsTable');
         $newsList = $newsTable->getNewsListByMonths(4, $siteId)->toArray();
     
         // Page Tree service to generate Page Link
-        $melisTree = $this->serviceLocator->get('MelisEngineTree');
+        $melisTree = $this->getServiceManager()->get('MelisEngineTree');
     
         $newsListMenu = array();
         foreach ($newsList As $key => $val)
@@ -386,7 +386,7 @@ class DemoCommerceService extends MelisCoreGeneralService
 //    public function getNewsListMonthsYears($datefilter = null)
 //    {
 //        // Getting the Site config "MelisDemoCommerce.config.php"
-//        $siteConfig = $this->getServiceLocator()->get('config');
+//        $siteConfig = $this->getServiceManager()->get('config');
 //        $siteConfig = $siteConfig['site']['MelisDemoCommerce'];
 //        $siteDatas = $siteConfig['datas'];
 //        // Getting the Page Id where the News Details will render
@@ -395,7 +395,7 @@ class DemoCommerceService extends MelisCoreGeneralService
 //        /**
 //         * Retreiving the the list of News group by months and year
 //         */
-//        $newsTable = $this->serviceLocator->get('MelisCmsNewsTable');
+//        $newsTable = $this->getServiceManager()->get('MelisCmsNewsTable');
 //        $newsList = $newsTable->getNewsListByMonths(null, $siteDatas['site_id']);
 //
 //        $list = array();
@@ -469,7 +469,7 @@ class DemoCommerceService extends MelisCoreGeneralService
     public function customizeSiteBreadcrumb($breadcrumb, $productPageId, $langId, $siteConfigCatalogue, $productId)
     {
         // Product Page link using MelisComLinksService
-        $comLinkSrv = $this->getServiceLocator()->get('MelisComLinksService');
+        $comLinkSrv = $this->getServiceManager()->get('MelisComLinksService');
         $productUri = $comLinkSrv->getPageLink('product', $productId, $langId, false);
         
         if (!empty($productId))
@@ -478,10 +478,10 @@ class DemoCommerceService extends MelisCoreGeneralService
              * Retrieving Categeries related to the selected product
              * using the Product Service
              */
-            $productSrv = $this->getServiceLocator()->get('MelisComProductService');
+            $productSrv = $this->getServiceManager()->get('MelisComProductService');
             $prdCat = $productSrv->getProductCategories($productId);
             
-            $catSrv = $this->getServiceLocator()->get('MelisComCategoryService');
+            $catSrv = $this->getServiceManager()->get('MelisComCategoryService');
             
             if (!empty($prdCat))
             {
@@ -589,11 +589,11 @@ class DemoCommerceService extends MelisCoreGeneralService
                     {
                         $flag = 0;
                         // Generating Product link using MelisComLinkService
-                        $comLinkSrv = $this->getServiceLocator()->get('MelisComLinksService');
+                        $comLinkSrv = $this->getServiceManager()->get('MelisComLinksService');
                         $categoryPageUri = $comLinkSrv->getPageLink('category', $val['cat_id'], $langId, false);
                     }
                     
-                    // Gererating the datas for breadcrumb
+                    // Generating the datas for breadcrumb
                     $tmp = array(
                         'label' => $label,
                         'menu' => 'LINK',
@@ -606,6 +606,17 @@ class DemoCommerceService extends MelisCoreGeneralService
                     );
                     
                     array_push($breadcrumb, $tmp);
+                }
+
+                $request = $this->getServiceManager()->get('request');
+                if (!empty($request->getQuery('categoryId'))) {
+                    $cateName = $catSrv->getCategoryNameById($request->getQuery('categoryId'), $langId);
+
+                    $comLinkSrv = $this->getServiceManager()->get('MelisComLinksService');
+                    $categoryPageUri = $comLinkSrv->getPageLink('category', $request->getQuery('categoryId'), $langId, false);
+
+                    $breadcrumb[count($breadcrumb)]['label'] = $cateName;
+                    $breadcrumb[count($breadcrumb)]['uri'] = $categoryPageUri;
                 }
                 
                 /**
@@ -641,7 +652,7 @@ class DemoCommerceService extends MelisCoreGeneralService
     public function customizeSiteBreadcrumbCategory($breadCrumb, $lastPageId, $langId, $siteConfigCatalogue, $categoryId)
     {
         // Category Page link using MelisComLinksService
-        $comLinkSrv = $this->getServiceLocator()->get('MelisComLinksService');
+        $comLinkSrv = $this->getServiceManager()->get('MelisComLinksService');
         $newCrumbs = array();
         $found = false;
         // check if the category is existing in a page
@@ -663,7 +674,7 @@ class DemoCommerceService extends MelisCoreGeneralService
         
         if(!$found){
             
-            $catSrv = $this->getServiceLocator()->get('MelisComCategoryService');
+            $catSrv = $this->getServiceManager()->get('MelisComCategoryService');
             $cat = $catSrv->getCategoryBreadCrumb($categoryId, $langId);
             
             if (!empty($cat))
@@ -707,7 +718,7 @@ class DemoCommerceService extends MelisCoreGeneralService
         $langId = $container['melis-plugins-lang-id'];
 
         /** @var MelisSiteConfigService $siteConfigSrv */
-        $siteConfigSrv = $this->getServiceLocator()->get('MelisSiteConfigService');
+        $siteConfigSrv = $this->getServiceManager()->get('MelisSiteConfigService');
 
         $countryId = $siteConfigSrv->getSiteConfigByKey('site_country_id', $pageId);
 
@@ -716,7 +727,7 @@ class DemoCommerceService extends MelisCoreGeneralService
         $varStock = array();
         $variantAttr = array();
         
-        $variantSrv = $this->getServiceLocator()->get('MelisComVariantService');
+        $variantSrv = $this->getServiceManager()->get('MelisComVariantService');
         
         /**
          * re-initialize attrSelection
@@ -807,26 +818,33 @@ class DemoCommerceService extends MelisCoreGeneralService
             if (!empty($variantsIds))
             {
                 sort($variantsIds);
+
+                // Client group
+                $ecomAuthSrv = $this->getServiceManager()->get('MelisComAuthenticationService');
+                $clientGroup = null;
+                if ($ecomAuthSrv->hasIdentity())
+                    $clientGroup = $ecomAuthSrv->getClientGroup();
                 
                 // Getting the Variant from Variant Service Entity
                 $variant = $variantSrv->getVariantById($variantsIds[0], $langId);
-                
-                // Getting the Final Price of the variant
-                $varPrice = $variantSrv->getVariantFinalPrice($variantsIds[0], $countryId);
 
-                if (empty($varPrice))
-                {
-                    $productSrv = $this->getServiceLocator()->get('MelisComProductService');
-                    // If the variant price not set on variant page this will try to get from the Product Price
-                    $varPrice = $productSrv->getProductFinalPrice($productId, $countryId);
-                }
+                // Category
+                $category = [];
+                if (!empty($this->getServiceManager()->get('request')->getQuery('categoryId')))
+                    $category['categoryId'] = $this->getServiceManager()->get('request')->getQuery('categoryId');
+                
+                // Product price
+                $melisComPriceService = $this->getServiceManager()->get('MelisComPriceService');
+                $prodVarPrice = $melisComPriceService->getItemPrice($variantsIds[0], $countryId, $clientGroup, 'variant', $category);
+                if (!empty($prodVarPrice['price']))
+                    $varPrice = $prodVarPrice;
                 
                 // Getting Variant stock
                 $varStock = $variantSrv->getVariantFinalStocks($variantsIds[0], $countryId);
                 if ($varStock)
                 {
-                    $ecomAuthSrv = $this->getServiceLocator()->get('MelisComAuthenticationService');
-                    $basketSrv = $this->getServiceLocator()->get('MelisComBasketService');
+                    
+                    $basketSrv = $this->getServiceManager()->get('MelisComBasketService');
                     
                     $clientKey = $ecomAuthSrv->getId();
                     $clientId = null;

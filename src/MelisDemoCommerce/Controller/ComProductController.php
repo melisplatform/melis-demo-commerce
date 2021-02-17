@@ -9,11 +9,10 @@
 
 namespace MelisDemoCommerce\Controller;
 
-use MelisDemoCommerce\Controller\BaseController;
 use MelisFront\Service\MelisSiteConfigService;
-use Zend\View\Model\JsonModel;
-use Zend\Stdlib\Parameters;
-use Zend\Stdlib\ArrayUtils;
+use Laminas\View\Model\JsonModel;
+use Laminas\Stdlib\Parameters;
+use Laminas\Stdlib\ArrayUtils;
 
 class ComProductController extends BaseController
 {
@@ -21,24 +20,24 @@ class ComProductController extends BaseController
     {
 
         /** @var MelisSiteConfigService $siteConfigSrv */
-        $siteConfigSrv = $this->getServiceLocator()->get('MelisSiteConfigService');
+        $siteConfigSrv = $this->getServiceManager()->get('MelisSiteConfigService');
 
         $productId = array(
             'm_product_id' => $this->params()->fromRoute('productId', null)
         );
 
         if(empty($productId['m_product_id'])){
-            if(isset($this->getServiceLocator()->get('request')->getQuery()->toArray()["m_p_id"])){
-                $productId['m_product_id'] = $this->getServiceLocator()->get('request')->getQuery()->toArray()["m_p_id"];
+            if(isset($this->getServiceManager()->get('request')->getQuery()->toArray()["m_p_id"])){
+                $productId['m_product_id'] = $this->getServiceManager()->get('request')->getQuery()->toArray()["m_p_id"];
             }
         }
 
         // Merging current data from url 
-        $params = ArrayUtils::merge($this->getServiceLocator()->get('request')->getQuery()->toArray(), $productId);
+        $params = ArrayUtils::merge($this->getServiceManager()->get('request')->getQuery()->toArray(), $productId);
         
         // Setting the Get data to make product id of the plugin dynamic
         $postParam = new Parameters($params);
-        $this->getServiceLocator()->get('request')->setQuery($postParam);
+        $this->getServiceManager()->get('request')->setQuery($postParam);
         
         /**
          * Generating show product using MelisCommerceProductShowPlugin
@@ -73,17 +72,17 @@ class ComProductController extends BaseController
     }
     
     /**
-     * Getting the category banner image for page
-     */
+        * Getting the category banner image for page
+        */
     private function setPageBanner()
     {
         /** @var MelisSiteConfigService $siteConfigSrv */
-        $siteConfigSrv = $this->getServiceLocator()->get('MelisSiteConfigService');
+        $siteConfigSrv = $this->getServiceManager()->get('MelisSiteConfigService');
         /**
-         * Retrieving Categeries related to the selected product
-         * using the Product Service
-         */
-        $productSrv = $this->getServiceLocator()->get('MelisComProductService');
+            * Retrieving Categeries related to the selected product
+            * using the Product Service
+            */
+        $productSrv = $this->getServiceManager()->get('MelisComProductService');
         $prdCat = null;
         
         $prdId = $this->params()->fromRoute('productId', null);
@@ -96,20 +95,20 @@ class ComProductController extends BaseController
         $pageBanner = '';
         if (!empty($prdCat))
         {
-            $catSrv = $this->getServiceLocator()->get('MelisComCategoryService');
+            $catSrv = $this->getServiceManager()->get('MelisComCategoryService');
             
             $siteConfigCatalogue = $siteConfigSrv->getSiteConfigByKey('catalogue_pages', $this->idPage);
             /**
-             * This process will try to get the Category the will match
-             * on site config "catalogue_pages"
-             * if the Category found on the list of parent categories
-             * this will be the category to use for generating breadcrumb
-             *
-             * if the process did not found, this will get the first category as
-             * bases in generating breadcrumb
-             *
-             * $category = $prdCat[0];
-             */
+                * This process will try to get the Category the will match
+                * on site config "catalogue_pages"
+                * if the Category found on the list of parent categories
+                * this will be the category to use for generating breadcrumb
+                *
+                * if the process did not found, this will get the first category as
+                * bases in generating breadcrumb
+                *
+                * $category = $prdCat[0];
+                */
             $category = array();
             foreach ($prdCat As $key => $val)
             {
@@ -146,12 +145,12 @@ class ComProductController extends BaseController
             }
             
             /**
-             * Using MelisComDocumentService service Category will get the docoment
-             * with the type of "IMG" and subType with "Default" to get the
-             * image for Default
-             * with the return is multi array
-             */
-            $documentSrv = $this->getServiceLocator()->get('MelisComDocumentService');
+                * Using MelisComDocumentService service Category will get the docoment
+                * with the type of "IMG" and subType with "Default" to get the
+                * image for Default
+                * with the return is multi array
+                */
+            $documentSrv = $this->getServiceManager()->get('MelisComDocumentService');
             $doc = $documentSrv->getDocumentsByRelationAndTypes('category', $category['cat_id'], 'IMG', array('DEFAULT'));
             if (!empty($doc))
             {
@@ -175,8 +174,8 @@ class ComProductController extends BaseController
             $attrSelection = $post['attrSelection'];
             $action = $post['action'];
             
-            $demoCommreceSrv = $this->getServiceLocator()->get('DemoCommerceService');
-            $result = $demoCommreceSrv->getVariantbyAttributes($productId, $attrSelection, $action, $post['idpage']);
+            $demoCommerceSrv = $this->getServiceManager()->get('DemoCommerceService');
+            $result = $demoCommerceSrv->getVariantbyAttributes($productId, $attrSelection, $action, $post['idpage']);
         }
         
         return new JsonModel($result);
@@ -195,11 +194,11 @@ class ComProductController extends BaseController
         {
             $post = $request->getPost();
             /**
-             * Validating the AddToCart form by Calling the plugin
-             */
-            $addtoCart = $this->MelisCommerceAddToCartPlugin();
+                * Validating the AddToCart form by Calling the plugin
+                */
+            $addToCart = $this->MelisCommerceAddToCartPlugin();
             // add generated view to children views for displaying it in the contact view
-            $result = $addtoCart->render()->getVariables();
+            $result = $addToCart->render()->getVariables();
             
             // Retrieving view variable from view
             $errors = $result->errors;
@@ -215,7 +214,7 @@ class ComProductController extends BaseController
                 );
                 $cartViewModel = $cartPlugin->render($menuParameters);
                 // Rendering the viewmodel of the plugin 
-                $viewRender = $this->getServiceLocator()->get('ViewRenderer');
+                $viewRender = $this->getServiceManager()->get('ViewRenderer');
                 $cartList = $viewRender->render($cartViewModel);
             }
         }
@@ -225,15 +224,15 @@ class ComProductController extends BaseController
             'success' => $status,
             'errors' => $errors,
         );
-         
+        
         return new JsonModel($response);
     }
     
     /**
-     * Cart item deletion using plugin MelisCommerceCartPlugin()
-     * 
-     * @return \Zend\View\Model\JsonModel
-     */
+        * Cart item deletion using plugin MelisCommerceCartPlugin()
+        * 
+        * @return \Laminas\View\Model\JsonModel
+        */
     public function removeItemFromCartAction()
     {
         $result = array();
@@ -242,10 +241,10 @@ class ComProductController extends BaseController
         if ($request->isPost())
         {
             /**
-             * To remove spicific variant from cart/basket
-             * this plugin accepting data "cart_variant_remove" with the value
-             * of the variant to be remove 
-             */
+                * To remove spicific variant from cart/basket
+                * this plugin accepting data "cart_variant_remove" with the value
+                * of the variant to be remove 
+                */
             $cartPlugin = $this->MelisCommerceCartPlugin();
             $cartViewModel = $cartPlugin->render();
             $cartVars = $cartViewModel->getVariables();

@@ -10,54 +10,64 @@
 namespace MelisDemoCommerce\Listener;
 
 use MelisFront\Service\MelisSiteConfigService;
-use Zend\EventManager\EventManagerInterface;
-use Zend\EventManager\ListenerAggregateInterface;
-use Zend\Stdlib\ArrayUtils;
+use Laminas\EventManager\EventManagerInterface;
+use Laminas\Stdlib\ArrayUtils;
+use Laminas\Session\Container;
 
-class SiteCommerceCategoryProductListPluginListener implements ListenerAggregateInterface
+class SiteCommerceCategoryProductListPluginListener extends SiteGeneralListener
 {
-    private $serviceLocator;
-	
-    public function attach(EventManagerInterface $events)
+    private $serviceManager;
+    
+    public function attach(EventManagerInterface $events, $priority = 1)
     {
-        $sharedEvents = $events->getSharedManager();
-        
-        $callBackHandler = $sharedEvents->attach(
-        	'*',
-            array(
+        $this->attachEventListener(
+            $events,
+            '*',
+            [
                 'MelisCommerceCategoryProductListPlugin_melistemplating_plugin_end',
-            ),
-        	function($e){
-        	    // Getting the Service Locator from param target
-        	    $this->serviceLocator = $e->getTarget()->getServiceLocator();
-        	    
-        	    // Getting the Datas from the Event Parameters
-        	    $params = $e->getParams();
-        	    
-        	    $viewVariables = $params['view']->getVariables();
-        	    
-        	    if ($params['view']->getTemplate() == 'MelisDemoCommerce/plugin/category-product-list-slider')
-        	    {
-        	        $viewVariables['categoryProducts'] = $this->customizeProductList($viewVariables['categoryProducts'], $params);
-        	    }
-        	},
+            ],
+            function($e){
+                // Getting the Service Manager from param target
+                $this->serviceManager = $e->getTarget()->getServiceManager();
+                
+                // Getting the Datas from the Event Parameters
+                $params = $e->getParams();
+                
+                $viewVariables = $params['view']->getVariables();
+                
+                if ($params['view']->getTemplate() == 'MelisDemoCommerce/plugin/category-product-list-slider')
+                {
+                    $viewVariables['categoryProducts'] = $this->customizeProductList($viewVariables['categoryProducts'], $params);
+                }
+            },
         100);
-        
-        $this->listeners[] = $callBackHandler;
     }
     
     public function customizeProductList($relProducts = array(), $params)
     {
-        $melisComVariantService = $this->serviceLocator->get('MelisComVariantService');
-        $melisComProductService = $this->serviceLocator->get('MelisComProductService');
-        $documentSrv = $this->serviceLocator->get('MelisComDocumentService');
+        $melisComVariantService = $this->serviceManager->get('MelisComVariantService');
+        $melisComProductService = $this->serviceManager->get('MelisComProductService');
+        $melisComPriceService = $this->serviceManager->get('MelisComPriceService');
+
+        $documentSrv = $this->serviceManager->get('MelisComDocumentService');
 
         /** @var MelisSiteConfigService $siteConfigSrv */
-        $siteConfigSrv = $this->serviceLocator->get('MelisSiteConfigService');
+        $siteConfigSrv = $this->serviceManager->get('MelisSiteConfigService');
+        $melisComCategoryService = $this->serviceManager->get('MelisComCategoryService');
 
         $pageId = $params['pluginFronConfig']['pageId'];
 
         $countryId = $siteConfigSrv->getSiteConfigByKey('site_country_id', $pageId);
+
+        $currentCategoryId = null;
+        $container = new Container('melisplugins');
+        $langId = $container['melis-plugins-lang-id'];
+
+        // Client group
+        $ecomAuthSrv = $this->serviceManager->get('MelisComAuthenticationService');
+        $clientGroup = null;
+        if ($ecomAuthSrv->hasIdentity())
+            $clientGroup = $ecomAuthSrv->getClientGroup();
 
         if (!empty($relProducts))
         {
@@ -65,10 +75,80 @@ class SiteCommerceCategoryProductListPluginListener implements ListenerAggregate
             // Secondary image for slider image hover
             foreach ($relProducts As $key => $val)
             {
+                // dump($val);
                 $productsPrices = array();
+
+                $currentCategoryId = $val->getId();
 
                 foreach ($val->products As $pKey => $prd)
                 {
+
+                    $categoryDiscount = [];
+
+                    if ($this->serviceManager->has('MelisCommerceGroupDiscountPerCategoryService')) {
+
+                        // dump($prd->getCategories());
+
+                        $currentPrdCats = [];
+                        foreach ($prd->getCategories() As $prdCat)
+                            $currentPrdCats[] = $prdCat->cat_id;
+
+                        // dump($currentPrdCats);
+
+                        $matchCurrentCat = false;
+                        $catMatches = [];
+                        foreach ($prd->getCategories() As $prdCat) {
+
+                            if ($prdCat->cat_id == $currentCategoryId) {
+
+                                $matchCurrentCat = true;
+
+                                $catChildren = $this->categoryIdIterator($melisComCategoryService->getAllSubCategoryIdById($prdCat->cat_id, true));
+                                
+                                foreach($catChildren As $catChild) {
+                                    if (in_array($catChild, $currentPrdCats))
+                                        $catMatches[] = $catChild;
+                                }
+                                break;
+                            } 
+                        }
+
+                        if (empty($catMatches)) {
+                            $catChildren = $this->categoryIdIterator($melisComCategoryService->getAllSubCategoryIdById($currentCategoryId, true));
+                            foreach($catChildren As $catChild) {
+                                if (in_array($catChild, $currentPrdCats))
+                                    $catMatches[] = $catChild;
+                            }
+                        }
+                        
+
+                        if (!empty($catMatches)) {
+
+                            foreach ($catMatches As $cat) {
+                                $catDiscount = $this->serviceManager->get('MelisCommerceGroupDiscountPerCategoryService')
+                                            ->getCategoryDiscount($cat, $countryId, $clientGroup);
+
+                                if (empty($categoryDiscount) && !empty($catDiscount)){
+
+                                    $categoryDiscount = $catDiscount;
+                                } elseif (!empty($categoryDiscount) && !empty($catDiscount)) {
+                                    if ($catDiscount->gdc_discount_percentage > $categoryDiscount->gdc_discount_percentage)
+                                        $categoryDiscount = $catDiscount;
+                                }
+                            }
+                        }
+        
+                        if (!empty($categoryDiscount)) {
+                            $categoryDiscount = [
+                                'categoryId' => $categoryDiscount->gdc_category_id
+                            ];
+                        } else {
+                            $categoryDiscount = [
+                                'categoryId' => $val->getId()
+                            ];
+                        }
+                    }
+
                     $prdId = $prd->getId();
                     
                     // Getting the lowest price of Product or its Variants
@@ -79,37 +159,41 @@ class SiteCommerceCategoryProductListPluginListener implements ListenerAggregate
                     $lowestPrice = null;
                     $lowestPriceCurrency = null;
                     $lowestPriceCurrencyCode = null;
+                    $productVariantPrice = null;
+
                     foreach ($prdVar As $var)
                     {
                         if (empty($lowestPrice))
                         {
                             // Getting the Final Price of a variant
-                            $varPrice = $melisComVariantService->getVariantFinalPrice($var->var_id, $countryId);
+                            $varPrice = $melisComPriceService->getItemPrice($var->var_id, $countryId, $clientGroup, 'variant', $categoryDiscount);
                             
                             // if the variant has Price base on the Country
                             // this will partially assign as Lowest Prices
-                            if (!empty($varPrice))
+                            if (!empty($varPrice['price']))
                             {
-                                $lowestPrice = $varPrice->price_net;
-                                $lowestPriceCurrency = $varPrice->cur_symbol;
-                                $lowestPriceCurrencyCode = $varPrice->cur_code;
+                                $lowestPrice = $varPrice['price'];
+                                $lowestPriceCurrency = $varPrice['price_currency']['symbol'];
+                                $lowestPriceCurrencyCode = $varPrice['price_currency']['code'];
+                                $productVariantPrice = $varPrice;
                             }
                         }
                         else 
                         {
                             // Getting the Final Price of a variant
-                            $varPrice = $melisComVariantService->getVariantFinalPrice($var->var_id, $countryId);
+                            $varPrice = $melisComPriceService->getItemPrice($var->var_id, $countryId, $clientGroup, 'variant', $categoryDiscount);
                             
                             // if the variant has Price base on the Country
-                            if (!empty($varPrice))
+                            if (!empty($varPrice['price']))
                             {
                                 // Checking if the Variant Price is Less than the first variant
-                                if ($lowestPrice > $varPrice->price_net)
+                                if ($lowestPrice > $varPrice['price'])
                                 {
                                     // assigning as the lowest Price to Product Price
-                                    $lowestPrice = $varPrice->price_net;
-                                    $lowestPriceCurrency = $varPrice->cur_symbol;
-                                    $lowestPriceCurrencyCode = $varPrice->cur_code;
+                                    $lowestPrice = $varPrice['price'];
+                                    $lowestPriceCurrency = $varPrice['price_currency']['symbol'];
+                                    $lowestPriceCurrencyCode = $varPrice['price_currency']['code'];
+                                    $productVariantPrice = $varPrice;
                                 }
                             }
                         } 
@@ -118,12 +202,16 @@ class SiteCommerceCategoryProductListPluginListener implements ListenerAggregate
                     // this will try to get from the Product Price
                     if (empty($lowestPrice))
                     {
-                        $prdPrice = $prd->getPrice();
-                        if (!empty($prdPrice))
+                        $prdPrice = $varPrice = $melisComPriceService->getItemPrice($prdId, $countryId, $clientGroup, 'product', $categoryDiscount);
+                        if (!empty($prdPrice['price']))
                         {
-                            $lowestPrice = $prdPrice[0]->price_net;
-                            $lowestPriceCurrency = (!empty($prdPrice[0]->cur_symbol)) ? $prdPrice[0]->cur_symbol : $siteConfigSrv->getSiteConfigByKey('site_currency_symbol', $pageId);
-                            $lowestPriceCurrencyCode = (!empty($prdPrice[0]->cur_code)) ? $prdPrice[0]->cur_code : $siteConfigSrv->getSiteConfigByKey('site_currency_symbol', $pageId);
+                            // $lowestPrice = $prdPrice[0]->price_net;
+                            // $lowestPriceCurrency = (!empty($prdPrice[0]->cur_symbol)) ? $prdPrice[0]->cur_symbol : $siteConfigSrv->getSiteConfigByKey('site_currency_symbol', $pageId);
+                            // $lowestPriceCurrencyCode = (!empty($prdPrice[0]->cur_code)) ? $prdPrice[0]->cur_code : $siteConfigSrv->getSiteConfigByKey('site_currency_symbol', $pageId);
+                            $lowestPrice = $varPrice['price'];
+                            $lowestPriceCurrency = $varPrice['price_currency']['symbol'];
+                            $lowestPriceCurrencyCode = $varPrice['price_currency']['code'];
+                            $productVariantPrice = $varPrice;
                         }
                     }
                     
@@ -133,10 +221,20 @@ class SiteCommerceCategoryProductListPluginListener implements ListenerAggregate
                             'prd_price_net' => $lowestPrice,
                             'prd_currency_code' => $lowestPriceCurrencyCode,
                             'prd_currency_symbol' => $lowestPriceCurrency,
+                            'prd_price' => $productVariantPrice,
                         );
                         
+                        if (!empty($productVariantPrice['surcharge_module']))
+                            foreach($productVariantPrice['surcharge_module'] As $dis) {
+                                $customPrice['category_discount'] = [
+                                    'category_id' => $dis['category_associated'],
+                                    'label' => $melisComCategoryService->getCategoryNameById($dis['category_associated'], $langId) .' / '. $dis['discount_percentage'].'%',
+                                ];
+                                break;
+                            }
+
                         $relProducts[$key]->products[$pKey]->setPrice($customPrice);
-                        
+
                         // adding product price as index and product id as value in-order to sort
                         $productsPrices[$lowestPrice] = $prdId;
                     }
@@ -247,13 +345,21 @@ class SiteCommerceCategoryProductListPluginListener implements ListenerAggregate
     
         return $new_array;
     }
-    
-    public function detach(EventManagerInterface $events)
+
+    /**
+     * Recursive function to retrieve category ids
+     * @param [] $categories array of categories
+     * @return $categoryId[]
+     */
+    private function categoryIdIterator($categories)
     {
-        foreach ($this->listeners as $index => $listener) {
-            if ($events->detach($listener)) {
-                unset($this->listeners[$index]);
+        $categoryId = array();
+        foreach($categories as $category){
+            $categoryId[] = $category['cat_id'];
+            if(is_array($category['cat_children'])){
+                $categoryId = array_merge($categoryId, $this->categoryIdIterator($category['cat_children']));
             }
         }
+        return $categoryId;
     }
 }

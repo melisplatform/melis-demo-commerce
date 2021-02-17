@@ -10,27 +10,27 @@
 namespace MelisDemoCommerce\Listener;
 
 use MelisFront\Service\MelisSiteConfigService;
-use Zend\EventManager\EventManagerInterface;
-use Zend\EventManager\ListenerAggregateInterface;
-use Zend\Session\Container;
+use Laminas\EventManager\EventManagerInterface;
+use Laminas\Session\Container;
 
-class SiteProductShowPluginListener implements ListenerAggregateInterface
+class SiteProductShowPluginListener extends SiteGeneralListener
 {
-    public function attach(EventManagerInterface $events)
+    public function attach(EventManagerInterface $events, $priority = 1)
     {
-        $sharedEvents      = $events->getSharedManager();
-        
-        $callBackHandler = $sharedEvents->attach(
+        $this->attachEventListener(
+            $events,
             '*',
-            array(
+            [
                 'MelisCommerceProductShowPlugin_melistemplating_plugin_end',
-            ),
+            ],
             function($e){
-                // Getting the Service Locator from param target
-                $sm = $e->getTarget()->getServiceLocator();
+                // Getting the Service Manager from param target
+                $sm = $e->getTarget()->getServiceManager();
                 
                 // Getting the Datas from the Event Parameters
                 $params = $e->getParams();
+
+                $categoryId = $sm->get('request')->getQuery('categoryId', null);
                 
                 // Checking the DemoCommerce template assigned to the ProductShow plugin
                 if ($params['view']->getTemplate() == 'MelisDemoCommerce/plugin/show-product')
@@ -41,7 +41,7 @@ class SiteProductShowPluginListener implements ListenerAggregateInterface
                     $viewVariables = $params['view']->getVariables();
                     
                     $product = $viewVariables->product;
-                    
+
                     $pluginConfig = $params['pluginFronConfig'];
                     
                     if (!empty($product->getId()))
@@ -51,44 +51,92 @@ class SiteProductShowPluginListener implements ListenerAggregateInterface
                         $container = new Container('melisplugins');
                         $langId = $container['melis-plugins-lang-id'];
                         
+                        $productSvc = $sm->get('MelisComProductService');
                         $variantSvc = $sm->get('MelisComVariantService');
                         $currencySvc = $sm->get('MelisComCurrencyService');
+
                         $currency = $currencySvc->getDefaultCurrency();
                         
                         $variant = array();
                         $variantId = null;
                         $action = null;
                         $selection = array();
+                        $price = null;
 
-                        $countryId = $siteConfigSrv->getSiteConfigByKey('aboutus_slider', $params['pluginFronConfig']['pageId']);
+                        $countryId = $siteConfigSrv->getSiteConfigByKey('site_country_id', $params['pluginFronConfig']['pageId']);
+
+                        $ecomAuthSrv = $sm->get('MelisComAuthenticationService');
+                        $clientGroupId = 1;
+                        if ($ecomAuthSrv->hasIdentity())
+                            $clientGroupId = $ecomAuthSrv->getClientGroup();
+
+                        $categoryParam = [];
+                        if ($categoryId)
+                            $categoryParam['categoryId'] = $categoryId;
+
+                        // Product price
+                        $melisComPriceService = $sm->get('MelisComPriceService');
+                        $productPrice = $melisComPriceService->getItemPrice($productId, $countryId, $clientGroupId, 'product', $categoryParam);
+
+                        $price = $productPrice;
 
                         if ($productId)
                         {
-                            $variant = $variantSvc->getMainVariantByProductId($productId, $langId, $countryId);
                             
-                            if(is_null($variant))
+                            // Product main variant
+                            $mainVariant = $variantSvc->getMainVariantByProductId($productId, null, $countryId, $clientGroupId);
+
+                            if(!empty($mainVariant))
                             {
+                                // Variant Price
+                                $variantPrice = $melisComPriceService->getItemPrice($mainVariant->getId(), 
+                                                                $countryId, $clientGroupId, 'variant', $categoryParam);
+
+                                if (!empty($variantPrice['price'])) {
+
+                                    $variant = $mainVariant;
+                                    $price = $variantPrice;
+
+                                    $tmp = $variant->getAttributeValues();
                                 
-                                $variant = $variantSvc->getVariantListByProductId($productId, $langId, $countryId);
-                                $variant = !empty($variant)? $variant[0] : $variant;
-                            }
-                            
-                            if(!empty($variant))
-                            {
-                                $tmp = $variant->getAttributeValues();
-                                
-                                usort($tmp, function($a, $b)
-                                {
-                                    return strcmp($a->atval_attribute_id, $b->atval_attribute_id);
-                                });
-                                
-                                foreach($tmp as $val)
-                                {
-                                    $action = $val->atval_attribute_id;
-                                    $selection[$val->atval_attribute_id] = $val->atval_id;
+                                    usort($tmp, function($a, $b){
+                                        return strcmp($a->atval_attribute_id, $b->atval_attribute_id);
+                                    });
+                                    
+                                    foreach($tmp as $val) {
+                                        $action = $val->atval_attribute_id;
+                                        $selection[$val->atval_attribute_id] = $val->atval_id;
+                                    }
+                                    
+                                    $variantId = $variant->getId();
                                 }
-                                
-                                $variantId = $variant->getId();
+                            }
+
+                            if(empty($variant))
+                            {
+                                $variants = $variantSvc->getVariantListByProductId($productId, $langId, $countryId, $clientGroupId);
+
+                                // dump($variants);
+                                foreach ($variants As $var) {
+
+                                    if (!$var->getVariant()->var_status)
+                                        break;
+
+                                    // Variant price
+                                    $variantPrice = $melisComPriceService->getItemPrice($var->getId(), $countryId, 
+                                                                    $clientGroupId, 'variant', $categoryParam);
+
+                                    // Variant stock
+                                    // $variantStock = $variantSvc->getVariantFinalStocks($var->getId(), $countryId);
+
+                                    // Selecting variant with valid price and stock
+                                    if ((!empty($variantPrice['price']) || !empty($productPrice['price']))) {
+                                        $variant = $var;
+                                        $variantId = $variant->getId();
+                                        $price = !empty($variantPrice['price']) ? $variantPrice : $productPrice;
+                                        break;
+                                    }
+                                }
                             }
                         }
                         
@@ -122,25 +170,15 @@ class SiteProductShowPluginListener implements ListenerAggregateInterface
                         $viewVariables->addToCart = $viewRender->render($addToCartPlugin);
 
                         // get list of active variants
-                        $activeVariants = $variantSvc->getVariantListByProductId($productId, $langId, $countryId, true);
-                       
+                        $activeVariants = $variantSvc->getVariantListByProductId($productId, $langId, $countryId, $clientGroupId, true);
                         $viewVariables->product_variant = $variant;
                         $viewVariables->currency = $currency;
                         $viewVariables->hasVariant = !empty($activeVariants) ? true : false;
+                        $viewVariables->price  = $price;
                     }
                 }
             },
-            100);
-        
-        $this->listeners[] = $callBackHandler;
-    }
-    
-    public function detach(EventManagerInterface $events)
-    {
-        foreach ($this->listeners as $index => $listener) {
-            if ($events->detach($listener)) {
-                unset($this->listeners[$index]);
-            }
-        }
+            100
+        );
     }
 }
