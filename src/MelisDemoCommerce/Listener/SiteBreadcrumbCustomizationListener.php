@@ -52,12 +52,12 @@ class SiteBreadcrumbCustomizationListener extends SiteGeneralListener
 						
 						$melisDemoCommerceSrv = $serviceManager->get('DemoCommerceService');
 
-						$siteConfigCatalogue = $siteConfigSrv->getSiteConfigByKey('catalogue_pages', $params['pluginFronConfig']['pageId']);
+						$siteConfigCatalogue = $siteConfigSrv->getSiteConfigByKey('catalogue_pages', $params['pluginFrontConfig']['pageId']);
 
 						$container = new Container('melisplugins');
 						$langId = $container['melis-plugins-lang-id'];
 
-						$productPageid = $siteConfigSrv->getSiteConfigByKey('product_page_id', $params['pluginFronConfig']['pageId']);
+						$productPageid = $siteConfigSrv->getSiteConfigByKey('product_page_id', $params['pluginFrontConfig']['pageId']);
 
 						if ($lastPageId == $productPageid)
 						{

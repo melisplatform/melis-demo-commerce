@@ -55,7 +55,7 @@ class SiteCommerceCategoryProductListPluginListener extends SiteGeneralListener
         $siteConfigSrv = $this->serviceManager->get('MelisSiteConfigService');
         $melisComCategoryService = $this->serviceManager->get('MelisComCategoryService');
 
-        $pageId = $params['pluginFronConfig']['pageId'];
+        $pageId = $params['pluginFrontConfig']['pageId'];
 
         $countryId = $siteConfigSrv->getSiteConfigByKey('site_country_id', $pageId);
 

@@ -42,7 +42,7 @@ class SiteProductShowPluginListener extends SiteGeneralListener
                     
                     $product = $viewVariables->product;
 
-                    $pluginConfig = $params['pluginFronConfig'];
+                    $pluginConfig = $params['pluginFrontConfig'];
                     
                     if (!empty($product->getId()))
                     {
@@ -63,7 +63,7 @@ class SiteProductShowPluginListener extends SiteGeneralListener
                         $selection = array();
                         $price = null;
 
-                        $countryId = $siteConfigSrv->getSiteConfigByKey('site_country_id', $params['pluginFronConfig']['pageId']);
+                        $countryId = $siteConfigSrv->getSiteConfigByKey('site_country_id', $params['pluginFrontConfig']['pageId']);
 
                         $ecomAuthSrv = $sm->get('MelisComAuthenticationService');
                         $clientGroupId = 1;

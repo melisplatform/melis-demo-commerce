@@ -48,8 +48,8 @@ class SiteCheckoutConfirmPluginListener extends SiteGeneralListener
                     $viewVariables = $params['view']->getVariables();
                     
                     $orderList = $viewVariables->orderBasket;
-                    $imgPreview = $siteConfigSrv->getSiteConfigByKey('image_preview', $params['pluginFronConfig']['pageId']);
-                    $defaultImage = $siteConfigSrv->getSiteConfigByKey('default_image', $params['pluginFronConfig']['pageId']);
+                    $imgPreview = $siteConfigSrv->getSiteConfigByKey('image_preview', $params['pluginFrontConfig']['pageId']);
+                    $defaultImage = $siteConfigSrv->getSiteConfigByKey('default_image', $params['pluginFrontConfig']['pageId']);
                     foreach ($orderList As $key => $item)
                     {
                         $item->{'product_image'} = $variantSvc->getFinalVariantImage($item->obas_variant_id, array($imgPreview), $defaultImage);
