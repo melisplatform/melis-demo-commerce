@@ -3,6 +3,26 @@
     <div class="container">
         <div class="row">
             <div class="col-md-3 col-sm-4 col-xs-12">
+                <div class="contact-account-lists">
+                    <?php if(!empty($this->contactAssociatedAccounts)) { ?>
+                        <label for="changeContactSelectedAccount"><?= $this->siteTranslate('tr_MelisDemoCommerce_select_account', $this->SiteConfig('site_lang_id'), $this->SiteConfig('site_id')) ?></label>
+                        <select id="changeContactSelectedAccount">
+                            <?php foreach($this->contactAssociatedAccounts as $key => $accounts) { ?>
+                                <?php
+                                $selected = '';
+                                if($accounts['cli_id'] == $this->selectedAccountId){
+                                    $selected = 'selected';
+                                }
+                                ?>
+                                <option <?= $selected; ?> value="<?= $accounts['cli_id'];?>"><?= $accounts['cli_name'];?></option>
+                            <?php } ?>
+                        </select>
+                    <?php } ?>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 col-sm-4 col-xs-12">
                 <div class="idea-tab-menu">
                     <ul class="nav idea-tab" role="tablist">
                         <li role="presentation" class="active"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile Info</a></li>
