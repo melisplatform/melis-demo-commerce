@@ -36,14 +36,14 @@ class SiteCommerceRelatedProductsPluginListener extends SiteGeneralListener
 
                 if ($params['view']->getTemplate() == 'MelisDemoCommerce/plugin/related-products')
                 {
-                    $viewVariables['relatedProducts'] = $this->customizeRelatedProductsPrice($viewVariables['relatedProducts'], $params);
+                    $viewVariables['relatedProducts'] = $this->customizeRelatedProductsPrice($params, $viewVariables['relatedProducts']);
                 }
             },
             100
         );
     }
 
-    public function customizeRelatedProductsPrice($relProducts = array(), $params)
+    public function customizeRelatedProductsPrice($params, $relProducts = array())
     {
         $melisComVariantService = $this->serviceManager->get('MelisComVariantService');
         $melisComProductService = $this->serviceManager->get('MelisComProductService');

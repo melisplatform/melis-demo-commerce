@@ -37,13 +37,13 @@ class SiteCommerceCategoryProductListPluginListener extends SiteGeneralListener
                 
                 if ($params['view']->getTemplate() == 'MelisDemoCommerce/plugin/category-product-list-slider')
                 {
-                    $viewVariables['categoryProducts'] = $this->customizeProductList($viewVariables['categoryProducts'], $params);
+                    $viewVariables['categoryProducts'] = $this->customizeProductList($params, $viewVariables['categoryProducts']);
                 }
             },
         100);
     }
     
-    public function customizeProductList($relProducts = array(), $params)
+    public function customizeProductList($params, $relProducts = array())
     {
         $melisComVariantService = $this->serviceManager->get('MelisComVariantService');
         $melisComProductService = $this->serviceManager->get('MelisComProductService');
