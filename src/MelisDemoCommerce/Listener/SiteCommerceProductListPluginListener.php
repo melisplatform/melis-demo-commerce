@@ -71,7 +71,7 @@ class SiteCommerceProductListPluginListener extends SiteGeneralListener
         /** @var MelisSiteConfigService $siteConfigSrv */
         $siteConfigSrv = $this->serviceManager->get('MelisSiteConfigService');
 
-        $countryId = $siteConfigSrv->getSiteConfigByKey('site_country_id', $params['pluginFronConfig']['pageId']);
+        $countryId = $siteConfigSrv->getSiteConfigByKey('site_country_id', $params['pluginFrontConfig']['pageId']);
 
         // Client group
         $ecomAuthSrv = $this->serviceManager->get('MelisComAuthenticationService');

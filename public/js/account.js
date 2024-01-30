@@ -318,4 +318,20 @@ $(function(){
             });
         }
     });
+
+    //set new account
+	$('body').on("change", "#changeContactSelectedAccount", function(){
+		var value = $(this).val();
+        $.ajax({
+            type        : 'POST',
+            url         : '/MelisDemoCommerce/ComMyAccount/updateSelectedAccount',
+            data        : {accountId:value},
+            dataType    : 'json',
+            encode		: true
+        }).success(function(data){
+			if(data.success){
+				location.reload();
+			}
+        });
+	});
 });

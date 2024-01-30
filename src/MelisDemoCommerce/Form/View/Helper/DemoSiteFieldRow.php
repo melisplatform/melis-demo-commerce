@@ -9,7 +9,7 @@ class DemoSiteFieldRow extends FormRow
 	const SELECT_FACTORY        = 'select';
 	const CHECKBOX_FACTORY      = 'checkbox';
 
-	public function render(ElementInterface $element, $labelPosition = null)
+	public function render(ElementInterface $element, ?string $labelPosition = null): string
 	{
 		$formElement = '';
 		$element->setLabelOption('class', 'control-label');

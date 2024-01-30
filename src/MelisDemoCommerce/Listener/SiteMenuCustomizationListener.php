@@ -41,9 +41,9 @@ class SiteMenuCustomizationListener extends SiteGeneralListener
                     $container = new Container('melisplugins');
                     $langId = $container['melis-plugins-lang-id'];
 
-                    $sumMenuLimit = $siteConfigSrv->getSiteConfigByKey('sub_menu_limit', $params['pluginFronConfig']['pageId']);
-                    $newsMenuPageId = $siteConfigSrv->getSiteConfigByKey('news_menu_page_id', $params['pluginFronConfig']['pageId']);
-                    $cataloguePages = $siteConfigSrv->getSiteConfigByKey('catalogue_pages', $params['pluginFronConfig']['pageId']);
+                    $sumMenuLimit = $siteConfigSrv->getSiteConfigByKey('sub_menu_limit', $params['pluginFrontConfig']['pageId']);
+                    $newsMenuPageId = $siteConfigSrv->getSiteConfigByKey('news_menu_page_id', $params['pluginFrontConfig']['pageId']);
+                    $cataloguePages = $siteConfigSrv->getSiteConfigByKey('catalogue_pages', $params['pluginFrontConfig']['pageId']);
 
                     // Geeting the custom datas from site config
                     $limit = (!empty($sumMenuLimit)) ? $sumMenuLimit : null;

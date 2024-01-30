@@ -372,11 +372,11 @@ return [
                         ],
                     ],
                 ],
-                'MelisFrontSearchResultsPlugin' => [
-                    'front' => [
-                        'template_path' => ['MelisDemoCommerce/plugin/search-results'],
-                    ],
-                ],
+                // 'MelisFrontSearchResultsPlugin' => [
+                //     'front' => [
+                //         'template_path' => ['MelisDemoCommerce/plugin/search-results'],
+                //     ],
+                // ],
             ],
         ],
         'meliscmsnews' => [

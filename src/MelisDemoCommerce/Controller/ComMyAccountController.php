@@ -269,4 +269,27 @@ class ComMyAccountController extends BaseController
         
         return  $personName;
     }
+
+    /**
+     * Update selected Account
+     *
+     * @return JsonModel
+     */
+    public function updateSelectedAccountAction()
+    {
+        $request = $this->getRequest();
+        $success = 1;
+        if ($request->isPost())
+        {
+            try {
+                $accountId = $request->getPost('accountId');
+                $melisComAuthSrv = $this->getServiceManager()->get('MelisComAuthenticationService');
+                $melisComAuthSrv->setClientId($accountId);
+            }catch (\Exception $ex){
+                $success = 0;
+            }
+        }
+
+        return new JsonModel(['success' => $success]);
+    }
 }
