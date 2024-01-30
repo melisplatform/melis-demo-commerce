@@ -35,7 +35,7 @@ class DemoCommerceService extends MelisServiceManager
      * 
      * @return Array
      */
-    public function customizeSiteMenu($siteMenu, $level, $limit = null, $newsMenuPageId = null, $cataloguePages = array(), $langId)
+    public function customizeSiteMenu($siteMenu, $level, $langId, $limit = null, $newsMenuPageId = null, $cataloguePages = array())
     {
         $this->melisTree = $this->getServiceManager()->get('MelisEngineTree');
         $this->productSrv = $this->getServiceManager()->get('MelisComProductService');
@@ -102,7 +102,7 @@ class DemoCommerceService extends MelisServiceManager
                 if (!empty($val['pages']) && !$scapeRecursive)
                 {
                     // Calling function itself to retrieve the subpages, using the children as paramater
-                    $val['pages'] = $this->customizeSiteMenu($val['pages'], $level + 1, $limit, $newsMenuPageId, array(), $langId);
+                    $val['pages'] = $this->customizeSiteMenu($val['pages'], $level + 1, $langId, $limit, $newsMenuPageId, array());
                 }
                 
                 // Pushing Data to final modified sitemenu

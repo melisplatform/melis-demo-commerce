@@ -55,7 +55,7 @@ class SiteMenuCustomizationListener extends SiteGeneralListener
                     
                     // Customize Site menu using MelisDemoCmsService
                     $melisDemoCommerceSrv = $this->serviceManager->get('DemoCommerceService');
-                    $params['view']->menu = $melisDemoCommerceSrv->customizeSiteMenu($sitePages, 1, $limit, $newsMenuPageId, $cataloguePages, $langId);
+                    $params['view']->menu = $melisDemoCommerceSrv->customizeSiteMenu($sitePages, 1, $langId, $limit, $newsMenuPageId, $cataloguePages);
                 }
             },
             100
