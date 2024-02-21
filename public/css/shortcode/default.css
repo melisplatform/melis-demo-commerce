@@ -1527,10 +1527,10 @@ h3.widget-title-modal {
  * https://mantis2.uat.melistechnology.fr/view.php?id=6069
  */
 ul {
-    padding-left: 44px !important;
+    padding-left: 44px;
 }
 ol {
-    padding-left: 40px !important;
+    padding-left: 40px;
 }
 ol li,
 ul li {

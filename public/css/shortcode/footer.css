@@ -37,10 +37,14 @@
   display: block;
   font-size: 13px;
 }
+.instagrm ul {
+  padding: 0;
+}
 .instagrm li {
   float: left;
   margin-bottom: 10px;
   margin-right: 10px;
+  list-style: none;
 }
 .newslatter .input-box a {
   background: #494949 none repeat scroll 0 0;

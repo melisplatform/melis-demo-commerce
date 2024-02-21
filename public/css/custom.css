@@ -62,8 +62,13 @@ Note: This is the file where you can add your custom styles to change the look o
 	border-radius: 0px;
 }
 
+.single-footer.contact-us ul {
+    padding: 0;
+}
+
 .single-footer.contact-us li {
 	width: 100%;
+    list-style: none;
 }
 
 .contact-info .single-footer.contact-us li {
