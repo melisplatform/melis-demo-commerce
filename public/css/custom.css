@@ -1116,17 +1116,20 @@ input {
  * Fix: 0006069: TinyMCE/MoxieManager
  * https://mantis2.uat.melistechnology.fr/view.php?id=6069
  */
-.melis-editable ol,
-.melis-editable ul {
+.melis-editable ol {
+    padding-left: 30px;
+}
+.melis-editable ol {
     padding-left: 40px;
 }
 .melis-editable ol li,
 .melis-editable ul li {
+    display: list-item;
     list-style: auto;
 }
 .melis-editable ol li {
-    list-style: decimal;
+    list-style-type: decimal;
 }
 .melis-editable ul li {
-    list-style: disc;
+    list-style-type: disc;
 }
