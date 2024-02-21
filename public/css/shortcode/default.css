@@ -901,9 +901,6 @@ textarea:focus {
 /*************************
         Extra class
 *************************/
-.pricing .container .row [class*="col-"] { }
-
-
 
 /*Custom cloumn*/
 
@@ -1130,7 +1127,6 @@ textarea:focus {
 /*************************
     Section title 1
 ***********************/
-.section-title {}
 .section-title h1 {
   font-size: 30px;
   font-weight: 300;
@@ -1542,4 +1538,10 @@ ol li {
 }
 ul li {
     list-style-type: disc;
+}
+.informatoin ul {
+    padding: 0;
+}
+.informatoin ul li a {
+    color: #f1f1f1;
 }
