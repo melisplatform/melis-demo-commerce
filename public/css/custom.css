@@ -1117,8 +1117,7 @@ input {
  * https://mantis2.uat.melistechnology.fr/view.php?id=6069
  */
 .melis-editable ul {
-    margin: 0 !important;
-    padding-left: 30px !important;
+    padding-left: 44px !important;
 }
 .melis-editable ol {
     padding-left: 40px !important;

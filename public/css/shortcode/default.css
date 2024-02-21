@@ -39,7 +39,9 @@ body {
     font-weight: normal;
     font-style: normal;
     font-size: 14px;
-	line-height:25px
+	line-height:25px;
+
+    overflow-x: hidden;
 }
 .img{
     max-width: 100%;
@@ -1519,3 +1521,25 @@ h3.widget-title-modal {
 }
 .shadow-box:hover{ box-shadow: 0 1px 20px rgba(0, 0, 0, 0.2) }
 .shadow-box-2{ box-shadow: 0 1px 20px rgba(0, 0, 0, 0.2) }
+
+/*
+ * Fix: 0006069: TinyMCE/MoxieManager
+ * https://mantis2.uat.melistechnology.fr/view.php?id=6069
+ */
+ul {
+    padding-left: 44px !important;
+}
+ol {
+    padding-left: 40px !important;
+}
+ol li,
+ul li {
+    display: list-item;
+    list-style: auto;
+}
+ol li {
+    list-style-type: decimal;
+}
+ul li {
+    list-style-type: disc;
+}
