@@ -12,7 +12,9 @@ Note: This is the file where you can add your custom styles to change the look o
 /* ----------------------------------------------------
 	You can put your custom css code here: 
 -------------------------------------------------------*/
-
+body {
+    overflow-x: hidden;
+}
 .mobile-menu-area{
 	max-height: 450px;
     overflow-x: auto;
@@ -1111,8 +1113,3 @@ input {
         width: 45px;
     }
 }
-
-
-
-
-
