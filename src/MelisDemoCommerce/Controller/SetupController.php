@@ -1136,7 +1136,9 @@ class SetupController extends MelisSiteActionController
         $orderCouponTbl = $this->getServiceManager()->get('MelisEcomCouponOrderTable');
         $orderPaymentTbl = $this->getServiceManager()->get('MelisEcomOrderPaymentTable');
         $clientSrv = $this->getServiceManager()->get('MelisComClientService');
-        
+        $personRel = $this->getServiceManager()->get('MelisEcomClientPersonRelTable');
+        $clientRel = $this->getServiceManager()->get('MelisEcomClientAccountRelTable');
+
         foreach ($clientAndOrders As $key => $val)
         {
             $client = $val['columns'];
@@ -1154,6 +1156,22 @@ class SetupController extends MelisSiteActionController
                     $cperson['cper_date_edit'] = null;
                     
                     $personId = $this->saveData($clientPersonTlb, $cperson);
+
+                    //insert client and contact association
+                    if(!empty($clientId) && !empty($personId)){
+                        //insert account rel
+                        $this->saveData($clientRel, [
+                            'car_client_id' => $clientId,
+                            'car_client_person_id' => $personId,
+                            'car_default_person' => 1
+                        ]);
+                        //insert contact rel
+                        $this->saveData($personRel, [
+                            'cpr_client_id' => $clientId,
+                            'cpr_client_person_id' => $personId,
+                            'cpr_default_client' => 1
+                        ]);
+                    }
                     
                     if (!empty($cpVal['client_person_addresses']))
                     {
