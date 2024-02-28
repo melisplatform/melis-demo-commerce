@@ -3,6 +3,7 @@
         array(
             'columns' => array(
                 'cli_status' => 1,
+                'cli_name' => 'Melis Tech',
                 'cli_country_id' => 1,
                 'cli_group_id' => 1,
             ),
