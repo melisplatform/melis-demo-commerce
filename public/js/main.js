@@ -113,8 +113,10 @@ Version: 1.0
                 margin: 15,
                 dots: true,
                 lazyLoad: true,
+                nav: true,
+                navText: ["<i class='fa fa-angle-left'>","<i class='fa fa-angle-right'>"],
                 responsiveClass:true,
-                responsive:{
+                /* responsive:{
                     0:{
                         items:1,
                         nav:false
@@ -128,7 +130,7 @@ Version: 1.0
                         nav: true,
                         navText: ["<i class='fa fa-angle-left'>","<i class='fa fa-angle-right'>"],
                     }
-                }
+                } */
             });
         }
         else {
