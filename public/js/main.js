@@ -111,20 +111,20 @@ Version: 1.0
                 items: 3,
                 margin: 15,
                 dots: true,
+                nav: true,
+                navText: ["<i class='fa fa-angle-left'>","<i class='fa fa-angle-right'>"],
                 responsiveClass:true,
                 responsive:{
-                    0:{
+                    0: {
                         items:1,
                         nav:false
                     },
-                    768:{
+                    768: {
                         items:2,
                         nav:false
                     },
-                    1200:{
+                    992: {
                         items:3,
-                        nav: true,
-                        navText: ["<i class='fa fa-angle-left'>","<i class='fa fa-angle-right'>"],
                     }
                 }
             }, {
@@ -175,7 +175,7 @@ Version: 1.0
     /*----------------------------
     fancybox active
     ------------------------------ */
-    $(document).ready(function() {
+    $(function() {
         $('.fancybox').fancybox();
     });
     
@@ -245,7 +245,7 @@ Version: 1.0
     });
 })(jQuery);
 
-$(window).scroll(function() {
+$(window).on("scroll", function() {
 	if ($(this).scrollTop() > 1){ 
 		$('#sticky-header').addClass("sticky");
 	  }
