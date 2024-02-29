@@ -106,6 +106,7 @@ Version: 1.0
             });
         }
         
+        console.log(".news-prev-iframe .latest-news-owl $previewLatestNewsOwl.length: ", $previewLatestNewsOwl.length);
         if ( $previewLatestNewsOwl.length ) {
             $previewLatestNewsOwl.owlCarousel({
                 items: 3,
