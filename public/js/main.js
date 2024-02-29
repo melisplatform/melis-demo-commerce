@@ -104,7 +104,7 @@ Version: 1.0
                 items: 1,
             });
         }
-        
+        console.log('news preview tab - $latestNewsOwl.length: ', $latestNewsOwl.length);
         if ( $latestNewsOwl.length ) {
             $latestNewsOwl.owlCarousel({
                 items: 3,
