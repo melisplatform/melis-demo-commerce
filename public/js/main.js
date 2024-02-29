@@ -135,11 +135,12 @@ Version: 1.0
             }];
 
             if ( $(".news-prev-iframe").length === 0 ) {
+                console.log(".news-prev-iframe not found");
                 $latestNewsOwl.owlCarousel(owlOptions[0]);
             }
             else {
-                console.log(`$(".tab-preview.active").length: `, $(".tab-preview.active").length );
                 if ( $(".tab-preview.active").length ) {
+                    console.log(".tab-preview.active found!!!");
                     $latestNewsOwl.owlCarousel(owlOptions[1]);
                 }
                 else {
