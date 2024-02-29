@@ -121,7 +121,7 @@ Version: 1.0
                         items:2,
                         nav:false
                     },
-                    1400:{
+                    1200:{
                         items:3,
                         nav: true,
                         navText: ["<i class='fa fa-angle-left'>","<i class='fa fa-angle-right'>"],
@@ -135,25 +135,15 @@ Version: 1.0
                 navText: ["<i class='fa fa-angle-left'>","<i class='fa fa-angle-right'>"]
             }];
 
-            if ( $(".tab-preview.active").length ) {
+            $latestNewsOwl.owlCarousel(owlOptions[0]);
+
+            /* if ( $(".tab-preview.active").length ) {
                 console.log(".tab-preview.active found, load front end owl carousel with responsive class");
                 $latestNewsOwl.owlCarousel(owlOptions[0]);
             }
             else {
-                console.log(".tab-preview.active not found, load back end owl carousel without reposnive class");
+                console.log(".tab-preview.active not found, load back end owl carousel without responsive class");
                 $latestNewsOwl.owlCarousel(owlOptions[1]);
-            }
-
-            /* if ( $(".news-prev-iframe").length === 0 ) {
-                $latestNewsOwl.owlCarousel(owlOptions[0]);
-            }
-            else {
-                if ( $(".tab-preview.active").length ) {
-                    $latestNewsOwl.owlCarousel(owlOptions[1]);
-                }
-                else {
-                    $latestNewsOwl.owlCarousel("destory");
-                }
             } */
         }
         
