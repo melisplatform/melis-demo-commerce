@@ -106,7 +106,7 @@ Version: 1.0
             });
         }
         
-        console.log(".news-prev-iframe .latest-news-owl $previewLatestNewsOwl.length: ", $previewLatestNewsOwl.length);
+        console.log("back end - $previewLatestNewsOwl.length: ", $previewLatestNewsOwl.length);
         if ( $previewLatestNewsOwl.length ) {
             $previewLatestNewsOwl.owlCarousel({
                 items: 3,
@@ -136,8 +136,9 @@ Version: 1.0
         else {
             $previewLatestNewsOwl.owlCarousel("destroy");
         }
-
-        if ( $latestNewsOwl.length && $(".news-prev-iframe").length != 0 ) {
+        
+        console.log(`front end - $latestNewsOwl.length && $(".news-prev-iframe").length === 0: `, $latestNewsOwl.length && $(".news-prev-iframe").length === 0 );
+        if ( $latestNewsOwl.length && $(".news-prev-iframe").length === 0 ) {
             $latestNewsOwl.owlCarousel({
                 items: 3,
                 margin: 15,
