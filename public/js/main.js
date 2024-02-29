@@ -106,40 +106,8 @@ Version: 1.0
             });
         }
         
-        console.log("back end - $previewLatestNewsOwl.length: ", $previewLatestNewsOwl.length);
-        if ( $previewLatestNewsOwl.length ) {
-            $previewLatestNewsOwl.owlCarousel({
-                items: 3,
-                margin: 15,
-                dots: true,
-                lazyLoad: true,
-                nav: true,
-                navText: ["<i class='fa fa-angle-left'>","<i class='fa fa-angle-right'>"],
-                responsiveClass:true,
-                /* responsive:{
-                    0:{
-                        items:1,
-                        nav:false
-                    },
-                    768:{
-                        items:2,
-                        nav:false
-                    },
-                    1400:{
-                        items:3,
-                        nav: true,
-                        navText: ["<i class='fa fa-angle-left'>","<i class='fa fa-angle-right'>"],
-                    }
-                } */
-            });
-        }
-        else {
-            $previewLatestNewsOwl.owlCarousel("destroy");
-        }
-        
-        console.log(`front end - $latestNewsOwl.length && $(".news-prev-iframe").length === 0: `, $latestNewsOwl.length && $(".news-prev-iframe").length === 0 );
-        if ( $latestNewsOwl.length && $(".news-prev-iframe").length === 0 ) {
-            $latestNewsOwl.owlCarousel({
+        if ( $latestNewsOwl.length ) {
+            var owlOptions = [{
                 items: 3,
                 margin: 15,
                 dots: true,
@@ -160,7 +128,18 @@ Version: 1.0
 
                     }
                 }
-            });
+            }, {
+                items: 3,
+                margin: 15,
+                dots: true,
+            }];
+
+            if ( $(".news-prev-iframe").length === 0 ) {
+                $latestNewsOwl.owlCarousel(owlOptions[0]);
+            }
+            else {
+                $latestNewsOwl.owlCarousel(owlOptions[1])
+            }
         }
         
         if ( $totalBrandOwl.length ) {
