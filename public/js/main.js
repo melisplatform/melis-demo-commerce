@@ -106,6 +106,34 @@ Version: 1.0
             });
         }
         console.log('news preview tab - $previewLatestNewsOwl.length: ', $previewLatestNewsOwl.length);
+        if ( ! $previewLatestNewsOwl.length ) {
+            $previewLatestNewsOwl.owlCarousel('destroy');
+        }
+        else {
+            $previewLatestNewsOwl.owlCarousel({
+                items: 3,
+                margin: 15,
+                dots: true,
+                responsiveClass:true,
+                responsive:{
+                    0:{
+                        items:1,
+                        nav:false
+                    },
+                    768:{
+                        items:2,
+                        nav:false
+                    },
+                    1400:{
+                        items:3,
+                        nav: true,
+                        navText: ["<i class='fa fa-angle-left'>","<i class='fa fa-angle-right'>"],
+
+                    }
+                }
+            });
+        }
+
         if ( $latestNewsOwl.length ) {
             $latestNewsOwl.owlCarousel({
                 items: 3,
