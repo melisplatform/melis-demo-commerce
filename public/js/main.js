@@ -134,11 +134,18 @@ Version: 1.0
                 dots: true,
             }];
 
+            console.log(`$(".news-prev-iframe").length: `, $(".news-prev-iframe").length );
             if ( $(".news-prev-iframe").length === 0 ) {
                 $latestNewsOwl.owlCarousel(owlOptions[0]);
             }
             else {
-                $latestNewsOwl.owlCarousel(owlOptions[1])
+                console.log(`$(".tab-preview.active").length: `, $(".tab-preview.active").length );
+                if ( $(".tab-preview.active").length ) {
+                    $latestNewsOwl.owlCarousel(owlOptions[1]);
+                }
+                else {
+                    $latestNewsOwl.owlCarousel("destory");
+                }
             }
         }
         
