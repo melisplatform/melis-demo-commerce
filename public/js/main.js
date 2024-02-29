@@ -122,9 +122,6 @@ Version: 1.0
                     768: {
                         items:2,
                         nav:false
-                    },
-                    992: {
-                        items:3,
                     }
                 }
             }, {
