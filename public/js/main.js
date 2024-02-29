@@ -125,28 +125,36 @@ Version: 1.0
                         items:3,
                         nav: true,
                         navText: ["<i class='fa fa-angle-left'>","<i class='fa fa-angle-right'>"],
-
                     }
                 }
             }, {
                 items: 3,
                 margin: 15,
                 dots: true,
+                nav: true,
+                navText: ["<i class='fa fa-angle-left'>","<i class='fa fa-angle-right'>"]
             }];
 
-            if ( $(".news-prev-iframe").length === 0 ) {
-                console.log(".news-prev-iframe not found");
+            if ( $(".tab-preview.active").length ) {
+                console.log(".tab-preview.active found, load front end owl carousel with responsive class");
+                $latestNewsOwl.owlCarousel(owlOptions[0]);
+            }
+            else {
+                console.log(".tab-preview.active not found, load back end owl carousel without reposnive class");
+                $latestNewsOwl.owlCarousel(owlOptions[1]);
+            }
+
+            /* if ( $(".news-prev-iframe").length === 0 ) {
                 $latestNewsOwl.owlCarousel(owlOptions[0]);
             }
             else {
                 if ( $(".tab-preview.active").length ) {
-                    console.log(".tab-preview.active found!!!");
                     $latestNewsOwl.owlCarousel(owlOptions[1]);
                 }
                 else {
                     $latestNewsOwl.owlCarousel("destory");
                 }
-            }
+            } */
         }
         
         if ( $totalBrandOwl.length ) {
