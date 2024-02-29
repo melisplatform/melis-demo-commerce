@@ -134,7 +134,6 @@ Version: 1.0
                 dots: true,
             }];
 
-            console.log(`$(".news-prev-iframe").length: `, $(".news-prev-iframe").length );
             if ( $(".news-prev-iframe").length === 0 ) {
                 $latestNewsOwl.owlCarousel(owlOptions[0]);
             }
