@@ -137,7 +137,7 @@ Version: 1.0
             $previewLatestNewsOwl.owlCarousel("destroy");
         }
 
-        if ( $latestNewsOwl.length ) {
+        if ( $latestNewsOwl.length && $(".news-prev-iframe").length != 0 ) {
             $latestNewsOwl.owlCarousel({
                 items: 3,
                 margin: 15,
