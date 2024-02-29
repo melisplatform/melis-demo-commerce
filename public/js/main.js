@@ -105,15 +105,13 @@ Version: 1.0
                 items: 1,
             });
         }
-        console.log('news preview tab - $previewLatestNewsOwl.length: ', $previewLatestNewsOwl.length);
-        if ( ! $previewLatestNewsOwl.length ) {
-            $previewLatestNewsOwl.owlCarousel('destroy');
-        }
-        else {
+        
+        if ( $previewLatestNewsOwl.length ) {
             $previewLatestNewsOwl.owlCarousel({
                 items: 3,
                 margin: 15,
                 dots: true,
+                lazyLoad: true,
                 responsiveClass:true,
                 responsive:{
                     0:{
@@ -128,10 +126,12 @@ Version: 1.0
                         items:3,
                         nav: true,
                         navText: ["<i class='fa fa-angle-left'>","<i class='fa fa-angle-right'>"],
-
                     }
                 }
             });
+        }
+        else {
+            $previewLatestNewsOwl.owlCarousel("destroy");
         }
 
         if ( $latestNewsOwl.length ) {
