@@ -53,6 +53,7 @@ Version: 1.0
         $aboutUsOwl             = $(".aboutus-slider-owl"),
         $totalTestimonialOwl    = $('.total-testimonial-owl'),
         $latestNewsOwl          = $('.latest-news-owl'),
+        $previewLatestNewsOwl   = $('.news-prev-iframe .latest-news-owl'),
         $totalBrandOwl          = $('.total-brand-owl');
 
         if ( $homepageOwl.length ) {
@@ -104,7 +105,7 @@ Version: 1.0
                 items: 1,
             });
         }
-        console.log('news preview tab - $latestNewsOwl.length: ', $latestNewsOwl.length);
+        console.log('news preview tab - $previewLatestNewsOwl.length: ', $previewLatestNewsOwl.length);
         if ( $latestNewsOwl.length ) {
             $latestNewsOwl.owlCarousel({
                 items: 3,
