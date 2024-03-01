@@ -110,9 +110,24 @@ Version: 1.0
             var owlOptions = {
                 items: 3,
                 margin: 15,
-                dots: true,
                 nav: true,
                 navText: ["<i class='fa fa-angle-left'>","<i class='fa fa-angle-right'>"],
+                responsiveClass:true,
+                responsive:{
+                    0: {
+                        items: 1,
+                        dots: true,
+                        nav: false
+                    },
+                    768: {
+                        items: 2,
+                        nav: false
+                    },
+                    992: {
+                        items: 3,
+                        dots: false,
+                    }
+                }
             };
 
             $latestNewsOwl.owlCarousel(owlOptions);
