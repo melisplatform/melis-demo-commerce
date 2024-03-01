@@ -107,32 +107,15 @@ Version: 1.0
         }
         
         if ( $latestNewsOwl.length ) {
-            var owlOptions = [{
+            var owlOptions = {
                 items: 3,
                 margin: 15,
                 dots: true,
                 nav: true,
                 navText: ["<i class='fa fa-angle-left'>","<i class='fa fa-angle-right'>"],
-                responsiveClass:true,
-                responsive:{
-                    0: {
-                        items:1,
-                        nav:false
-                    },
-                    768: {
-                        items:2,
-                        nav:false
-                    }
-                }
-            }, {
-                items: 3,
-                margin: 15,
-                dots: true,
-                nav: true,
-                navText: ["<i class='fa fa-angle-left'>","<i class='fa fa-angle-right'>"]
-            }];
+            };
 
-            $latestNewsOwl.owlCarousel(owlOptions[0]);
+            $latestNewsOwl.owlCarousel(owlOptions);
 
             /* if ( $(".tab-preview.active").length ) {
                 console.log(".tab-preview.active found, load front end owl carousel with responsive class");
