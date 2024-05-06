@@ -27,14 +27,14 @@
 											// get default image
 												if($document->dtype_code == 'IMG' && $document->dtype_sub_code == 'DEFAULT' || $document->dtype_code == 'IMG' && $document->dtype_sub_code == 'SMALL')
 												{
-													echo '<li class="'.$active.'"><a href="#view'.$document->doc_id.'" class="shadow-box" aria-controls="view'.$document->doc_id.'" data-toggle="tab"><img src="'.$document->doc_path.'" alt="" /></a></li>';
+													echo '<li class="'.$active.'"><a href="#view'.$document->doc_id.'" class="shadow-box" aria-controls="view'.$document->doc_id.'" data-bs-toggle="tab"><img src="'.$document->doc_path.'" alt="" /></a></li>';
 													$active ='';
 												}
 											}
 											
 											if(empty($documents))
 											{
-												echo '<li class="'.$active.'"><a href="#view1" class="shadow-box" aria-controls="view1" data-toggle="tab"><img src="'.$this->SiteConfig('default_image').'" alt="" /></a></li>';
+												echo '<li class="'.$active.'"><a href="#view1" class="shadow-box" aria-controls="view1" data-bs-toggle="tab"><img src="'.$this->SiteConfig('default_image').'" alt="" /></a></li>';
 											}
 										?>
 									</ul>
@@ -159,7 +159,7 @@
 								{
 									if($text->ptt_code == 'DESC'.$c)
 									{
-										echo '<li role="presentation" class="'.$active.'"><a href="#DESC'. $text->ptxt_id.'" aria-controls="DESC'.$text->ptxt_id.'" role="tab" data-toggle="tab">'.$text->ptt_name.'</a></li>';
+										echo '<li role="presentation" class="'.$active.'"><a href="#DESC'. $text->ptxt_id.'" aria-controls="DESC'.$text->ptxt_id.'" role="tab" data-bs-toggle="tab">'.$text->ptt_name.'</a></li>';
 										$active = '';
 										$c++;
 									}
