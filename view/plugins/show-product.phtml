@@ -19,7 +19,7 @@
 						<div class="product-more-views">
 							<div class="tab_thumbnail" data-tabs="tabs">
 								<div class="thumbnail-carousel">
-									<ul>
+									<ul class="nav nav-tabs">
 										<?php 
 											$active = 'active';
 											foreach($documents as $document)
@@ -27,14 +27,14 @@
 											// get default image
 												if($document->dtype_code == 'IMG' && $document->dtype_sub_code == 'DEFAULT' || $document->dtype_code == 'IMG' && $document->dtype_sub_code == 'SMALL')
 												{
-													echo '<li class="'.$active.'"><a href="#view'.$document->doc_id.'" class="shadow-box" aria-controls="view'.$document->doc_id.'" data-bs-toggle="tab"><img src="'.$document->doc_path.'" alt="" /></a></li>';
+													echo '<li class="nav-item '.$active.'"><a data-bs-target="#view'.$document->doc_id.'" href="#view'.$document->doc_id.'" class="nav-link shadow-box" aria-controls="view'.$document->doc_id.'" data-bs-toggle="tab"><img src="'.$document->doc_path.'" alt="" /></a></li>';
 													$active ='';
 												}
 											}
 											
 											if(empty($documents))
 											{
-												echo '<li class="'.$active.'"><a href="#view1" class="shadow-box" aria-controls="view1" data-bs-toggle="tab"><img src="'.$this->SiteConfig('default_image').'" alt="" /></a></li>';
+												echo '<li class="nav-item '.$active.'"><a data-bs-target="#view1" href="#view1" class="nav-link shadow-box" aria-controls="view1" data-bs-toggle="tab"><img src="'.$this->SiteConfig('default_image').'" alt="" /></a></li>';
 											}
 										?>
 									</ul>

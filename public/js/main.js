@@ -151,7 +151,7 @@ Version: 1.0
     /*************************
       tooltip
     *************************/
-    $('[data-toggle="tooltip"]').tooltip({
+    $('[data-bs-toggle="tooltip"]').tooltip({
         animated: 'fade',
         placement: 'top',
         container: 'body'
@@ -212,13 +212,10 @@ Version: 1.0
 			$('.ship-acc-body').slideUp();
 		}
 	});
-		
-	
-	
 
 })(jQuery);
 
-	$(window).scroll(function() {
+$(window).on("scroll", function() {
 	if ($(this).scrollTop() > 1){ 
 		$('#sticky-header').addClass("sticky");
 	  }
