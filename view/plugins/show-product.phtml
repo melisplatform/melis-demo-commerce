@@ -151,7 +151,7 @@
 				<div class="product-area tab-cars-style">
 					<div class="title-tab-product-category">
 						<div class="col-md-12 text-center">
-							<ul class="nav mb-40 heading-style-2" role="tablist">
+							<ul class="nav nav-tabs mb-40 heading-style-2" role="tablist">
 								<?php 
 								$c = 1;
 								$active = 'active';
@@ -159,7 +159,7 @@
 								{
 									if($text->ptt_code == 'DESC'.$c)
 									{
-										echo '<li role="presentation" class="'.$active.'"><a href="#DESC'. $text->ptxt_id.'" aria-controls="DESC'.$text->ptxt_id.'" role="tab" data-bs-toggle="tab">'.$text->ptt_name.'</a></li>';
+										echo '<li role="presentation" class="nav-item '.$active.'"><a class="nav-link" href="#DESC'. $text->ptxt_id.'" aria-controls="DESC'.$text->ptxt_id.'" role="tab" data-bs-toggle="tab">'.$text->ptt_name.'</a></li>';
 										$active = '';
 										$c++;
 									}
