@@ -1125,3 +1125,6 @@ a {
 .title-tab-product-category li a {
     position: relative;
 }
+.hidden {
+    display: none;
+}

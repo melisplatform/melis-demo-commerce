@@ -213,6 +213,7 @@ Version: 1.0
 		}
 	});
 
+    $(".nav-tabs .nav-item.active").find(".nav-link").addClass("active").attr("aria-selected", "true");
 })(jQuery);
 
 $(window).on("scroll", function() {
