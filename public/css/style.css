@@ -478,12 +478,13 @@ CSS INDEX
     margin-left: 40px;
 }
 .title-tab-product-category li + li a:after {
-    content: url("/MelisDemoCommerce/images/icons/tab-style.png");
-    height: 100%;
-    left: -19px;
-    position: absolute;
-    top: 2px;
-    width: 2px;
+    content: url("/MelisDemoCommerce/images/icons/tab-style.png") !important;
+    height: 100% !important;
+    left: -19px !important;
+    position: absolute !important;
+    top: 2px !important;
+    width: 2px !important;
+    bottom: auto !important;
 }
 /*----------------------------------------*/
 /*  8. testimonial area
