@@ -782,7 +782,7 @@ so you can change as your requirement.
 /* style-customizer */
 
 
-jQuery(document).ready(function($) {
+$(function($) {
 
 		/*************************
        		Left sidebar
