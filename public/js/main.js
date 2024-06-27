@@ -162,16 +162,16 @@ Version: 1.0
     ------------------------------ */
     $('[data-countdown]').each(function () {
     	var $this = $(this);
-    	$this.html("Countdown initializing..");
+    	    $this.html("Countdown initializing..");
     });
     
     setTimeout(function(){ 
     	$('[data-countdown]').each(function () {
             var $this = $(this);
             var currentYear = new Date().getFullYear() + 1;
-            $this.countdown(currentYear+'/10/10', function (event) {
-                $this.html(event.strftime('<span class="cdown days"><span class="time-count">%-D</span> <p>Days</p></span><span class="cdown hour"><span class="time-count">%-H</span> <p>Hour</p></span><span class="cdown minutes"><span class="time-count">%M</span> <p>Min</p></span> <span class="cdown second"><span class="time-count">%S</span> <p>Sec</p></span>'));
-            });
+                $this.countdown(currentYear+'/10/10', function (event) {
+                    $this.html(event.strftime('<span class="cdown days"><span class="time-count">%-D</span> <p>Days</p></span><span class="cdown hour"><span class="time-count">%-H</span> <p>Hour</p></span><span class="cdown minutes"><span class="time-count">%M</span> <p>Min</p></span> <span class="cdown second"><span class="time-count">%S</span> <p>Sec</p></span>'));
+                });
         });
 	}, 30000);
     
