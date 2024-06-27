@@ -143,7 +143,7 @@ Version: 1.0
     /*----------------------------
      fancybox active
     ------------------------------ */
-    $(document).ready(function() {
+    $(function() {
         $('.fancybox').fancybox();
     });
 
@@ -151,11 +151,11 @@ Version: 1.0
     /*************************
       tooltip
     *************************/
-    $('[data-bs-toggle="tooltip"]').tooltip({
+    /* $('[data-toggle="tooltip"]').tooltip({
         animated: 'fade',
         placement: 'top',
         container: 'body'
-    });
+    }); */
 
     /*----------------------------
     Countdown active
