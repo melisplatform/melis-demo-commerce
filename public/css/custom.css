@@ -1119,3 +1119,7 @@ a {
 .title-tab-product-category .nav-tabs {
     border: 0;
 }
+.title-tab-product-category li,
+.title-tab-product-category li a {
+    position: relative;
+}
