@@ -1128,3 +1128,6 @@ a {
 .hidden {
     display: none;
 }
+.nav-link:focus, .nav-link:hover {
+    color: #000;
+}

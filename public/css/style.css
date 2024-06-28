@@ -478,6 +478,7 @@ CSS INDEX
     margin-left: 40px;
 }
 .title-tab-product-category li + li a:after {
+    background: none !important;
     content: url("/MelisDemoCommerce/images/icons/tab-style.png") !important;
     height: 100% !important;
     left: -19px !important;
