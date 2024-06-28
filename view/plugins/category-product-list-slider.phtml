@@ -27,7 +27,7 @@
                         <div class="tab-content">
                             <?php if (!empty($this->categoryProducts)){?>
                                 <?php foreach ($this->categoryProducts As $key => $val){?>
-                                    <div role="tabpanel" class="tab-pane fade in <?php echo (!$key) ? 'active' : ''?>" id="<?php echo $val->getId().'-'.$this->pluginGeneratedId?>">
+                                    <div role="tabpanel" class="tab-pane fade <?php echo (!$key) ? 'show active' : ''?>" id="<?php echo $val->getId().'-'.$this->pluginGeneratedId?>">
                                         <?php if (!empty($val->products)){?>
                                             <div class="category-productlist-list-slider carsoule-btn">   
                                                 <?php foreach ($val->products As $prd){?>
