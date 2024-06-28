@@ -213,7 +213,17 @@ Version: 1.0
 		}
 	});
 
-    $(".nav-tabs .nav-item.active").find(".nav-link").addClass("active").attr("aria-selected", "true");
+    var $navItem = $(".nav-tabs .nav-item");
+        $navItem.first().addClass("active").find(".nav-link").attr("aria-selected", "true");
+
+        $navItem.find(".nav-link").on("click", function() {
+            var $this = $(this);
+
+                $this.parent(".nav-item").siblings().removeClass("active");
+
+                $this.parent(".nav-item").addClass("active");
+                $this.addClass("active");
+        });
 })(jQuery);
 
 $(window).on("scroll", function() {
