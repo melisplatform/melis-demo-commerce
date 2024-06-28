@@ -1,184 +1,184 @@
 
-                    <div class="content-tab-product-category">
-                        <!-- Tab panes -->
-                        <div class="tab-content">
-                            <div role="tabpanel" class="tab-pane fade show active" id="bestsellr">
-                                <div class="total-new-arrival new-arrival-slider-active carsoule-btn">                           
-                                    <?php 
-                                    // MelisDemoCommcerce.config.php, categories data config
-                                    $categories = $this->SiteConfig('discountFeatureOnsale');
-                                    
-                                    // display products under featured category
-                                    foreach($this->categorySliderListProducts as $product){
-                                        // check if the product is under the new arrival category
-                                            
-                                            if($product->cat_id == $categories[0]):
-                                            
-                                                $categoryName = '';
-                                            	$productName = '';
-                                            	$mainImage = $this->SiteConfig('default_image');
-                                            	$hoverImage = '';
-                                            	$price = !empty($product->display_price)? $product->display_price : '';
-                                            	$productPageLink = $this->MelisCommerceLink('product', $product->prd_id, $this->langId, false);
-                                                $categoryName = $product->catt_name;
-                                                
-                                                $mainImage = $product->mainImage;
-                                                
-                                                $hoverImage = $product->altImage;
-                                            	
-                                                // get product name from product texts
-                                                $productName = $product->ptxt_field_short;
-                                                // if no texts or translations use the reference name
-                                                if(empty($productName)){
-                                                    $productName = $product->prd_reference;
-                                                }
-                                            ?>
-                                                <div class="col-md-3">
-                                                    <!-- single product start-->
-                                                    <div class="single-product">
-                                                        <div class="product-img">
-                                                            <div class="product-label">
-                                                                <div class="new"><?= $categoryName ?></div>
-                                                            </div>
-                                                            <div class="single-prodcut-img  product-overlay pos-rltv">
-                                                                <a href="<?= $productPageLink ?>"> <img alt="" src="<?= $mainImage ?>" class="primary-image"> <img alt="" src="<?= $hoverImage ?>" class="secondary-image"> </a>
-                                                            </div>
-                                                        </div>
-                                                        <div class="product-text">
-                                                            <div class="prodcut-name"> <a href="<?= $productPageLink ?>"><?= $productName ?></a> </div>
-                                                            <div class="prodcut-ratting-price">
-                                                                <div class="prodcut-price">
-                                                                    <div class="new-price"> <?= $price ?> </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- single product end-->
-                                                </div>
-                                            <?php 
-                                            endif;
-                                        }
-                                    ?>                 
+<div class="content-tab-product-category">
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane fade show active" id="bestsellr">
+            <div class="total-new-arrival new-arrival-slider-active carsoule-btn">                           
+                <?php 
+                // MelisDemoCommcerce.config.php, categories data config
+                $categories = $this->SiteConfig('discountFeatureOnsale');
+                
+                // display products under featured category
+                foreach($this->categorySliderListProducts as $product){
+                    // check if the product is under the new arrival category
+                        
+                        if($product->cat_id == $categories[0]):
+                        
+                            $categoryName = '';
+                            $productName = '';
+                            $mainImage = $this->SiteConfig('default_image');
+                            $hoverImage = '';
+                            $price = !empty($product->display_price)? $product->display_price : '';
+                            $productPageLink = $this->MelisCommerceLink('product', $product->prd_id, $this->langId, false);
+                            $categoryName = $product->catt_name;
+                            
+                            $mainImage = $product->mainImage;
+                            
+                            $hoverImage = $product->altImage;
+                            
+                            // get product name from product texts
+                            $productName = $product->ptxt_field_short;
+                            // if no texts or translations use the reference name
+                            if(empty($productName)){
+                                $productName = $product->prd_reference;
+                            }
+                        ?>
+                            <div class="col-md-3">
+                                <!-- single product start-->
+                                <div class="single-product">
+                                    <div class="product-img">
+                                        <div class="product-label">
+                                            <div class="new"><?= $categoryName ?></div>
+                                        </div>
+                                        <div class="single-prodcut-img  product-overlay pos-rltv">
+                                            <a href="<?= $productPageLink ?>"> <img alt="" src="<?= $mainImage ?>" class="primary-image"> <img alt="" src="<?= $hoverImage ?>" class="secondary-image"> </a>
+                                        </div>
+                                    </div>
+                                    <div class="product-text">
+                                        <div class="prodcut-name"> <a href="<?= $productPageLink ?>"><?= $productName ?></a> </div>
+                                        <div class="prodcut-ratting-price">
+                                            <div class="prodcut-price">
+                                                <div class="new-price"> <?= $price ?> </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
+                                <!-- single product end-->
                             </div>
-                            <div role="tabpanel" class="tab-pane fade" id="newarrival">
-                                <div class="total-new-arrival new-arrival-slider-active carsoule-btn">
-                                    <?php 
-                                    // MelisDemoCommcerce.config.php, categories data config
-                                    $categories = $this->SiteConfig('discountFeatureOnsale');
-                                    
-                                    // display products under new arrival category
-                                    foreach($this->categorySliderListProducts as $product){
-                                        // check if the product is under the new arrival category
-                                            
-                                            if($product->cat_id == $categories[1]):
-                                            
-                                                $categoryName = '';
-                                            	$productName = '';
-                                            	$mainImage = $this->SiteConfig('default_image');
-                                            	$hoverImage = '';
-                                            	$price = !empty($product->display_price)? $product->display_price : '';
-                                            	$productPageLink = $this->MelisCommerceLink('product', $product->prd_id, $this->langId, false);
-                                                $categoryName = $product->catt_name;
-                                                
-                                                $mainImage = $product->mainImage;
-                                                
-                                                $hoverImage = $product->altImage;
-                                                // get product name from product texts
-                                                $productName = $product->ptxt_field_short;
-                                                // if no texts or translations use the reference name
-                                                if(empty($productName)){
-                                                    $productName = $product->prd_reference;
-                                                }
-                                            ?>
-                                                <div class="col-md-3">
-                                                    <!-- single product start-->
-                                                    <div class="single-product">
-                                                        <div class="product-img">
-                                                            <div class="product-label">
-                                                                <div class="new"><?= $categoryName ?></div>
-                                                            </div>
-                                                            <div class="single-prodcut-img  product-overlay pos-rltv">
-                                                                <a href="<?= $productPageLink ?>"> <img alt="" src="<?= $mainImage ?>" class="primary-image"> <img alt="" src="<?= $hoverImage ?>" class="secondary-image"> </a>
-                                                            </div>
-                                                        </div>
-                                                        <div class="product-text">
-                                                            <div class="prodcut-name"> <a href="<?= $productPageLink ?>"><?= $productName ?></a> </div>
-                                                            <div class="prodcut-ratting-price">
-                                                                <div class="prodcut-price">
-                                                                    <div class="new-price"> <?= $price ?> </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- single product end-->
-                                                </div>
-                                            <?php 
-                                            endif;
-                                        }
-                                    ?>                           
-                                    
+                        <?php 
+                        endif;
+                    }
+                ?>                 
+            </div>
+        </div>
+        <div role="tabpanel" class="tab-pane fade" id="newarrival">
+            <div class="total-new-arrival new-arrival-slider-active carsoule-btn">
+                <?php 
+                // MelisDemoCommcerce.config.php, categories data config
+                $categories = $this->SiteConfig('discountFeatureOnsale');
+                
+                // display products under new arrival category
+                foreach($this->categorySliderListProducts as $product){
+                    // check if the product is under the new arrival category
+                        
+                        if($product->cat_id == $categories[1]):
+                        
+                            $categoryName = '';
+                            $productName = '';
+                            $mainImage = $this->SiteConfig('default_image');
+                            $hoverImage = '';
+                            $price = !empty($product->display_price)? $product->display_price : '';
+                            $productPageLink = $this->MelisCommerceLink('product', $product->prd_id, $this->langId, false);
+                            $categoryName = $product->catt_name;
+                            
+                            $mainImage = $product->mainImage;
+                            
+                            $hoverImage = $product->altImage;
+                            // get product name from product texts
+                            $productName = $product->ptxt_field_short;
+                            // if no texts or translations use the reference name
+                            if(empty($productName)){
+                                $productName = $product->prd_reference;
+                            }
+                        ?>
+                            <div class="col-md-3">
+                                <!-- single product start-->
+                                <div class="single-product">
+                                    <div class="product-img">
+                                        <div class="product-label">
+                                            <div class="new"><?= $categoryName ?></div>
+                                        </div>
+                                        <div class="single-prodcut-img  product-overlay pos-rltv">
+                                            <a href="<?= $productPageLink ?>"> <img alt="" src="<?= $mainImage ?>" class="primary-image"> <img alt="" src="<?= $hoverImage ?>" class="secondary-image"> </a>
+                                        </div>
+                                    </div>
+                                    <div class="product-text">
+                                        <div class="prodcut-name"> <a href="<?= $productPageLink ?>"><?= $productName ?></a> </div>
+                                        <div class="prodcut-ratting-price">
+                                            <div class="prodcut-price">
+                                                <div class="new-price"> <?= $price ?> </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
+                                <!-- single product end-->
                             </div>
-                            <div role="tabpanel" class="tab-pane fade" id="specialoffer">
-                                <div class="total-new-arrival new-arrival-slider-active carsoule-btn"> 
-                                    <?php 
-                                    // MelisDemoCommcerce.config.php, categories data config
-                                    $categories = $this->SiteConfig('discountFeatureOnsale');
-                                    
-                                    // display products under onsale category
-                                    foreach($this->categorySliderListProducts as $product){
-                                        // check if the product is under the new arrival category
-                                            
-                                            if($product->cat_id == $categories[2]):
-                                            
-                                                $categoryName = '';
-                                            	$productName = '';
-                                            	$mainImage = $this->SiteConfig('default_image');
-                                            	$hoverImage = '';
-                                            	$price = !empty($product->display_price)? $product->display_price : '';
-                                            	$productPageLink = $this->MelisCommerceLink('product', $product->prd_id, $this->langId, false);
-                                                $categoryName = $product->catt_name;
-                                                
-                                            	
-                                                $mainImage = $product->mainImage;
-                                                
-                                                $hoverImage = $product->altImage;
-                                                // get product name from product texts
-                                                $productName = $product->ptxt_field_short;
-                                                // if no texts or translations use the reference name
-                                                if(empty($productName)){
-                                                    $productName = $product->prd_reference;
-                                                }
-                                            ?>
-                                                <div class="col-md-3">
-                                                    <!-- single product start-->
-                                                    <div class="single-product">
-                                                        <div class="product-img">
-                                                            <div class="product-label">
-                                                                <div class="new"><?= $categoryName ?></div>
-                                                            </div>
-                                                            <div class="single-prodcut-img  product-overlay pos-rltv">
-                                                                <a href="<?= $productPageLink ?>"> <img alt="" src="<?= $mainImage ?>" class="primary-image"> <img alt="" src="<?= $hoverImage ?>" class="secondary-image"> </a>
-                                                            </div>
-                                                        </div>
-                                                        <div class="product-text">
-                                                            <div class="prodcut-name"> <a href="<?= $productPageLink ?>"><?= $productName ?></a> </div>
-                                                            <div class="prodcut-ratting-price">
-                                                                <div class="prodcut-price">
-                                                                    <div class="new-price"> <?= $price ?> </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- single product end-->
-                                                </div>
-                                            <?php 
-                                            endif;
-                                        }
-                                    ?> 
+                        <?php 
+                        endif;
+                    }
+                ?>                           
+                
+            </div>
+        </div>
+        <div role="tabpanel" class="tab-pane fade" id="specialoffer">
+            <div class="total-new-arrival new-arrival-slider-active carsoule-btn"> 
+                <?php 
+                // MelisDemoCommcerce.config.php, categories data config
+                $categories = $this->SiteConfig('discountFeatureOnsale');
+                
+                // display products under onsale category
+                foreach($this->categorySliderListProducts as $product){
+                    // check if the product is under the new arrival category
+                        
+                        if($product->cat_id == $categories[2]):
+                        
+                            $categoryName = '';
+                            $productName = '';
+                            $mainImage = $this->SiteConfig('default_image');
+                            $hoverImage = '';
+                            $price = !empty($product->display_price)? $product->display_price : '';
+                            $productPageLink = $this->MelisCommerceLink('product', $product->prd_id, $this->langId, false);
+                            $categoryName = $product->catt_name;
+                            
+                            
+                            $mainImage = $product->mainImage;
+                            
+                            $hoverImage = $product->altImage;
+                            // get product name from product texts
+                            $productName = $product->ptxt_field_short;
+                            // if no texts or translations use the reference name
+                            if(empty($productName)){
+                                $productName = $product->prd_reference;
+                            }
+                        ?>
+                            <div class="col-md-3">
+                                <!-- single product start-->
+                                <div class="single-product">
+                                    <div class="product-img">
+                                        <div class="product-label">
+                                            <div class="new"><?= $categoryName ?></div>
+                                        </div>
+                                        <div class="single-prodcut-img  product-overlay pos-rltv">
+                                            <a href="<?= $productPageLink ?>"> <img alt="" src="<?= $mainImage ?>" class="primary-image"> <img alt="" src="<?= $hoverImage ?>" class="secondary-image"> </a>
+                                        </div>
+                                    </div>
+                                    <div class="product-text">
+                                        <div class="prodcut-name"> <a href="<?= $productPageLink ?>"><?= $productName ?></a> </div>
+                                        <div class="prodcut-ratting-price">
+                                            <div class="prodcut-price">
+                                                <div class="new-price"> <?= $price ?> </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
+                                <!-- single product end-->
                             </div>
-                        </div>
-                    </div>
+                        <?php 
+                        endif;
+                    }
+                ?> 
+            </div>
+        </div>
+    </div>
+</div>
                    

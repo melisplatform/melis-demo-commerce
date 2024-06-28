@@ -49,7 +49,7 @@
 									// check if document type is image and default
 									if($document->dtype_code == 'IMG' && $document->dtype_sub_code == 'DEFAULT' || $document->dtype_code == 'IMG' && $document->dtype_sub_code == 'SMALL')
 									{
-										echo '<div role="tabpanel" class="tab-pane '.$active.'" id="view'.$document->doc_id.'">';
+										echo '<div role="tabpanel" class="tab-pane show '.$active.'" id="view'.$document->doc_id.'">';
 										echo     '<div class="product-img">';
 										echo         '<a class="fancybox" data-fancybox-group="group" href="'.$document->doc_path.'"><img src="'.$document->doc_path.'" alt="Single portfolio" /></a>';
 										echo     '</div>';
@@ -60,7 +60,7 @@
 								
 								if(empty($documents))
 								{
-									echo '<div role="tabpanel" class="tab-pane active" id="view1">';
+									echo '<div role="tabpanel" class="tab-pane show active" id="view1">';
 									echo     '<div class="product-img">';
 									echo         '<a class="fancybox" data-fancybox-group="group" href="'.$this->SiteConfig('default_image').'"><img src="'.$this->SiteConfig('default_image').'" alt="Single portfolio" /></a>';
 									echo     '</div>';
