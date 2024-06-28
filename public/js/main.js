@@ -214,7 +214,9 @@ Version: 1.0
 	});
 
     var $navItem = $(".nav-tabs .nav-item");
-        $navItem.first().addClass("active").find(".nav-link").attr("aria-selected", "true");
+
+        $navItem.first().addClass("active").find(".nav-link").addClass("active").attr("aria-selected", "true");
+        $navItem.first().find(".nav-link").trigger("click");
 
         $navItem.find(".nav-link").on("click", function() {
             var $this = $(this);
