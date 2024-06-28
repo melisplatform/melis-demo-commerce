@@ -1131,3 +1131,12 @@ a {
 .nav-link:focus, .nav-link:hover {
     color: #000;
 }
+.idea-tab-menu ul li {
+    margin-left: -1px;
+    margin-top: -1px;
+}
+.idea-tab-menu ul li a {
+    border: 0 !important;
+    border-radius: 0 !important;
+    margin-bottom: 0 !important;
+}
