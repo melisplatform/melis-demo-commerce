@@ -1145,3 +1145,7 @@ a {
     border-radius: 0 !important;
     margin-bottom: 0 !important;
 }
+.idea-tab-menu ul li,
+.idea-tab-menu ul {
+	display: block;
+}
