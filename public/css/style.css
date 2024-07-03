@@ -1549,7 +1549,7 @@ input.cart-plus-minus-box {
 }
 .cart-page-area thead th {
     border: 1px solid #ccc !important;
-    padding: 0 !important;
+    /* padding: 0 !important; */
     text-align: center;
 }
 .product-thumbnail {
