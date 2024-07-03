@@ -1975,6 +1975,7 @@ select option {
     text-transform: capitalize;
 }
 .title-tab-product-category .heading-style-3 li a {
+    display: inline-block;
     border: 1px solid #ccc;
     height: 60px;
     line-height: 50px;
