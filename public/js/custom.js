@@ -1,41 +1,41 @@
 $(function(){
 	// Menu bug fixed on Firefox
-	$(".mega-menu-area a:not([href=''])").click(function(){
+	$(".mega-menu-area a:not([href=''])").on("click", function(){
 		$(".mega-menu-area").css("display", "none");
 	});
 	
-	$("#cat-treeview").load(function(){
+	$("#cat-treeview").on("load", function(){
 		var treeView = $(this);
 		melisCommerceDemo.recursiveExpand(treeView);
 	});
 	
-	$("#catalogueFilter").click(function(){
+	$("#catalogueFilter").on("click", function(){
 		melisCommerceDemo.submitCatalogueFilter()
 	});
 	
-	$("#catalogueSearch").click(function(){
+	$("#catalogueSearch").on("click", function(){
 		melisCommerceDemo.submitCatalogueFilter()
 	});
 	
-	$("#input-sort").change(function(){	
+	$("#input-sort").on("change", function(){	
 		melisCommerceDemo.submitCatalogueFilter()	
 	});
 	
-	$("#input-limit").change(function(){	
+	$("#input-limit").on("change", function(){	
 		melisCommerceDemo.submitCatalogueFilter()	
 	});
 	
-	$("#input-limit").click(function(){
+	$("#input-limit").on("click", function(){
 		$(this).addClass('activated');
 	});
 	
-	$("#input-sort").click(function(){
+	$("#input-sort").on("click", function(){
 		$(this).addClass('activated');
 	});
 
-	$(".btn-def").click(function(){
+	$(".btn-def").on("click", function(){
 		var body = $("html, body");
-		body.stop().animate({scrollTop:220}, '500', 'swing');
+			body.stop().animate({scrollTop:220}, '500', 'swing');
 	});
 });
 
@@ -130,7 +130,7 @@ var melisCommerceDemo = (function(window) {
                     value: e.value,
                 }).appendTo(form);
             });
-            form.appendTo('body').submit();
+            form.appendTo('body').trigger("submit");
         }else {
             $.each(dataString, function (key, e) {
                 $('<input>').attr({
@@ -139,7 +139,7 @@ var melisCommerceDemo = (function(window) {
                     value: e.value,
                 }).appendTo("#catalogueSearchForm");
             });
-            $("#catalogueSearchForm").submit();
+            $("#catalogueSearchForm").trigger("submit");
         }
 	}
 	

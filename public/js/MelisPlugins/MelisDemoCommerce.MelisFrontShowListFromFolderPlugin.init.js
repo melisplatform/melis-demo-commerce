@@ -8,7 +8,6 @@
  */
 
 function MelisFrontShowListFromFolderPlugin_init(idPlugin){
-	console.log('Front Show List ID', idPlugin);
 	var idPlugin = typeof idPlugin != "undefined" ? idPlugin : '';
 	var	$plugin = $('#'+idPlugin);
 
