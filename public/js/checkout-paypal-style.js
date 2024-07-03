@@ -1,5 +1,5 @@
 $(function() {
-	$("#submit-fake-paypal-style-form-btn").click(function() {
+	$("#submit-fake-paypal-style-form-btn").on("click", function() {
 		$(".fake-paypal-style-form-alert").addClass("hidden");
 
 		var dataString = new Array();
@@ -12,7 +12,7 @@ $(function() {
 			data: dataString,
 			dataType: "json",
 			encode: true,
-		}).success(function(data) {
+		}).done(function(data) {
 			// Server to server "IPN" call
 			if (data.success) {
 				$.ajax({
@@ -21,7 +21,7 @@ $(function() {
 					data: data.result,
 					dataType: "json",
 					encode: true,
-				}).success(function() {
+				}).done(function() {
 					// Redirecting to confirm page url provided
 					window.location = data.result["checkout-confirm-url"];
 				});

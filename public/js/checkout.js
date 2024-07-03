@@ -1,12 +1,12 @@
 $(function(){
-	$(".update-checkout-cart").click(function(){
-		$("#checkout-cart").submit();
+	$(".update-checkout-cart").on("click", function(){
+		$("#checkout-cart").trigger("submit");
 	});
 	
 	$("#m_add_billing_phone_landline, #m_add_billing_phone_mobile, #m_add_delivery_phone_landline, #m_add_delivery_phone_mobile").on("keypress", function(event){
 		var regex = /^([0-9\(\)\/\+\-]*)$/;
-	    var _event = event || window.event;
-	    var key = _event.keyCode || _event.which;
+	    var _event = event;
+	    var key = _event.key || _event.which;
 	    key = String.fromCharCode(key);
 	    
 	    if(!regex.test(key)) {
@@ -18,19 +18,23 @@ $(function(){
 	
 	// Binding Variant quantity input to Numeric characters only
     $('.cart-plus-minus-box').on("keydown", function (e) {
-        // Allow: backspace, delete, tab, escape, enter and .
-        if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
+        // Allow: backspace, delete, tab, escape, enter and . (period or NumpadDecimal)
+        if ($.inArray(e.key, ['Delete', 'Backspace', 'Tab', 'Escape', 'Enter', '.']) !== -1 ||
              // Allow: Ctrl+A, Command+A
-            (e.keyCode === 65 && (e.ctrlKey === true || e.metaKey === true)) || 
+            (e.key === 'a' && (e.ctrlKey === true || e.metaKey === true)) || 
              // Allow: home, end, left, right, down, up
-            (e.keyCode >= 35 && e.keyCode <= 40)) {
-                 // let it happen, don't do anything
-                 return;
+			$.inArray(e.key, ['End', 'Home', 'ArrowLeft', 'ArrowUp', 'ArrowRight', 'ArrowDown']) !== -1
+		) {
+			// let it happen, don't do anything
+			return;
         }
         // Ensure that it is a number and stop the keypress
-        if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
-            e.preventDefault();
-        }
+		if (
+			(e.shiftKey || e.which > 48 || e.which > 57) &&
+			(e.which > 96 || e.which > 105)
+		) {
+			e.preventDefault();
+		}
     });
 	
 	if($(".checkout-delivery-address").length){
@@ -79,7 +83,7 @@ $(function(){
 		}
 	});
 	
-	$("#checkout-billing-address-same").click(function(){
+	$("#checkout-billing-address-same").on("click", function(){
 		if($(this).is(":checked")){
 			$(".checkout-billing-address-zone").addClass("hidden");
 			$("#m_add_use_same_address").val(1);
@@ -110,7 +114,7 @@ $(function(){
 	        data        : datastring,
 	        dataType    : 'json',
 	        encode		: true
-		}).success(function(data){
+		}).done(function(data){
 			if(data.success){
 				action(type, "block", "onChange", true);
 				$.each(data.address, function(index, value){

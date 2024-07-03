@@ -1,5 +1,5 @@
-$(document).ready(function() {
-	body = $("body");
+$(function() {
+	var body = $("body");
 	
 	body.on("click", ".cart-remove a" ,function(){
 	    	
@@ -19,7 +19,7 @@ $(document).ready(function() {
 	        data        : dataString,
 	        dataType    : 'json',
 	        encode		: true
-		}).success(function(data){
+		}).done(function(data){
 			
 			if(data.success){
 				
@@ -53,4 +53,4 @@ $(document).ready(function() {
 			}
 		});
 	});
-})
+});

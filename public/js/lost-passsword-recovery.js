@@ -1,5 +1,5 @@
 $(function(){
-	$("form#lost-password-form").submit(function(e) {
+	$("form#lost-password-form").on("submit", function(e) {
         var data = $(this).serializeArray();
         var form = "form#lost-password-form";
         forms.suspendSubmit(form);
@@ -9,7 +9,7 @@ $(function(){
             data: data,
             dataType: 'json',
             encode: true,
-        }).success(function(data) {
+        }).done(function(data) {
             if(data.success) {
                 $("div.alert-danger").addClass("hidden");
                 $("div.alert-success").removeClass("hidden");
@@ -23,13 +23,13 @@ $(function(){
             forms.checkForm(form, data.errors);
             
             forms.allowSubmit(form);
-        }).error(function() {
+        }).fail(function() {
             forms.allowSubmit(form);
         });
 	    e.preventDefault();
     })
 
-    $("form#lost-password-reset-form").submit(function(e) {
+    $("form#lost-password-reset-form").on("submit", function(e) {
         var data = $(this).serializeArray();
         var form = "form#lost-password-reset-form";
         forms.suspendSubmit(form);
@@ -39,7 +39,7 @@ $(function(){
             data: data,
             dataType: 'json',
             encode: true,
-        }).success(function(data) {
+        }).done(function(data) {
             if(data.success) {
                 $("div.alert-danger").addClass("hidden");
                 $("div.alert-success").removeClass("hidden");
@@ -58,11 +58,9 @@ $(function(){
             }
             
             forms.checkForm(form, data.errors);
-        }).error(function() {
+        }).fail(function() {
             forms.allowSubmit(form);
         });
         e.preventDefault();
     })
-
-
 });

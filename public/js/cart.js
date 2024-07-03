@@ -1,14 +1,14 @@
 $(function() {
 	body = $("body");
 
-	$("#add-to-cart-form").keydown(function(event) {
-		if (event.keyCode == 13) {
+	$("#add-to-cart-form").on("keydown", function(event) {
+		if ( event.key === 'Enter' || event.key === 'NumpadEnter' ) {
 			event.preventDefault();
 			return false;
 		}
 	});
 
-	$("#add-to-cart").click(function() {
+	$("#add-to-cart").on("click", function() {
 		if (!$(this).hasClass("disable-btn-add-cart")) {
 			$(".add-to-cart-zone .alert").addClass("hidden");
 
@@ -26,7 +26,7 @@ $(function() {
 				data: dataString,
 				dataType: "json",
 				encode: true,
-			}).success(function(data) {
+			}).done(function(data) {
 				setAddToCartState(false);
 
 				if (data.success) {
@@ -72,21 +72,21 @@ $(function() {
 
 	// Binding Variant quantity input to Numeric characters only
 	$("#m_variant_quantity").on("keydown", function(e) {
-		// Allow: backspace, delete, tab, escape, enter and .
+		// Allow: backspace, delete, tab, escape, enter and . (period or NumpadDecimal)
 		if (
-			$.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
+			$.inArray(e.key, ['Delete', 'Backspace', 'Tab', 'Escape', 'Enter', '.']) !== -1 ||
 			// Allow: Ctrl+A, Command+A
-			(e.keyCode === 65 && (e.ctrlKey === true || e.metaKey === true)) ||
+			(e.key === 'a' && (e.ctrlKey === true || e.metaKey === true)) ||
 			// Allow: home, end, left, right, down, up
-			(e.keyCode >= 35 && e.keyCode <= 40)
+			$.inArray(e.key, ['End', 'Home', 'ArrowLeft', 'ArrowUp', 'ArrowRight', 'ArrowDown']) !== -1
 		) {
 			// let it happen, don't do anything
 			return;
 		}
 		// Ensure that it is a number and stop the keypress
 		if (
-			(e.shiftKey || e.keyCode < 48 || e.keyCode > 57) &&
-			(e.keyCode < 96 || e.keyCode > 105)
+			(e.shiftKey || e.which > 48 || e.which > 57) &&
+			(e.which > 96 || e.which > 105)
 		) {
 			e.preventDefault();
 		}

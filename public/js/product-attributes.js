@@ -16,7 +16,7 @@ $(function() {
 		}
 	}, 100);
 
-	body = $("body");
+	var body = $("body");
 	body.on("change", ".product-attribute-selection", function(e) {
 		enableDisableAttribute($(this));
 
@@ -61,7 +61,7 @@ $(function() {
 			data: dataString,
 			dataType: "json",
 			encode: true,
-		}).success(function(data) {
+		}).done(function(data) {
 			setAttrSelectionsState("reset");
 
 			if (!$.isEmptyObject(data.variant)) {

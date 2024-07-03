@@ -1,5 +1,5 @@
 $(function(){
-	$("#submit-registration-form-btn").click(function(){
+	$("#submit-registration-form-btn").on("click", function(){
 		
 		var btn = $(this);
 		
@@ -20,7 +20,7 @@ $(function(){
 	        data        : datastring,
 	        dataType    : 'json',
 	        encode		: true
-		}).success(function(data){
+		}).done(function(data){
 			if(data.success){
 				forms.clearDangerStatus(".registration-form");
 				// Showing the Success result for submitting form

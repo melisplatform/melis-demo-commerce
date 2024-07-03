@@ -1,5 +1,5 @@
 $(function(){
-	$("form#contact-us").submit(function(e) {
+	$("form#contact-us").on("submit", function(e) {
 		
         var datastring = $(this).serializeArray();
         var url 	 = window.location.href;
@@ -11,7 +11,7 @@ $(function(){
             data        : datastring,
             dataType    : 'json',
             encode		: true
-        }).success(function(data){
+        }).done(function(data){
             if(data.success){
                 // Showing the Success result for submitting form
                 $(".contact-info .alert-success").removeClass("hidden");

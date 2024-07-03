@@ -1,5 +1,5 @@
 $(function(){
-	$("#add-to-cart-form").submit(function(ev){
+	$("#add-to-cart-form").on("submit", function(ev){
 		
 		var form = $(this);
 		
@@ -11,7 +11,7 @@ $(function(){
 	        data        : form.serializeArray(),
 	        dataType    : 'json',
 	        encode		: true
-		}).success(function(data){
+		}).done(function(data){
 			if(data.success){
 				var messagesId = [];				 
 				$('.order-messages').show();
@@ -107,7 +107,7 @@ $(function(){
 			data: {'orderId': orderId},
 			dataType: 'json',
 			encode: true,
-		}).success(function (data) {
+		}).done(function (data) {
 			if (data.latestInvoiceId > 0) {
 				xhr.open('POST', url);
 				xhr.responseType = 'arraybuffer';
@@ -127,7 +127,7 @@ $(function(){
 				link.download = xhr.getResponseHeader('fileName');
 				link.dispatchEvent(new MouseEvent(`click`, {bubbles: true, cancelable: true, view: window}));
 			};
-		}).error(function () {
+		}).fail(function () {
 			melisCoreTool.done('.export-order-pdf');
 		});
 	});

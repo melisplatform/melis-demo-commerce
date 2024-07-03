@@ -1,5 +1,5 @@
 $(function(){
-	$("#submit-login-form-btn").click(function(){
+	$("#submit-login-form-btn").on("click", function(){
 		var btn = $(this);
 		
 		// Hidding all alerts
@@ -16,7 +16,7 @@ $(function(){
 	        data        : datastring,
 	        dataType    : 'json',
 	        encode		: true
-		}).success(function(data){
+		}).done(function(data){
 			if(data.success){
 				// Showing the Success result for submitting form
 				$(".contact-info .alert-success").removeClass("hidden");
