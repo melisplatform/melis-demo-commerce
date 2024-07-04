@@ -33,10 +33,6 @@ $(function() {
 					// Highlighting the input fields that has an error using the custom helper
 					forms.checkForm(".login-form", data.errors);
 				}
-			}).fail(function(xhr, textStatus, errorThrown) {
-				console.log({xhr});
-				console.log({textStatus});
-				console.log({errorThrown});
 			});
 	});
 });
