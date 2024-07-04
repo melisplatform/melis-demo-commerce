@@ -1,0 +1,207 @@
+<?php
+/**
+ * Zend Framework (http://framework.zend.com/)
+ *
+ * @link      http://github.com/zendframework/ZendSkeletonApplication for the canonical source repository
+ * @copyright Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license   http://framework.zend.com/license/new-bsd New BSD License
+ */
+
+return [
+    'router' => [
+        'routes' => [
+            'MelisDemoCommerce-pageids' => [
+                'type'    => 'regex',
+                'options' => [
+                    'regex'    => '.*/MelisDemoCommerce/.*/id/(?<idpage>[0-9]+)',
+                    'defaults' => [
+                        'controller' => 'MelisDemoCommerce\Controller\Index',
+                        'action'     => 'indexsite',
+                    ],
+                    'spec' => '%idpage'
+                ],
+            ],
+            'MelisDemoCommerce-homepage' => [
+                'type'    => 'Literal',
+                'options' => [
+                    'route'    => '/',
+                    'defaults' => [
+                        'controller'     => 'MelisFront\Controller\Index',
+                        'action'         => 'index',
+                        'renderType'     => 'melis_zf2_mvc',
+                        'renderMode'     => 'front',
+                        'preview'        => false,
+                        'idpage'         => '[:homePageId]'
+                    ]
+                ],
+            ],
+            // The following is a route to simplify getting started creating
+            // new controllers and actions without needing to create a new
+            // module. Simply drop new controllers in, and you can access them
+            // using the path /application/:controller/:action
+            'applicationMelisDemoCommerce' => [
+                'type'    => 'Literal',
+                'options' => [
+                    'route'    => '/MelisDemoCommerce',
+                    'defaults' => [
+                        '__NAMESPACE__' => 'MelisDemoCommerce\Controller',
+                        'controller'    => 'Index',
+                        'action'        => 'indexsite',
+                    ],
+                ],
+                'may_terminate' => true,
+                'child_routes' => [
+                    'default' => [
+                        'type'    => 'Segment',
+                        'options' => [
+                            'route'    => '/[:controller[/:action]]',
+                            'constraints' => [
+                                'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                                'action'     => '[a-zA-Z][a-zA-Z0-9_-]*',
+                            ],
+                            'defaults' => [
+                                'renderMode' => 'front',
+                            ],
+                        ],
+                    ],
+                    'setup' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => '/setup',
+                            'defaults' => [
+                                'controller' => 'MelisDemoCommerce\Controller\Setup',
+                                'action' => 'setup',
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+        ],
+    ],
+    'service_manager' => [
+        'aliases' => [
+            // Table
+            'MelisPlatformTable'    => \MelisCore\Model\Tables\MelisPlatformTable::class,
+            // Services
+            'DemoCommerceService'   => \MelisDemoCommerce\Service\DemoCommerceService::class,
+            'SiteShipmentCostService'  => \MelisDemoCommerce\Service\SiteShipmentCostService::class,
+        ]
+    ],
+    'controllers' => [
+        'invokables' => [
+            'MelisDemoCommerce\Controller\Test'             => \MelisDemoCommerce\Controller\TestController::class,
+            'MelisDemoCommerce\Controller\Base'             => \MelisDemoCommerce\Controller\BaseController::class,
+            'MelisDemoCommerce\Controller\Home'             => \MelisDemoCommerce\Controller\HomeController::class,
+            'MelisDemoCommerce\Controller\ComCatalogue'     => \MelisDemoCommerce\Controller\ComCatalogueController::class,
+            'MelisDemoCommerce\Controller\News'             => \MelisDemoCommerce\Controller\NewsController::class,
+            'MelisDemoCommerce\Controller\About'            => \MelisDemoCommerce\Controller\AboutController::class,
+            'MelisDemoCommerce\Controller\Contact'          => \MelisDemoCommerce\Controller\ContactController::class,
+            'MelisDemoCommerce\Controller\Testimonial'      => \MelisDemoCommerce\Controller\TestimonialController::class,
+            'MelisDemoCommerce\Controller\ComProduct'       => \MelisDemoCommerce\Controller\ComProductController::class,
+            'MelisDemoCommerce\Controller\ComCheckout'      => \MelisDemoCommerce\Controller\ComCheckoutController::class,
+            'MelisDemoCommerce\Controller\ComLogin'         => \MelisDemoCommerce\Controller\ComLoginController::class,
+            'MelisDemoCommerce\Controller\ComLostPassword'  => \MelisDemoCommerce\Controller\ComLostPasswordController::class,
+            'MelisDemoCommerce\Controller\Search'           => \MelisDemoCommerce\Controller\SearchController::class,
+            'MelisDemoCommerce\Controller\ComMyAccount'     => \MelisDemoCommerce\Controller\ComMyAccountController::class,
+            'MelisDemoCommerce\Controller\ComLogout'        => \MelisDemoCommerce\Controller\ComLogoutController::class,
+            'MelisDemoCommerce\Controller\ComOrder'         => \MelisDemoCommerce\Controller\ComOrderController::class,
+            'MelisDemoCommerce\Controller\FakeServerPayment'=> \MelisDemoCommerce\Controller\FakeServerPaymentController::class,
+            'MelisDemoCommerce\Controller\Setup'            => \MelisDemoCommerce\Controller\SetupController::class,
+            'MelisDemoCommerce\Controller\Page404'          => \MelisDemoCommerce\Controller\Page404Controller::class,
+        ],
+    ],
+    'view_helpers' => [
+        'invokables' => [
+            'DemoSiteFieldCollection'  => \MelisDemoCommerce\Form\View\Helper\DemoSiteFieldCollection::class,
+            'DemoSiteFieldRow'         => \MelisDemoCommerce\Form\View\Helper\DemoSiteFieldRow::class,
+        ],
+    ],
+    'view_manager' => [
+        'doctype'                  => 'HTML5',
+        'not_found_template'       => 'error/404',
+        'exception_template'       => 'error/index',
+        'controller_map' => [
+            'MelisDemoCommerce' => true,
+        ],
+        'template_map' => [
+            // Zend default layout
+            'layout/layout'                     => __DIR__ . '/../view/layout/defaultLayout.phtml',
+            // Main layout
+            'MelisDemoCommerce/defaultLayout'   => __DIR__ . '/../view/layout/defaultLayout.phtml',
+            'MelisDemoCommerce/setupLayout'     => __DIR__ . '/../view/layout/setupLayout.phtml',
+            'layout/errorLayout'                => __DIR__ . '/../view/layout/errorLayout.phtml',
+            // Errors layout
+            'error/404'               		    => __DIR__ . '/../view/error/404.phtml',
+            'error/index'             		    => __DIR__ . '/../view/error/index.phtml',
+            // Email layout
+            'MelisDemoCommerce/emailLayout'     => __DIR__ . '/../view/layout/reset-password-email-layout.phtml',
+            
+            // Plugins layout
+            'MelisDemoCommerce/plugin/menu'                             => __DIR__ . '/../view/plugins/menu.phtml',
+            'MelisDemoCommerce/plugin/breadcrumb'                       => __DIR__ . '/../view/plugins/breadcrumb.phtml',
+            'MelisDemoCommerce/plugin/contactus'                        => __DIR__ . '/../view/plugins/contactus.phtml',
+            'MelisDemoCommerce/plugin/homepage-slider'                  => __DIR__ . '/../view/plugins/homepage-slider.phtml',
+            'MelisDemoCommerce/plugin/testimonial-slider'               => __DIR__ . '/../view/plugins/testimonial-slider.phtml',
+            'MelisDemoCommerce/plugin/latest-news'                      => __DIR__ . '/../view/plugins/latest-news.phtml',
+            'MelisDemoCommerce/plugin/aboutus-slider'                   => __DIR__ . '/../view/plugins/aboutus-slider.phtml',
+            'MelisDemoCommerce/plugin/news-list'                        => __DIR__ . '/../view/plugins/news-list.phtml',
+            'MelisDemoCommerce/plugin/list-paginator'                   => __DIR__ . '/../view/plugins/list-paginator.phtml',
+            'MelisDemoCommerce/plugin/news-details'                     => __DIR__ . '/../view/plugins/news-details.phtml',
+            'MelisDemoCommerce/plugin/search-results'                   => __DIR__ . '/../view/plugins/search-results.phtml',
+            'MelisDemoCommerce/plugin/registration'                     => __DIR__ . '/../view/plugins/registration.phtml',
+            'MelisDemoCommerce/plugin/login'                            => __DIR__ . '/../view/plugins/login.phtml',
+            
+            'MelisDemoCommerce/plugin/category-product-list-slider'     => __DIR__ . '/../view/plugins/category-product-list-slider.phtml',
+            
+            'MelisDemoCommerce/plugin/product-search'                   => __DIR__ . '/../view/plugins/product-search.phtml',
+            'MelisDemoCommerce/plugin/category-tree'                    => __DIR__ . '/../view/plugins/category-tree.phtml',
+            'MelisDemoCommerce/plugin/product-price-range'              => __DIR__ . '/../view/plugins/product-price-range.phtml',
+            'MelisDemoCommerce/plugin/product-color-attribute'          => __DIR__ . '/../view/plugins/product-color-attribute.phtml',
+            'MelisDemoCommerce/plugin/product-size-attribute'           => __DIR__ . '/../view/plugins/product-size-attribute.phtml',
+            'MelisDemoCommerce/plugin/product-list'                     => __DIR__ . '/../view/plugins/product-list.phtml',
+            'MelisDemoCommerce/plugin/product-list-paginator'           => __DIR__ . '/../view/plugins/product-list-paginator.phtml',
+            'MelisDemoCommerce/plugin/show-product'                     => __DIR__ . '/../view/plugins/show-product.phtml',
+            'MelisDemoCommerce/plugin/related-products'                 => __DIR__ . '/../view/plugins/related-products.phtml',
+            'MelisDemoCommerce/plugin/account'                          => __DIR__ . '/../view/plugins/account.phtml',
+            'MelisDemoCommerce/plugin/profile'                          => __DIR__ . '/../view/plugins/profile.phtml',
+            'MelisDemoCommerce/plugin/delivery-address'                 => __DIR__ . '/../view/plugins/delivery-address.phtml',
+            'MelisDemoCommerce/plugin/billing-address'                  => __DIR__ . '/../view/plugins/billing-address.phtml',
+            'MelisDemoCommerce/plugin/my-cart'                          => __DIR__ . '/../view/plugins/my-cart.phtml',
+            'MelisDemoCommerce/plugin/my-cart-paginator'                => __DIR__ . '/../view/plugins/my-cart-paginator.phtml',
+            'MelisDemoCommerce/plugin/lost-password'                    => __DIR__ . '/../view/plugins/lost-password.phtml',
+            'MelisDemoCommerce/plugin/reset-password'                   => __DIR__ . '/../view/plugins/reset-password.phtml',
+            'MelisDemoCommerce/plugin/show-attributes'                  => __DIR__ . '/../view/plugins/show-attributes.phtml',
+            'MelisDemoCommerce/plugin/show-add-to-cart'                 => __DIR__ . '/../view/plugins/show-add-to-cart.phtml',
+            
+            'MelisDemoCommerce/plugin/checkout'                         => __DIR__ . '/../view/plugins/checkout.phtml',
+            'MelisDemoCommerce/plugin/checkout-cart'                    => __DIR__ . '/../view/plugins/checkout-cart.phtml',
+            'MelisDemoCommerce/plugin/checkout-coupon'                  => __DIR__ . '/../view/plugins/checkout-coupon.phtml',
+            'MelisDemoCommerce/plugin/checkout-addresses'               => __DIR__ . '/../view/plugins/checkout-addresses.phtml',
+            'MelisDemoCommerce/plugin/checkout-summary'                 => __DIR__ . '/../view/plugins/checkout-summary.phtml',
+            'MelisDemoCommerce/plugin/checkout-confirm-summary'         => __DIR__ . '/../view/plugins/checkout-confirm-summary.phtml',
+            'MelisDemoCommerce/plugin/checkout-confirmation'            => __DIR__ . '/../view/plugins/checkout-confirmation.phtml',
+            
+            'MelisDemoCommerce/plugin/checkout-fake-payment'           => __DIR__ . '/../view/plugins/checkout-fake-payment.phtml',
+            'MelisDemoCommerce/plugin/checkout-fake-paypal-style'      => __DIR__ . '/../view/plugins/checkout-fake-paypal-style.phtml',
+            
+            'MelisDemoCommerce/plugin/menu-cart'                        => __DIR__ . '/../view/plugins/menu-cart.phtml',
+            'MelisDemoCommerce/plugin/order-history'                    => __DIR__ . '/../view/plugins/order-history.phtml',
+            'MelisDemoCommerce/plugin/order-history-paginator'          => __DIR__ . '/../view/plugins/order-history-paginator.phtml',
+            'MelisDemoCommerce/order-details'                           => __DIR__ . '/../view/plugins/order-details.phtml',
+            'MelisDemoCommerce/order-addresses'                         => __DIR__ . '/../view/plugins/order-addresses.phtml',
+            'MelisDemoCommerce/order-shipping-details'                  => __DIR__ . '/../view/plugins/order-shipping-details.phtml',
+            'MelisDemoCommerce/order-messages'                          => __DIR__ . '/../view/plugins/order-messages.phtml',
+            'MelisDemoCommerce/order-return-product'                    => __DIR__ . '/../view/plugins/order-return-product.phtml',
+        ],
+        'template_path_stack' => [
+            __DIR__ . '/../view',
+        ],
+    ],
+    'asset_manager' => [
+        'resolver_configs' => [
+            'aliases' => [
+                'MelisDemoCommerce/' => __DIR__ . '/../public/',
+            ],
+        ],
+    ],
+];

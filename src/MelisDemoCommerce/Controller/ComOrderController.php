@@ -22,10 +22,10 @@ class ComOrderController extends BaseController
                 'template_path' => 'MelisDemoCommerce/order-addresses'
             ),
             'order_shipping_details_parameters' => array(
-                'template_path' => 'MelisDemocommerce/order-shipping-details'
+                'template_path' => 'MelisDemoCommerce/order-shipping-details'
             ),
             'order_messages_parameters' => array(
-                'template_path' => 'MelisDemocommerce/order-messages'
+                'template_path' => 'MelisDemoCommerce/order-messages'
             ),
         );
         $this->view->addChild($orderPlugin->render($orderParameter), 'showOrderDetails');
