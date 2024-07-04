@@ -30,6 +30,9 @@
         // Generate JS
         echo $this->headScript();
     ?>
+    <script>
+        var currentPageId = <?= $this->idPage ?>;
+    </script>
 </head>
     <body>
         <!--[if lt IE 8]>

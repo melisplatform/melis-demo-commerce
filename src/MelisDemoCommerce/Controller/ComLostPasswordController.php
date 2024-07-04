@@ -75,8 +75,10 @@ class ComLostPasswordController extends BaseController
         
         if($request->isPost()) 
         {
+            $pageId = $this->params()->fromPost('idPage');
+
             $data = array(
-                'email' => $siteConfigSrv->getSiteConfigByKey('lostpassword_email', $this->idPage),
+                'email' => $siteConfigSrv->getSiteConfigByKey('lostpassword_email', $pageId),
             );
             
             $emailConfig = ArrayUtils::merge($request->getPost()->toArray(), $data);
