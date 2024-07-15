@@ -2,8 +2,6 @@ $(function () {
 	$("form#lost-password-form").on("submit", function (e) {
 		var data = $(this).serializeArray();
 
-		console.log(data);
-
 		data.push({
 			name: "idPage",
 			value: currentPageId,
