@@ -1,5 +1,5 @@
-$(function(){
-	$("#submit-registration-form-btn").on("click", function(){
+$(function() {
+	$("#submit-registration-form-btn").on("click", function() {
 		
 		var btn = $(this);
 		
@@ -13,7 +13,8 @@ $(function(){
 		btn.attr("disabled", true);
 		
 		// serialize the new array and send it to server
-		datastring = $.param(datastring);;
+		datastring = $.param(datastring);
+
 		$.ajax({
 			type        : 'POST', 
 	        url         : '/MelisDemoCommerce/ComLogin/submitRegistration',
