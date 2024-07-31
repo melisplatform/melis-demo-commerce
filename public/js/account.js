@@ -250,8 +250,8 @@ $(function(){
 
 		// open order
 		$body.on('click', '.orderhist-table-cell', function() {
+			console.log(`$(this).closest('.table-row').find('a'): `, $(this).closest('.table-row').find('a') );
 			$(this).closest('.table-row').find('a')[0].trigger("click");
-			console.log(`$(this).closest('.table-row').find('a')`);
 		});
 
 		// download invoice on order history
