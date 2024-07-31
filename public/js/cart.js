@@ -1,5 +1,5 @@
 $(function() {
-	body = $("body");
+	var body = $("body");
 
 	$("#add-to-cart-form").on("keydown", function(event) {
 		if ( event.key === 'Enter' || event.key === 'NumpadEnter' ) {

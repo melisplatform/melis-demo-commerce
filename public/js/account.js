@@ -218,7 +218,7 @@ $(function(){
                 }
                 btn.attr("disabled", false);
             }).fail(function(error) {
-                console.log(error);
+                alert(error);
                 btn.attr("disabled", false);
             });
         }

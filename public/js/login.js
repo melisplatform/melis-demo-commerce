@@ -18,7 +18,6 @@ $(function() {
 				dataType    : 'json',
 				encode		: true
 			}).done(function(data) {
-				console.log(`data.success: `, data.success);
 				if ( data.success ) {
 					// Showing the Success result for submitting form
 					$(".contact-info .alert-success").removeClass("hidden");
