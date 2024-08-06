@@ -43,7 +43,7 @@
 		"melisplatform/melis-cms-prospects": "^5.2",
 		"melisplatform/melis-cms-news": "^5.2",
 		"melisplatform/melis-cms-page-script-editor": "^5.2",
-        "melisplatform/melis-commerce": "^5.2",
+        "melisplatform/melis-commerce": "^5.2"
 	},
 	"suggest": {
 		"melisplatform/melis-engine": "MelisEngine provides a set of services and classes to access the CMS pages and data.",
