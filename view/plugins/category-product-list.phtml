@@ -1,0 +1,167 @@
+<div class="col-md-9 col-sm-8 col-xs-12">
+                <div class="shop-wraper">
+                  <div class="col-xs-12">
+                       <div class="shop-area-top">
+                          <div class="row">
+                               <div class="col-lg-6 col-md-9 col-sm-9 col-xs-12">
+                               
+                               <!-- SELECT LIMIT START  -->
+                               <div class="sort product-show">
+                                   <label>View</label>
+                                    <select id="input-limit">
+                                     <?php 
+                                     $limits = $this->SiteConfig('pagination_config')['limit'];
+                                     
+                                     $queryLimit = (array_key_exists('m_pag_nb_per_page', $this->layout()->queryParameters))? $this->layout()->queryParameters['m_pag_nb_per_page'] : '';
+                                        foreach($limits as $limit){
+                                            $selected = '';
+                                            if($limit == $queryLimit){
+                                                $selected = 'selected';
+                                            }
+                                            echo '<option value="'.$limit.'" '.$selected.'>'.$limit.'</option>';
+                                        }
+                                    ?>                                     
+                                    </select>
+                                </div>
+                                <!-- SELECT LIMIT END  -->
+                                
+                                <!-- SELECT SORT START  -->
+                                <div class="sort product-type">
+                                    <label>Sort By</label>
+                                    <?php 
+                                    $sortOrder = '';
+                                    if(array_key_exists('m_col_name', $this->layout()->queryParameters) && array_key_exists('m_order', $this->layout()->queryParameters)){
+                                        $sortOrder = $this->layout()->queryParameters['m_col_name']. ' ' . $this->layout()->queryParameters['m_order'];
+                                    }
+                                    
+                                    $sorts = $this->SiteConfig('sort_config');
+                                     
+                                    $defaultSort = $this->SiteConfig('sort_default');
+                                    $sortOrder = !empty($sortOrder)? $sortOrder : $defaultSort['m_col_name'].' '.$defaultSort['m_order'];
+                                   
+                                    ?>
+                                    <select id="input-sort">
+                                    	<?php 
+                                    	foreach($sorts as $sort){
+                                    	    $selected = '';
+                                    	    //if sort not selected, use default
+                                    	    if(($sortOrder == $sort['m_col_name'].' '.$sort['m_order'])){
+                                    	        $selected = 'selected';
+                                    	    }
+                                    	    
+                                    	    echo '<option value="'.$sort['m_col_name'].' '.$sort['m_order'].'" '.$selected.'>'.$sort['text'].'</option>';
+                                    	}
+                                    	?>                                      
+                                    </select>
+                                </div>
+                                <!-- SELECT SORT END  -->
+                                
+                            </div>
+                               <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                <div class="list-grid-view text-center">
+                                    <!--  
+                                    <ul class="nav" role="tablist">
+                                        <li role="presentation"  class="active"><a href="#grid" aria-controls="grid" role="tab" data-toggle="tab"><i class="zmdi zmdi-widgets"></i></a></li>
+                                        <li role="presentation"><a href="#list" aria-controls="list" role="tab" data-toggle="tab"><i class="zmdi zmdi-view-list-alt"></i></a></li>
+                                    </ul>
+                                    -->
+                                </div>
+                            </div>
+                            
+                               <div class="col-lg-3 hidden-md hidden-sm hidden-xs">
+                                <div class="total-showing text-right">
+                                <?php 
+                                $currentItems = $this->categoryListProducts->getCurrentItemCount();
+                                $currentPage  = $this->categoryListProducts->getCurrentPageNumber();
+                                $itemPerPage = $this->categoryListProducts->getItemCountPerPage();
+                                
+                                $from = ($currentItems - ($currentItems-1)) + ($currentPage -1)*$itemPerPage;
+                                if(empty($currentItems)){
+                                    $from = 0;
+                                }
+                                $to = $currentItems + ($currentPage -1)*$itemPerPage;
+                                $total = $this->categoryListProducts->getTotalItemCount();
+                                ?>
+                                    Showing - <span><?= $from ?></span> to <span><?= $to ?></span>  Of  Total <span><?= $total ?></span>
+                                </div>
+                            </div>
+                           </div>
+                       </div>
+                   </div>
+               <div class="clearfix"></div>
+               <div class="shop-total-product-area clearfix mt-35">
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <!--tab grid are start-->
+                    <div role="tabpanel" class="tab-pane fade in active" id="grid">
+                        <div class="total-shop-product-grid">
+                               <?php 
+                               
+                                foreach($this->categoryListProducts as $product){
+                                    
+                                    $categoryName = '';
+                                    $productName = '';
+                                    $mainImage = $this->SiteConfig('default_image');
+                                    $hoverImage = '';
+                                    $price = !empty($product->display_price)? $product->display_price : '';
+                                    $productPageLink = $this->MelisCommerceLink('product', $product->prd_id, $this->langId, false);
+                                    
+                                    
+                                    $mainImage = $product->mainImage;
+                                    
+                                    $hoverImage = $product->altImage;
+                                     
+                                    // get product name from product texts
+                                    $productName = $product->ptxt_field_short;
+                                    // if no texts or translations use the reference name
+                                    if(empty($productName)){
+                                        $productName = $product->prd_reference;
+                                    }
+                                ?>
+                                <div class="col-md-4 col-sm-6 item">
+                                <!-- single product start-->
+                                    <div class="single-product">
+                                        <div class="product-img">
+                                            
+                                            <?php 
+                                            if(!empty($product->catt_name)){
+                                                $categoryName = $product->catt_name;
+                                            
+                                            ?> 
+                                            <div class="product-label red">
+                                                <div class="new"><?= $categoryName ?></div>
+                                            </div>
+                                            <?php }?>
+                                            <div class="single-prodcut-img  product-overlay pos-rltv">
+                                                <a href="<?= $productPageLink ?>"> <img alt="" src="<?= $mainImage ?>" class="primary-image"> <img alt="" src="<?= $hoverImage ?>" class="secondary-image"> </a>
+                                            </div>
+                                        </div>
+                                        <div class="product-text">
+                                            <div class="prodcut-name"> <a href="<?= $productPageLink ?>"><?= $productName?></a> </div>
+                                            <div class="prodcut-ratting-price">
+                                                <div class="prodcut-price">
+                                                    <div class="new-price"> <?= $price ?> </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <!-- single product end-->
+                                </div>
+                                <?php 
+                                }
+                            ?>
+                        </div>
+                    </div>
+                    <!--shop grid are end-->
+                    
+                    <!--pagination start-->
+                    <?php 
+                    
+                    echo $this->paginationcontrol($this->categoryListProducts, 'Sliding', 'MelisDemoCommerce/plugin/category-paginator', 
+                        array('nbPageBeforeAfter' => $this->nbPageBeforeAfter));
+                    ?>
+                    <!--pagination end-->
+                    </div>
+               </div>
+            </div>
+            </div>

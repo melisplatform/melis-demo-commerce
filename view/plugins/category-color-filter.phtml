@@ -1,0 +1,30 @@
+<style>
+    <?php 
+    foreach($this->filterMenuAttributeValue as $colorVal){
+        $col = 'avt_v_'.$colorVal->atype_column_value;
+        $color = strtolower($colorVal->$col);
+        echo ".color-filter li a.color-$color{
+                background: $color;
+            }";
+    }    
+    ?>
+</style>
+<aside class="single-aside color-aside attributes" id="<?= $this->filterMenuAttributeValue[0]->atval_attribute_id?>">
+    <div class="heading-title aside-title pos-rltv">
+        <h5 class="uppercase">Color</h5> 
+    </div>
+    <ul class="color-filter mt-30">
+    <?php 
+    $queryAttributeValues = array();
+    foreach($this->filterMenuAttributeValue as $attributeVal){
+        $active = '';
+        $col = 'avt_v_'.$attributeVal->atype_column_value;
+        if(in_array($attributeVal->atval_id, $this->selectedAttributes)){
+            $active = 'active';
+        }
+        
+        echo '<li data-attributeid="'.$attributeVal->atval_id.'"><a class="color-'.strtolower($attributeVal->$col).' '.$active.'"></a></li>';
+    }
+    ?>
+	</ul>
+</aside>

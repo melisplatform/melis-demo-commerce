@@ -1,0 +1,57 @@
+
+                <div class="total-new-arrival new-arrival-slider-active carsoule-btn">
+                	<?php 
+                	$products = is_array($this->categorySliderListProducts)? $this->categorySliderListProducts: array();
+                	foreach($products as $product):
+                	$categoryName = '';
+                	$productName = '';
+                	$mainImage = $this->SiteConfig('default_image');
+                	$hoverImage = '';
+                	$price = !empty($product->display_price)? $product->display_price : '';
+                	$productPageLink = $this->MelisCommerceLink('product', $product->prd_id, $this->langId, false);
+                	
+                    $mainImage = $product->mainImage;
+                    
+                    $hoverImage = $product->altImage;
+                	
+                    // get product name from product texts
+                    $productName = $product->ptxt_field_short;
+                    // if no texts or translations use the reference name
+                    if(empty($productName)){
+                        $productName = $product->prd_reference;
+                    }
+                	
+                	?>
+                	<div class="col-md-3">
+                        <!-- single product start-->
+                        <div class="single-product">
+                            <div class="product-img">
+                                <?php 
+                                if(!empty($product->catt_name)){
+                                        $categoryName = $product->catt_name;
+                                    
+                                    ?> 
+                                    <div class="product-label red">
+                                        <div class="new"><?= $categoryName ?></div>
+                                    </div>
+                                <?php }?>
+                                <div class="single-prodcut-img  product-overlay pos-rltv">
+                                    <a href="<?= $productPageLink ?>"> <img alt="" src="<?= $mainImage ?>" class="primary-image"> <img alt="" src="<?= $hoverImage ?>" class="secondary-image"> </a>
+                                </div>
+                            </div>
+                            <div class="product-text">
+                                <div class="prodcut-name"> <a href="<?= $productPageLink ?>"><?= $productName?></a> </div>
+                                <div class="prodcut-ratting-price">
+                                    <div class="prodcut-price">
+                                        <div class="new-price"> <?= $price ?> </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- single product end-->
+                    </div>
+                	<?php     
+                	endforeach;
+                	?>
+                </div>
+           

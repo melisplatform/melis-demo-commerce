@@ -1,0 +1,53 @@
+<?php 
+    $orderDetailsPage = $this->MelisLink($this->SiteConfig('order_details_page_id'), false);
+?>
+<div class="alert alert-danger invoice-alert" style="display: none;">
+    <strong></strong>
+</div>
+<div class="p-checkarea">
+	<div class="table-div">
+        <div class="thead clearfix">
+            <div class="table-row">
+                <div class="table-cell orderhist-table-head date">Date</div>
+                <div class="table-cell orderhist-table-head ref">Reference</div>
+                <div class="table-cell orderhist-table-head text-center">Status</div>
+                <div class="table-cell orderhist-table-head items text-center">Items</div>
+                <div class="table-cell orderhist-table-head">Total</div>
+                <div class="table-cell orderhist-table-head">Invoice</div>
+            </div>
+        </div>
+        <div class="table-body">
+            <?php
+            if ($this->hasData) {
+            foreach ($this->orders as $order) { ?>
+                    <div class="table-row">
+                        <a href="<?= $orderDetailsPage.'?'.http_build_query(array('m_order_id'=>$order['id'])); ?>"></a>
+                        <div class="table-cell orderhist-table-cell date"><?= date("m/d/Y " ,strtotime($order['date'])) ?></div>
+                        <div class="table-cell orderhist-table-cell ref ref-num"><?= $order['reference'] ?></div>
+                        <div class="table-cell orderhist-table-cell text-center"><?= $order['status'] ?></div>
+                        <div class="table-cell orderhist-table-cell items text-center"><?= $order['itemCount'] ?></div>
+                        <div class="table-cell orderhist-table-cell"><?= $order['currency'].number_format($order['total'], 2) ?></div>
+                        <?php if ($order['invoiceId'] > 0) { ?>
+                            <div class="table-cell" style="width: 16.66%"><button value="<?php echo $order['id'] ?>" class="btn btn-primary orderhist-table-download-invoice" title="Download Invoice"><i class="fa fa-download"></i></button></div>
+                        <?php } else { ?>
+                            <div class="table-cell" style="width: 16.66%"></div>
+                        <?php } ?>
+                    </div>
+            <?php } ?>
+            <!--pagination start-->
+            <?php
+                echo $this->paginationcontrol(
+                    $this->orders,
+                    'Sliding',
+                    'MelisDemoCommerce/plugin/order-history-paginator',
+                    array('orderHistoryBeforeAfter' => $this->orderHistoryBeforeAfter)
+                );
+            ?>
+            <?php } else { ?>
+                <div class="text-center">
+                    <span>No recent orders</span>
+                </div>
+            <?php } ?>
+    	</div>
+    </div>
+</div>

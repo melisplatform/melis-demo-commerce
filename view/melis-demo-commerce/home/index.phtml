@@ -1,0 +1,179 @@
+<div class="home-page">
+    <!-- Homepage Header Slider Plugin-->
+    <?php echo $this->homePageSlider ?>
+    <!-- End of Homepage Header Slider Plugin-->
+    
+    <!--banner-area-are-start-->
+    <div class="banner-area mt-30">
+        <div class="container">
+            <?php echo $this->MelisTag($this->idPage, 'homepage_line_3items', 'html',
+                '<div class="row">
+                    <div class="col-md-8 col-sm-12 col-xs-12">
+                        <div class="banner-area-left ">
+                           <div class="banner-single pos-rltv fix mb-30">
+                                <div class="banner-img"> 
+                                    <img src="/MelisDemoCommerce/images/home/01.jpg" alt=""> 
+                                </div>
+                                <div class="banner-content">
+                                    <div class="heading-title big-title heading-style pos-rltv">
+                                        <h3 class=""><a href="#">Best Collection For Men</a></h3> 
+                                    </div>
+                                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. </p> <a href="#" class="btn-def" tabindex="0">Shop Now</a> 
+                                </div>
+                           </div>
+                           <div class="banner-single pos-rltv fix">
+                                <div class="banner-img left-type"> 
+                                    <img src="/MelisDemoCommerce/images/home/02.jpg" alt=""> 
+                                </div>
+                                <div class="banner-content left-type">
+                                    <div class="heading-title big-title heading-style pos-rltv">
+                                        <h3 class=""><a href="#">Women\'s Fashion</a></h3> 
+                                    </div>
+                                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. </p> <a href="#" class="btn-def" tabindex="0">Shop Now</a> 
+                                </div>
+                           </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 hidden-sm col-xs-12">
+                        <div class="banner-img-2 pos-rltv"> <img src="/MelisDemoCommerce/images/home/03.jpg" alt="">
+                            <div class="banner-timer shadow-box-2">
+                                <div class="timer-wraper text-center">
+                                    <div class="timer timr-2">
+                                        <div data-countdown="2017/02/01"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="banner-content-2 mt-25">
+                            <div class="heading-title big-title">
+                                <h3 class=""><a href="#">Luxary Products</a></h3> 
+                            </div>
+                            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. </p>
+                            <a href="#" class="btn-def" tabindex="0">Order Now</a>
+                        </div>
+                    </div>
+                </div>')
+            ?>
+        </div>
+    </div>
+    <!--banner-area-are-end-->
+    
+    <?php echo $this->homepageCategoryProductSlider1?>
+    
+    <?php echo $this->homepageCategoryProductSlider2?> 
+    
+    <!--best-product-area-start-->
+    <div class="best-product-area mt-70">
+        <div class="container">
+            <div class="best-product overlay  ptb-70">
+            	<?php echo $this->MelisTag($this->idPage, 'homepage_line_black', 'html',
+            	    '<div class="row">
+                        <div class="col-xs-12 best-heading text-center">
+                            <h3>Best Product Collection</h3>
+                            <div class="best-text">
+                                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum.</p>
+                            </div>
+                            <a href="">View all</a>
+                        </div>
+                    </div>')
+            	?>
+         	</div>
+        </div>
+    </div>
+    <!--best-product-area-end-->
+    
+    <!--Delivery Service Start-->
+    <div class="full-width row">
+    	<div class="col-xs-12">
+		<?php 
+            echo $this->MelisTag($this->idPage, "home_box_line", 'html', 
+            '<div class="delivery-service-area ptb-30">
+                <div class="container">
+                	<div class="row">
+            		<div class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="single-service shadow-box text-center">
+                                <img src="/MelisDemoCommerce/images/icons/garantee.png" alt="">
+                                <h5>Money Back Guarantee</h5>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="single-service shadow-box text-center">
+                                <img src="/MelisDemoCommerce/images/icons/coupon.png" alt="">
+                                <h5>Gift Coupon</h5>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="single-service shadow-box text-center">
+                                <img src="/MelisDemoCommerce/images/icons/delivery.png" alt="">
+                                <h5>Free Shipping</h5>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="single-service shadow-box text-center">
+                                <img src="/MelisDemoCommerce/images/icons/support.png" alt="">
+                                <h5>24x7 Support</h5>
+                            </div>
+                        </div>
+            		</div>
+                </div>
+            </div>');
+        ?>
+    	</div>
+    </div>
+    <!-- End of Delivery Service-->
+    
+    <!--testimonial-area-start-->
+    <div class="testimonial-area overlay ptb-70 mt-70" style="background: rgba(0, 0, 0, 0) url('<?php echo $this->basePath('/MelisDemoCommerce/images/bg/testimonial.jpg')?>') no-repeat fixed 50% 50% / cover">
+         <div class="container">
+             <div class="row">
+                <div class="col-xs-12 text-center">
+                    <div class="heading-title color-lightgrey mb-40 text-center">
+                        <h5 class="uppercase"><?php echo $this->MelisTag($this->idPage, 'homepage_testimonial_title', 'textarea', 'Testimonial')?></h5> 
+                    </div>
+                </div>
+                 <div class="col-xs-12 col-md-8 col-md-push-2">
+                 	<!-- Testimonial plugin start-->
+                    <?php echo $this->testimonialList ?>
+                    <!-- Testimonial plugin end-->
+                 </div>
+             </div>
+         </div>
+     </div>        
+    <!--testimonial-area-end-->
+    
+    <!--brand area are start-->
+    <div class="brand-area ptb-60">
+        <div class="container">
+            <div class="total-brand-owl owl-carousel w-bg">
+                <div class="single-brand shadow-box"><a href="#"><img src="/MelisDemoCommerce/images/brand/01.png" alt=""></a></div>
+                <div class="single-brand shadow-box"><a href="#"><img src="/MelisDemoCommerce/images/brand/02.png" alt=""></a></div>
+                <div class="single-brand shadow-box"><a href="#"><img src="/MelisDemoCommerce/images/brand/03.png" alt=""></a></div>
+                <div class="single-brand shadow-box"><a href="#"><img src="/MelisDemoCommerce/images/brand/04.png" alt=""></a></div>
+                <div class="single-brand shadow-box"><a href="#"><img src="/MelisDemoCommerce/images/brand/05.png" alt=""></a></div>
+                <div class="single-brand shadow-box"><a href="#"><img src="/MelisDemoCommerce/images/brand/06.png" alt=""></a></div>
+                <div class="single-brand shadow-box"><a href="#"><img src="/MelisDemoCommerce/images/brand/01.png" alt=""></a></div>
+                <div class="single-brand shadow-box"><a href="#"><img src="/MelisDemoCommerce/images/brand/02.png" alt=""></a></div>
+                <div class="single-brand shadow-box"><a href="#"><img src="/MelisDemoCommerce/images/brand/03.png" alt=""></a></div>
+                <div class="single-brand shadow-box"><a href="#"><img src="/MelisDemoCommerce/images/brand/04.png" alt=""></a></div>
+            </div>
+        </div>
+    </div>
+    <!--brand area are start--> 
+        
+    <!--News area are start-->
+    <div class="blog-area pb-70">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                   <div class="heading-title heading-style pos-rltv mb-50 text-center">
+                       <h5 class="uppercase"><?php echo $this->MelisTag($this->idPage, "home_subtitle_news", 'textarea','News')?></h5>
+                   </div>
+               </div>
+            </div>
+    		<!-- Latest News Plugin start -->
+           	<?php echo $this->latestNews?>
+            <!-- End of Latest News Plugin-->
+        </div>
+    </div>
+    <!--News area are end-->
+</div>

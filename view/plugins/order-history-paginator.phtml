@@ -1,0 +1,78 @@
+<?php if ($this->pageCount): ?>
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="pagination-btn text-right">
+            <ul class="page-numbers">
+                <?php
+                if (isset($this->previous)){
+                    $firstPageDisabled = '';
+                }else{
+                    $firstPageDisabled = 'disabled';
+                }
+                ?>
+                <li class="order-history">
+                    <a href="#" data-page-number="<?= $this->first?>" class="previous page-numbers <?= $firstPageDisabled?>">
+                        <i class="zmdi zmdi-long-arrow-tab zmdi-hc-flip-horizontal"></i>
+                    </a>
+                </li>
+                <!-- Previous page link -->
+                <?php if (isset($this->previous)): ?>
+                    <li class="order-history">
+                        <a href="#" data-page-number="<?= $this->previous?>" class="previous page-numbers">
+                            <i class="zmdi zmdi-long-arrow-left"></i>
+                        </a>
+                    </li>
+                <?php else: ?>
+                    <li class="order-history">
+                        <a href="#" class="previous page-numbers disabled">
+                            <i class="zmdi zmdi-long-arrow-left"></i>
+                        </a>
+                    </li>
+                <?php endif; ?>
+                <!-- Numbered page links -->
+                <?php foreach ($this->pagesInRange as $page): ?>
+                    <?php
+                    // To limit the number of pagination before and after the current page
+                    if ($page >= ($this->current - $this->orderHistoryBeforeAfter) && $page <= ($this->current + $this->orderHistoryBeforeAfter)):
+                        ?>
+                        <?php if ($page != $this->current): ?>
+                        <li class="order-history">
+                            <a href="#" data-page-number="<?= $page?>" class="page-numbers">
+                                <?php echo $page; ?>
+                            </a>
+                        </li>
+                    <?php else: ?>
+                        <li><span class="page-numbers current"><?php echo $page; ?></span></li>
+                    <?php endif; ?>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+
+                <!-- Previous page link -->
+                <?php if (isset($this->next)): ?>
+                    <li class="order-history">
+                       <a href="#" data-page-number="<?= $this->next?>" class="next page-numbers">
+                            <i class="zmdi zmdi-long-arrow-right"></i>
+                        </a>
+                    </li>
+                <?php else: ?>
+                    <li class="order-history">
+                        <a href="#" class="next page-numbers disabled">
+                            <i class="zmdi zmdi-long-arrow-right"></i>
+                        </a>
+                    </li>
+                <?php endif;
+
+                if (isset($this->next)){
+                    $lastPageDisabled = '';
+                }else{
+                    $lastPageDisabled = 'disabled';
+                }
+                ?>
+                <li class="order-history">
+                    <a href="#" data-page-number="<?= $this->last?>"class="previous page-numbers <?= $lastPageDisabled?>">
+                        <i class="zmdi zmdi-long-arrow-tab"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+<?php endif; ?>

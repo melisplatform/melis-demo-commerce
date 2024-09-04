@@ -1,0 +1,49 @@
+<div id="billing-address-form-messages">
+    <div class="alert alert-success hidden">
+    	<strong>Success!</strong> <span>Billing address has been successfully saved.</span>
+    </div>
+    <div class="alert alert-danger hidden">
+    	<strong>Error!</strong> An error(s) occured.
+    </div>
+</div>
+<?php
+    /**
+     * Select Billing addresses form
+     */
+    if (!is_null($this->selectBillingAddress))
+    {
+        $form = $this->selectBillingAddress;
+        $form->prepare();
+        $form->get('select_billing_addresses')->setAttribute('onchange', null);
+        $form->get('select_billing_addresses')->setAttribute('data-type', 'billing');
+        $form->setAttribute('data-type', 'billing');
+        echo $this->form()->openTag($form);
+        echo $this->DemoSiteFieldCollection($form);
+        echo $this->form()->closeTag();
+    }
+    
+    /**
+     * Billing address form
+     */
+	$form = $this->billingAddress;
+	$form->prepare();
+	$form->setAttribute('id', 'billing-address-form');
+	$form->setAttribute('data-type', 'billing');
+
+	foreach ($form->getElements() as $element => $val) {
+	    $el = $form->get($element);
+	    $elId = $el->getAttribute('id') ?? $el->getName();
+	    // make the id unique from the delivery form
+	    $el->setAttribute('id', 'billing_' . $elId);
+    }
+
+	echo $this->form()->openTag($form); 
+    echo $this->DemoSiteFieldCollection($form);
+?>
+    <div class="text-right">
+        <button type="button" class="btn-def btn2 pull-left delete-address" data-type="billing" <?php echo ($this->showDeleteButton) ? '' : 'style="display: none;"'?>>Delete Billing Address</button>
+        <button type="button" class="btn-def btn2 save-address" data-type="billing">Save Billing Address</button>
+    </div>
+<?php
+	echo $this->form()->closeTag();
+?>

@@ -1,0 +1,63 @@
+<!--breadcumb area start -->
+<?php 
+    $imgSrc = (!empty($this->pageBanner)) ? $this->pageBanner : '/MelisDemoCommerce/images/bg/about.jpg';
+    $imgBg = 'background: rgba(0, 0, 0, 0) url(\''.$imgSrc.'\') no-repeat scroll 0 0';
+?>
+
+<div class="breadcumb-area overlay pos-rltv" style="<?php echo $imgBg ?>">
+    <div class="bread-main">
+        <div class="bred-hading text-center">
+            <h5><?php echo $this->MelisTag($this->idPage, 'header_title', 'textarea', 'Categories')?></h5> 
+        </div>
+        <?php echo $this->layout()->pageBreadcrumb?>
+    </div>
+</div>
+<!--breadcumb area end -->
+
+<!--shop main area are start-->
+<div class="shop-main-area ptb-70">
+    <div class="container">
+        <div class="row">
+            <!--shop sidebar start-->
+            <div class="col-md-3 col-sm-4 col-xs-12">
+                <div class="row">
+                    <div class="shop-sidebar">
+                        <!--Search box start-->
+                        <?php echo $this->searchBox ?>
+                        <!--Search box end-->
+                        
+                        <!--Category list start-->
+                        <?php echo $this->categoryListFilter ?>
+                        <!--Category list end-->
+                        
+                        <!--Price filter start-->
+                        <?php echo $this->priceFilter ?>
+                        <!--Price filter end-->
+                        
+                        <!--Color attribute start-->
+                        <?php echo $this->colorAttributeFilter ?>
+                        <!--Color attribute end-->
+                        
+                        <!--Size attribute start-->
+                        <?php echo $this->sizeAttributeFilter ?>
+                        <!--Size attribute end-->
+                        
+                        <!--Filter button start-->
+                        <aside class="single-aside tag-aside">
+                            <button class="btn btn-danger btn-block" id="catalogueFilter">Filter</button>
+                        </aside>
+                        <!--Filter button end-->
+                    </div>
+                </div>
+            </div>
+            <!--shop sidebar end-->
+            
+            <!--Product list start-->
+            <div class="col-md-9 col-sm-8 col-xs-12">
+        		<?php echo $this->categoryProductList ?>
+        	</div>
+            <!--Product list end-->
+        </div>
+    </div>
+</div>
+<!--shop main area are end-->

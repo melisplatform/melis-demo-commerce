@@ -1,0 +1,28 @@
+<div id="account-profile-form-messages">
+    <div class="alert alert-success hidden">
+    	<strong>Success!</strong> Profile has been successfully saved.
+    </div>
+    <div class="alert alert-danger hidden">
+    	<strong>Error!</strong> An error(s) occured.
+    </div>
+</div>   
+
+<style>
+	.input-box label {
+		display: block;
+	}
+	.input-box .fa.fa-info-circle {
+		float: right;
+	}
+</style>
+<?php
+	$form = $this->profile;
+	$form->setAttribute('id', 'account-profile-form');
+	$form->prepare();
+	echo $this->form()->openTag($form); 
+    echo $this->DemoSiteFieldCollection($form);
+	echo $this->form()->closeTag(); 
+?>
+<div class="text-right">
+    <button class="btn-def btn2" id="save-profile">Save Profile</button>
+</div>

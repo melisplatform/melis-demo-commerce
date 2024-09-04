@@ -1,0 +1,433 @@
+<?php
+return [
+    'plugins' => [
+        // Redefining defaut values for SEO pages so that it won't be needed to define it for
+        // every category / product / variant
+        'meliscommerce' => [
+            'datas' => [
+                'seo_default_pages' => [
+                    'category' => '[:menCategoryId]',
+                    'product' => '[:productPageId]',
+                    // variant is not used, there's no spcific page to display just a variant
+                    // 'variant' => 17,
+                ],
+            ],
+            'emails' => [
+                'VARIANTSLOWSTOCK' => [
+                    'code' => 'VARIANTSLOWSTOCK',
+                    'email_name' => 'Low on stock',
+                    'layout' => '',
+                    'headers' => [
+                        'from' => 'noreply@melistechnology.com',
+                        'from_name' => 'Melis Technology',
+                        'to' => 'mbernard@melistechnology.com',
+                        'name_to' => 'Mickaël Bernard',
+                        'replyTo' => '',
+                        'tags' => 'PRODUCT_TEXT, PRODUCT_ID, VARIANT_SKU, VARIANT_ID, STOCKS',
+                    ],
+                ],
+            ],
+            'plugins' => [
+                'MelisCommerceCategoryProductListPlugin' => [
+                    'front' => [
+                        'template_path' => ['MelisDemoCommerce/plugin/category-product-list-slider'],
+                        'files' => [
+                            'js' => [
+                                '/MelisDemoCommerce/js/MelisPlugins/MelisDemoCommerce.MelisCommerceCategoryProductListPlugin.init.js'
+                            ],
+                        ],
+                    ],
+                ],
+                'MelisCommerceProductSearchPlugin' => [
+                    'front' => [
+                        'template_path' => [
+                            'MelisDemoCommerce/plugin/product-search',
+                        ],
+                    ],
+                ],
+                'MelisCommerceCategoryTreePlugin' => [
+                    'front' => [
+                        'template_path' => [
+                            'MelisDemoCommerce/plugin/category-tree'
+                        ],
+                        'files' => [
+                            'js' => [
+                                '/MelisDemoCommerce/js/MelisPlugins/MelisDemoCommerce.MelisCommerceCategoryTree.init.js'
+                            ],
+                        ],
+                    ],
+                    'melis' => [
+                        'files' => [
+                            'js' => [
+                                '/MelisDemoCommerce/js/MelisPlugins/MelisDemoCommerce.MelisCommerceCategoryTree.init.js'
+                            ],
+                        ],
+                    ]
+                ],
+                'MelisCommerceProductPriceRangePlugin' => [
+                    'front' => [
+                        'template_path' => [
+                            'MelisDemoCommerce/plugin/product-price-range'
+                        ],
+                        'files' => [
+                            'js' => [
+                                '/MelisDemoCommerce/js/MelisPlugins/MelisDemoCommerce.MelisCommerceProductPriceRange.init.js'
+                            ],
+                        ],
+                    ],
+                    'melis' => [
+                        'files' => [
+                            'js' => [
+                                '/MelisDemoCommerce/js/MelisPlugins/MelisDemoCommerce.MelisCommerceProductPriceRange.init.js'
+                            ],
+                        ],
+                    ],
+                ],
+                'MelisCommerceProductAttributePlugin' => [
+                    'front' => [
+                        'template_path' => [
+                            'MelisDemoCommerce/plugin/product-color-attribute',
+                            'MelisDemoCommerce/plugin/product-size-attribute'
+                        ],
+                    ],
+                ],
+                'MelisCommerceProductListPlugin' => [
+                    'front' => [
+                        'template_path' => [
+                            'MelisDemoCommerce/plugin/product-list',
+                        ],
+                    ],
+                ],
+                'MelisCommerceRelatedProductsPlugin' => [
+                    'front' => [
+                        'template_path' => [
+                            'MelisDemoCommerce/plugin/related-products',
+                        ],
+                        'files' => [
+                            'js' => [
+                                '/MelisDemoCommerce/js/MelisPlugins/MelisDemoCommerce.MelisCommerceRelatedProductsPlugin.init.js'
+                            ],
+                        ],
+                    ],
+                    'melis' => [
+                        'files' => [
+                            'js' => [
+                                '/MelisDemoCommerce/js/MelisPlugins/MelisDemoCommerce.MelisCommerceRelatedProductsPlugin.init.js'
+                            ],
+                        ],
+                    ],
+                ],
+                'MelisCommerceCartPlugin' => [
+                    'front' => [
+                        'template_path' => [
+                            'MelisDemoCommerce/plugin/menu-cart',
+                            'MelisDemoCommerce/plugin/my-cart',
+                        ],
+                    ],
+                ],
+                'MelisCommerceOrderHistoryPlugin' => [
+                    'front' => [
+                        'template_path' => [
+                            'MelisDemoCommerce/plugin/order-history',
+                        ],
+                        'files' => [
+                            'js' => [
+                                '/MelisDemoCommerce/js/order-details.js',
+                            ],
+                        ],
+                    ],
+                ],
+                'MelisCommerceLoginPlugin' => [
+                    'front' => [
+                        'template_path' => [
+                            'MelisDemoCommerce/plugin/login',
+                        ],
+                        'files' => [
+                            'js' => [
+                                '/MelisDemoCommerce/js/login.js',
+                            ],
+                        ],
+                    ],
+                ],
+                'MelisCommerceRegisterPlugin' => [
+                    'front' => [
+                        'template_path' => [
+                            'MelisDemoCommerce/plugin/registration',
+                        ],
+                        'files' => [
+                            'js' => [
+                                '/MelisDemoCommerce/js/registration.js',
+                            ],
+                        ],
+                    ],
+                ],
+                'MelisCommerceLostPasswordGetEmailPlugin' => [
+                    'front' => [
+                        'template_path' => [
+                            'MelisDemoCommerce/plugin/lost-password',
+                        ],
+                        'files' => [
+                            'js' => [
+                                '/MelisDemoCommerce/js/lost-passsword-recovery.js',
+                            ],
+                        ],
+                    ],
+                ],
+                'MelisCommerceLostPasswordResetPlugin' => [
+                    'front' => [
+                        'template_path' => [
+                            'MelisDemoCommerce/plugin/reset-password',
+                        ],
+                        'files' => [
+                            'js' => [
+                                '/MelisDemoCommerce/js/lost-passsword-recovery.js',
+                            ],
+                        ],
+                    ],
+                ],
+                'MelisCommerceProfilePlugin' => [
+                    'front' => [
+                        'template_path' => [
+                            'MelisDemoCommerce/plugin/profile',
+                        ],
+                    ],
+                ],
+                'MelisCommerceBillingAddressPlugin' => [
+                    'front' => [
+                        'template_path' => [
+                            'MelisDemoCommerce/plugin/billing-address',
+                        ],
+                    ],
+                ],
+                'MelisCommerceDeliveryAddressPlugin' => [
+                    'front' => [
+                        'template_path' => [
+                            'MelisDemoCommerce/plugin/delivery-address',
+                        ],
+                    ],
+                ],
+                'MelisCommerceAccountPlugin' => [
+                    'front' => [
+                        'template_path' => [
+                            'MelisDemoCommerce/plugin/account',
+                        ],
+                        'files' => [
+                            'js' => [
+                                '/MelisDemoCommerce/js/account.js'
+                            ]
+                        ]
+                    ],
+                ],
+                'MelisCommerceProductShowPlugin' => [
+                    'front' => [
+                        'template_path' => [
+                            'MelisDemoCommerce/plugin/show-product',
+                        ],
+                        'files' => [
+                            'js' => [
+                                '/MelisDemoCommerce/js/product-attributes.js',
+                                '/MelisDemoCommerce/js/cart.js',
+                            ],
+                        ],
+                    ],
+                ],
+                'MelisCommerceAddToCartPlugin' => [
+                    'front' => [
+                        'template_path' => [
+                            'MelisDemoCommerce/plugin/show-add-to-cart',
+                        ],
+                    ],
+                ],
+                'MelisCommerceAttributesShowPlugin' => [
+                    'front' => [
+                        'template_path' => [
+                            'MelisDemoCommerce/plugin/show-attributes',
+                        ],
+                    ],
+                ],
+                'MelisCommerceCheckoutPlugin' => [
+                    'front' => [
+                        'template_path' => [
+                            'MelisDemoCommerce/plugin/checkout',
+                        ],
+                        'files' => [
+                            'js' => [
+                                '/MelisDemoCommerce/js/checkout.js',
+                                '/MelisDemoCommerce/js/cart.js',
+                            ],
+                        ],
+                    ],
+                    'melis' => [
+                        'files' => [
+                            'js' => [
+                                '/MelisDemoCommerce/js/checkout.js',
+                                '/MelisDemoCommerce/js/cart.js',
+                            ],
+                        ],
+                    ],
+                ],
+                'MelisCommerceCheckoutCartPlugin' => [
+                    'front' => [
+                        'template_path' => [
+                            'MelisDemoCommerce/plugin/checkout-cart',
+                        ],
+                    ],
+                ],
+                'MelisCommerceCheckoutCouponPlugin' => [
+                    'front' => [
+                        'template_path' => [
+                            'MelisDemoCommerce/plugin/checkout-coupon',
+                        ],
+                    ],
+                ],
+                'MelisCommerceCheckoutAddressesPlugin' => [
+                    'front' => [
+                        'template_path' => [
+                            'MelisDemoCommerce/plugin/checkout-addresses',
+                        ],
+                    ],
+                ],
+                'MelisCommerceCheckoutSummaryPlugin' => [
+                    'front' => [
+                        'template_path' => [
+                            'MelisDemoCommerce/plugin/checkout-summary',
+                        ],
+                    ],
+                ],
+                'MelisCommerceCheckoutConfirmSummaryPlugin' => [
+                    'front' => [
+                        'template_path' => [
+                            'MelisDemoCommerce/plugin/checkout-confirm-summary',
+                        ],
+                    ],
+                ],
+                'MelisCommerceCheckoutConfirmPlugin' => [
+                    'front' => [
+                        'template_path' => [
+                            'MelisDemoCommerce/plugin/checkout-confirmation',
+                        ],
+                    ],
+                ],
+                'MelisCommerceOrderAddressPlugin' => [
+                    'front' => [
+                        'template_path' => [
+                            'MelisDemoCommerce/order-addresses',
+                        ],
+                    ],
+                ],
+                'MelisCommerceOrderPlugin' => [
+                    'front' => [
+                        'template_path' => [
+                            'MelisDemoCommerce/order-details',
+                        ],
+                        'files' => [
+                            'js' => [
+                                '/MelisDemoCommerce/js/order-details.js',
+                            ],
+                        ],
+                    ],
+                ],
+                'MelisCommerceOrderShippingDetailsPlugin' => [
+                    'front' => [
+                        'template_path' => [
+                            'MelisDemocommerce/order-shipping-details',
+                        ],
+                    ],
+                ],
+                'MelisCommerceOrderMessagesPlugin' => [
+                    'front' => [
+                        'template_path' => [
+                            'MelisDemocommerce/order-messages',
+                        ],
+                    ],
+                ],
+                'MelisCommerceOrderReturnProductPlugin' => [
+                    'front' => [
+                        'template_path' => [
+                            'MelisDemoCommerce/order-return-product',
+                        ],
+                    ],
+                ],
+            ]
+        ],
+        'melisfront' => [
+            'plugins' => [
+                'MelisFrontMenuPlugin' => [
+                    'front' => [
+                        'template_path' => ['MelisDemoCommerce/plugin/menu'],
+                    ],
+                ],
+                'MelisFrontBreadcrumbPlugin' => [
+                    'front' => [
+                        'template_path' => ['MelisDemoCommerce/plugin/breadcrumb'],
+                    ],
+                ],
+                'MelisFrontShowListFromFolderPlugin' => [
+                    'front' => [
+                        'template_path' => ['MelisDemoCommerce/plugin/testimonial-slider'],
+                        'files' => [
+                            'js' => [
+                                '/MelisDemoCommerce/js/MelisPlugins/MelisDemoCommerce.MelisFrontShowListFromFolderPlugin.init.js'
+                            ],
+                        ],
+                    ],
+                ],
+                // 'MelisFrontSearchResultsPlugin' => [
+                //     'front' => [
+                //         'template_path' => ['MelisDemoCommerce/plugin/search-results'],
+                //     ],
+                // ],
+            ],
+        ],
+        'meliscmsnews' => [
+            'plugins' => [
+                'MelisCmsNewsListNewsPlugin' => [
+                    'front' => [
+                        'template_path' => ['MelisDemoCommerce/plugin/news-list'],
+                    ],
+                ],
+                'MelisCmsNewsShowNewsPlugin' => [
+                    'front' => [
+                        'template_path' => ['MelisDemoCommerce/plugin/news-details'],
+                    ],
+                ],
+                'MelisCmsNewsLatestNewsPlugin' => [
+                    'front' => [
+                        'template_path' => ['MelisDemoCommerce/plugin/latest-news'],
+                        'files' => [
+                            'js' => [
+                                '/MelisDemoCommerce/js/MelisPlugins/MelisDemoCommerce.MelisCmsNewsLatestNewsPlugin.init.js'
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+        ],
+        'meliscmsslider' => [
+            'plugins' => [
+                'MelisCmsSliderShowSliderPlugin' => [
+                    'front' => [
+                        'template_path' => [
+                            'MelisDemoCommerce/plugin/homepage-slider',
+                            'MelisDemoCommerce/plugin/aboutus-slider',
+                        ],
+                        'files' => [
+                            'js' => [
+                                '/MelisDemoCommerce/js/MelisPlugins/MelisDemoCommerce.MelisCmsSliderShowSliderPlugin.init.js'
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+        ],
+        'meliscmsprospects' => [
+            'plugins' => [
+                'MelisCmsProspectsShowFormPlugin' => [
+                    'front' => [
+                        'template_path' => ['MelisDemoCommerce/plugin/contactus'],
+                    ],
+                ],
+            ],
+        ],
+    ],
+];

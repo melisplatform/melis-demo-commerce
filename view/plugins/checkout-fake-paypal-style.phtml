@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1 lr2">
+        	<div class="alert alert-info checkout-payment-info">
+    			<h3><i class="fa fa-info-circle" aria-hidden="true"></i> <small>This payment form is for testing only.</small></h3>
+                <p>Use this fake card in order to confirm your payment:</p>
+                <ul>
+                	<li>1111222233334444 / 123</li>
+                	<li>Expiration date in the future</li>
+                </ul>
+    		</div>
+        	<div class="login-reg registration-form">
+            	<h3>Paypal Style Payment Form</h3>
+        		<div class="alert alert-danger hidden fake-paypal-style-form-alert">
+        			<strong>Oppss!</strong> Something went wrong, please try again.
+        		</div>
+        		<?php
+            		$form = $this->fakePaymentForm;
+            		$form->setAttribute('id', 'fake-paypal-style-form');
+            		$form->prepare();
+            		echo $this->form()->openTag($form);
+                    echo $this->DemoSiteFieldCollection($form);
+                    echo $this->form()->closeTag();
+                ?>
+            </div>
+            <div class="frm-action">
+                <div class="input-box tci-box">
+                    <button class="btn btn-primary" id="submit-fake-paypal-style-form-btn">Pay Now</button>
+                </div>
+            </div>
+		</div>
+    </div>
+</div>

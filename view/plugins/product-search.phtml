@@ -1,0 +1,9 @@
+<aside class="single-aside search-aside search-box">
+    <?php
+        $form = $this->productSearchForm;
+        $form->prepare();
+        echo $this->form()->openTag($form);
+        echo $this->DemoSiteFieldCollection($form);
+        echo $this->form()->closeTag();
+    ?>
+ </aside>

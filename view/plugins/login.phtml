@@ -1,0 +1,22 @@
+<div class="login-reg login-form">
+    <h3>Login</h3>
+    <div class="alert alert-info ">
+		<strong>Demo login:</strong> demo@melisplatform.com / demo2017
+	</div>
+	<div class="alert alert-danger hidden">
+		<strong>Unable to Login!</strong> Invalid Email Address or Password.
+	</div>
+    <?php
+    	$form = $this->login;
+    	$form->prepare();
+    	echo $this->form()->openTag($form); 
+        echo $this->DemoSiteFieldCollection($form);
+    	echo $this->form()->closeTag(); 
+    ?>
+</div>
+<div class="frm-action">
+    <div class="input-box tci-box">
+        <button class="btn-def btn2" id="submit-login-form-btn">Login</button>
+        <a href="<?php echo $this->MelisLink($this->SiteConfig('lost_password_page_id'), true)?>" class="forgotten forg">Lost password?</a>
+    </div>
+</div>

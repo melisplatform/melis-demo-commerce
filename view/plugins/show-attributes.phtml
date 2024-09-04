@@ -1,0 +1,47 @@
+<div class="single-product-option">
+	<?php
+		if ($this->attributes)
+		{
+			$ctr = 0;
+			foreach($this->attributes as $attribute)
+			{$ctr++;
+	?>
+			<div class="sort product-type">
+				<div class="row">
+					<div class="col-xs-5 col-sm-4">
+						<label><?= $attribute->getAttribute()->attr_trans[0]['atrans_name']?> </label>
+					</div>
+					<div class="col-xs-7 col-sm-8">
+						<select data-select-checker="<?= $ctr; ?>" data-attributeid="<?= $attribute->getAttribute()->attr_id?>" data-productid="<?= $this->productId ?>" class="product-attribute-selection" id="prd-attr-<?= $attribute->getId()?>">
+							<?php 
+								if(count($attribute->getAttributeValues()))
+								{
+									echo '<option value="0">Select '.$attribute->getAttribute()->attr_trans[0]['atrans_name'].'</option>';
+								}
+								
+								foreach($attribute->getAttributeValues() as $value)
+								{
+									$selected = '';
+									if(in_array($value->atval_id, $this->selectedAttr))
+									{
+										$selected = 'selected';
+									}
+									$column = 'avt_v_'.$value->atype_column_value;
+									echo '<option value="'.$value->atval_id.'" '.$selected.'>'.$value->atval_trans[0]->$column.'</option>';
+								}
+							?>
+						</select>
+					</div>
+				</div>
+			</div>
+	<?php
+			}
+		}
+		else
+		{
+	?>
+	<!-- <div class="alert alert-warning">
+		<?php // $this->translate('tr_meliscommerce_plugin_sub_categories_product_list_no_result'); ?>
+	</div> -->
+	<?php }?>
+</div>

@@ -1,0 +1,20 @@
+<?php
+$priceFilter = $this->filterMenuPriceValue;
+?>
+<?php if($priceFilter['m_box_product_price_min'] != 0 || $priceFilter['m_box_product_price_max'] != 0) { ?>
+    <aside class="single-aside price-aside">
+        <div class="heading-title aside-title pos-rltv">
+            <h5 class="uppercase">price</h5>
+        </div>
+        <div class="price_filter">
+            <div id="slider-range" data-defaultmin="<?= $priceFilter['default_min_price'] ?>" data-defaultmax="<?= $priceFilter['default_max_price'] ?>" data-min="<?= $priceFilter['m_box_product_price_min']?>" data-max="<?= $priceFilter['m_box_product_price_max']?>"></div>
+            <div class="price_slider_amount">
+                <input type="text" id="amount" name="price" placeholder="Add Your Price" />
+            </div>
+        </div>
+    </aside>
+<?php } else { ?>
+    <div class="product-price-empty">
+        <label class="alert alert-danger"><?= $this->translate('tr_meliscommerce_plugin_product_price_empty'); ?></label>
+    </div>
+<?php }?>

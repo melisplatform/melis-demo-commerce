@@ -1,0 +1,30 @@
+<?php 
+    $colorAttr = (!empty($this->filterMenuAttributeValue[0])) ? $this->filterMenuAttributeValue[0] : null;
+?>
+<?php if (!is_null($colorAttr)){?>
+    <aside class="single-aside color-aside color-attributes">
+        <div class="heading-title aside-title pos-rltv">
+            <h5 class="uppercase"><?php echo $colorAttr->atrans_name ?></h5> 
+        </div>
+        <ul class="color-filter mt-30">
+            <?php 
+                foreach ($colorAttr->attr_values As $val){
+                    $valCol = strtolower('avt_v_'.$val->atype_column_value);
+                    
+                    $active = '';
+                    foreach($this->selectedAttributes as $k => $v) {
+                        if (in_array($val->atval_id, $v)) {
+                            $active = 'active';
+                            //stop the searching if found
+                            break;
+                        }
+                    }
+                    
+                    echo '<li data-attributeid="'.$val->atval_id.'">
+                            <a class="'.$active.'" style="background:'.$val->$valCol.'"></a>
+                        </li>';
+                }
+            ?>
+    	</ul>
+    </aside>
+<?php }?>

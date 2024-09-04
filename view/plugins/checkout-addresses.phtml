@@ -1,0 +1,51 @@
+<div>
+    <?php if (!$this->checkoutErrorMsg):?>
+    <div class="row">
+	    <div class="checkout-addresses-step">
+            <form method="POST">
+                <div class="col-md-6 col-xs-12">
+                    <div class="billing-details checkout-delivery-address">
+                        <div class="contact-text right-side">
+                            <h2>Delivery Address</h2>
+                            <?php
+                                $form = $this->checkoutDeliveryAddress;
+                                $form->prepare();
+                                echo $this->DemoSiteFieldCollection($form);
+                            ?>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xs-12">
+                    <div class="billing-details checkout-billing-address">
+                        <div class="contact-text right-side">
+                            <h2>Billing Address</h2>
+                            <label>
+                                <input type="checkbox" id="checkout-billing-address-same" <?php echo ($this->sameAddress) ? 'checked' : ''?>> Use same address.
+                                <input type="hidden" name="m_add_use_same_address" id="m_add_use_same_address" value="<?php echo ($this->sameAddress) ? 1 : 0?>">
+                            </label>
+                            <div class="checkout-billing-address-zone <?php echo ($this->sameAddress) ? 'hidden' : ''?>">
+                                <?php
+                                    $form = $this->checkoutBillingAddress;
+                                    $form->prepare();
+                                    echo $this->DemoSiteFieldCollection($form);
+                                ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-xs-12">
+                    <a class="btn-def btn2" href="<?php echo $this->prevStep_link?>">Previous</a>
+                    <button class="btn-def btn2 pull-right"><strong>NEXT</strong></button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <?php else:?>
+    	<div class="alert alert-danger">
+    		<strong><?php echo $this->checkoutErrorMsg?></strong>
+    	</div>
+    	<?php if ($this->prevStep_link):?>
+    		<a class="btn-def btn2" href="<?php echo $this->prevStep_link?>">Previous</a>
+    	<?php endif;?>
+    <?php endif;?>
+</div>

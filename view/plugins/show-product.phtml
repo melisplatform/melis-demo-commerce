@@ -1,0 +1,210 @@
+<?php 
+	$product = !empty($this->product->getId())? $this->product: null ;
+	$documents = !empty($this->product->getDocuments())? $this->product->getDocuments() : array();
+	$variant = !empty($this->product_variant)? $this->product_variant : null;
+	
+	if(!empty($variant))
+	{
+		$varId = $variant->getId();
+	}
+
+	if(!empty($product))
+	{
+?>
+	<div class="single-protfolio-area ptb-70">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-7 col-sm-12 col-xs-12">
+					<div class="portfolio-thumbnil-area">
+						<div class="product-more-views">
+							<div class="tab_thumbnail" data-tabs="tabs">
+								<div class="thumbnail-carousel">
+									<ul>
+										<?php 
+											$active = 'active';
+											foreach($documents as $document)
+											{
+											// get default image
+												if($document->dtype_code == 'IMG' && $document->dtype_sub_code == 'DEFAULT' || $document->dtype_code == 'IMG' && $document->dtype_sub_code == 'SMALL')
+												{
+													echo '<li class="'.$active.'"><a href="#view'.$document->doc_id.'" class="shadow-box" aria-controls="view'.$document->doc_id.'" data-toggle="tab"><img src="'.$document->doc_path.'" alt="" /></a></li>';
+													$active ='';
+												}
+											}
+											
+											if(empty($documents))
+											{
+												echo '<li class="'.$active.'"><a href="#view1" class="shadow-box" aria-controls="view1" data-toggle="tab"><img src="'.$this->SiteConfig('default_image').'" alt="" /></a></li>';
+											}
+										?>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="tab-content active-portfolio-area pos-rltv">                	
+							<?php 
+								$active = 'active';
+								foreach($documents as $document)
+								{
+									// check if document type is image and default
+									if($document->dtype_code == 'IMG' && $document->dtype_sub_code == 'DEFAULT' || $document->dtype_code == 'IMG' && $document->dtype_sub_code == 'SMALL')
+									{
+										echo '<div role="tabpanel" class="tab-pane '.$active.'" id="view'.$document->doc_id.'">';
+										echo     '<div class="product-img">';
+										echo         '<a class="fancybox" data-fancybox-group="group" href="'.$document->doc_path.'"><img src="'.$document->doc_path.'" alt="Single portfolio" /></a>';
+										echo     '</div>';
+										echo '</div>';
+										$active = '';
+									}
+								}   
+								
+								if(empty($documents))
+								{
+									echo '<div role="tabpanel" class="tab-pane active" id="view1">';
+									echo     '<div class="product-img">';
+									echo         '<a class="fancybox" data-fancybox-group="group" href="'.$this->SiteConfig('default_image').'"><img src="'.$this->SiteConfig('default_image').'" alt="Single portfolio" /></a>';
+									echo     '</div>';
+									echo '</div>';
+								}
+							?>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-5 col-sm-12 col-xs-12">
+					<div class="single-product-description" data-variantid="<?= $varId ?>" data-pageid="<?= $this->layout()->idPage; ?>">
+						<div class="sp-top-des">
+							<?php 
+								$prodTexts = $product->getTexts();
+								$title = '';
+								$brand = '';
+								$sku = '';
+								$skuId = '';
+								$price = 'N/A';
+								
+								if(!empty($variant))
+								{
+									$skuId = $variant->getId();
+									$sku = !empty($variant->getVariant())? '('.$variant->getVariant()->var_sku.')' : '';
+								}
+
+								if (!empty($this->price['price'])) {
+									$price = $this->price['price_currency']['symbol'].$this->price['price'];
+								}
+
+								
+								$subTitle = '';
+								foreach($prodTexts as $text)
+								{
+									switch($text->ptt_code)
+									{
+										case('TITLE'):
+											$title = $text->ptxt_field_short;
+											break;
+										case('BRAND'):
+											$brand = '('.$text->ptxt_field_short.')';
+											break;
+										case('SUBTITLE'):
+											$subTitle = $text->ptxt_field_long;
+											break;
+									}
+								}
+							?>
+							
+							<h3><?= $title ?> <span><?= $brand ?></span></h3>
+							<div class="prodcut-ratting-price">
+								<div class="prodcut-ratting">
+									<span class="product-sku" data-skuid="<?= $skuId ?>"><?= $sku ?></span>
+								</div>
+								<div class="prodcut-price">
+									<div class="new-price"> <?= $price ?> </div>
+								</div>
+							</div>
+						</div>
+							
+						<?php if(!empty($subTitle)){?>
+								<div class="sp-des">
+									<?= $subTitle ?>
+								</div>
+						<?php } ?>
+						
+						<div class="sp-bottom-des">
+							<!-- attribute show plugin -->
+							<?= $this->attribute ?>
+							<!-- attribute show plugin end -->
+							<!-- Quantitiy and add to cart view -->
+							<?php if ($this->hasVariant) : ?>
+							<?= $this->addToCart ?>
+							<?php endif; ?>
+							<!-- Quantity and add to cart view end-->
+						</div>
+					</div>
+				</div>
+			</div>  
+		</div>
+	</div>
+	<!--single-portfolio-area are start-->
+	
+	<!--description-area start -->
+	<div class="descripton-area" style="margin-bottom:20px;">
+		<div class="container">
+			<div class="row">
+				<div class="product-area tab-cars-style">
+					<div class="title-tab-product-category">
+						<div class="col-md-12 text-center">
+							<ul class="nav mb-40 heading-style-2" role="tablist">
+								<?php 
+								$c = 1;
+								$active = 'active';
+								foreach($prodTexts as $text)
+								{
+									if($text->ptt_code == 'DESC'.$c)
+									{
+										echo '<li role="presentation" class="'.$active.'"><a href="#DESC'. $text->ptxt_id.'" aria-controls="DESC'.$text->ptxt_id.'" role="tab" data-toggle="tab">'.$text->ptt_name.'</a></li>';
+										$active = '';
+										$c++;
+									}
+								}
+							?>
+							</ul>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+					<div class="col-sm-12">
+						<div class="content-tab-product-category">
+						<!-- Tab panes -->
+							<div class="tab-content">
+								<?php 
+									$c = 1;
+									$active = 'active';
+									foreach($prodTexts as $text)
+									{
+										if($text->ptt_code == 'DESC'.$c)
+										{
+											echo '<div role="tabpanel" class="tab-pane fix fade in '.$active.'" id="DESC'.$text->ptxt_id.'">';
+											echo     '<div class="review-wraper">';
+											echo      $text->ptxt_field_long;
+											echo     '</div>';
+											echo '</div>';
+											$active = '';
+											$c++;
+										}
+									}
+								?>
+							</div>
+						</div>
+					</div>
+			</div> 
+			</div>
+		</div>
+	</div>
+<?php }else{?>
+	<div class="container">
+		<div class="row align-right">
+			<br>
+			<br>
+			<h4><?= $this->siteTranslate('tr_MelisDemoCommerce_no_product_available', $this->SiteConfig('default_lang_id'), $this->SiteConfig('site_id'))?></h4>
+			<br>
+			<br>
+		</div>
+	</div>
+<?php }?>    

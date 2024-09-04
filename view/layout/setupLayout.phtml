@@ -1,0 +1,170 @@
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+      	<title>Melis Demo Commerce Setup</title>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <?php 
+            // Favicon
+            $this->headLink(array('rel' => 'apple-touch-icon', 'href' => $this->basePath('/MelisDemoCommerce/images/icons/favicon.ico'), 'PREPEND'));
+            // Bootstrap fremwork main css
+            $this->headLink()->appendStylesheet('/MelisDemoCommerce/css/bootstrap.min.css');
+            $this->headLink()->appendStylesheet('/MelisDemoCommerce/css/font-awesome.min.css');
+            // Generate Styles
+            echo $this->headLink();
+        ?>
+        <style>
+        .jumbotron .alert-info p, .jumbotron .alert-warning p {
+            margin-bottom: 3px;
+            font-size: 15px;
+            font-weight: 200;
+        }
+        .jumbotron .alert-success p{
+           font-size: 19px;
+            margin-top: 8px;
+        }
+        </style>
+    </head>
+    <body>
+        <br>    
+        <div class="container">
+        	<div class="jumbotron">
+              	<h1>Melis Demo Commerce Setup</h1>
+              	<div class="alert alert-info hidden" role="alert">
+            		<i class="fa fa-cog fa-spin fa-3x fa-fw pull-left"></i>
+					<p><strong>MelisDemoCommerce setup started.</strong></p>
+					<p>Please wait while the setup is running, this may take a few minutes.</p> 
+            	</div>
+            	<div class="alert alert-success hidden" role="alert">
+            		<i class="fa fa-check-circle fa-3x pull-left"></i>
+					<p><strong>MelisDemoCommerce setup completed.</strong></p>
+            	</div>
+            	<div class="alert alert-warning hidden" role="alert">
+            		<i class="fa fa-info-circle fa-3x pull-left"></i>
+					<p><strong>Opps... Something went wrong.</strong></p>
+					<p>An error has occurred, please contact the administrator if the problem persists.</p> 
+            	</div>
+            	<div class="form-group siteProtocolForm">
+                    <label for="siteDomain">Protocol</label>
+                    <select class="form-control" id="siteProtocol">
+                    	<option value="" selected>-select-</option>
+                    	<option value="http">http</option>
+                    	<option value="https">https</option>
+                    </select>
+                </div>
+              	<div class="form-group siteDomainForm">
+                    <label for="siteDomain">Site Domain</label>
+                    <input type="text" class="form-control" id="siteDomain" placeholder="www.test.com" value="<?php echo $_SERVER['HTTP_HOST']?>">
+                </div>
+                <div class="form-group siteLabelForm">
+                    <label for="siteLabel">Site Label</label>
+                    <input type="text" name="site_label" class="form-control" id="siteLabel" placeholder="your site label / name" value="Melis Demo Commerce Site">
+                </div>
+              	<p><button class="btn btn-success btn-lg" id="setupStartbtn">Start setup</button></p>
+            </div>
+        </div>
+            
+        <?php 
+            // jquery latest version
+            $this->inlineScript()->appendFile($this->basePath('/MelisDemoCommerce/js/vendor/jquery-2.2.4.min.js'));
+            // Bootstrap framework js
+            $this->inlineScript()->appendFile($this->basePath('/MelisDemoCommerce/js/bootstrap.min.js'));
+            // Generate JS
+            echo $this->inlineScript();
+        ?>
+        <script type="text/javascript">
+            $("#setupStartbtn").click(function(){
+
+            	var noError = true;
+            	var protocol = $("#siteProtocol").val();
+              	if(protocol.trim().length){
+              		$(".siteProtocolForm").removeClass("has-error");
+          		}else{
+					$(".siteProtocolForm").addClass("has-error");
+					noError = false;
+          		}
+          		
+            	var domain = $("#siteDomain").val();
+              	if(domain.trim().length){
+              		$(".siteDomainForm").removeClass("has-error");
+          		}else{
+					$(".siteDomainForm").addClass("has-error");
+					noError = false;
+          		}
+
+          		// site label checking
+                var siteLabel = $("#siteLabel").val();
+                if(siteLabel.trim().length){
+                    $(".siteLabelForm").removeClass("has-error");
+                }else{
+                    $(".siteLabelForm").addClass("has-error");
+                    noError = false;
+                }
+
+
+                if(noError){
+          			$(".alert").addClass("hidden");
+                    $(".alert-info").removeClass("hidden");
+                    $(this).attr('disabled', true);
+                 	executeSetup();
+          		}
+            });
+            
+            function executeSetup(step = ''){
+                var dataString = new Array;
+                dataString.push({
+                    name : "step",
+                    value : step
+                });
+                
+                dataString.push({
+                    name : "protocol",
+                    value : $("#siteProtocol").val()
+                });
+                
+                dataString.push({
+                    name : "domain",
+                    value : $("#siteDomain").val()
+                });
+                // Site label
+                dataString.push({
+                    name : "site_label",
+                    value : $("#siteLabel").val()
+                });
+                $("#siteProtocol").attr("disabled", true);
+                $("#siteDomain").attr("disabled", true);
+                $("#siteLabel").attr("disabled", true);
+
+                $.ajax({
+        			type        : 'POST', 
+        	        url         : '/MelisDemoCommerce/setup/executeSetup',
+        	        data        : dataString,
+        	        dataType    : 'json',
+        	        encode		: true
+        		}).success(function(data){
+        			if(data.done){
+        				$(".alert").addClass("hidden");
+        				$("#setupStartbtn").addClass("hidden");
+        				$(".alert-success").removeClass("hidden");
+        			}else{
+        				if(data.nextStep){
+            				if(data.nextStep == 'products' || data.nextStep == "variants"){
+            					setTimeout(function(){ executeSetup(data.nextStep); }, 10000);
+            				}else{
+            					setTimeout(function(){ executeSetup(data.nextStep); }, 5000);
+            				}
+        				}else{
+        					$(".alert").addClass("hidden");
+        					$(".alert-warning").removeClass("hidden");
+        				}
+        			}
+        		}).fail(function(){
+        			$(".alert").addClass("hidden");
+        			$(".alert-warning").removeClass("hidden");
+        		});;
+            }
+        </script>
+    </body>
+</html>

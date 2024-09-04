@@ -1,0 +1,53 @@
+<aside class="single-aside catagories-aside" id="<?=$this->pluginId?>">
+    <div class="heading-title aside-title pos-rltv">
+        <h5 class="uppercase">CATEGORIES</h5>
+    </div>
+    <div id="cat-treeview" class="product-cat">
+    	<?php
+        	// recursive loop for displaying children, a simple loop can be done if category is a single dimension array
+    	    $renderCategoryList  = function($categoryList, $renderCategoryList)
+        	{
+        	    $temp = '';
+        	    
+        	    if ($categoryList)
+        	    {
+        	        $temp .= '<ul>';
+        	        
+        	        foreach($categoryList as $key => $items)
+        	        {
+        	            $data = array();
+        	            if(!empty($items['children']))
+        	            {
+        	                $data = $renderCategoryList($items['children'], $renderCategoryList);
+        	            }
+        	            
+        	            $parentClass = 'closed';
+        	            if ($items['state']['opened'])
+        	            {
+        	                $parentClass = 'open';
+        	            }
+        	            
+        	            $active = '';
+        	            if ($items['state']['selected'])
+        	            {
+        	                $active = 'active';
+        	            }
+        	            
+        	            $temp .= '<li class="'.$parentClass.'" data-catid="'.$items['cat_id'].'"><a class="'.$active.'">'.$items['text'].'</a>';
+        	            $temp .= (!empty($data['html'])) ? $data['html'] : '';
+        	            $temp .= '</li>';
+        	        }
+        	        
+        	        $temp .= '</ul>';
+        	    }
+        	    
+        	    return array('html' => $temp);
+        	};
+        	
+        	echo $renderCategoryList($this->categoryList, $renderCategoryList)['html'];
+    	?>
+    </div>
+</aside>
+
+
+

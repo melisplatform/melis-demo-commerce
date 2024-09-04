@@ -1,0 +1,59 @@
+<aside class="single-aside catagories-aside">
+    <div class="heading-title aside-title pos-rltv">
+        <h5 class="uppercase">categories</h5> 
+    </div>
+    <div id="cat-treeview" class="product-cat">
+    	<?php 
+            // recursive loop for displaying children, a simple loop can be done if category is a single dimension array
+    	   $renderCategoryFilterList  = function($categoryList, $selectedCategories, $renderCategoryFilterList)
+            {
+                $temp = '';
+                $openParent = false;
+                
+                if ($categoryList)
+                {
+                    $temp .= '<ul>';
+                    
+                    foreach($categoryList as $key => $category)
+                    {
+                        $data = array();
+                        
+                        if(!empty($category->getChildren()))
+                        {
+                            $data = $renderCategoryFilterList($category->getChildren(), $selectedCategories, $renderCategoryFilterList);
+                        }
+                        
+                        $active = '';
+                        $parentClass = 'closed';
+                        
+                        if(in_array($category->getId(), $selectedCategories))
+                        {
+                            $active = 'active';
+                            $parentClass = 'open';
+                            $openParent = true;
+                        }
+                        
+                        if (!empty($data['openParent']))
+                        {
+                            if ($data['openParent'])
+                            {
+                                $parentClass = 'open';
+                                $openParent = true;
+                            }
+                        }
+                        
+                        $temp .= '<li class="'.$parentClass.'" data-catid="'.$category->getId().'"><a class="'.$active.'">'.$category->getTranslations()[0]->catt_name.' </a>';
+                        $temp .= (!empty($data['html'])) ? $data['html'] : '';
+                        $temp .= '</li>';
+                    }
+                    
+                    $temp .= '</ul>';
+                }
+                
+                return array('html' => $temp, 'openParent' => $openParent);
+            };
+            
+            echo $renderCategoryFilterList($this->filterMenuCategoryList, $this->selectedCategories, $renderCategoryFilterList)['html'];
+    	?>
+    </div>
+</aside>
