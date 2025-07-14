@@ -38,21 +38,21 @@ class Module
         $eventManager = $e->getApplication()->getEventManager();
         $moduleRouteListener = new ModuleRouteListener();
         $moduleRouteListener->attach($eventManager);
-        
-        // $eventManager->attach(MvcEvent::EVENT_DISPATCH_ERROR, function($e) {
-        //     $viewModel = $e->getViewModel();
-        //     $viewModel->setTemplate('layout/errorLayout');
-        // });
-        
-        // $eventManager->attach(MvcEvent::EVENT_RENDER_ERROR, function($e) {
-        //     $viewModel = $e->getViewModel();
-        //     $viewModel->setTemplate('layout/errorLayout');
-        // }); 
-        
+
+        $eventManager->attach(MvcEvent::EVENT_DISPATCH_ERROR, function ($e) {
+            $viewModel = $e->getViewModel();
+            $viewModel->setTemplate('layout/errorLayout');
+        });
+
+        $eventManager->attach(MvcEvent::EVENT_RENDER_ERROR, function ($e) {
+            $viewModel = $e->getViewModel();
+            $viewModel->setTemplate('layout/errorLayout');
+        });
+
         // Adding Event listener to customize the Site menu from Plugin
         (new SiteMenuCustomizationListener())->attach($eventManager);
         (new SiteBreadcrumbCustomizationListener())->attach($eventManager);
-        
+
         // Fake payments listener, for testing purposes
         // (new SiteFakePaymentListener())->attach($eventManager);
         // (new SiteFakePaymentProcesstListener())->attach($eventManager);
@@ -61,7 +61,7 @@ class Module
         (new SiteFakePaypalStyleProcesstListener())->attach($eventManager);
 
         (new SiteShipmentCostListener())->attach($eventManager);
-        
+
         // Plugin customization
         (new SiteCommerceCategoryProductListPluginListener())->attach($eventManager);
         (new SiteProductShowPluginListener())->attach($eventManager);
@@ -74,7 +74,7 @@ class Module
         (new SiteOrderPluginListener())->attach($eventManager);
         (new SiteOrderReturnProductPluginListener())->attach($eventManager);
     }
-    
+
     public function getConfig()
     {
         $config = [];
@@ -85,11 +85,11 @@ class Module
             include __DIR__ . '/config/assets.config.php',
             include __DIR__ . '/config/app.forms.php',
         ];
-        
+
         foreach ($configFiles as $file) {
             $config = ArrayUtils::merge($config, $file);
-        } 
-        
+        }
+
         return $config;
     }
 
