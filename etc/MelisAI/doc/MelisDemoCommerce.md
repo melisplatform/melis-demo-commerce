@@ -1,3 +1,16 @@
+---
+title: MelisDemoCommerce module
+package: melisplatform/melis-demo-commerce
+doc_type: module-documentation
+audience: [users, developers, ai]
+language: en
+module_version: unversioned
+last_reviewed: 2026-06-10
+maintainer: Melis Technology
+keywords: [demo, commerce, ecommerce, storefront, shop, site, setup, wizard, payment, shipping, checkout, catalog, melis]
+screenshots_dir: ./images
+---
+
 # MelisDemoCommerce — AI & developer guide
 
 > **Module:** `melisplatform/melis-demo-commerce` · **Namespace:** `MelisDemoCommerce` · **`melis-site: true`**
