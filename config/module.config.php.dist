@@ -65,12 +65,32 @@ return [
                         ],
                     ],
                     'setup' => [
-                        'type' => 'Segment',
+                        'type' => 'Literal',
+                        // Higher priority than the 'default' front catch-all so that
+                        // /MelisDemoCommerce/setup[/...] dispatches to the MVC SetupController
+                        // instead of being treated as a front CMS page render.
+                        'priority' => 100,
                         'options' => [
                             'route' => '/setup',
                             'defaults' => [
                                 'controller' => 'MelisDemoCommerce\Controller\Setup',
                                 'action' => 'setup',
+                            ],
+                        ],
+                        'may_terminate' => true,
+                        'child_routes' => [
+                            // /MelisDemoCommerce/setup/<action> e.g. /setup/executeSetup
+                            'action' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => '/[:action]',
+                                    'constraints' => [
+                                        'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                                    ],
+                                    'defaults' => [
+                                        'controller' => 'MelisDemoCommerce\Controller\Setup',
+                                    ],
+                                ],
                             ],
                         ],
                     ],

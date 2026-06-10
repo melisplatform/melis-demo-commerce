@@ -48,7 +48,56 @@ class SetupController extends MelisSiteActionController
         $this->siteConfigCheck();
         set_time_limit (1000);
     }
-    
+
+    /**
+     * Absolute path to this module's root directory.
+     * SetupController lives in <moduleRoot>/src/MelisDemoCommerce/Controller,
+     * so the module root is three levels up. This works wherever the module
+     * is installed (vendor or module/MelisSites) and replaces the old
+     * hard-coded module/MelisSites/MelisDemoCommerce assumption.
+     */
+    private function getModuleDir()
+    {
+        return dirname(__DIR__, 3);
+    }
+
+    /**
+     * Absolute path to this module's config directory (where the runtime
+     * .php config files live and get their [:tokens] replaced during setup).
+     */
+    private function getModuleConfigDir()
+    {
+        return $this->getModuleDir() . '/config';
+    }
+
+    /**
+     * Absolute path to this module's install directory (the *.setup.php data files).
+     */
+    private function getInstallDir()
+    {
+        return $this->getModuleDir() . '/install';
+    }
+
+    /**
+     * Regenerate the runtime .php config files from their pristine .dist
+     * templates so every install starts from clean [:token] placeholders.
+     */
+    private function resetConfigFromDist()
+    {
+        $configDir = $this->getModuleConfigDir();
+        $configFiles = [
+            'MelisDemoCommerce.config.php',
+            'module.config.php',
+            'melis.plugins.config.php',
+        ];
+        foreach ($configFiles as $file) {
+            $dist = $configDir . '/' . $file . '.dist';
+            if (file_exists($dist)) {
+                copy($dist, $configDir . '/' . $file);
+            }
+        }
+    }
+
     public function setupAction()
     {
         $this->layout('MelisDemoCommerce/setupLayout');
@@ -87,10 +136,8 @@ class SetupController extends MelisSiteActionController
         if ($request->isPost())
         {
             // Getting the DemoSite config
-            $melisSite = $_SERVER['DOCUMENT_ROOT'].'/../module/MelisSites';
-            $outputFileName = 'MelisDemoCommerce.config.php';
-            $this->configDir = $melisSite.'/MelisDemoCommerce/config/'.$outputFileName;
-            
+            $this->configDir = $this->getModuleConfigDir().'/MelisDemoCommerce.config.php';
+
             $tablePlatform = $this->getServiceManager()->get('MelisPlatformTable');
             $platform = $tablePlatform->getEntryByField('plf_name', getenv('MELIS_PLATFORM'))->current();
 
@@ -100,74 +147,80 @@ class SetupController extends MelisSiteActionController
             
                 $post = $request->getPost()->toArray();
                 $step = $post['step'];
-                
+
+                // On the first step, regenerate runtime config from .dist templates
+                // so re-running the installer always starts from clean placeholders.
+                if (empty($step)) {
+                    $this->resetConfigFromDist();
+                }
+
                 $this->config = file_get_contents($this->configDir);
                 try {
                     switch ($step) {
                         case 'templates' :
-                            $setupDatas = include __DIR__ . '../../../../install/MelisDemoCommerce.' . $step . '.setup.php';
+                            $setupDatas = include $this->getInstallDir() . '/MelisDemoCommerce.' . $step . '.setup.php';
                             $this->setTemplates($setupDatas);
                             $nextStep = 'pages';
                             break;
                         case 'pages' :
-                            $setupDatas = include __DIR__ . '../../../../install/MelisDemoCommerce.' . $step . '.setup.php';
+                            $setupDatas = include $this->getInstallDir() . '/MelisDemoCommerce.' . $step . '.setup.php';
                             $this->setupPages($setupDatas);
                             $nextStep = 'sliders';
                             break;
                         case 'sliders' :
-                            $setupDatas = include __DIR__ . '../../../../install/MelisDemoCommerce.' . $step . '.setup.php';
+                            $setupDatas = include $this->getInstallDir() . '/MelisDemoCommerce.' . $step . '.setup.php';
                             $this->setupSliders($setupDatas);
                             $nextStep = 'news';
                             break;
                         case 'news' :
-                            $setupDatas = include __DIR__ . '../../../../install/MelisDemoCommerce.' . $step . '.setup.php';
+                            $setupDatas = include $this->getInstallDir() . '/MelisDemoCommerce.' . $step . '.setup.php';
                             $this->setupNews($setupDatas);
                             $nextStep = 'prospects_theme';
                             break;
                         case 'prospects_theme' :
-                            $setupDatas = include __DIR__ . '../../../../install/MelisDemoCommerce.' . $step . '.setup.php';
+                            $setupDatas = include $this->getInstallDir() . '/MelisDemoCommerce.' . $step . '.setup.php';
                             $this->setupProspectsThemes($setupDatas);
                             $nextStep = 'document_types';
                             break;
                         case 'document_types' :
-                            $setupDatas = include __DIR__ . '../../../../install/MelisDemoCommerce.' . $step . '.setup.php';
+                            $setupDatas = include $this->getInstallDir() . '/MelisDemoCommerce.' . $step . '.setup.php';
                             $this->setupDocumentTypes($setupDatas);
                             $nextStep = 'attributes';
                             break;
                         case 'attributes' :
-                            $setupDatas = include __DIR__ . '../../../../install/MelisDemoCommerce.' . $step . '.setup.php';
+                            $setupDatas = include $this->getInstallDir() . '/MelisDemoCommerce.' . $step . '.setup.php';
                             $this->setupAttibutes($setupDatas);
                             $nextStep = 'product_text_types';
                             break;
                         case 'product_text_types' :
-                            $setupDatas = include __DIR__ . '../../../../install/MelisDemoCommerce.' . $step . '.setup.php';
+                            $setupDatas = include $this->getInstallDir() . '/MelisDemoCommerce.' . $step . '.setup.php';
                             $this->setupProductTextTypes($setupDatas);
                             $nextStep = 'products';
                             break;
                         case 'products' :
-                            $setupDatas = include __DIR__ . '../../../../install/MelisDemoCommerce.' . $step . '.setup.php';
+                            $setupDatas = include $this->getInstallDir() . '/MelisDemoCommerce.' . $step . '.setup.php';
                             $this->setupProducts($setupDatas);
                             $nextStep = 'categories';
                             break;
                         case 'categories' :
-                            $setupDatas = include __DIR__ . '../../../../install/MelisDemoCommerce.' . $step . '.setup.php';
+                            $setupDatas = include $this->getInstallDir() . '/MelisDemoCommerce.' . $step . '.setup.php';
                             $this->setupCategories($setupDatas);
                             $this->setupCategoriesIds();
                             $nextStep = 'variants';
                             break;
 
                         case 'variants' :
-                            $setupDatas = include __DIR__ . '../../../../install/MelisDemoCommerce.' . $step . '.setup.php';
+                            $setupDatas = include $this->getInstallDir() . '/MelisDemoCommerce.' . $step . '.setup.php';
                             $this->setupVariants($setupDatas);
                             $nextStep = 'coupons';
                             break;
                         case 'coupons' :
-                            $setupDatas = include __DIR__ . '../../../../install/MelisDemoCommerce.' . $step . '.setup.php';
+                            $setupDatas = include $this->getInstallDir() . '/MelisDemoCommerce.' . $step . '.setup.php';
                             $this->setupCoupon($setupDatas);
                             $nextStep = 'client_and_orders';
                             break;
                         case 'client_and_orders' :
-                            $setupDatas = include __DIR__ . '../../../../install/MelisDemoCommerce.' . $step . '.setup.php';
+                            $setupDatas = include $this->getInstallDir() . '/MelisDemoCommerce.' . $step . '.setup.php';
                             $this->setupClientAndOrders($setupDatas);
                             $nextStep = 'setup_main_page';
                             break;
@@ -188,7 +241,7 @@ class SetupController extends MelisSiteActionController
                                 $container['MelisDemoCommerceSetup']['domain'] = $post['domain'];
                             }
 
-                            $setupDatas = include __DIR__ . '../../../../install/MelisDemoCommerce.site.setup.php';
+                            $setupDatas = include $this->getInstallDir() . '/MelisDemoCommerce.site.setup.php';
                             # Site label
                             $siteLabel = !empty($post['site_label']) ? $post['site_label'] : null;
                             if (!empty($siteLabel)) $setupDatas['site_label'] = $siteLabel;
@@ -214,14 +267,15 @@ class SetupController extends MelisSiteActionController
     
     private function siteConfigCheck()
     {
-        // Getting the DemoSite config
-        $melisSite = $_SERVER['DOCUMENT_ROOT'].'/../module/MelisSites';
+        // Getting the DemoSite config (the module runs from its installed
+        // location - vendor or module/MelisSites - resolved via getModuleConfigDir)
+        $configDir = $this->getModuleConfigDir();
         $outputFileName = 'MelisDemoCommerce.config.php';
-        $configDir = $melisSite.'/MelisDemoCommerce/config/'.$outputFileName;
         $moduleConfigFileName = 'module.config.php';
-        $moduleConfigDir = $melisSite.'/MelisDemoCommerce/config/'.$moduleConfigFileName;
-        
-        if (!is_writable($configDir) || !is_writable($moduleConfigDir))
+        $configFile = $configDir.'/'.$outputFileName;
+        $moduleConfigFile = $configDir.'/'.$moduleConfigFileName;
+
+        if (!is_writable($configFile) || !is_writable($moduleConfigFile))
         {
             exit('Access permission denied, Please make /MelisDemoCommerce/config/'.$outputFileName.' and /MelisDemoCommerce/config/'.$moduleConfigFileName.' files writable');
         }
@@ -391,10 +445,8 @@ class SetupController extends MelisSiteActionController
         $siteHomeTable = $this->getServiceManager()->get('MelisEngineTableCmsSiteHome');
 
         // Getting the DemoSite config
-        $melisSite = $_SERVER['DOCUMENT_ROOT'].'/../module/MelisSites';
-        $outputFileName = 'module.config.php';
-        $moduleConfigDir = $melisSite.'/MelisDemoCommerce/config/'.$outputFileName;
-        $modulePluginsConfigDir = $melisSite.'/MelisDemoCommerce/config/melis.plugins.config.php';
+        $moduleConfigDir = $this->getModuleConfigDir().'/module.config.php';
+        $modulePluginsConfigDir = $this->getModuleConfigDir().'/melis.plugins.config.php';
         
         $moduleConfig = file_get_contents($moduleConfigDir);
 
@@ -831,7 +883,9 @@ class SetupController extends MelisSiteActionController
                     if (!empty($pdVal['document']['doc_path']))
                     {
                         $prdDoc = $pdVal['document'];
-                        $imgPath = __DIR__.'/../../../..'.$prdDoc['doc_path'];
+                        // doc_path is stored as /MelisDemoCommerce/public/... (the deployed
+                        // site name); resolve it against this module's real root instead.
+                        $imgPath = $this->getModuleDir().preg_replace('#^/MelisDemoCommerce#', '', $prdDoc['doc_path']);
                     
                         if(file_exists($imgPath))
                         {
@@ -916,8 +970,7 @@ class SetupController extends MelisSiteActionController
 
         //get the melis.plugins.config.php
         // Getting the DemoSite config
-        $melisSite = $_SERVER['DOCUMENT_ROOT'].'/../module/MelisSites';
-        $modulePluginsConfigDir = $melisSite.'/MelisDemoCommerce/config/melis.plugins.config.php';
+        $modulePluginsConfigDir = $this->getModuleConfigDir().'/melis.plugins.config.php';
     
         $order = 1;
         foreach ($categories As $key => $val)
@@ -973,7 +1026,9 @@ class SetupController extends MelisSiteActionController
                     if (!empty($dVal['document']['doc_path']))
                     {
                         $catDoc = $dVal['document'];
-                        $imgPath = __DIR__.'/../../../..'.$catDoc['doc_path'];
+                        // doc_path is stored as /MelisDemoCommerce/public/... (the deployed
+                        // site name); resolve it against this module's real root instead.
+                        $imgPath = $this->getModuleDir().preg_replace('#^/MelisDemoCommerce#', '', $catDoc['doc_path']);
     
                         if(file_exists($imgPath))
                         {
@@ -1241,6 +1296,11 @@ class SetupController extends MelisSiteActionController
                             foreach ($cpoVal['order_payment'] As $cpopVal)
                             {
                                 $orderPayment = $cpopVal;
+                                // Don't force the primary key (it collides on re-install /
+                                // when payments already exist) and link to the real order id
+                                // instead of the hard-coded one from the data file.
+                                unset($orderPayment['opay_id']);
+                                $orderPayment['opay_order_id'] = $orderId;
                                 $this->saveData($orderPaymentTbl, $orderPayment);
                             }
                         }

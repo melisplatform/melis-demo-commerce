@@ -77,19 +77,32 @@ class Module
     
     public function getConfig()
     {
+        $configDir = __DIR__ . '/config';
+
+        // module.config.php, melis.plugins.config.php and MelisDemoCommerce.config.php
+        // are runtime working copies: they are git-ignored and get their [:tokens]
+        // rewritten with real ids by the setup wizard. Generate them from their
+        // pristine .dist templates if missing so the module can boot on a fresh install.
+        $generated = ['module.config.php', 'melis.plugins.config.php', 'MelisDemoCommerce.config.php'];
+        foreach ($generated as $file) {
+            if (!file_exists($configDir . '/' . $file) && file_exists($configDir . '/' . $file . '.dist')) {
+                @copy($configDir . '/' . $file . '.dist', $configDir . '/' . $file);
+            }
+        }
+
         $config = [];
         $configFiles = [
-            include __DIR__ . '/config/module.config.php',
-            include __DIR__ . '/config/melis.plugins.config.php',
-            include __DIR__ . '/config/MelisDemoCommerce.config.php',
-            include __DIR__ . '/config/assets.config.php',
-            include __DIR__ . '/config/app.forms.php',
+            include $configDir . '/module.config.php',
+            include $configDir . '/melis.plugins.config.php',
+            include $configDir . '/MelisDemoCommerce.config.php',
+            include $configDir . '/assets.config.php',
+            include $configDir . '/app.forms.php',
         ];
-        
+
         foreach ($configFiles as $file) {
             $config = ArrayUtils::merge($config, $file);
-        } 
-        
+        }
+
         return $config;
     }
 

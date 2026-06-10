@@ -24,6 +24,18 @@
 		"zf2",
 		"module"
 	],
+	"extra": {
+		"module-name": "MelisDemoCommerce",
+		"dbdeploy": true,
+		"melis-site": true,
+		"melis-module-category": "commerce",
+		"installer-name": "MelisDemoCommerce",
+		"installer-paths": {
+			"module/MelisSites/{$name}": [
+				"type:melisplatform-site"
+			]
+		}
+	},
 	"require": {
 		"php": "^8.1|^8.3",
 		"melisplatform/melis-cms": "^5.2",
@@ -43,7 +55,10 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"MelisDemoCommerce\\": "src/"
-		}
+			"MelisDemoCommerce\\": "src/MelisDemoCommerce/"
+		},
+		"classmap": [
+			"Module.php"
+		]
 	}
 }
