@@ -27,7 +27,7 @@
 											// get default image
 												if($document->dtype_code == 'IMG' && $document->dtype_sub_code == 'DEFAULT' || $document->dtype_code == 'IMG' && $document->dtype_sub_code == 'SMALL')
 												{
-													echo '<li class="'.$active.'"><a href="#view'.$document->doc_id.'" class="shadow-box" aria-controls="view'.$document->doc_id.'" data-toggle="tab"><img src="'.$document->doc_path.'" alt="" /></a></li>';
+													echo '<li class="'.$active.'"><a href="#view'.$this->escapeHtmlAttr($document->doc_id).'" class="shadow-box" aria-controls="view'.$this->escapeHtmlAttr($document->doc_id).'" data-toggle="tab"><img src="'.$this->escapeUrl($document->doc_path).'" alt="" /></a></li>';
 													$active ='';
 												}
 											}
@@ -49,9 +49,9 @@
 									// check if document type is image and default
 									if($document->dtype_code == 'IMG' && $document->dtype_sub_code == 'DEFAULT' || $document->dtype_code == 'IMG' && $document->dtype_sub_code == 'SMALL')
 									{
-										echo '<div role="tabpanel" class="tab-pane '.$active.'" id="view'.$document->doc_id.'">';
+										echo '<div role="tabpanel" class="tab-pane '.$active.'" id="view'.$this->escapeHtmlAttr($document->doc_id).'">';
 										echo     '<div class="product-img">';
-										echo         '<a class="fancybox" data-fancybox-group="group" href="'.$document->doc_path.'"><img src="'.$document->doc_path.'" alt="Single portfolio" /></a>';
+										echo         '<a class="fancybox" data-fancybox-group="group" href="'.$this->escapeUrl($document->doc_path).'"><img src="'.$this->escapeUrl($document->doc_path).'" alt="Single portfolio" /></a>';
 										echo     '</div>';
 										echo '</div>';
 										$active = '';
@@ -110,10 +110,10 @@
 								}
 							?>
 							
-							<h3><?= $title ?> <span><?= $brand ?></span></h3>
+							<h3><?= $this->escapeHtml($title) ?> <span><?= $this->escapeHtml($brand) ?></span></h3>
 							<div class="prodcut-ratting-price">
 								<div class="prodcut-ratting">
-									<span class="product-sku" data-skuid="<?= $skuId ?>"><?= $sku ?></span>
+									<span class="product-sku" data-skuid="<?= $this->escapeHtmlAttr($skuId) ?>"><?= $this->escapeHtml($sku) ?></span>
 								</div>
 								<div class="prodcut-price">
 									<div class="new-price"> <?= $price ?> </div>
@@ -159,7 +159,7 @@
 								{
 									if($text->ptt_code == 'DESC'.$c)
 									{
-										echo '<li role="presentation" class="'.$active.'"><a href="#DESC'. $text->ptxt_id.'" aria-controls="DESC'.$text->ptxt_id.'" role="tab" data-toggle="tab">'.$text->ptt_name.'</a></li>';
+										echo '<li role="presentation" class="'.$active.'"><a href="#DESC'. $this->escapeHtmlAttr($text->ptxt_id).'" aria-controls="DESC'.$this->escapeHtmlAttr($text->ptxt_id).'" role="tab" data-toggle="tab">'.$this->escapeHtml($text->ptt_name).'</a></li>';
 										$active = '';
 										$c++;
 									}

@@ -22,7 +22,7 @@ if(!empty($order['coupon'])){
 			<div class="col-xs-12 col-sm-9">
 				<div class="reference-box">
 					<span>Reference:</span>
-					<span class="ref-num r-highlight"><?= $reference = !empty($order['reference'])? $order['reference'] : ''; ?></span>
+					<span class="ref-num r-highlight"><?= $this->escapeHtml($reference = !empty($order['reference'])? $order['reference'] : ''); ?></span>
 				</div>
 				<div class="order-date-box">
 				
@@ -32,7 +32,7 @@ if(!empty($order['coupon'])){
 			<div class="col-xs-12 col-sm-3">
 				<div class="status-box">
 					<span>Status:</span>
-					<span class="status r-highlight"><?= $status = !empty($order['status'])? $order['status']: ''; ?></span>
+					<span class="status r-highlight"><?= $this->escapeHtml($status = !empty($order['status'])? $order['status']: ''); ?></span>
 				</div>
 			</div>
 		</div>
@@ -57,16 +57,16 @@ if(!empty($order['coupon'])){
         					<tr class="cart_item check-item prd-name">
 			                    <td class="ctg-type c-product-img">
 			                    	<div class="img-box modified">
-			                     		<img src="<?= $item['image']?>" alt="">
+			                     		<img src="<?= $this->escapeUrl($item['image'])?>" alt="">
 					                    <div class="c-product-sku-box">
-						                    <span><?= $item['productName']?></span><span class="c-product-sku">(<?= $item['sku']?>)</span>
+						                    <span><?= $this->escapeHtml($item['productName'])?></span><span class="c-product-sku">(<?= $this->escapeHtml($item['sku'])?>)</span>
 					                    </div>
 				                    	<div class="mobile-only">
 						                    <div class="c-product-sku-box">
 							                    <span class="c-product-sku-txt">SKU</span>
-							                    <span class="c-product-sku"><?= $item['sku']?></span>
+							                    <span class="c-product-sku"><?= $this->escapeHtml($item['sku'])?></span>
 						                    </div>
-				                     		<span class="c-product-title"><?= $item['productName']?></span>
+				                     		<span class="c-product-title"><?= $this->escapeHtml($item['productName'])?></span>
 				                    	</div>
 			                    	</div>
 			                     </td>
@@ -105,7 +105,7 @@ if(!empty($order['coupon'])){
 								?>
 								<div class="c-order-name">
 									<div class="c-order-mini">
-										<span>Code: <?= ($coupon['couponCode']) ? '<em>('.$coupon['couponCode'].')</em>' : '' ?></span>
+										<span>Code: <?= ($coupon['couponCode']) ? '<em>('.$this->escapeHtml($coupon['couponCode']).')</em>' : '' ?></span>
 									</div>
 								</div>
 								<div class="c-oder-number">
