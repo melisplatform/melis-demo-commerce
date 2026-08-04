@@ -210,7 +210,7 @@ class TestController extends MelisSiteActionController
                     // Copying images from public media to Site pulic directory
                     /* if(is_dir(__DIR__.'\..\..\..\..\MelisDemoCommerce\public\images\products'))
                     {
-                        mkdir(__DIR__.'\..\..\..\..\MelisDemoCommerce\public\images\products/'.$val['prd_reference'], 0777);
+                        mkdir(__DIR__.'\..\..\..\..\MelisDemoCommerce\public\images\products/'.$val['prd_reference'], 0755);
                         copy(HTTP_ROOT.$dVal['doc_path'],__DIR__.'\..\..\..\..\MelisDemoCommerce\public\images\products/'.$val['prd_reference'].'/'.$dVal['doc_name'].image_type_to_extension(getimagesize(HTTP_ROOT.$dVal['doc_path'])[2]));
                     } */
                     
@@ -715,7 +715,7 @@ class TestController extends MelisSiteActionController
                         // Copying images from public media to Site pulic directory
                         /* if(is_dir(__DIR__.'\..\..\..\..\MelisDemoCommerce\public\images\products'))
                         {
-                            mkdir(__DIR__.'\..\..\..\..\MelisDemoCommerce\public\images\products/'.$val['prd_reference'], 0777);
+                            mkdir(__DIR__.'\..\..\..\..\MelisDemoCommerce\public\images\products/'.$val['prd_reference'], 0755);
                             copy(HTTP_ROOT.$dVal['doc_path'],__DIR__.'\..\..\..\..\MelisDemoCommerce\public\images\products/'.$val['prd_reference'].'/'.$dVal['doc_name'].image_type_to_extension(getimagesize(HTTP_ROOT.$dVal['doc_path'])[2]));
                         } */
                         
