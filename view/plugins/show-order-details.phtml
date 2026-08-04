@@ -57,7 +57,7 @@ if(!empty($order['coupon'])){
         					<tr class="cart_item check-item prd-name">
 			                    <td class="ctg-type c-product-img">
 			                    	<div class="img-box modified">
-			                     		<img src="<?= $this->escapeUrl($item['image'])?>" alt="">
+			                     		<img src="<?= $this->escapeHtml($item['image'])?>" alt="">
 					                    <div class="c-product-sku-box">
 						                    <span><?= $this->escapeHtml($item['productName'])?></span><span class="c-product-sku">(<?= $this->escapeHtml($item['sku'])?>)</span>
 					                    </div>

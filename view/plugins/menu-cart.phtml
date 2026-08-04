@@ -35,10 +35,10 @@
     ?>
             <div class="cart-single-wraper" data-variantid="<?= $this->escapeHtmlAttr($item['var_id'])?>">
                 <div class="cart-img">
-                    <a href="<?= $this->escapeUrl($productPageLink) ?>"><img src="<?= $this->escapeUrl($mainImage); ?>" alt="" style="width: 100%;height: 100%;"></a>
+                    <a href="<?= $this->escapeHtml($productPageLink) ?>"><img src="<?= $this->escapeHtml($mainImage); ?>" alt="" style="width: 100%;height: 100%;"></a>
                 </div>
                 <div class="cart-content">
-                    <div class="cart-name"> <a href="<?= $this->escapeUrl($productPageLink) ?>"><?= $this->escapeHtml($item['name']); ?> (<?= $this->escapeHtml($item['var_sku']); ?>)</a> </div>
+                    <div class="cart-name"> <a href="<?= $this->escapeHtml($productPageLink) ?>"><?= $this->escapeHtml($item['name']); ?> (<?= $this->escapeHtml($item['var_sku']); ?>)</a> </div>
                     <div class="cart-price"><?= $this->escapeHtml($item['cur_symbol'].$item['price']); ?> </div>
                     <div class="cart-qty"> Qty: <span><?= $this->escapeHtml($item['quantity']); ?></span> </div>
                 </div>

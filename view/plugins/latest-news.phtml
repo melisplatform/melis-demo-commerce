@@ -10,14 +10,14 @@
                		   if (!empty($val['cnews_image1']))
                		   {
                		?>
-                   		<a href="<?= $this->escapeUrl($val['newsLink']); ?>"><img src="<?= $this->escapeUrl($val['cnews_image1']); ?>" alt=""></a>
+                   		<a href="<?= $this->escapeHtml($val['newsLink']); ?>"><img src="<?= $this->escapeHtml($val['cnews_image1']); ?>" alt=""></a>
                    	<?php
                		   }
                    	?>
                	</div>
                	<div class="blog-content">
                    	<div class="blog-title">
-                       	<h5 class="uppercase font-bold"><a href="<?= $this->escapeUrl($val['newsLink']); ?>"><?= $this->escapeHtml($val['cnews_title']); ?></a></h5>
+                       	<h5 class="uppercase font-bold"><a href="<?= $this->escapeHtml($val['newsLink']); ?>"><?= $this->escapeHtml($val['cnews_title']); ?></a></h5>
                        	<div class="like-comments-date">
                            	<ul>
                            		<li></li>
@@ -27,7 +27,7 @@
                        	<div class="blog-text">
                            	<p><?= $val['cnews_paragraph1']; ?></p>
                        	</div>
-                       	<a class="read-more montserrat" href="<?= $this->escapeUrl($val['newsLink']); ?>">Read More</a>
+                       	<a class="read-more montserrat" href="<?= $this->escapeHtml($val['newsLink']); ?>">Read More</a>
                    	</div>
                	</div>
            	</div> 

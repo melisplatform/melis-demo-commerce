@@ -27,7 +27,7 @@
 											// get default image
 												if($document->dtype_code == 'IMG' && $document->dtype_sub_code == 'DEFAULT' || $document->dtype_code == 'IMG' && $document->dtype_sub_code == 'SMALL')
 												{
-													echo '<li class="'.$active.'"><a href="#view'.$this->escapeHtmlAttr($document->doc_id).'" class="shadow-box" aria-controls="view'.$this->escapeHtmlAttr($document->doc_id).'" data-toggle="tab"><img src="'.$this->escapeUrl($document->doc_path).'" alt="" /></a></li>';
+													echo '<li class="'.$active.'"><a href="#view'.$this->escapeHtmlAttr($document->doc_id).'" class="shadow-box" aria-controls="view'.$this->escapeHtmlAttr($document->doc_id).'" data-toggle="tab"><img src="'.$this->escapeHtml($document->doc_path).'" alt="" /></a></li>';
 													$active ='';
 												}
 											}
@@ -51,7 +51,7 @@
 									{
 										echo '<div role="tabpanel" class="tab-pane '.$active.'" id="view'.$this->escapeHtmlAttr($document->doc_id).'">';
 										echo     '<div class="product-img">';
-										echo         '<a class="fancybox" data-fancybox-group="group" href="'.$this->escapeUrl($document->doc_path).'"><img src="'.$this->escapeUrl($document->doc_path).'" alt="Single portfolio" /></a>';
+										echo         '<a class="fancybox" data-fancybox-group="group" href="'.$this->escapeHtml($document->doc_path).'"><img src="'.$this->escapeHtml($document->doc_path).'" alt="Single portfolio" /></a>';
 										echo     '</div>';
 										echo '</div>';
 										$active = '';

@@ -80,17 +80,17 @@
                                                                     <?php }?>
                                                                 </div>
                                                                 <div class="single-prodcut-img  product-overlay pos-rltv">
-                                                                    <a href="<?php echo $this->escapeUrl($productPageLink) ?>">
-                                                                        <img alt="" src="<?php echo $this->escapeUrl($productImg) ?>" class="primary-image">
+                                                                    <a href="<?php echo $this->escapeHtml($productPageLink) ?>">
+                                                                        <img alt="" src="<?php echo $this->escapeHtml($productImg) ?>" class="primary-image">
                                                                         <?php if (!empty($imageSecondary)){?>
-                                                                            <img alt="" src="<?php echo $this->escapeUrl($imageSecondary) ?>" class="secondary-image">
+                                                                            <img alt="" src="<?php echo $this->escapeHtml($imageSecondary) ?>" class="secondary-image">
                                                                         <?php }?>
                                                                     </a>
                                                                 </div>
                                                             </div>
                                                             <div class="product-text">
                                                                 <div class="prodcut-name"> 
-                                                                    <a href="<?php echo $this->escapeUrl($productPageLink) ?>"><?php echo $this->escapeHtml($productName) ?></a>
+                                                                    <a href="<?php echo $this->escapeHtml($productPageLink) ?>"><?php echo $this->escapeHtml($productName) ?></a>
                                                                 </div>
                                                                 <div class="prodcut-ratting-price">
                                                                     <div class="prodcut-price">
