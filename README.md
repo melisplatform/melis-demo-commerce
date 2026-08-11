@@ -20,7 +20,7 @@ then its demo data is installed through a one-time **setup wizard**.
 
 Before installing this module you need a **working Melis Platform** with:
 
-- PHP **8.1** or **8.3**
+- PHP **8.3** or **8.5**
 - A platform already installed (database created, the `melis_core_platform` row present, and the
   DbDeploy migrations run). Visiting `/melis` should give you a working back office.
 - The **MelisCommerce** engine installed and its DbDeploy run, so the `melis_ecom_*` tables and the

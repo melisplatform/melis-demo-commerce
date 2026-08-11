@@ -6,22 +6,22 @@
 	"homepage": "https://github.com/melisplatform/melis-demo-commerce",
 	"support": {
 		"email": "contact@melistechnology.com",
-		"source": "https://github.com/melisplatform/melis-demo-cms",
-		"issues": "https://github.com/melisplatform/melis-demo-cms/issues",
-		"docs": "https://www.melistechnology.com/melistechnology/resources/download-documentation/id/17#documentation"
+		"source": "https://github.com/melisplatform/melis-demo-commerce",
+		"issues": "https://github.com/melisplatform/melis-demo-commerce/issues",
+		"docs": "https://melisplatform.github.io/docs/"
 	},
 	"authors": [
 		{
 			"name": "Melis Technology",
 			"email": "contact@melistechnology.com",
-			"homepage": "https://www.melistechnology.com",
+			"homepage": "https://www.melisplatform.com/",
 			"role": "Developer"
 		}
 	],
 	"keywords": [
 		"cms",
 		"melis",
-		"zf2",
+		"laminas",
 		"module"
 	],
 	"extra": {
@@ -37,13 +37,13 @@
 		}
 	},
 	"require": {
-		"php": "^8.1|^8.3",
-		"melisplatform/melis-cms": "^5.2",
-		"melisplatform/melis-cms-slider": "^5.2",
-		"melisplatform/melis-cms-prospects": "^5.2",
-		"melisplatform/melis-cms-news": "^5.2",
-		"melisplatform/melis-cms-page-script-editor": "^5.2",
-        "melisplatform/melis-commerce": "^5.2"
+		"php": "^8.3|^8.5",
+		"melisplatform/melis-cms": "^6.0",
+		"melisplatform/melis-cms-slider": "^6.0",
+		"melisplatform/melis-cms-prospects": "^6.0",
+		"melisplatform/melis-cms-news": "^6.0",
+		"melisplatform/melis-cms-page-script-editor": "^6.0",
+        "melisplatform/melis-commerce": "^6.0"
 	},
 	"suggest": {
 		"melisplatform/melis-engine": "MelisEngine provides a set of services and classes to access the CMS pages and data.",
