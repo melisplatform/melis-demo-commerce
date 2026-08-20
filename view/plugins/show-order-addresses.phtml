@@ -6,7 +6,7 @@ $delivery = $this->deliveryAddress;
 <div class="deliver-box">
 	<h4>Delivery address</h4>
 	<?php if(!empty($delivery)){?>
-	<div class="d-name"><span><i class="fa fa-user"></i><?= $delivery['oadd_firstname']. ' ' .$delivery['oadd_middle_name']. ' ' .$delivery['oadd_name']  ?></span></div>
+	<div class="d-name"><span><i class="fa fa-user"></i><?= $this->escapeHtml($delivery['oadd_firstname']. ' ' .$delivery['oadd_middle_name']. ' ' .$delivery['oadd_name'])  ?></span></div>
 	<div class="d-address">
 		<?php 
 		
@@ -21,8 +21,8 @@ $delivery = $this->deliveryAddress;
 		<?php 
     	   if(!empty(array_filter($address))) {
     	?>
-    	<p><i class="fa fa-map-marker"></i><?= implode(', ', array_filter($address)) ?></p>
-		<?php 
+    	<p><i class="fa fa-map-marker"></i><?= $this->escapeHtml(implode(', ', array_filter($address))) ?></p>
+		<?php
             }else{
                 echo '<p class="na-text">address not set</p>';
             }
@@ -38,7 +38,7 @@ $delivery = $this->deliveryAddress;
 <div class="billing-box">
 	<h4>Billing address</h4>
 	<?php if(!empty($billing)){?>
-	<div class="d-name"><span><i class="fa fa-user"></i><?= $billing['oadd_firstname']. ' ' .$billing['oadd_middle_name']. ' ' .$billing['oadd_name']  ?></span></div>
+	<div class="d-name"><span><i class="fa fa-user"></i><?= $this->escapeHtml($billing['oadd_firstname']. ' ' .$billing['oadd_middle_name']. ' ' .$billing['oadd_name'])  ?></span></div>
 	<div class="d-address">
 		<?php 
 		
@@ -52,8 +52,8 @@ $delivery = $this->deliveryAddress;
 		<?php 
     	   if(!empty(array_filter($address))) {
     	?>
-    	<p><i class="fa fa-map-marker"></i><?= implode(', ', array_filter($address)) ?></p>
-		<?php 
+    	<p><i class="fa fa-map-marker"></i><?= $this->escapeHtml(implode(', ', array_filter($address))) ?></p>
+		<?php
             }else{
                 echo '<p class="na-text">address not set</p>';
             }

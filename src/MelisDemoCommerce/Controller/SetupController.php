@@ -302,7 +302,7 @@ class SetupController extends MelisSiteActionController
                 }
                 else 
                 {
-                    mkdir($_SERVER['DOCUMENT_ROOT'].'/'.'media/commerce', 0777);
+                    mkdir($_SERVER['DOCUMENT_ROOT'].'/'.'media/commerce', 0755);
                 }
             }
             else
@@ -314,8 +314,8 @@ class SetupController extends MelisSiteActionController
         {
             if (is_writable($_SERVER['DOCUMENT_ROOT'].'/'))
             {
-                mkdir($_SERVER['DOCUMENT_ROOT'].'/'.'media/', 0777);
-                mkdir($_SERVER['DOCUMENT_ROOT'].'/'.'media/commerce/', 0777);
+                mkdir($_SERVER['DOCUMENT_ROOT'].'/'.'media/', 0755);
+                mkdir($_SERVER['DOCUMENT_ROOT'].'/'.'media/commerce/', 0755);
             }
             else 
             {
@@ -891,12 +891,12 @@ class SetupController extends MelisSiteActionController
                         {
                             if (!is_dir($_SERVER['DOCUMENT_ROOT'].'/'.'media/commerce/product/'))
                             {
-                                mkdir($_SERVER['DOCUMENT_ROOT'].'/'.'media/commerce/product/', 0777);
+                                mkdir($_SERVER['DOCUMENT_ROOT'].'/'.'media/commerce/product/', 0755);
                             }
                     
                             if (!is_dir($_SERVER['DOCUMENT_ROOT'].'/'.'media/commerce/product/'.$productId))
                             {
-                                mkdir($_SERVER['DOCUMENT_ROOT'].'/'.'media/commerce/product/'.$productId, 0777);
+                                mkdir($_SERVER['DOCUMENT_ROOT'].'/'.'media/commerce/product/'.$productId, 0755);
                             }
                     
                             $newDocPath = 'media/commerce/product/'.$productId.'/'.basename($imgPath);
@@ -1034,12 +1034,12 @@ class SetupController extends MelisSiteActionController
                         {
                             if (!is_dir($_SERVER['DOCUMENT_ROOT'].'/'.'media/commerce/category/'))
                             {
-                                mkdir($_SERVER['DOCUMENT_ROOT'].'/'.'media/commerce/category/', 0777);
+                                mkdir($_SERVER['DOCUMENT_ROOT'].'/'.'media/commerce/category/', 0755);
                             }
     
                             if (!is_dir($_SERVER['DOCUMENT_ROOT'].'/'.'media/commerce/category/'.$catId))
                             {
-                                mkdir($_SERVER['DOCUMENT_ROOT'].'/'.'media/commerce/category/'.$catId, 0777);
+                                mkdir($_SERVER['DOCUMENT_ROOT'].'/'.'media/commerce/category/'.$catId, 0755);
                             }
     
                             $newDocPath = 'media/commerce/category/'.$catId.'/'.basename($imgPath);
