@@ -14,11 +14,11 @@ if(!empty($messages)){
     	        <?php 
             	foreach($messages as $message){
             	?>
-                <li class="single-comments" data-messageid="<?= $message['omsg_id']?>">
+                <li class="single-comments" data-messageid="<?= $this->escapeHtmlAttr($message['omsg_id'])?>">
 	                <div class="commets-text">
-	                    <h5><?= $message['firstName'] .' '. $message['middleName'] .' '. $message['lastName'] ?></h5>
+	                    <h5><?= $this->escapeHtml($message['firstName'] .' '. $message['middleName'] .' '. $message['lastName']) ?></h5>
 	                    <div class="comments-date"><span><?= date("F d, Y " ,strtotime($message['omsg_date_creation'])) ?> </span> <span>, at <?= date("h:i a" ,strtotime($message['omsg_date_creation'])) ?></span></div>
-	                    <p><?= $message['omsg_message']?></p>
+	                    <p><?= $this->escapeHtml($message['omsg_message'])?></p>
 	                </div>
 	            </li>   
                 <?php 

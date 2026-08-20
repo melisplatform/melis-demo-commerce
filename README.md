@@ -1,5 +1,11 @@
 # Melis Demo Commerce
 
+> **Module:** `melisplatform/melis-demo-commerce` · **Namespace:** `MelisDemoCommerce` · `melis-site: true` · `melis-module-category: commerce`
+> **Audience:** end users · developers · AI agents
+> **What it is:** a ready-made demo e-commerce storefront **site** for MelisPlatform (the commerce counterpart of `melis-demo-cms`) — a full front office (catalog, product/variant pages, cart, multi-step checkout, account, orders) plus a one-time setup wizard that seeds a complete demo catalog (products, variants, categories, attributes, prices, stock, a coupon and sample clients/orders). Built on the `melis-commerce` engine.
+
+---
+
 A ready-made demo e-commerce **site** for the [Melis Platform](https://www.melistechnology.com/).
 It is the commerce counterpart of `melis-demo-cms`: a full storefront (catalog, product/variant
 pages, cart, checkout, account, orders) plus a seeded demo catalog (products, variants, categories,
